@@ -22,6 +22,11 @@ let package = Package(
             name: "KeychainServiceAPI",
             targets: ["KeychainServiceAPI"]
         ),
+        .library(
+            name: "Logging",
+            type: .dynamic,
+            targets: ["Logging"]
+        )
     ],
     dependencies: [
         .package(name: "Alamofire", url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.4.0")),
@@ -43,6 +48,10 @@ let package = Package(
         .target(
             name: "KeychainService",
             dependencies: ["KeychainServiceAPI"]
+        ),
+        .target(
+            name: "Logging",
+            dependencies: []
         )
     ]
 )
