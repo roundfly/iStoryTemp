@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:iStoryKit">
+   </FileRef>
+   <FileRef
       location = "group:StyleSheet/StyleSheet.xcodeproj">
    </FileRef>
    <FileRef
