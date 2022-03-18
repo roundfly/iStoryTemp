@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:StyleSheet/StyleSheet.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Authentication/Authentication.xcodeproj">
    </FileRef>
    <FileRef
