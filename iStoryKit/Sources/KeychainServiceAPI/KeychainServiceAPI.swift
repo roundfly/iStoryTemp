@@ -1,4 +1,4 @@
-
+import Foundation
 
 public protocol KeychainServiceAPI {
     @discardableResult func setAccessToken(_ token: String) -> Bool

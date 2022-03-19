@@ -2,15 +2,15 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:iStoryKit">
+      location = "group:Authentication/Authentication.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:iStory.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:StyleSheet/StyleSheet.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Authentication/Authentication.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:iStory.xcodeproj">
+      location = "group:iStoryKit">
    </FileRef>
 </Workspace>
