@@ -23,6 +23,10 @@ let package = Package(
             targets: ["KeychainServiceAPI"]
         ),
         .library(
+            name: "GoogleSignService",
+            targets: ["GoogleSignInService"]
+        ),
+        .library(
             name: "Logging",
             type: .dynamic,
             targets: ["Logging"]
@@ -30,7 +34,8 @@ let package = Package(
     ],
     dependencies: [
         .package(name: "Alamofire", url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.4.0")),
-        .package(name: "Nuke", url: "https://github.com/kean/Nuke.git", .upToNextMajor(from: "10.0.0"))
+        .package(name: "Nuke", url: "https://github.com/kean/Nuke.git", .upToNextMajor(from: "10.0.0")),
+        .package(name: "GoogleSignIn", url: "https://github.com/google/GoogleSignIn-iOS", .exact("6.0.2"))
     ],
     targets: [
         .target(
@@ -52,6 +57,10 @@ let package = Package(
         .target(
             name: "Logging",
             dependencies: []
+        ),
+        .target(
+            name: "GoogleSignInService",
+            dependencies: ["GoogleSignIn"]
         )
     ]
 )
