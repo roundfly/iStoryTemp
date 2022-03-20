@@ -5,7 +5,7 @@
       location = "group:iStoryKit">
    </FileRef>
    <FileRef
-      location = "group:StyleSheet/StyleSheet.xcodeproj">
+      location = "group:/Users/shyft/Documents/GitKraken/iStoryTemp/StyleSheet/StyleSheet.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Authentication/Authentication.xcodeproj">
