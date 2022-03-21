@@ -2,15 +2,15 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:iStoryKit">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/shyft/Documents/GitKraken/iStoryTemp/StyleSheet/StyleSheet.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:Authentication/Authentication.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:iStory.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:StyleSheet/StyleSheet.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:iStoryKit">
    </FileRef>
 </Workspace>

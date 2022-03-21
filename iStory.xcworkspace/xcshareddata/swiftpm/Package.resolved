@@ -1,0 +1,61 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Alamofire",
+        "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
+        "state": {
+          "branch": null,
+          "revision": "f82c23a8a7ef8dc1a49a8bfc6a96883e79121864",
+          "version": "5.5.0"
+        }
+      },
+      {
+        "package": "AppAuth",
+        "repositoryURL": "https://github.com/openid/AppAuth-iOS.git",
+        "state": {
+          "branch": null,
+          "revision": "33660c271c961f8ce1084cc13f2ea8195e864f7d",
+          "version": "1.5.0"
+        }
+      },
+      {
+        "package": "GoogleSignIn",
+        "repositoryURL": "https://github.com/google/GoogleSignIn-iOS",
+        "state": {
+          "branch": null,
+          "revision": "27bc94f5e1bd1f3b12ba5abb2230dd77dd143f1e",
+          "version": "6.0.2"
+        }
+      },
+      {
+        "package": "GTMSessionFetcher",
+        "repositoryURL": "https://github.com/google/gtm-session-fetcher.git",
+        "state": {
+          "branch": null,
+          "revision": "bc6a19702ac76ac4e488b68148710eb815f9bc56",
+          "version": "1.7.0"
+        }
+      },
+      {
+        "package": "GTMAppAuth",
+        "repositoryURL": "https://github.com/google/GTMAppAuth.git",
+        "state": {
+          "branch": null,
+          "revision": "40f4103fb52109032c05599a0c39ad43edbdf80a",
+          "version": "1.2.2"
+        }
+      },
+      {
+        "package": "Nuke",
+        "repositoryURL": "https://github.com/kean/Nuke.git",
+        "state": {
+          "branch": null,
+          "revision": "78fa963b8491fc520791d8c2a509f1b8593d8aae",
+          "version": "10.7.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
