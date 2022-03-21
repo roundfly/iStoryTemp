@@ -20,8 +20,8 @@ class ViewController: UIViewController {
         view.backgroundColor = theme.colorGreen
         label.font = theme.fontBold
         label.font = theme.fontBlack
-        label.font = theme.fontLight
-        label.font = theme.fontMedium
+        //label.font = theme.fontLight
+        //label.font = theme.fontMedium
     }
 
 }
