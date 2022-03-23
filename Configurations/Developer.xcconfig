@@ -1,0 +1,12 @@
+//
+//  Copyright (c) 2021 iStory.com. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+//:configuration = Debug
+OTHER_SWIFT_FLAGS = ${inherited} -Xfrontend -debug-time-expression-type-checking -Xfrontend -debug-time-function-bodies -Xfrontend -warn-long-function-bodies=600 -Xfrontend -warn-long-expression-type-checking=600
+OTHER_LDFLAGS = ${inherited} -Xlinker -print_statistics
+OTHER_CFLAGS = ${inherited} -ftime-trace
+//:completeSettings = none

@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		216B5D8127EBA14500CCF43C /* Gotham-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 216B5D7F27EBA14500CCF43C /* Gotham-Black.otf */; };
+		216B5D8227EBA14500CCF43C /* Gotham-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 216B5D8027EBA14500CCF43C /* Gotham-Bold.otf */; };
 		FE2E9F0D27E53BD2002C0021 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E9F0C27E53BD2002C0021 /* AppDelegate.swift */; };
 		FE2E9F0F27E53BD2002C0021 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E9F0E27E53BD2002C0021 /* SceneDelegate.swift */; };
 		FE2E9F1127E53BD2002C0021 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E9F1027E53BD2002C0021 /* ViewController.swift */; };
 		FE2E9F1427E53BD2002C0021 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE2E9F1227E53BD2002C0021 /* Main.storyboard */; };
 		FE2E9F1627E53BD5002C0021 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE2E9F1527E53BD5002C0021 /* Assets.xcassets */; };
-		FE2E9F1927E53BD5002C0021 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE2E9F1727E53BD5002C0021 /* LaunchScreen.storyboard */; };
 		FE87F34A27E627150062ACB4 /* Authentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE87F34927E627150062ACB4 /* Authentication.framework */; };
 		FE87F34B27E627150062ACB4 /* Authentication.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FE87F34927E627150062ACB4 /* Authentication.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FE87F34E27E6271B0062ACB4 /* StyleSheet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE87F34D27E6271B0062ACB4 /* StyleSheet.framework */; };
@@ -38,14 +39,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2144575D27E78B2B00675DD2 /* StyleSheet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StyleSheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		216B5D7F27EBA14500CCF43C /* Gotham-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Black.otf"; sourceTree = "<group>"; };
+		216B5D8027EBA14500CCF43C /* Gotham-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Bold.otf"; sourceTree = "<group>"; };
 		FE2E9F0927E53BD2002C0021 /* iStory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iStory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE2E9F0C27E53BD2002C0021 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE2E9F0E27E53BD2002C0021 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FE2E9F1027E53BD2002C0021 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FE2E9F1327E53BD2002C0021 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FE2E9F1527E53BD5002C0021 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FE2E9F1827E53BD5002C0021 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		FE2E9F1A27E53BD5002C0021 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE87F34927E627150062ACB4 /* Authentication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Authentication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE87F34D27E6271B0062ACB4 /* StyleSheet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StyleSheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE87F35F27E62E630062ACB4 /* LoginWithAmazon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LoginWithAmazon.framework; sourceTree = "<group>"; };
@@ -67,12 +69,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2144575C27E78B2B00675DD2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2144575D27E78B2B00675DD2 /* StyleSheet.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		216B5D7E27EBA14500CCF43C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				216B5D7F27EBA14500CCF43C /* Gotham-Black.otf */,
+				216B5D8027EBA14500CCF43C /* Gotham-Bold.otf */,
+			);
+			name = Resources;
+			path = iStory/Resources;
+			sourceTree = "<group>";
+		};
 		FE2E9F0027E53BD2002C0021 = {
 			isa = PBXGroup;
 			children = (
+				216B5D7E27EBA14500CCF43C /* Resources */,
 				FE2E9F0B27E53BD2002C0021 /* iStory */,
 				FE87F35E27E62E080062ACB4 /* Amazon */,
 				FE2E9F0A27E53BD2002C0021 /* Products */,
+				2144575C27E78B2B00675DD2 /* Frameworks */,
 				FE87F34827E627150062ACB4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -93,8 +115,6 @@
 				FE2E9F1027E53BD2002C0021 /* ViewController.swift */,
 				FE2E9F1227E53BD2002C0021 /* Main.storyboard */,
 				FE2E9F1527E53BD5002C0021 /* Assets.xcassets */,
-				FE2E9F1727E53BD5002C0021 /* LaunchScreen.storyboard */,
-				FE2E9F1A27E53BD5002C0021 /* Info.plist */,
 			);
 			path = iStory;
 			sourceTree = "<group>";
@@ -179,8 +199,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE2E9F1927E53BD5002C0021 /* LaunchScreen.storyboard in Resources */,
+				216B5D8227EBA14500CCF43C /* Gotham-Bold.otf in Resources */,
 				FE2E9F1627E53BD5002C0021 /* Assets.xcassets in Resources */,
+				216B5D8127EBA14500CCF43C /* Gotham-Black.otf in Resources */,
 				FE2E9F1427E53BD2002C0021 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,14 +228,6 @@
 				FE2E9F1327E53BD2002C0021 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		FE2E9F1727E53BD5002C0021 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FE2E9F1827E53BD5002C0021 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -350,16 +363,17 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iStory/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.iStory.iStory;
+				PRODUCT_BUNDLE_IDENTIFIER = com.istoryapp.istory;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -382,16 +396,17 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iStory/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.iStory.iStory;
+				PRODUCT_BUNDLE_IDENTIFIER = com.istoryapp.istory;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
