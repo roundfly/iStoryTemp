@@ -13,10 +13,6 @@
 		2144574E27E788AF00675DD2 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2144574A27E788AF00675DD2 /* AppColor.swift */; };
 		2144574F27E788AF00675DD2 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2144574B27E788AF00675DD2 /* UIColor+Hex.swift */; };
 		2144575227E7896A00675DD2 /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2144575127E7896A00675DD2 /* Bundle+Extensions.swift */; };
-		2144576327E7A82C00675DD2 /* Gotham-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2144576227E7A82C00675DD2 /* Gotham-Bold.otf */; };
-		2144576527E7A85300675DD2 /* GothamMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2144576427E7A85300675DD2 /* GothamMedium.ttf */; };
-		2144576727E7A88B00675DD2 /* Gotham-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2144576627E7A88B00675DD2 /* Gotham-Black.otf */; };
-		2144576927E7A8A800675DD2 /* GothamLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2144576827E7A8A800675DD2 /* GothamLight.ttf */; };
 		21ABA23B27E5514800991445 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21ABA23A27E5514800991445 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -31,11 +27,6 @@
 		2144575527E78A1000675DD2 /* AppVersion.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = AppVersion.xcconfig; sourceTree = "<group>"; };
 		2144575627E78A1000675DD2 /* Application.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Application.xcconfig; sourceTree = "<group>"; };
 		2144575727E78A1000675DD2 /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
-		2144576227E7A82C00675DD2 /* Gotham-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Bold.otf"; sourceTree = "<group>"; };
-		2144576427E7A85300675DD2 /* GothamMedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamMedium.ttf; sourceTree = "<group>"; };
-		2144576627E7A88B00675DD2 /* Gotham-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Black.otf"; sourceTree = "<group>"; };
-		2144576827E7A8A800675DD2 /* GothamLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamLight.ttf; sourceTree = "<group>"; };
-		219AAA1F27E8BDCE00B1CAD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		21ABA23A27E5514800991445 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE2E9F4C27E53D93002C0021 /* StyleSheet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StyleSheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -82,21 +73,9 @@
 			path = ../Configurations;
 			sourceTree = "<group>";
 		};
-		2144576127E7A79C00675DD2 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				2144576827E7A8A800675DD2 /* GothamLight.ttf */,
-				2144576627E7A88B00675DD2 /* Gotham-Black.otf */,
-				2144576427E7A85300675DD2 /* GothamMedium.ttf */,
-				2144576227E7A82C00675DD2 /* Gotham-Bold.otf */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		FE2E9F4227E53D92002C0021 = {
 			isa = PBXGroup;
 			children = (
-				2144576127E7A79C00675DD2 /* Resources */,
 				2144575327E78A1000675DD2 /* Configurations */,
 				2144575027E7895B00675DD2 /* Extensions */,
 				21ABA23A27E5514800991445 /* Assets.xcassets */,
@@ -116,7 +95,6 @@
 		FE2E9F4E27E53D93002C0021 /* StyleSheet */ = {
 			isa = PBXGroup;
 			children = (
-				219AAA1F27E8BDCE00B1CAD3 /* Info.plist */,
 				2144574727E7887200675DD2 /* Colors */,
 				2144574527E785A200675DD2 /* Theme.swift */,
 			);
@@ -192,10 +170,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2144576527E7A85300675DD2 /* GothamMedium.ttf in Resources */,
-				2144576727E7A88B00675DD2 /* Gotham-Black.otf in Resources */,
-				2144576327E7A82C00675DD2 /* Gotham-Bold.otf in Resources */,
-				2144576927E7A8A800675DD2 /* GothamLight.ttf in Resources */,
 				21ABA23B27E5514800991445 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,7 +326,6 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = StyleSheet/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -384,7 +357,6 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = StyleSheet/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;

@@ -8,7 +8,7 @@
 import StyleSheet
 import UIKit
 
-class ViewController: UIViewController {
+class TestViewController: UIViewController {
     
     private let theme = ThemeDefault()
     
@@ -20,8 +20,5 @@ class ViewController: UIViewController {
         view.backgroundColor = theme.colorGreen
         label.font = theme.fontBold
         label.font = theme.fontBlack
-        //label.font = theme.fontLight
-        //label.font = theme.fontMedium
     }
-
 }
