@@ -50,7 +50,7 @@ public struct GoogleClient {
     public let presentingViewController: (UIViewController) -> Void
 
     private static var clientID: String {
-        "GOOGLE_CLIENT_ID"
+        "312001111901-6q70v9716e3vef9nnvovl1291df80ngk.apps.googleusercontent.com"
     }
 
     public static var production: GoogleClient {

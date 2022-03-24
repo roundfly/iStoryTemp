@@ -13,6 +13,7 @@
 		FE2E9F0F27E53BD2002C0021 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E9F0E27E53BD2002C0021 /* SceneDelegate.swift */; };
 		FE2E9F1127E53BD2002C0021 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E9F1027E53BD2002C0021 /* ViewController.swift */; };
 		FE2E9F1627E53BD5002C0021 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE2E9F1527E53BD5002C0021 /* Assets.xcassets */; };
+		FE66F25827ED09E70051007F /* GoogleSignService in Frameworks */ = {isa = PBXBuildFile; productRef = FE66F25727ED09E70051007F /* GoogleSignService */; };
 		FE87F34A27E627150062ACB4 /* Authentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE87F34927E627150062ACB4 /* Authentication.framework */; };
 		FE87F34B27E627150062ACB4 /* Authentication.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FE87F34927E627150062ACB4 /* Authentication.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FE87F34E27E6271B0062ACB4 /* StyleSheet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE87F34D27E6271B0062ACB4 /* StyleSheet.framework */; };
@@ -56,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE66F25827ED09E70051007F /* GoogleSignService in Frameworks */,
 				FE87F35327E627240062ACB4 /* KeychainService in Frameworks */,
 				FE87F34E27E6271B0062ACB4 /* StyleSheet.framework in Frameworks */,
 				FE87F34A27E627150062ACB4 /* Authentication.framework in Frameworks */,
@@ -153,6 +155,7 @@
 			packageProductDependencies = (
 				FE87F35027E6271F0062ACB4 /* NetworkService */,
 				FE87F35227E627240062ACB4 /* KeychainService */,
+				FE66F25727ED09E70051007F /* GoogleSignService */,
 			);
 			productName = iStory;
 			productReference = FE2E9F0927E53BD2002C0021 /* iStory.app */;
@@ -424,6 +427,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		FE66F25727ED09E70051007F /* GoogleSignService */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = GoogleSignService;
+		};
 		FE87F35027E6271F0062ACB4 /* NetworkService */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = NetworkService;
