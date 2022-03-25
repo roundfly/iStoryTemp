@@ -9,70 +9,119 @@ public enum GoogleSignInEvent {
 /// A type which is responsible for coordinating Google's sign in flow
 @available(iOS 15.0.0, *)
 public struct GoogleClient {
+    // MARK: - API
 
-    // FIXME: GIDSignInDelegate was removed, update implementation details to use newer Google API's
-    private final class Delegate: NSObject, GIDSignInDelegate {
+    /// Starts an interactive sign-in flow
+    public var signIn: (_ viewController: UIViewController) -> AnyPublisher<GoogleUser, Error>
 
-        let subject: PassthroughSubject<GoogleSignInEvent, Error>
+    /// Marks current user as being in the signed out state.
+    public var signOut: () -> Void
 
-        init(subject: PassthroughSubject<GoogleSignInEvent, Error>) {
-            self.subject = subject
-            super.init()
-        }
+    /// Disconnects the current user from the app and revokes previous authentication.
+    /// If the operation succeeds, the OAuth 2.0 token is also removed from keychain.
+    public var disconnect: () -> AnyPublisher<Void, Error>
 
-        func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-            if let error = error {
-                subject.send(completion: .failure(error))
-                return
-            }
-            guard let user = user else { return }
-            let social = GoogleUser(id: user.userID.unwrapOrBlank,
-                                    idToken: user.authentication.idToken.unwrapOrBlank,
-                                    accessToken: user.authentication.accessToken,
-                                    expirationDate: user.authentication.accessTokenExpirationDate,
-                                    name: user.profile?.name,
-                                    givenName: user.profile?.givenName.unwrapOrBlank,
-                                    familyName: user.profile?.familyName.unwrapOrBlank,
-                                    email: user.profile?.email)
-            subject.send(.signIn(social))
-        }
+    /// Attempts to restore a previously authenticated user without interaction.
+    public var restorePreviousSignIn: () -> AnyPublisher<GoogleUser, Error>
+
+    /// Invoke from AppDelegate’s application:openURL:options method.
+    public var handle: (_ url: URL) -> Bool
+
+    // MARK: - Initialization
+
+    public init(signIn: @escaping (UIViewController) -> AnyPublisher<GoogleUser, Error>,
+                signOut: @escaping () -> Void,
+                disconnect: @escaping () -> AnyPublisher<Void, Error>,
+                restorePreviousSignIn: @escaping () -> AnyPublisher<GoogleUser, Error>,
+                handle: @escaping (URL) -> Bool) {
+        self.signIn = signIn
+        self.signOut = signOut
+        self.disconnect = disconnect
+        self.restorePreviousSignIn = restorePreviousSignIn
+        self.handle = handle
     }
 
-    public var delegate: AnyPublisher<GoogleSignInEvent, Error>
+    // MARK: Production entry point
 
-    /// Starts an interactive sign-in flow using Google services
-    public let signIn: () -> Void
-    /// Marks current user as being in the signed out state
-    public let signOut: () -> Void
-    /// This closure should be called from `UIApplicationDelegate`'s `application:openURL:options`
-    public let handle: (URL) -> Bool
-    /// The view controller used to present the sign in flow
-    public let presentingViewController: (UIViewController) -> Void
-
-    private static var clientID: String {
-        "GOOGLE_CLIENT_ID"
-    }
-
-    public static var production: GoogleClient {
-        let subject = PassthroughSubject<GoogleSignInEvent, Error>()
-        var delegate: Delegate? = Delegate(subject: subject)
-        GIDSignIn.sharedInstance()?.delegate = delegate
-        GIDSignIn.sharedInstance().clientID = Self.clientID
-        return Self(delegate: subject
-                        .handleEvents(receiveCancel: { delegate = nil })
-                        .eraseToAnyPublisher(),
-                    signIn: { GIDSignIn.sharedInstance()?.signIn() },
-                    signOut: {
-            GIDSignIn.sharedInstance()?.signOut()
-            subject.send(.signOut)
-        },
-                    handle: { (url) in
-            guard let didHandle = GIDSignIn.sharedInstance()?.handle(url) else { return false }
-            return didHandle
-        },
-                    presentingViewController: { (viewController) in
-            GIDSignIn.sharedInstance()?.presentingViewController = viewController
-        }
+    public static var prodution: GoogleClient {
+        Self(signIn: _signIn,
+             signOut: _signOut,
+             disconnect: _disconnect,
+             restorePreviousSignIn: _restorePreviousSignIn,
+             handle: _handle
         )
     }
+
+    internal static var clientID: String {
+        "312001111901-6q70v9716e3vef9nnvovl1291df80ngk.apps.googleusercontent.com"
+    }
+}
+
+// MARK: - Implementation details
+
+private func _signIn(presenting viewController: UIViewController) -> AnyPublisher<GoogleUser, Error> {
+    Deferred {
+        Future { promise in
+            let signInConfig = GIDConfiguration(clientID: GoogleClient.clientID)
+            GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: viewController) { user, error in
+                if let error = error {
+                    promise(.failure(error))
+                    return
+                }
+                let social = GoogleUser(id: user?.userID.unwrapOrBlank,
+                                        idToken: user?.authentication.idToken.unwrapOrBlank,
+                                        accessToken: user?.authentication.accessToken,
+                                        expirationDate: user?.authentication.accessTokenExpirationDate,
+                                        name: user?.profile?.name,
+                                        givenName: user?.profile?.givenName.unwrapOrBlank,
+                                        familyName: user?.profile?.familyName.unwrapOrBlank,
+                                        email: user?.profile?.email)
+                promise(.success(social))
+            }
+        }
+    }.eraseToAnyPublisher()
+}
+
+private func _signOut() {
+    GIDSignIn.sharedInstance.signOut()
+}
+
+private func _disconnect() -> AnyPublisher<Void, Error> {
+    Deferred {
+        Future { promise in
+            GIDSignIn.sharedInstance.disconnect { error in
+                if let error = error {
+                    promise(.failure(error))
+                    return
+                }
+                promise(.success(()))
+            }
+        }
+    }.eraseToAnyPublisher()
+}
+
+private func _restorePreviousSignIn() -> AnyPublisher<GoogleUser, Error> {
+    Deferred {
+        Future { promise in
+            GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
+                if let error = error {
+                    promise(.failure(error))
+                    return
+                }
+                let social = GoogleUser(id: user?.userID.unwrapOrBlank,
+                                        idToken: user?.authentication.idToken.unwrapOrBlank,
+                                        accessToken: user?.authentication.accessToken,
+                                        expirationDate: user?.authentication.accessTokenExpirationDate,
+                                        name: user?.profile?.name,
+                                        givenName: user?.profile?.givenName.unwrapOrBlank,
+                                        familyName: user?.profile?.familyName.unwrapOrBlank,
+                                        email: user?.profile?.email)
+                promise(.success(social))
+            }
+        }
+    }.eraseToAnyPublisher()
+}
+
+private var _handle(url: URL) -> Bool {
+    GIDSignIn.sharedInstance.handle(url)
 }
