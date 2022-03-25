@@ -21,20 +21,35 @@ public struct GoogleClient {
     /// If the operation succeeds, the OAuth 2.0 token is also removed from keychain.
     public var disconnect: () -> AnyPublisher<Void, Error>
 
+    /// Attempts to restore a previously authenticated user without interaction.
+    public var restorePreviousSignIn: () -> AnyPublisher<GoogleUser, Error>
+
+    /// Invoke from AppDelegate’s application:openURL:options method.
+    public var handle: (_ url: URL) -> Bool
+
     // MARK: - Initialization
 
     public init(signIn: @escaping (UIViewController) -> AnyPublisher<GoogleUser, Error>,
                 signOut: @escaping () -> Void,
-                disconnect: @escaping () -> AnyPublisher<Void, Error>) {
+                disconnect: @escaping () -> AnyPublisher<Void, Error>,
+                restorePreviousSignIn: @escaping () -> AnyPublisher<GoogleUser, Error>,
+                handle: @escaping (URL) -> Bool) {
         self.signIn = signIn
         self.signOut = signOut
         self.disconnect = disconnect
+        self.restorePreviousSignIn = restorePreviousSignIn
+        self.handle = handle
     }
 
     // MARK: Production entry point
 
     public static var prodution: GoogleClient {
-        Self(signIn: _signIn(presenting:), signOut: _signOut, disconnect: _disconnect)
+        Self(signIn: _signIn,
+             signOut: _signOut,
+             disconnect: _disconnect,
+             restorePreviousSignIn: _restorePreviousSignIn,
+             handle: _handle
+        )
     }
 
     internal static var clientID: String {
@@ -83,4 +98,30 @@ private func _disconnect() -> AnyPublisher<Void, Error> {
             }
         }
     }.eraseToAnyPublisher()
+}
+
+private func _restorePreviousSignIn() -> AnyPublisher<GoogleUser, Error> {
+    Deferred {
+        Future { promise in
+            GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
+                if let error = error {
+                    promise(.failure(error))
+                    return
+                }
+                let social = GoogleUser(id: user?.userID.unwrapOrBlank,
+                                        idToken: user?.authentication.idToken.unwrapOrBlank,
+                                        accessToken: user?.authentication.accessToken,
+                                        expirationDate: user?.authentication.accessTokenExpirationDate,
+                                        name: user?.profile?.name,
+                                        givenName: user?.profile?.givenName.unwrapOrBlank,
+                                        familyName: user?.profile?.familyName.unwrapOrBlank,
+                                        email: user?.profile?.email)
+                promise(.success(social))
+            }
+        }
+    }.eraseToAnyPublisher()
+}
+
+private var _handle(url: URL) -> Bool {
+    GIDSignIn.sharedInstance.handle(url)
 }
