@@ -24,7 +24,7 @@ public struct GoogleClient {
     /// Attempts to restore a previously authenticated user without interaction.
     public var restorePreviousSignIn: () -> AnyPublisher<GoogleUser, Error>
 
-    /// Invoke from AppDelegate’s application:openURL:options method.
+    /// This method should be called from your `UIApplicationDelegate`'s `application:openURL:options:` method.
     public var handle: (_ url: URL) -> Bool
 
     // MARK: - Initialization
@@ -122,6 +122,6 @@ private func _restorePreviousSignIn() -> AnyPublisher<GoogleUser, Error> {
     }.eraseToAnyPublisher()
 }
 
-private var _handle(url: URL) -> Bool {
+private func _handle(url: URL) -> Bool {
     GIDSignIn.sharedInstance.handle(url)
 }
