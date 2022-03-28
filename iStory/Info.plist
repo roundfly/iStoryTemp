@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>APIKey</key>
+	<string>eyJhbGciOiJSU0EtU0hBMjU2IiwidmVyIjoiMSJ9.eyJ2ZXIiOiIzIiwiZW5kcG9pbnRzIjp7ImF1dGh6IjoiaHR0cHM6Ly93d3cuYW1hem9uLmNvbS9hcC9vYSIsInRva2VuRXhjaGFuZ2UiOiJodHRwczovL2FwaS5hbWF6b24uY29tL2F1dGgvbzIvdG9rZW4ifSwiY2xpZW50SWQiOiJhbXpuMS5hcHBsaWNhdGlvbi1vYTItY2xpZW50LjRkMDExZmNiNzJiYzQ5NmI5M2M3MTYzYmFkZDY1OTAxIiwiYXBwRmFtaWx5SWQiOiJhbXpuMS5hcHBsaWNhdGlvbi4yODViZjNkOTY0YmU0YjU2YmFiNDA5YmNhNmRlMTJjMCIsImJ1bmRsZVNlZWRJZCI6ImNvbS5pc3RvcnlhcHAuaXN0b3J5IiwiYnVuZGxlSWQiOiJjb20uaXN0b3J5YXBwLmlzdG9yeSIsImlzcyI6IkFtYXpvbiIsInR5cGUiOiJBUElLZXkiLCJhcHBWYXJpYW50SWQiOiJhbXpuMS5hcHBsaWNhdGlvbi1jbGllbnQuMTEyNjMwMTRhYmY0NDRlODllZTU2NjBmOGFiOWFmOTEiLCJ0cnVzdFBvb2wiOm51bGwsImFwcElkIjoiYW16bjEuYXBwbGljYXRpb24tY2xpZW50LjExMjYzMDE0YWJmNDQ0ZTg5ZWU1NjYwZjhhYjlhZjkxIiwiaWQiOiIwOWVlYjhhYi03MjZhLTQ0ZTYtYjhhZS1jYjYxNmQxYjc3NjgiLCJpYXQiOiIxNjQ4MjQ2MjM1NTUyIn0=.SN5UPuqVJ1DxGjDBskCoA+SXPofJotCV4c+VC1U4jgIj3rwW24M4ZHKigV4OzFreRf/sVW4XMcu2i53ZY4eAGVyIo0yl7v5oM2dA0eUMeKj3TXVd8v1GW7ungvB2sI5RkBzBybAsPFI4cygy8QNIuCRedZO5rb5hOvhsyDs+zguVaddoBTZlnHUtSvlIXo8+Lta+4/UaoqTEJ5na1R86eH86CyYXcj4xNBXqyzM/oqaWQuECTclou+INtjAvelYS/VX7wFXtUhw/upvprK9fX7RNQrxEoIhhcH/BU/peQuUx2TY2wjdhfVRY08ow8DR/9aXALWZF+BjCsGhdVScYEw==</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -14,6 +16,22 @@
 				<string>com.googleusercontent.apps.312001111901-6q70v9716e3vef9nnvovl1291df80ngk</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLIconFile</key>
+			<string></string>
+			<key>CFBundleURLName</key>
+			<string>Amazon</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>amzn-com.istoryapp.istory</string>
+			</array>
+			<key>URL identifier</key>
+			<string>amzn.com.istoryapp.istory</string>
+		</dict>
+		<dict/>
+		<dict/>
 	</array>
 	<key>UIAppFonts</key>
 	<array>
