@@ -5,3 +5,8 @@
   Created by Nikola Stojanovic on 2.4.22..
   
 */
+
+"splash.auth.title" = "Sign Up or Log In to enjoy iStory with your friends and family.";
+"splash.auth.login.title" = "Log In";
+"splash.auth.signup.title" = "Sign Up";
+"splash.auth.skip" = "Skip and check the app";

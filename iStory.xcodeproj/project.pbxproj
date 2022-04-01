@@ -28,6 +28,7 @@
 		FE66F28427F7B0D70051007F /* Gotham-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = FE66F28227F7B0D70051007F /* Gotham-Black.otf */; };
 		FE66F28527F7B0D70051007F /* Gotham-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FE66F28327F7B0D70051007F /* Gotham-Bold.otf */; };
 		FE66F28827F7B0F40051007F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FE66F28A27F7B0F40051007F /* Localizable.strings */; };
+		FE66F28D27F7BBE10051007F /* AuthenticationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F28C27F7BBE10051007F /* AuthenticationStyle.swift */; };
 		FE87F34A27E627150062ACB4 /* Authentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE87F34927E627150062ACB4 /* Authentication.framework */; };
 		FE87F34B27E627150062ACB4 /* Authentication.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FE87F34927E627150062ACB4 /* Authentication.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FE87F34E27E6271B0062ACB4 /* StyleSheet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE87F34D27E6271B0062ACB4 /* StyleSheet.framework */; };
@@ -77,6 +78,7 @@
 		FE66F28227F7B0D70051007F /* Gotham-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Black.otf"; sourceTree = "<group>"; };
 		FE66F28327F7B0D70051007F /* Gotham-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Bold.otf"; sourceTree = "<group>"; };
 		FE66F28927F7B0F40051007F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FE66F28C27F7BBE10051007F /* AuthenticationStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationStyle.swift; sourceTree = "<group>"; };
 		FE87F34927E627150062ACB4 /* Authentication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Authentication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE87F34D27E6271B0062ACB4 /* StyleSheet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StyleSheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE87F35F27E62E630062ACB4 /* LoginWithAmazon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LoginWithAmazon.framework; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 		2170151C27EE931100743B5B /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				FE66F28B27F7BBD10051007F /* Styles */,
 				FE66F27527F7A1680051007F /* AppleSignIn */,
 				FE66F26927F79F230051007F /* Navigation */,
 				2170151727EE7F4C00743B5B /* AmazonViewController.swift */,
@@ -247,6 +250,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		FE66F28B27F7BBD10051007F /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				FE66F28C27F7BBE10051007F /* AuthenticationStyle.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
 		FE87F34827E627150062ACB4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -354,6 +365,7 @@
 				FE66F27F27F7B0590051007F /* SplashAuthViewController.swift in Sources */,
 				FE66F27A27F7A7820051007F /* SplashViewController.swift in Sources */,
 				FE66F26B27F79F330051007F /* AuthenticationFlowController.swift in Sources */,
+				FE66F28D27F7BBE10051007F /* AuthenticationStyle.swift in Sources */,
 				FE2E9F0D27E53BD2002C0021 /* AppDelegate.swift in Sources */,
 				21DC001827F7B1690098CBEA /* LoginWithSMSViewController.swift in Sources */,
 				FE66F26627F79E390051007F /* AppFlowController.swift in Sources */,
