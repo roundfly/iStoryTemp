@@ -19,9 +19,12 @@
 		FE66F25827ED09E70051007F /* GoogleSignService in Frameworks */ = {isa = PBXBuildFile; productRef = FE66F25727ED09E70051007F /* GoogleSignService */; };
 		FE66F26627F79E390051007F /* AppFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F26527F79E390051007F /* AppFlowController.swift */; };
 		FE66F26B27F79F330051007F /* AuthenticationFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F26A27F79F330051007F /* AuthenticationFlowController.swift */; };
-		FE66F26D27F79F700051007F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F26C27F79F700051007F /* LoginViewController.swift */; };
 		FE66F27727F7A17E0051007F /* AppleClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F27627F7A17E0051007F /* AppleClient.swift */; };
 		FE66F27A27F7A7820051007F /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F27927F7A7820051007F /* SplashViewController.swift */; };
+		FE66F27F27F7B0590051007F /* SplashAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F27E27F7B0590051007F /* SplashAuthViewController.swift */; };
+		FE66F28427F7B0D70051007F /* Gotham-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = FE66F28227F7B0D70051007F /* Gotham-Black.otf */; };
+		FE66F28527F7B0D70051007F /* Gotham-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FE66F28327F7B0D70051007F /* Gotham-Bold.otf */; };
+		FE66F28827F7B0F40051007F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FE66F28A27F7B0F40051007F /* Localizable.strings */; };
 		FE87F34A27E627150062ACB4 /* Authentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE87F34927E627150062ACB4 /* Authentication.framework */; };
 		FE87F34B27E627150062ACB4 /* Authentication.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FE87F34927E627150062ACB4 /* Authentication.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FE87F34E27E6271B0062ACB4 /* StyleSheet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE87F34D27E6271B0062ACB4 /* StyleSheet.framework */; };
@@ -63,9 +66,12 @@
 		FE66F26027EF3CB30051007F /* AppleSignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignInViewController.swift; sourceTree = "<group>"; };
 		FE66F26527F79E390051007F /* AppFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowController.swift; sourceTree = "<group>"; };
 		FE66F26A27F79F330051007F /* AuthenticationFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationFlowController.swift; sourceTree = "<group>"; };
-		FE66F26C27F79F700051007F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FE66F27627F7A17E0051007F /* AppleClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleClient.swift; sourceTree = "<group>"; };
 		FE66F27927F7A7820051007F /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		FE66F27E27F7B0590051007F /* SplashAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAuthViewController.swift; sourceTree = "<group>"; };
+		FE66F28227F7B0D70051007F /* Gotham-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Black.otf"; sourceTree = "<group>"; };
+		FE66F28327F7B0D70051007F /* Gotham-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Bold.otf"; sourceTree = "<group>"; };
+		FE66F28927F7B0F40051007F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FE87F34927E627150062ACB4 /* Authentication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Authentication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE87F34D27E6271B0062ACB4 /* StyleSheet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StyleSheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE87F35F27E62E630062ACB4 /* LoginWithAmazon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LoginWithAmazon.framework; sourceTree = "<group>"; };
@@ -125,7 +131,6 @@
 				FE66F27527F7A1680051007F /* AppleSignIn */,
 				FE66F26927F79F230051007F /* Navigation */,
 				2170151727EE7F4C00743B5B /* AmazonViewController.swift */,
-				FE66F26C27F79F700051007F /* LoginViewController.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -162,11 +167,11 @@
 		FE2E9F0B27E53BD2002C0021 /* iStory */ = {
 			isa = PBXGroup;
 			children = (
+				FE66F28127F7B0D70051007F /* Resources */,
 				FE66F26427F79E150051007F /* CompositionRoot */,
 				21CCF0C827F206AF00096CE1 /* Services */,
 				2170151B27EE930B00743B5B /* Scenes */,
 				FE66F25927EE8AA30051007F /* iStory.entitlements */,
-				FE2E9F1527E53BD5002C0021 /* Assets.xcassets */,
 			);
 			path = iStory;
 			sourceTree = "<group>";
@@ -210,8 +215,20 @@
 			isa = PBXGroup;
 			children = (
 				FE66F27927F7A7820051007F /* SplashViewController.swift */,
+				FE66F27E27F7B0590051007F /* SplashAuthViewController.swift */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		FE66F28127F7B0D70051007F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FE2E9F1527E53BD5002C0021 /* Assets.xcassets */,
+				FE66F28227F7B0D70051007F /* Gotham-Black.otf */,
+				FE66F28327F7B0D70051007F /* Gotham-Bold.otf */,
+				FE66F28A27F7B0F40051007F /* Localizable.strings */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		FE87F34827E627150062ACB4 /* Frameworks */ = {
@@ -295,7 +312,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE66F28527F7B0D70051007F /* Gotham-Bold.otf in Resources */,
+				FE66F28827F7B0F40051007F /* Localizable.strings in Resources */,
 				216B5D8227EBA14500CCF43C /* Gotham-Bold.otf in Resources */,
+				FE66F28427F7B0D70051007F /* Gotham-Black.otf in Resources */,
 				FE2E9F1627E53BD5002C0021 /* Assets.xcassets in Resources */,
 				216B5D8127EBA14500CCF43C /* Gotham-Black.otf in Resources */,
 			);
@@ -308,9 +328,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE66F26D27F79F700051007F /* LoginViewController.swift in Sources */,
 				FE66F27727F7A17E0051007F /* AppleClient.swift in Sources */,
 				21CCF0CA27F206C100096CE1 /* AmazonService.swift in Sources */,
+				FE66F27F27F7B0590051007F /* SplashAuthViewController.swift in Sources */,
 				FE66F27A27F7A7820051007F /* SplashViewController.swift in Sources */,
 				FE66F26B27F79F330051007F /* AuthenticationFlowController.swift in Sources */,
 				FE2E9F0D27E53BD2002C0021 /* AppDelegate.swift in Sources */,
@@ -321,6 +341,17 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FE66F28A27F7B0F40051007F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FE66F28927F7B0F40051007F /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		FE2E9F1B27E53BD5002C0021 /* Debug */ = {

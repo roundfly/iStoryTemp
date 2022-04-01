@@ -5,6 +5,7 @@
 //  Created by Nikola Stojanovic on 1.4.22..
 //
 
+import Combine
 import UIKit
 import StyleSheet
 
@@ -13,6 +14,7 @@ final class AppFlowController: UIViewController {
 
     private let navigation: UINavigationController
     private let authenticationFlow: AuthenticationFlowController
+    private var timerCancellable: Cancellable?
 
     init() {
         let navigationController = UINavigationController()
@@ -28,7 +30,7 @@ final class AppFlowController: UIViewController {
     // MARK: - API
 
     func configure(window: UIWindow?) {
-        window?.rootViewController = navigation
+        window?.rootViewController = self
         window?.makeKeyAndVisible()
         navigation.pushViewController(SplashViewController(), animated: false)
     }
@@ -38,6 +40,7 @@ final class AppFlowController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationController()
+        finishSplash()
     }
 
     // MARK: - Subview setup
@@ -47,4 +50,15 @@ final class AppFlowController: UIViewController {
     }
 
     // MARK: - Implementation details
+
+    private func finishSplash() {
+        let now: Date = .now
+        timerCancellable = Timer.publish(every: 1, on: .main, in: .common)
+            .autoconnect()
+            .sink { [navigation, authenticationFlow] date in
+                if date.timeIntervalSince(now) > 3 {
+                    navigation.setViewControllers([authenticationFlow.loginViewController], animated: true)
+                }
+            }
+    }
 }
