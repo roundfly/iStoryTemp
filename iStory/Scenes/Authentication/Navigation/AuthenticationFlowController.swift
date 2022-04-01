@@ -10,14 +10,14 @@ import UIKit
 final class AuthenticationFlowController: UIViewController {
 
     private let navigation: UINavigationController
-    let loginViewController: UIViewController
+    let loginViewController: LoginWithSMSViewController
 
     // MARK: - Initialization
 
     init(navigation: UINavigationController) {
         self.navigation = navigation
         self.loginViewController = .init()
-        self.loginViewController.view.backgroundColor = .systemPink
+        self.loginViewController.view.backgroundColor = .white
         super.init(nibName: nil, bundle: nil)
     }
 
