@@ -5,7 +5,8 @@
 import UIKit
 
 public extension UIImage {
+    private class Klass {}
     static var logo: UIImage? {
-        .init(systemName: "main-logo")
+        .init(named: "main-logo", in: Bundle(for: Klass.self), with: nil)
     }
 }

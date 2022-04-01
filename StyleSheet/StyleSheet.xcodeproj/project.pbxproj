@@ -16,6 +16,7 @@
 		2170152027EE938C00743B5B /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2170151F27EE938C00743B5B /* UIView+Extensions.swift */; };
 		21ABA23B27E5514800991445 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21ABA23A27E5514800991445 /* Assets.xcassets */; };
 		FE66F26827F79E970051007F /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F26727F79E970051007F /* UIViewController+Extensions.swift */; };
+		FE66F27D27F7AA650051007F /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F27C27F7AA650051007F /* UIImage+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		21ABA23A27E5514800991445 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE2E9F4C27E53D93002C0021 /* StyleSheet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StyleSheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE66F26727F79E970051007F /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		FE66F27C27F7AA650051007F /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +103,19 @@
 		FE2E9F4E27E53D93002C0021 /* StyleSheet */ = {
 			isa = PBXGroup;
 			children = (
+				FE66F27B27F7AA570051007F /* Extensions */,
 				2144574727E7887200675DD2 /* Colors */,
 				2144574527E785A200675DD2 /* Theme.swift */,
 			);
 			path = StyleSheet;
+			sourceTree = "<group>";
+		};
+		FE66F27B27F7AA570051007F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FE66F27C27F7AA650051007F /* UIImage+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +204,7 @@
 				2144574C27E788AF00675DD2 /* AppImages.swift in Sources */,
 				FE66F26827F79E970051007F /* UIViewController+Extensions.swift in Sources */,
 				2144575227E7896A00675DD2 /* Bundle+Extensions.swift in Sources */,
+				FE66F27D27F7AA650051007F /* UIImage+Extensions.swift in Sources */,
 				2144574D27E788AF00675DD2 /* GradientView.swift in Sources */,
 				2144574F27E788AF00675DD2 /* UIColor+Hex.swift in Sources */,
 			);
