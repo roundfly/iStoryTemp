@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class AuthenticationFlowCoordinator: UIViewController {
+final class AuthenticationFlowController: UIViewController {
 
     private let navigation: UINavigationController
     private let loginViewController: LoginViewController

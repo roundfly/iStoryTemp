@@ -11,18 +11,14 @@ import LoginWithAmazon
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    private let appFlow = AppFlowController()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         self.window = window
-
-        let vc = AmazonViewController()
-        
-        let rootNC = UINavigationController(rootViewController: vc)
-        self.window?.rootViewController = rootNC
-        self.window?.makeKeyAndVisible()
+        appFlow.configure(window: window)
     }
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
