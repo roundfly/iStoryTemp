@@ -17,8 +17,7 @@ final class SplashAuthViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = AppColor.yellow.uiColor
-        setupBackgroundImageView()
+        applyAuthenticationStyle(to: view)
         setupLogoImageView()
         setupTitleLabel()
         setupButtonVStack()
@@ -74,16 +73,5 @@ final class SplashAuthViewController: UIViewController {
         vStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30).activate()
         vStackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor).activate()
         vStackView.distribution = .fillEqually
-    }
-
-    private func setupBackgroundImageView() {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        view.addManagedSubview(imageView)
-        imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).activate()
-        imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).activate()
-        imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).activate()
-        imageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.4).activate()
-        imageView.image = UIImage(namedInStyleSheet: "onboarding-background")
     }
 }
