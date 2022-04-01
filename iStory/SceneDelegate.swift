@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import LoginWithAmazon
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -17,11 +18,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         self.window = window
 
-        let vc = GoogleSignUpViewController()
+        let vc = AmazonViewController()
         
         let rootNC = UINavigationController(rootViewController: vc)
         self.window?.rootViewController = rootNC
         self.window?.makeKeyAndVisible()
     }
+    
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        let url = URLContexts.first!.url
+        AMZNAuthorizationManager.handleOpen(url, sourceApplication: nil)
+    }    
 }
 

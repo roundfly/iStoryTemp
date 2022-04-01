@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		216B5D8127EBA14500CCF43C /* Gotham-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 216B5D7F27EBA14500CCF43C /* Gotham-Black.otf */; };
 		216B5D8227EBA14500CCF43C /* Gotham-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 216B5D8027EBA14500CCF43C /* Gotham-Bold.otf */; };
+		2170151827EE7F4C00743B5B /* AmazonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2170151727EE7F4C00743B5B /* AmazonViewController.swift */; };
+		21CCF0CA27F206C100096CE1 /* AmazonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CCF0C927F206C100096CE1 /* AmazonService.swift */; };
+		21EC082127EE7B9A00A39F84 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21EC082027EE7B9A00A39F84 /* Security.framework */; };
+		21EC082327EE7BA800A39F84 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21EC082227EE7BA800A39F84 /* SafariServices.framework */; };
 		FE2E9F0D27E53BD2002C0021 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E9F0C27E53BD2002C0021 /* AppDelegate.swift */; };
 		FE2E9F0F27E53BD2002C0021 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E9F0E27E53BD2002C0021 /* SceneDelegate.swift */; };
 		FE2E9F1127E53BD2002C0021 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E9F1027E53BD2002C0021 /* ViewController.swift */; };
@@ -42,6 +46,10 @@
 		2144575D27E78B2B00675DD2 /* StyleSheet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StyleSheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		216B5D7F27EBA14500CCF43C /* Gotham-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Black.otf"; sourceTree = "<group>"; };
 		216B5D8027EBA14500CCF43C /* Gotham-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Bold.otf"; sourceTree = "<group>"; };
+		2170151727EE7F4C00743B5B /* AmazonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazonViewController.swift; sourceTree = "<group>"; };
+		21CCF0C927F206C100096CE1 /* AmazonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazonService.swift; sourceTree = "<group>"; };
+		21EC082027EE7B9A00A39F84 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		21EC082227EE7BA800A39F84 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		FE2E9F0927E53BD2002C0021 /* iStory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iStory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE2E9F0C27E53BD2002C0021 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE2E9F0E27E53BD2002C0021 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +65,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21EC082327EE7BA800A39F84 /* SafariServices.framework in Frameworks */,
+				21EC082127EE7B9A00A39F84 /* Security.framework in Frameworks */,
 				FE66F25827ED09E70051007F /* GoogleSignService in Frameworks */,
 				FE87F35327E627240062ACB4 /* KeychainService in Frameworks */,
 				FE87F34E27E6271B0062ACB4 /* StyleSheet.framework in Frameworks */,
@@ -72,6 +82,8 @@
 		2144575C27E78B2B00675DD2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				21EC082227EE7BA800A39F84 /* SafariServices.framework */,
+				21EC082027EE7B9A00A39F84 /* Security.framework */,
 				2144575D27E78B2B00675DD2 /* StyleSheet.framework */,
 			);
 			name = Frameworks;
@@ -85,6 +97,30 @@
 			);
 			name = Resources;
 			path = iStory/Resources;
+			sourceTree = "<group>";
+		};
+		2170151B27EE930B00743B5B /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				2170151C27EE931100743B5B /* Authentication */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		2170151C27EE931100743B5B /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				2170151727EE7F4C00743B5B /* AmazonViewController.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		21CCF0C827F206AF00096CE1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				21CCF0C927F206C100096CE1 /* AmazonService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		FE2E9F0027E53BD2002C0021 = {
@@ -110,6 +146,8 @@
 		FE2E9F0B27E53BD2002C0021 /* iStory */ = {
 			isa = PBXGroup;
 			children = (
+				21CCF0C827F206AF00096CE1 /* Services */,
+				2170151B27EE930B00743B5B /* Scenes */,
 				FE2E9F0C27E53BD2002C0021 /* AppDelegate.swift */,
 				FE2E9F0E27E53BD2002C0021 /* SceneDelegate.swift */,
 				FE2E9F1027E53BD2002C0021 /* ViewController.swift */,
@@ -212,8 +250,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21CCF0CA27F206C100096CE1 /* AmazonService.swift in Sources */,
 				FE2E9F1127E53BD2002C0021 /* ViewController.swift in Sources */,
 				FE2E9F0D27E53BD2002C0021 /* AppDelegate.swift in Sources */,
+				2170151827EE7F4C00743B5B /* AmazonViewController.swift in Sources */,
 				FE2E9F0F27E53BD2002C0021 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
