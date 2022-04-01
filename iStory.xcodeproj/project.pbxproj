@@ -11,6 +11,9 @@
 		216B5D8227EBA14500CCF43C /* Gotham-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 216B5D8027EBA14500CCF43C /* Gotham-Bold.otf */; };
 		2170151827EE7F4C00743B5B /* AmazonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2170151727EE7F4C00743B5B /* AmazonViewController.swift */; };
 		21CCF0CA27F206C100096CE1 /* AmazonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CCF0C927F206C100096CE1 /* AmazonService.swift */; };
+		21DC001227F7ACE30098CBEA /* PhoneNumberKit in Frameworks */ = {isa = PBXBuildFile; productRef = 21DC001127F7ACE30098CBEA /* PhoneNumberKit */; };
+		21DC001527F7AD3D0098CBEA /* PhoneNumberService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DC001427F7AD3D0098CBEA /* PhoneNumberService.swift */; };
+		21DC001827F7B1690098CBEA /* LoginWithSMSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DC001727F7B1690098CBEA /* LoginWithSMSViewController.swift */; };
 		21EC082127EE7B9A00A39F84 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21EC082027EE7B9A00A39F84 /* Security.framework */; };
 		21EC082327EE7BA800A39F84 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21EC082227EE7BA800A39F84 /* SafariServices.framework */; };
 		FE2E9F0D27E53BD2002C0021 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E9F0C27E53BD2002C0021 /* AppDelegate.swift */; };
@@ -52,6 +55,8 @@
 		216B5D8027EBA14500CCF43C /* Gotham-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Bold.otf"; sourceTree = "<group>"; };
 		2170151727EE7F4C00743B5B /* AmazonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazonViewController.swift; sourceTree = "<group>"; };
 		21CCF0C927F206C100096CE1 /* AmazonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazonService.swift; sourceTree = "<group>"; };
+		21DC001427F7AD3D0098CBEA /* PhoneNumberService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberService.swift; sourceTree = "<group>"; };
+		21DC001727F7B1690098CBEA /* LoginWithSMSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithSMSViewController.swift; sourceTree = "<group>"; };
 		21EC082027EE7B9A00A39F84 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		21EC082227EE7BA800A39F84 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		FE2E9F0927E53BD2002C0021 /* iStory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iStory.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +87,7 @@
 				FE87F35327E627240062ACB4 /* KeychainService in Frameworks */,
 				FE87F34E27E6271B0062ACB4 /* StyleSheet.framework in Frameworks */,
 				FE87F34A27E627150062ACB4 /* Authentication.framework in Frameworks */,
+				21DC001227F7ACE30098CBEA /* PhoneNumberKit in Frameworks */,
 				FE87F35127E6271F0062ACB4 /* NetworkService in Frameworks */,
 				FE87F36127E62E660062ACB4 /* LoginWithAmazon.framework in Frameworks */,
 			);
@@ -113,6 +119,7 @@
 		2170151B27EE930B00743B5B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				21DC001627F7B14E0098CBEA /* LoginWithSMS */,
 				2170151C27EE931100743B5B /* Authentication */,
 				FE66F27827F7A7740051007F /* Splash */,
 			);
@@ -133,9 +140,18 @@
 		21CCF0C827F206AF00096CE1 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				21DC001427F7AD3D0098CBEA /* PhoneNumberService.swift */,
 				21CCF0C927F206C100096CE1 /* AmazonService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		21DC001627F7B14E0098CBEA /* LoginWithSMS */ = {
+			isa = PBXGroup;
+			children = (
+				21DC001727F7B1690098CBEA /* LoginWithSMSViewController.swift */,
+			);
+			path = LoginWithSMS;
 			sourceTree = "<group>";
 		};
 		FE2E9F0027E53BD2002C0021 = {
@@ -252,6 +268,7 @@
 				FE87F35027E6271F0062ACB4 /* NetworkService */,
 				FE87F35227E627240062ACB4 /* KeychainService */,
 				FE66F25727ED09E70051007F /* GoogleSignService */,
+				21DC001127F7ACE30098CBEA /* PhoneNumberKit */,
 			);
 			productName = iStory;
 			productReference = FE2E9F0927E53BD2002C0021 /* iStory.app */;
@@ -281,6 +298,9 @@
 				Base,
 			);
 			mainGroup = FE2E9F0027E53BD2002C0021;
+			packageReferences = (
+				21DC001027F7ACE30098CBEA /* XCRemoteSwiftPackageReference "PhoneNumberKit" */,
+			);
 			productRefGroup = FE2E9F0A27E53BD2002C0021 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -311,9 +331,11 @@
 				FE66F26D27F79F700051007F /* LoginViewController.swift in Sources */,
 				FE66F27727F7A17E0051007F /* AppleClient.swift in Sources */,
 				21CCF0CA27F206C100096CE1 /* AmazonService.swift in Sources */,
+				21DC001527F7AD3D0098CBEA /* PhoneNumberService.swift in Sources */,
 				FE66F27A27F7A7820051007F /* SplashViewController.swift in Sources */,
 				FE66F26B27F79F330051007F /* AuthenticationFlowController.swift in Sources */,
 				FE2E9F0D27E53BD2002C0021 /* AppDelegate.swift in Sources */,
+				21DC001827F7B1690098CBEA /* LoginWithSMSViewController.swift in Sources */,
 				FE66F26627F79E390051007F /* AppFlowController.swift in Sources */,
 				2170151827EE7F4C00743B5B /* AmazonViewController.swift in Sources */,
 				FE2E9F0F27E53BD2002C0021 /* SceneDelegate.swift in Sources */,
@@ -530,7 +552,23 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		21DC001027F7ACE30098CBEA /* XCRemoteSwiftPackageReference "PhoneNumberKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marmelroy/PhoneNumberKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		21DC001127F7ACE30098CBEA /* PhoneNumberKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 21DC001027F7ACE30098CBEA /* XCRemoteSwiftPackageReference "PhoneNumberKit" */;
+			productName = PhoneNumberKit;
+		};
 		FE66F25727ED09E70051007F /* GoogleSignService */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = GoogleSignService;
