@@ -18,6 +18,8 @@
 		FE2E9F1127E53BD2002C0021 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E9F1027E53BD2002C0021 /* ViewController.swift */; };
 		FE2E9F1627E53BD5002C0021 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE2E9F1527E53BD5002C0021 /* Assets.xcassets */; };
 		FE66F25827ED09E70051007F /* GoogleSignService in Frameworks */ = {isa = PBXBuildFile; productRef = FE66F25727ED09E70051007F /* GoogleSignService */; };
+		FE66F25E27EE8F360051007F /* AppleClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F25D27EE8F360051007F /* AppleClient.swift */; };
+		FE66F26127EF3CB30051007F /* AppleSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F26027EF3CB30051007F /* AppleSignInViewController.swift */; };
 		FE87F34A27E627150062ACB4 /* Authentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE87F34927E627150062ACB4 /* Authentication.framework */; };
 		FE87F34B27E627150062ACB4 /* Authentication.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FE87F34927E627150062ACB4 /* Authentication.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FE87F34E27E6271B0062ACB4 /* StyleSheet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE87F34D27E6271B0062ACB4 /* StyleSheet.framework */; };
@@ -55,6 +57,9 @@
 		FE2E9F0E27E53BD2002C0021 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FE2E9F1027E53BD2002C0021 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FE2E9F1527E53BD5002C0021 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FE66F25927EE8AA30051007F /* iStory.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iStory.entitlements; sourceTree = "<group>"; };
+		FE66F25D27EE8F360051007F /* AppleClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleClient.swift; sourceTree = "<group>"; };
+		FE66F26027EF3CB30051007F /* AppleSignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignInViewController.swift; sourceTree = "<group>"; };
 		FE87F34927E627150062ACB4 /* Authentication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Authentication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE87F34D27E6271B0062ACB4 /* StyleSheet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StyleSheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE87F35F27E62E630062ACB4 /* LoginWithAmazon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LoginWithAmazon.framework; sourceTree = "<group>"; };
@@ -148,12 +153,46 @@
 			children = (
 				21CCF0C827F206AF00096CE1 /* Services */,
 				2170151B27EE930B00743B5B /* Scenes */,
+				FE66F25927EE8AA30051007F /* iStory.entitlements */,
 				FE2E9F0C27E53BD2002C0021 /* AppDelegate.swift */,
 				FE2E9F0E27E53BD2002C0021 /* SceneDelegate.swift */,
 				FE2E9F1027E53BD2002C0021 /* ViewController.swift */,
 				FE2E9F1527E53BD5002C0021 /* Assets.xcassets */,
 			);
 			path = iStory;
+			sourceTree = "<group>";
+		};
+		FE66F25A27EE8ED90051007F /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				FE66F25B27EE8EE70051007F /* Authentication */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		FE66F25B27EE8EE70051007F /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				FE66F25C27EE8EED0051007F /* AppleSignIn */,
+				FE66F25F27EF3CA60051007F /* Views */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		FE66F25C27EE8EED0051007F /* AppleSignIn */ = {
+			isa = PBXGroup;
+			children = (
+				FE66F25D27EE8F360051007F /* AppleClient.swift */,
+			);
+			path = AppleSignIn;
+			sourceTree = "<group>";
+		};
+		FE66F25F27EF3CA60051007F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FE66F26027EF3CB30051007F /* AppleSignInViewController.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		FE87F34827E627150062ACB4 /* Frameworks */ = {
@@ -252,8 +291,10 @@
 			files = (
 				21CCF0CA27F206C100096CE1 /* AmazonService.swift in Sources */,
 				FE2E9F1127E53BD2002C0021 /* ViewController.swift in Sources */,
+				FE66F25E27EE8F360051007F /* AppleClient.swift in Sources */,
 				FE2E9F0D27E53BD2002C0021 /* AppDelegate.swift in Sources */,
 				2170151827EE7F4C00743B5B /* AmazonViewController.swift in Sources */,
+				FE66F26127EF3CB30051007F /* AppleSignInViewController.swift in Sources */,
 				FE2E9F0F27E53BD2002C0021 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -382,6 +423,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = iStory/iStory.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -415,6 +457,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = iStory/iStory.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
