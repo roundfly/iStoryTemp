@@ -56,7 +56,7 @@ final class AppFlowController: UIViewController {
         timerCancellable = Timer.publish(every: 1, on: .main, in: .common)
             .autoconnect()
             .sink { [navigation, authenticationFlow] date in
-                if date.timeIntervalSince(now) > 3 {
+                if date.timeIntervalSince(now) > 1 {
                     navigation.setViewControllers([authenticationFlow.loginViewController], animated: true)
                 }
             }
