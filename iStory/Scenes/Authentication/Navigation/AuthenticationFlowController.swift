@@ -10,14 +10,13 @@ import UIKit
 final class AuthenticationFlowController: UIViewController {
 
     private let navigation: UINavigationController
-    let loginViewController: UIViewController
+    let loginViewController: SplashAuthViewController
 
     // MARK: - Initialization
 
     init(navigation: UINavigationController) {
         self.navigation = navigation
-        self.loginViewController = .init()
-        self.loginViewController.view.backgroundColor = .systemPink
+        self.loginViewController = SplashAuthViewController()
         super.init(nibName: nil, bundle: nil)
     }
 
