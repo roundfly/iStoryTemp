@@ -6,6 +6,7 @@
 //
 
 import PhoneNumberKit
+import StyleSheet
 
 final class PhoneNumberService {
     func createPhoneNumberTextField() -> PhoneNumberTextField {
@@ -14,6 +15,9 @@ final class PhoneNumberService {
         textField.withPrefix = true
         textField.withExamplePlaceholder = true
         textField.withDefaultPickerUI = true
+        textField.numberPlaceholderColor = AppColor.textFieldTextColor.uiColor
+        textField.countryCodePlaceholderColor = AppColor.textFieldTextColor.uiColor
+        textField.textColor = AppColor.textFieldTextColor.uiColor
         
         return textField
     }
