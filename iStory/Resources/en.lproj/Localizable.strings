@@ -10,3 +10,12 @@
 "splash.auth.login.title" = "Log In";
 "splash.auth.signup.title" = "Sign Up";
 "splash.auth.skip" = "Skip and check the app";
+
+"auth.social.google.title" = "Continue with Google";
+"auth.social.amazon.title" = "Continue with Amazon";
+
+"auth.social.login.disclaimer" = "Skip and check the app? No account? Create one!";
+"auth.social.login.button.title" = "Log In with SMS or email";
+
+"auth.social.signup.disclaimer" = "Skip and check the app.\nOr go Back?\nAlready have account LogIn!";
+"auth.social.signup.button.title" = "Sign up with SMS or email";
