@@ -15,11 +15,13 @@ final class AppFlowController: UIViewController {
     private let navigation: UINavigationController
     private let authenticationFlow: AuthenticationFlowController
     private var timerCancellable: Cancellable?
+    private let dependencies: AppDependencies
 
-    init() {
+    init(dependencies: AppDependencies = .init()) {
         let navigationController = UINavigationController()
         self.navigation = navigationController
-        self.authenticationFlow = AuthenticationFlowController(navigation: navigationController)
+        self.authenticationFlow = AuthenticationFlowController(navigation: navigationController, dependencies: dependencies)
+        self.dependencies = dependencies
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -53,11 +55,12 @@ final class AppFlowController: UIViewController {
 
     private func finishSplash() {
         let now: Date = .now
-        timerCancellable = Timer.publish(every: 1, on: .main, in: .common)
-            .autoconnect()
+        let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+        timerCancellable = timer
             .sink { [navigation, authenticationFlow] date in
                 if date.timeIntervalSince(now) > 1 {
-                    navigation.setViewControllers([authenticationFlow.loginViewController], animated: true)
+                    timer.upstream.connect().cancel()
+                    navigation.setViewControllers([authenticationFlow], animated: true)
                 }
             }
     }
