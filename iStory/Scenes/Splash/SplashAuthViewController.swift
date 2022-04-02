@@ -43,8 +43,8 @@ final class SplashAuthViewController: UIViewController {
         view.addManagedSubview(imageView)
         imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).activate()
         imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).activate()
-        imageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.2).activate()
-        imageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.1).activate()
+        imageView.heightAnchor.constraint(equalToConstant: 130).activate()
+        imageView.widthAnchor.constraint(equalToConstant: 90).activate()
     }
 
     private func setupTitleLabel() {

@@ -5,12 +5,16 @@
 //  Created by Nikola Stojanovic on 2.4.22..
 //
 
+import Combine
 import UIKit
 import SwiftUI
 
 final class AuthenticationSignUpViewController: UIViewController {
 
     private let viewModel: AuthenticationSignUpViewModel
+    var signupPublisher: AnyPublisher<Void, Never> {
+        viewModel.signupPublisher
+    }
 
     init(viewModel: AuthenticationSignUpViewModel) {
         self.viewModel = viewModel

@@ -5,6 +5,7 @@
 //  Created by Nikola Stojanovic on 2.4.22..
 //
 
+import Combine
 import GoogleSignInService
 import AuthenticationServices
 
@@ -12,6 +13,10 @@ final class AuthenticationSignUpViewModel {
     typealias Dependencies = GoogleDependency & AppleDependency
     private let googleClient: GoogleClient
     private let appleClient: AppleClient
+    var signupPublisher: AnyPublisher<Void, Never> {
+        subject.eraseToAnyPublisher()
+    }
+    private let subject = PassthroughSubject<Void, Never>()
 
     init(dependencies: Dependencies) {
         self.googleClient = dependencies.googleClient
@@ -31,7 +36,7 @@ final class AuthenticationSignUpViewModel {
     }
 
     func onIstorySignUp() {
-        // todo
+        subject.send(())
     }
 
     func onGoogle() {

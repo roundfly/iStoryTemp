@@ -6,12 +6,16 @@
 //
 
 import UIKit
+import Combine
 import SwiftUI
 import StyleSheet
 
 final class AuthenticationLoginViewController: UIViewController {
 
     private let viewModel: AuthenticationLoginViewModel
+    var loginPublisher: AnyPublisher<Void, Never> {
+        viewModel.loginPublisher
+    }
 
     init(viewModel: AuthenticationLoginViewModel) {
         self.viewModel = viewModel

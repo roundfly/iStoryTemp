@@ -17,5 +17,13 @@
 "auth.social.login.disclaimer" = "Skip and check the app? No account? Create one!";
 "auth.social.login.button.title" = "Log In with SMS or email";
 
-"auth.social.signup.disclaimer" = "Skip and check the app.\nOr go Back?\nAlready have account LogIn!";
+"auth.social.signup.disclaimer" = "Skip and check the app? Have account? Login!\nBy signing up, you agree to our Terms of Service and Privacy Policy.";
 "auth.social.signup.button.title" = "Sign up with SMS or email";
+
+"auth.istory.login.email.button.title" = "Login with email";
+"auth.istory.login.sms.button.title" = "Login with SMS";
+"auth.istory.login.disclaimer.button.title" = "Skip and check the app? No account? Create one!  ";
+
+"auth.istory.signup.email.button.title" = "Sign Up with email";
+"auth.istory.signup.sms.button.title" = "Sign Up with SMS";
+"auth.istory.signup.disclaimer.button.title" = "Skip and check the app.\nOr go Back?\nAlready have account LogIn!";

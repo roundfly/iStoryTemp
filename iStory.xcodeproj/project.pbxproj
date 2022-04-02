@@ -33,6 +33,9 @@
 		FE66F29B27F89A780051007F /* AuthenticationSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F29A27F89A780051007F /* AuthenticationSignUpViewController.swift */; };
 		FE66F29D27F89C170051007F /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F29C27F89C170051007F /* SignUpViewModel.swift */; };
 		FE66F29F27F89C2F0051007F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F29E27F89C2F0051007F /* LoginViewModel.swift */; };
+		FE66F2A127F89FA30051007F /* AuthenticationIstoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F2A027F89FA30051007F /* AuthenticationIstoryView.swift */; };
+		FE66F2A327F8A5E60051007F /* AuthenticationIstoryLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F2A227F8A5E60051007F /* AuthenticationIstoryLoginViewController.swift */; };
+		FE66F2A527F8A9F90051007F /* AuthenticationIstorySignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F2A427F8A9F90051007F /* AuthenticationIstorySignUpViewController.swift */; };
 		FE87F34A27E627150062ACB4 /* Authentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE87F34927E627150062ACB4 /* Authentication.framework */; };
 		FE87F34B27E627150062ACB4 /* Authentication.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FE87F34927E627150062ACB4 /* Authentication.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FE87F34E27E6271B0062ACB4 /* StyleSheet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE87F34D27E6271B0062ACB4 /* StyleSheet.framework */; };
@@ -88,6 +91,9 @@
 		FE66F29A27F89A780051007F /* AuthenticationSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationSignUpViewController.swift; sourceTree = "<group>"; };
 		FE66F29C27F89C170051007F /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		FE66F29E27F89C2F0051007F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		FE66F2A027F89FA30051007F /* AuthenticationIstoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationIstoryView.swift; sourceTree = "<group>"; };
+		FE66F2A227F8A5E60051007F /* AuthenticationIstoryLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationIstoryLoginViewController.swift; sourceTree = "<group>"; };
+		FE66F2A427F8A9F90051007F /* AuthenticationIstorySignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationIstorySignUpViewController.swift; sourceTree = "<group>"; };
 		FE87F34927E627150062ACB4 /* Authentication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Authentication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE87F34D27E6271B0062ACB4 /* StyleSheet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StyleSheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE87F35F27E62E630062ACB4 /* LoginWithAmazon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LoginWithAmazon.framework; sourceTree = "<group>"; };
@@ -265,6 +271,7 @@
 			children = (
 				FE66F29027F7C0360051007F /* AuthenticationSocialContainerView.swift */,
 				FE66F29227F8874E0051007F /* AuthenticationSocialViews.swift */,
+				FE66F2A027F89FA30051007F /* AuthenticationIstoryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -273,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				FE66F29627F893E90051007F /* AuthenticationLoginViewController.swift */,
+				FE66F2A227F8A5E60051007F /* AuthenticationIstoryLoginViewController.swift */,
 				FE66F29E27F89C2F0051007F /* LoginViewModel.swift */,
 			);
 			path = LogIn;
@@ -283,6 +291,7 @@
 			children = (
 				FE66F29A27F89A780051007F /* AuthenticationSignUpViewController.swift */,
 				FE66F29C27F89C170051007F /* SignUpViewModel.swift */,
+				FE66F2A427F8A9F90051007F /* AuthenticationIstorySignUpViewController.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -384,10 +393,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE66F2A527F8A9F90051007F /* AuthenticationIstorySignUpViewController.swift in Sources */,
 				FE66F29B27F89A780051007F /* AuthenticationSignUpViewController.swift in Sources */,
 				FE66F27727F7A17E0051007F /* AppleClient.swift in Sources */,
 				FE66F29D27F89C170051007F /* SignUpViewModel.swift in Sources */,
 				21CCF0CA27F206C100096CE1 /* AmazonService.swift in Sources */,
+				FE66F2A127F89FA30051007F /* AuthenticationIstoryView.swift in Sources */,
 				FE66F29727F893E90051007F /* AuthenticationLoginViewController.swift in Sources */,
 				FE66F27F27F7B0590051007F /* SplashAuthViewController.swift in Sources */,
 				FE66F29327F8874E0051007F /* AuthenticationSocialViews.swift in Sources */,
@@ -401,6 +412,7 @@
 				FE66F29527F8907D0051007F /* AppDependencies.swift in Sources */,
 				2170151827EE7F4C00743B5B /* AmazonViewController.swift in Sources */,
 				FE2E9F0F27E53BD2002C0021 /* SceneDelegate.swift in Sources */,
+				FE66F2A327F8A5E60051007F /* AuthenticationIstoryLoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
