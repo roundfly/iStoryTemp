@@ -29,6 +29,16 @@
 		FE66F28527F7B0D70051007F /* Gotham-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FE66F28327F7B0D70051007F /* Gotham-Bold.otf */; };
 		FE66F28827F7B0F40051007F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FE66F28A27F7B0F40051007F /* Localizable.strings */; };
 		FE66F28D27F7BBE10051007F /* AuthenticationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F28C27F7BBE10051007F /* AuthenticationStyle.swift */; };
+		FE66F29127F7C0360051007F /* AuthenticationSocialContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F29027F7C0360051007F /* AuthenticationSocialContainerView.swift */; };
+		FE66F29327F8874E0051007F /* AuthenticationSocialViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F29227F8874E0051007F /* AuthenticationSocialViews.swift */; };
+		FE66F29527F8907D0051007F /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F29427F8907D0051007F /* AppDependencies.swift */; };
+		FE66F29727F893E90051007F /* AuthenticationLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F29627F893E90051007F /* AuthenticationLoginViewController.swift */; };
+		FE66F29B27F89A780051007F /* AuthenticationSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F29A27F89A780051007F /* AuthenticationSignUpViewController.swift */; };
+		FE66F29D27F89C170051007F /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F29C27F89C170051007F /* SignUpViewModel.swift */; };
+		FE66F29F27F89C2F0051007F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F29E27F89C2F0051007F /* LoginViewModel.swift */; };
+		FE66F2A127F89FA30051007F /* AuthenticationIstoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F2A027F89FA30051007F /* AuthenticationIstoryView.swift */; };
+		FE66F2A327F8A5E60051007F /* AuthenticationIstoryLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F2A227F8A5E60051007F /* AuthenticationIstoryLoginViewController.swift */; };
+		FE66F2A527F8A9F90051007F /* AuthenticationIstorySignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F2A427F8A9F90051007F /* AuthenticationIstorySignUpViewController.swift */; };
 		FE87F34A27E627150062ACB4 /* Authentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE87F34927E627150062ACB4 /* Authentication.framework */; };
 		FE87F34B27E627150062ACB4 /* Authentication.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FE87F34927E627150062ACB4 /* Authentication.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FE87F34E27E6271B0062ACB4 /* StyleSheet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE87F34D27E6271B0062ACB4 /* StyleSheet.framework */; };
@@ -79,6 +89,16 @@
 		FE66F28327F7B0D70051007F /* Gotham-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Bold.otf"; sourceTree = "<group>"; };
 		FE66F28927F7B0F40051007F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FE66F28C27F7BBE10051007F /* AuthenticationStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationStyle.swift; sourceTree = "<group>"; };
+		FE66F29027F7C0360051007F /* AuthenticationSocialContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationSocialContainerView.swift; sourceTree = "<group>"; };
+		FE66F29227F8874E0051007F /* AuthenticationSocialViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationSocialViews.swift; sourceTree = "<group>"; };
+		FE66F29427F8907D0051007F /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
+		FE66F29627F893E90051007F /* AuthenticationLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationLoginViewController.swift; sourceTree = "<group>"; };
+		FE66F29A27F89A780051007F /* AuthenticationSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationSignUpViewController.swift; sourceTree = "<group>"; };
+		FE66F29C27F89C170051007F /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		FE66F29E27F89C2F0051007F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		FE66F2A027F89FA30051007F /* AuthenticationIstoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationIstoryView.swift; sourceTree = "<group>"; };
+		FE66F2A227F8A5E60051007F /* AuthenticationIstoryLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationIstoryLoginViewController.swift; sourceTree = "<group>"; };
+		FE66F2A427F8A9F90051007F /* AuthenticationIstorySignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationIstorySignUpViewController.swift; sourceTree = "<group>"; };
 		FE87F34927E627150062ACB4 /* Authentication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Authentication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE87F34D27E6271B0062ACB4 /* StyleSheet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StyleSheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE87F35F27E62E630062ACB4 /* LoginWithAmazon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LoginWithAmazon.framework; sourceTree = "<group>"; };
@@ -137,6 +157,9 @@
 		2170151C27EE931100743B5B /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				FE66F29927F89A540051007F /* SignUp */,
+				FE66F29827F89A4E0051007F /* LogIn */,
+				FE66F28F27F7C0140051007F /* Views */,
 				FE66F28B27F7BBD10051007F /* Styles */,
 				FE66F27527F7A1680051007F /* AppleSignIn */,
 				FE66F26927F79F230051007F /* Navigation */,
@@ -210,6 +233,7 @@
 				FE2E9F0C27E53BD2002C0021 /* AppDelegate.swift */,
 				FE2E9F0E27E53BD2002C0021 /* SceneDelegate.swift */,
 				FE66F26527F79E390051007F /* AppFlowController.swift */,
+				FE66F29427F8907D0051007F /* AppDependencies.swift */,
 			);
 			path = CompositionRoot;
 			sourceTree = "<group>";
@@ -256,6 +280,36 @@
 				FE66F28C27F7BBE10051007F /* AuthenticationStyle.swift */,
 			);
 			path = Styles;
+			sourceTree = "<group>";
+		};
+		FE66F28F27F7C0140051007F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FE66F29027F7C0360051007F /* AuthenticationSocialContainerView.swift */,
+				FE66F29227F8874E0051007F /* AuthenticationSocialViews.swift */,
+				FE66F2A027F89FA30051007F /* AuthenticationIstoryView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FE66F29827F89A4E0051007F /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				FE66F29627F893E90051007F /* AuthenticationLoginViewController.swift */,
+				FE66F2A227F8A5E60051007F /* AuthenticationIstoryLoginViewController.swift */,
+				FE66F29E27F89C2F0051007F /* LoginViewModel.swift */,
+			);
+			path = LogIn;
+			sourceTree = "<group>";
+		};
+		FE66F29927F89A540051007F /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				FE66F29A27F89A780051007F /* AuthenticationSignUpViewController.swift */,
+				FE66F29C27F89C170051007F /* SignUpViewModel.swift */,
+				FE66F2A427F8A9F90051007F /* AuthenticationIstorySignUpViewController.swift */,
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 		FE87F34827E627150062ACB4 /* Frameworks */ = {
@@ -359,18 +413,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE66F2A527F8A9F90051007F /* AuthenticationIstorySignUpViewController.swift in Sources */,
+				FE66F29B27F89A780051007F /* AuthenticationSignUpViewController.swift in Sources */,
 				FE66F27727F7A17E0051007F /* AppleClient.swift in Sources */,
+				FE66F29D27F89C170051007F /* SignUpViewModel.swift in Sources */,
 				21CCF0CA27F206C100096CE1 /* AmazonService.swift in Sources */,
 				21DC001527F7AD3D0098CBEA /* PhoneNumberService.swift in Sources */,
+				FE66F2A127F89FA30051007F /* AuthenticationIstoryView.swift in Sources */,
+				FE66F29727F893E90051007F /* AuthenticationLoginViewController.swift in Sources */,
 				FE66F27F27F7B0590051007F /* SplashAuthViewController.swift in Sources */,
+				FE66F29327F8874E0051007F /* AuthenticationSocialViews.swift in Sources */,
 				FE66F27A27F7A7820051007F /* SplashViewController.swift in Sources */,
 				FE66F26B27F79F330051007F /* AuthenticationFlowController.swift in Sources */,
 				FE66F28D27F7BBE10051007F /* AuthenticationStyle.swift in Sources */,
+				FE66F29F27F89C2F0051007F /* LoginViewModel.swift in Sources */,
+				FE66F29127F7C0360051007F /* AuthenticationSocialContainerView.swift in Sources */,
 				FE2E9F0D27E53BD2002C0021 /* AppDelegate.swift in Sources */,
 				21DC001827F7B1690098CBEA /* LoginWithSMSViewController.swift in Sources */,
 				FE66F26627F79E390051007F /* AppFlowController.swift in Sources */,
+				FE66F29527F8907D0051007F /* AppDependencies.swift in Sources */,
 				2170151827EE7F4C00743B5B /* AmazonViewController.swift in Sources */,
 				FE2E9F0F27E53BD2002C0021 /* SceneDelegate.swift in Sources */,
+				FE66F2A327F8A5E60051007F /* AuthenticationIstoryLoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

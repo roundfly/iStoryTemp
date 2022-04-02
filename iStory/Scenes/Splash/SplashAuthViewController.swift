@@ -5,13 +5,24 @@
 //  Created by Nikola Stojanovic on 2.4.22..
 //
 
+import Combine
 import UIKit
 import StyleSheet
+
+enum SplashAuthNavigationEvent {
+    case logIn
+    case signUp
+    case tryApp
+}
 
 final class SplashAuthViewController: UIViewController {
     // MARK: - Instance variables
 
     private let titleLabel = UILabel()
+    var navigationPublisher: AnyPublisher<SplashAuthNavigationEvent, Never> {
+        subject.eraseToAnyPublisher()
+    }
+    private let subject = PassthroughSubject<SplashAuthNavigationEvent, Never>()
 
     // MARK: - View controller lifecycle
 
@@ -32,8 +43,8 @@ final class SplashAuthViewController: UIViewController {
         view.addManagedSubview(imageView)
         imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).activate()
         imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).activate()
-        imageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.2).activate()
-        imageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.1).activate()
+        imageView.heightAnchor.constraint(equalToConstant: 130).activate()
+        imageView.widthAnchor.constraint(equalToConstant: 90).activate()
     }
 
     private func setupTitleLabel() {
@@ -54,7 +65,12 @@ final class SplashAuthViewController: UIViewController {
         config.baseBackgroundColor = .white
         config.cornerStyle = .medium
         config.buttonSize = .medium
-        let loginButton = UIButton(configuration: config), signUpButton = UIButton(configuration: config), skipButton = UIButton()
+        let loginAction: UIAction = .init(handler: { [subject] _ in subject.send(.logIn) })
+        let signUpAction: UIAction = .init(handler: { [subject] _ in subject.send(.signUp) })
+        let skipAction: UIAction = .init(handler: { [subject] _ in subject.send(.tryApp) })
+        let loginButton = UIButton(configuration: config, primaryAction: loginAction),
+            signUpButton = UIButton(configuration: config, primaryAction: signUpAction),
+            skipButton = UIButton(primaryAction: skipAction)
         let vStackView = UIStackView(arrangedSubviews: [loginButton, signUpButton, skipButton])
         let titles = ["splash.auth.login.title", "splash.auth.signup.title"].map { String(localized: $0) }
         zip([loginButton, signUpButton], titles).forEach { button, title in
@@ -66,7 +82,6 @@ final class SplashAuthViewController: UIViewController {
         skipButton.setTitleColor(.black, for: .normal)
         vStackView.spacing = 20
         vStackView.setCustomSpacing(60, after: signUpButton)
-        vStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor).activate()
         vStackView.axis = .vertical
         vStackView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor).activate()
         vStackView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor).activate()
