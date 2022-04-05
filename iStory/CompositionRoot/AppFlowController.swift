@@ -15,7 +15,7 @@ final class AppFlowController: UIViewController {
     private let navigation: UINavigationController
     private let authenticationFlow: AuthenticationFlowController
     private var timerCancellable: Cancellable?
-    private let dependencies: AppDependencies
+    let dependencies: AppDependencies
 
     init(dependencies: AppDependencies = .init()) {
         let navigationController = UINavigationController()

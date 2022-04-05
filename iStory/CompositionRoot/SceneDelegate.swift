@@ -7,6 +7,7 @@
 
 import UIKit
 import LoginWithAmazon
+import PhoneNumberKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -17,7 +18,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        let nc = UINavigationController(rootViewController: LoginWithSMSViewController())
+        
+        let viewModel = LoginWithSMSViewModel(dependency: appFlow.dependencies.phoneNumberKit, viewState: .error)
+        let nc = UINavigationController(rootViewController: LoginWithSMSViewController(viewModel: viewModel))
         window.rootViewController = nc
         self.window = window
         window.makeKeyAndVisible()

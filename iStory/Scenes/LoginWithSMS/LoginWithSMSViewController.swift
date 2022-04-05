@@ -10,24 +10,40 @@ import UIKit
 import StyleSheet
 
 final class LoginWithSMSViewController: UIViewController {
-    // MARK: DI
-    private let phoneNumberService = PhoneNumberService()
+    private var viewModel: LoginWithSMSViewModel {
+        didSet {
+            updateUI()
+        }
+    }
     
-    // MARK: UI Elements
     private let titleLabel = UILabel()
     private let subtitleLabel = UILabel()
     private let phoneNumberTextFieldTitleLabel = UILabel()
     private var phoneNumberTextField: UITextField!
-    private let submitButton = UIButton()
+    private let submitButton = SubmitButton()
     private let errorMessageLabel = UILabel()
     private let skipButton = UIButton()
     
+    init(viewModel: LoginWithSMSViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         applyAuthenticationStyle(to: view)
         hideKeyboardWhenTappedAround()
         setupUI()
+    }
+    
+    private func updateUI() {
+        errorMessageLabel.text = viewModel.viewState == .normal ? viewModel.normalStateErrorMessage : viewModel.errorStateErrorMessage
+        submitButton.isEnabled = viewModel.viewState == .normal
     }
     
     private func setupUI() {
@@ -58,31 +74,47 @@ final class LoginWithSMSViewController: UIViewController {
         phoneNumberTextFieldTitleLabel.font = .systemFont(ofSize: 15)
         phoneNumberTextFieldTitleLabel.text = "Mobile number"
         
-        phoneNumberTextField = phoneNumberService.createPhoneNumberTextField()
+        phoneNumberTextField = viewModel.dependency.createPhoneNumberTextField()
         view.addManagedSubview(phoneNumberTextField)
         phoneNumberTextField.topAnchor.constraint(equalTo: phoneNumberTextFieldTitleLabel.bottomAnchor, constant: smallOffset).activate()
         phoneNumberTextField.setConstraintsRelativeToSuperView(leading: 16, trailing: 16)
         phoneNumberTextField.setHeightConstraint(equalToConstant: 44)
         phoneNumberTextField.layer.cornerRadius = 13
         phoneNumberTextField.backgroundColor = UIColor.white.withAlphaComponent(0.7)
+        phoneNumberTextField.addTarget(self, action: #selector(onTextChange), for: .editingChanged)
         
         view.addManagedSubview(submitButton)
         submitButton.topAnchor.constraint(equalTo: phoneNumberTextField.bottomAnchor, constant: smallOffset).activate()
         submitButton.setConstraintsRelativeToSuperView(leading: 16, trailing: 16)
         submitButton.setHeightConstraint(equalToConstant: 44)
-        submitButton.layer.cornerRadius = 13
-        submitButton.setTitle("Get code", for: .normal)
-        submitButton.setTitleColor(.black, for: .normal)
-        submitButton.backgroundColor = AppColor.blue.uiColor
+        submitButton.titleText = "Get code"
+        submitButton.textColor = .black
+        submitButton.isEnabled = viewModel.viewState == .normal
         
         view.addManagedSubview(errorMessageLabel)
         errorMessageLabel.topAnchor.constraint(equalTo: submitButton.bottomAnchor, constant: bigOffset).activate()
         errorMessageLabel.setConstraintsRelativeToSuperView(leading: 16, trailing: 16)
         errorMessageLabel.font = .systemFont(ofSize: 17)
         errorMessageLabel.numberOfLines = 0
-        errorMessageLabel.text = "Please confirm your country code and enter your phone number"
         errorMessageLabel.textAlignment = .center
         
-        //TODO: Extract to separate Views, maybe apply atomic design. Add last bottom label. Implement invalid state for screen. Commit. New Jira ticket.
+        view.addManagedSubview(skipButton)
+        skipButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -5).activate()
+        skipButton.setConstraintsRelativeToSuperView(leading: 8, trailing: 8)
+        skipButton.setTitle("Skip and check the app? No account? Create one!", for: .normal)
+        skipButton.setTitleColor(.black, for: .normal)
+        skipButton.backgroundColor = .clear
+        skipButton.titleLabel?.font = .systemFont(ofSize: 12)
+    }
+    
+    @objc
+    func onTextChange() {
+        guard let phone = phoneNumberTextField.text, !phone.isEmpty else {
+            viewModel.viewState = .error
+            return
+        }
+        
+        let isValid = viewModel.dependency.isValidPhone(number: phone)
+        viewModel.viewState = isValid ? .normal : .error
     }
 }

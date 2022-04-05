@@ -19,7 +19,6 @@ final class AuthenticationFlowController: UIViewController {
     private let dependencies: Dependencies
     private let loginViewController: SplashAuthViewController
     private var cancenllables: Set<AnyCancellable> = []
-    let loginViewController: LoginWithSMSViewController
 
     // MARK: - Initialization
 
