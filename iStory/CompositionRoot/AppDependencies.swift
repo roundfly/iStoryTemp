@@ -7,6 +7,7 @@
 
 import Foundation
 import GoogleSignInService
+import PhoneNumberKit
 
 protocol GoogleDependency {
     var googleClient: GoogleClient { get }
@@ -16,7 +17,12 @@ protocol AppleDependency {
     var appleClient: AppleClient { get }
 }
 
-struct AppDependencies: GoogleDependency, AppleDependency {
+protocol PhoneNumberDependency {
+    var phoneNumberKit: PhoneNumberService { get }
+}
+
+struct AppDependencies: GoogleDependency, AppleDependency, PhoneNumberDependency {
+    var phoneNumberKit: PhoneNumberService { .init() }
     var googleClient: GoogleClient { .prodution }
     var appleClient: AppleClient { .production }
 }

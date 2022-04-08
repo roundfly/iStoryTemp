@@ -54,6 +54,15 @@
           "revision": "78fa963b8491fc520791d8c2a509f1b8593d8aae",
           "version": "10.7.1"
         }
+      },
+      {
+        "package": "PhoneNumberKit",
+        "repositoryURL": "https://github.com/marmelroy/PhoneNumberKit.git",
+        "state": {
+          "branch": null,
+          "revision": "fc8b12831c166e7851c341c2ac5a120c8716304a",
+          "version": "3.3.4"
+        }
       }
     ]
   },

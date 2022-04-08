@@ -7,6 +7,7 @@
 
 import UIKit
 import LoginWithAmazon
+import PhoneNumberKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -17,8 +18,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
+        
+        let viewModel = LoginWithSMSViewModel(dependency: appFlow.dependencies.phoneNumberKit, viewState: .error)
+        let nc = UINavigationController(rootViewController: LoginWithSMSViewController(viewModel: viewModel))
+        window.rootViewController = nc
         self.window = window
-        appFlow.configure(window: window)
+        window.makeKeyAndVisible()
+        
+        //appFlow.configure(window: window)
     }
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
