@@ -37,3 +37,6 @@
 "auth.input.account.create.title" = "No account? Create one.";
 "auth.account.login" = "Already have an account? LogIn!";
 "auth.skip.title" = "Skip and check the app.";
+
+"auth.password.error" = "Error, password must be at least 8 characters! Please try again.";
+"auth.email.error" = "Error, email must be a valid email address! Please try again.";

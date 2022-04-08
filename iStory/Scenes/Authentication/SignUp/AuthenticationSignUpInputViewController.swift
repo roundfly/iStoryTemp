@@ -34,8 +34,7 @@ final class AuthenticationSignUpInputViewController: UIViewController {
     }
 
     private func setupInputView() {
-        authInputView = AuthenticationInputView(title: String(localized: "splash.auth.signup.title"),
-                                                description: String(localized: "auth.input.login.desc"),
+        authInputView = AuthenticationInputView(viewModel: .signup,
                                                 onSubmit: UIAction(handler: { action in
 
         }))

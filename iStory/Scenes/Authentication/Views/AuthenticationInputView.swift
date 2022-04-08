@@ -36,11 +36,11 @@ final class AuthenticationInputView: UIView {
 
     // MARK: - Initialization
 
-    init(title: String, description: String, onSubmit: UIAction) {
+    init(viewModel: AuthenticationInputViewModel, onSubmit: UIAction) {
         self.onSubmit = onSubmit
         super.init(frame: .zero)
-        titleLabel.text = title
-        descriptionLabel.text = description
+        titleLabel.text = viewModel.title
+        descriptionLabel.text = viewModel.subtitle
         setupSubviews()
     }
 

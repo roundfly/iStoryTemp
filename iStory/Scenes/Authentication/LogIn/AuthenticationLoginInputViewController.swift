@@ -35,8 +35,7 @@ final class AuthenticationLoginInputViewController: UIViewController {
     }
 
     private func setupInputView() {
-        authInputView = AuthenticationInputView(title: String(localized: "auth.input.login.title"),
-                                                description: String(localized: "auth.input.login.desc"),
+        authInputView = AuthenticationInputView(viewModel: .login,
                                                 onSubmit: UIAction(handler: { action in
 
         }))

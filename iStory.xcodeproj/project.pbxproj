@@ -61,6 +61,7 @@
 		FEB964D42800C194008DD002 /* AuthenticationInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB964D32800C194008DD002 /* AuthenticationInputView.swift */; };
 		FEB964D62800CB81008DD002 /* AuthenticationLoginInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB964D52800CB81008DD002 /* AuthenticationLoginInputViewController.swift */; };
 		FEB964D82800E2F5008DD002 /* AuthenticationSignUpInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB964D72800E2F5008DD002 /* AuthenticationSignUpInputViewController.swift */; };
+		FEB964DC2800F6DD008DD002 /* AuthenticationInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB964DB2800F6DD008DD002 /* AuthenticationInputViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -132,6 +133,7 @@
 		FEB964D32800C194008DD002 /* AuthenticationInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInputView.swift; sourceTree = "<group>"; };
 		FEB964D52800CB81008DD002 /* AuthenticationLoginInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationLoginInputViewController.swift; sourceTree = "<group>"; };
 		FEB964D72800E2F5008DD002 /* AuthenticationSignUpInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationSignUpInputViewController.swift; sourceTree = "<group>"; };
+		FEB964DB2800F6DD008DD002 /* AuthenticationInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInputViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,13 +210,14 @@
 		2170151C27EE931100743B5B /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				FE66F29927F89A540051007F /* SignUp */,
-				FE66F29827F89A4E0051007F /* LogIn */,
-				FE66F28F27F7C0140051007F /* Views */,
-				FE66F28B27F7BBD10051007F /* Styles */,
-				FE66F27527F7A1680051007F /* AppleSignIn */,
-				FE66F26927F79F230051007F /* Navigation */,
 				2170151727EE7F4C00743B5B /* AmazonViewController.swift */,
+				FE66F27527F7A1680051007F /* AppleSignIn */,
+				FE66F29827F89A4E0051007F /* LogIn */,
+				FE66F26927F79F230051007F /* Navigation */,
+				FE66F29927F89A540051007F /* SignUp */,
+				FE66F28B27F7BBD10051007F /* Styles */,
+				FEB964DA2800F6CE008DD002 /* ViewModels */,
+				FE66F28F27F7C0140051007F /* Views */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -381,8 +384,8 @@
 		FE66F29927F89A540051007F /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				FEB964D92800F6BF008DD002 /* ViewModels */,
 				FE66F29A27F89A780051007F /* AuthenticationSignUpViewController.swift */,
-				FE66F29C27F89C170051007F /* SignUpViewModel.swift */,
 				FE66F2A427F8A9F90051007F /* AuthenticationIstorySignUpViewController.swift */,
 				FEB964D72800E2F5008DD002 /* AuthenticationSignUpInputViewController.swift */,
 			);
@@ -404,6 +407,22 @@
 				FE87F35F27E62E630062ACB4 /* LoginWithAmazon.framework */,
 			);
 			path = Amazon;
+			sourceTree = "<group>";
+		};
+		FEB964D92800F6BF008DD002 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				FE66F29C27F89C170051007F /* SignUpViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		FEB964DA2800F6CE008DD002 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				FEB964DB2800F6DD008DD002 /* AuthenticationInputViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -495,6 +514,7 @@
 				218910B528045176002BB295 /* UIApplication+Extension.swift in Sources */,
 				FEB964D82800E2F5008DD002 /* AuthenticationSignUpInputViewController.swift in Sources */,
 				FE66F2A527F8A9F90051007F /* AuthenticationIstorySignUpViewController.swift in Sources */,
+				FEB964DC2800F6DD008DD002 /* AuthenticationInputViewModel.swift in Sources */,
 				FE66F29B27F89A780051007F /* AuthenticationSignUpViewController.swift in Sources */,
 				215FAE402800DF97006291A8 /* EmailAccessCodeViewController.swift in Sources */,
 				FE66F27727F7A17E0051007F /* AppleClient.swift in Sources */,
