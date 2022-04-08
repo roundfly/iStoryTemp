@@ -20,7 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         
         let viewModel = LoginWithSMSViewModel(dependency: appFlow.dependencies.phoneNumberKit, viewState: .error)
-        let nc = UINavigationController(rootViewController: AccessCodeViewController(email: "baca@gmail.com"))
+        let vc = LoginWithSMSViewController(viewModel: viewModel)
+        let nc = UINavigationController(rootViewController: vc)
         window.rootViewController = nc
         self.window = window
         window.makeKeyAndVisible()

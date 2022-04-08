@@ -19,11 +19,11 @@ final class AccessCodeViewController: UIViewController {
     private let midLabel = UILabel()
     private let lowerLabel = UILabel()
     
-    private var email: String = ""
+    private var number: String = ""
     
-    init(email: String) {
+    init(number: String) {
         super.init(nibName: nil, bundle: nil)
-        self.email = email
+        self.number = number
     }
     
     required init?(coder: NSCoder) {
@@ -58,7 +58,7 @@ final class AccessCodeViewController: UIViewController {
         subtitleLabel.font = .systemFont(ofSize: subtitleFont)
         subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).activate()
         subtitleLabel.setConstraintsRelativeToSuperView(leading: 32, trailing: 32)
-        subtitleLabel.text = "We have sent the access code to: \(email)"
+        subtitleLabel.text = "We have sent the access code to: \n\(number)"
         subtitleLabel.textAlignment = .center
         
         view.addManagedSubview(stackView)
