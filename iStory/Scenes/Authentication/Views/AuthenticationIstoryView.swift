@@ -49,12 +49,12 @@ final class AuthenticationIstoryView: UIView {
 
     private func setupTitleLabel() {
         titleLabel.text = viewModel.title
-        titleLabel.font = .preferredFont(forTextStyle: .title2)
+        titleLabel.font = .preferredFont(forTextStyle: .largeTitle)
         addManagedSubview(titleLabel)
         titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor).activate()
         titleLabel.leadingAnchor.constraint(equalTo: readableContentGuide.leadingAnchor).activate()
         titleLabel.trailingAnchor.constraint(equalTo: readableContentGuide.trailingAnchor).activate()
-        titleLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor).activate()
+        titleLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 20).activate()
         titleLabel.numberOfLines = 0
         titleLabel.textAlignment = .center
     }
