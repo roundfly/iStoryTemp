@@ -60,11 +60,18 @@ final class AuthenticationFlowController: UIViewController {
 
     private func openLogInFlow() {
         let viewController = AuthenticationIstoryLoginViewController()
+        viewController.emailButtonPublisher
+            .sink { [navigation] _ in
+                navigation.pushViewController(AuthenticationLoginInputViewController(), animated: true)
+            }.store(in: &cancenllables)
         navigation.pushViewController(viewController, animated: true)
     }
 
     private func openSignUpFlow() {
         let viewController = AuthenticationIstorySignUpViewController()
+        viewController.emailButtonPublisher.sink { [navigation] _ in
+            navigation.pushViewController(AuthenticationSignUpInputViewController(), animated: true)
+        }.store(in: &cancenllables)
         navigation.pushViewController(viewController, animated: true)
     }
 }

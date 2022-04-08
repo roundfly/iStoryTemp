@@ -5,9 +5,16 @@
 //  Created by Nikola Stojanovic on 2.4.22..
 //
 
+import Combine
 import UIKit
 
 final class AuthenticationIstoryLoginViewController: UIViewController {
+
+    var emailButtonPublisher: AnyPublisher<Void, Never> {
+        emailSubject.eraseToAnyPublisher()
+    }
+
+    private let emailSubject = PassthroughSubject<Void, Never>()
 
     override func loadView() {
         super.loadView()
@@ -15,7 +22,7 @@ final class AuthenticationIstoryLoginViewController: UIViewController {
                                                       emailButtonTitle: String(localized: "auth.istory.login.email.button.title"),
                                                       smsButtonTitle: String(localized: "auth.istory.login.sms.button.title"),
                                                       disclaimerButtonTitle: String(localized: "auth.istory.login.disclaimer.button.title"),
-                                                      emailButtonAtion: {},
+                                                      emailButtonAtion: { [emailSubject] in emailSubject.send(()) },
                                                       smsButtonAction: {})
         view = AuthenticationIstoryView(viewModel: viewModel)
     }
