@@ -10,6 +10,7 @@
 		216B5D8127EBA14500CCF43C /* Gotham-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 216B5D7F27EBA14500CCF43C /* Gotham-Black.otf */; };
 		216B5D8227EBA14500CCF43C /* Gotham-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 216B5D8027EBA14500CCF43C /* Gotham-Bold.otf */; };
 		2170151827EE7F4C00743B5B /* AmazonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2170151727EE7F4C00743B5B /* AmazonViewController.swift */; };
+		21C4906127FCA77A00DBBDD2 /* AccessCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C4906027FCA77A00DBBDD2 /* AccessCodeViewController.swift */; };
 		21CCF0CA27F206C100096CE1 /* AmazonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CCF0C927F206C100096CE1 /* AmazonService.swift */; };
 		21DC001227F7ACE30098CBEA /* PhoneNumberKit in Frameworks */ = {isa = PBXBuildFile; productRef = 21DC001127F7ACE30098CBEA /* PhoneNumberKit */; };
 		21DC001827F7B1690098CBEA /* LoginWithSMSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DC001727F7B1690098CBEA /* LoginWithSMSViewController.swift */; };
@@ -70,6 +71,7 @@
 		216B5D7F27EBA14500CCF43C /* Gotham-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Black.otf"; sourceTree = "<group>"; };
 		216B5D8027EBA14500CCF43C /* Gotham-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Bold.otf"; sourceTree = "<group>"; };
 		2170151727EE7F4C00743B5B /* AmazonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazonViewController.swift; sourceTree = "<group>"; };
+		21C4906027FCA77A00DBBDD2 /* AccessCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessCodeViewController.swift; sourceTree = "<group>"; };
 		21CCF0C927F206C100096CE1 /* AmazonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazonService.swift; sourceTree = "<group>"; };
 		21DC001727F7B1690098CBEA /* LoginWithSMSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithSMSViewController.swift; sourceTree = "<group>"; };
 		21EC082027EE7B9A00A39F84 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -186,6 +188,7 @@
 			children = (
 				21DC001727F7B1690098CBEA /* LoginWithSMSViewController.swift */,
 				21FC8CF627F8D4D10014914D /* LoginWithSMSViewModel.swift */,
+				21C4906027FCA77A00DBBDD2 /* AccessCodeViewController.swift */,
 			);
 			path = LoginWithSMS;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				FE66F29527F8907D0051007F /* AppDependencies.swift in Sources */,
 				2170151827EE7F4C00743B5B /* AmazonViewController.swift in Sources */,
 				FE2E9F0F27E53BD2002C0021 /* SceneDelegate.swift in Sources */,
+				21C4906127FCA77A00DBBDD2 /* AccessCodeViewController.swift in Sources */,
 				FE66F2A327F8A5E60051007F /* AuthenticationIstoryLoginViewController.swift in Sources */,
 				21FC8CF927F8D55A0014914D /* SubmitButton.swift in Sources */,
 			);
