@@ -23,10 +23,12 @@ final class LoginWithSMSViewController: UIViewController {
     private let submitButton = SubmitButton()
     private let errorMessageLabel = UILabel()
     private let skipButton = UIButton()
+    private var router: LoginWithSMSRoutingLogic!
     
     init(viewModel: LoginWithSMSViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        router = LoginWithSMSRouter(controller: self)
     }
     
     required init?(coder: NSCoder) {
@@ -90,6 +92,12 @@ final class LoginWithSMSViewController: UIViewController {
         submitButton.titleText = "Get code"
         submitButton.textColor = .black
         submitButton.isEnabled = viewModel.viewState == .normal
+        let action = UIAction { [weak self] handler in
+            let number = self?.phoneNumberTextField.text ?? ""
+            self?.router.number = number
+            self?.router.showAccessCodeScreen()
+        }
+        submitButton.addAction(action, for: .touchUpInside)
         
         view.addManagedSubview(errorMessageLabel)
         errorMessageLabel.topAnchor.constraint(equalTo: submitButton.bottomAnchor, constant: bigOffset).activate()
