@@ -62,6 +62,10 @@
 		FEB964D62800CB81008DD002 /* AuthenticationLoginInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB964D52800CB81008DD002 /* AuthenticationLoginInputViewController.swift */; };
 		FEB964D82800E2F5008DD002 /* AuthenticationSignUpInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB964D72800E2F5008DD002 /* AuthenticationSignUpInputViewController.swift */; };
 		FEB964DC2800F6DD008DD002 /* AuthenticationInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB964DB2800F6DD008DD002 /* AuthenticationInputViewModel.swift */; };
+		FEB964E52801BCC3008DD002 /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB964E42801BCC3008DD002 /* AppStore.swift */; };
+		FEB964E72801BCCC008DD002 /* AppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB964E62801BCCC008DD002 /* AppAction.swift */; };
+		FEB964E92801BCD4008DD002 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB964E82801BCD4008DD002 /* AppReducer.swift */; };
+		FEB964EB2801BCDD008DD002 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB964EA2801BCDD008DD002 /* AppState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -134,6 +138,10 @@
 		FEB964D52800CB81008DD002 /* AuthenticationLoginInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationLoginInputViewController.swift; sourceTree = "<group>"; };
 		FEB964D72800E2F5008DD002 /* AuthenticationSignUpInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationSignUpInputViewController.swift; sourceTree = "<group>"; };
 		FEB964DB2800F6DD008DD002 /* AuthenticationInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInputViewModel.swift; sourceTree = "<group>"; };
+		FEB964E42801BCC3008DD002 /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
+		FEB964E62801BCCC008DD002 /* AppAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAction.swift; sourceTree = "<group>"; };
+		FEB964E82801BCD4008DD002 /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
+		FEB964EA2801BCDD008DD002 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,6 +293,7 @@
 			children = (
 				218910B32804516A002BB295 /* Extensions */,
 				215FAE432800E4AD006291A8 /* Validators */,
+				FEB964DF2801BC97008DD002 /* Infrastructure */,
 				21FC8CF327F8D1BF0014914D /* Views */,
 				FE66F28127F7B0D70051007F /* Resources */,
 				FE66F26427F79E150051007F /* CompositionRoot */,
@@ -425,6 +434,49 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		FEB964DF2801BC97008DD002 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				FEB964E32801BCB6008DD002 /* Actions */,
+				FEB964E22801BCAF008DD002 /* Reducers */,
+				FEB964E12801BCAA008DD002 /* Stores */,
+				FEB964E02801BCA4008DD002 /* State */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		FEB964E02801BCA4008DD002 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				FEB964EA2801BCDD008DD002 /* AppState.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		FEB964E12801BCAA008DD002 /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+				FEB964E42801BCC3008DD002 /* AppStore.swift */,
+			);
+			path = Stores;
+			sourceTree = "<group>";
+		};
+		FEB964E22801BCAF008DD002 /* Reducers */ = {
+			isa = PBXGroup;
+			children = (
+				FEB964E82801BCD4008DD002 /* AppReducer.swift */,
+			);
+			path = Reducers;
+			sourceTree = "<group>";
+		};
+		FEB964E32801BCB6008DD002 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				FEB964E62801BCCC008DD002 /* AppAction.swift */,
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -521,12 +573,15 @@
 				FE66F29D27F89C170051007F /* SignUpViewModel.swift in Sources */,
 				21CCF0CA27F206C100096CE1 /* AmazonService.swift in Sources */,
 				21FC8CF527F8D24D0014914D /* PhoneNumberService.swift in Sources */,
+				FEB964E72801BCCC008DD002 /* AppAction.swift in Sources */,
 				FE66F2A127F89FA30051007F /* AuthenticationIstoryView.swift in Sources */,
 				FE66F29727F893E90051007F /* AuthenticationLoginViewController.swift in Sources */,
 				215FAE452800E4B6006291A8 /* EmailValidator.swift in Sources */,
 				215FAE422800DFA0006291A8 /* LoginWithEmailRouter.swift in Sources */,
 				215FAE3C2800DF7B006291A8 /* LoginWithEmailViewController.swift in Sources */,
+				FEB964E92801BCD4008DD002 /* AppReducer.swift in Sources */,
 				FE66F27F27F7B0590051007F /* SplashAuthViewController.swift in Sources */,
+				FEB964E52801BCC3008DD002 /* AppStore.swift in Sources */,
 				FE66F29327F8874E0051007F /* AuthenticationSocialViews.swift in Sources */,
 				FEB964D62800CB81008DD002 /* AuthenticationLoginInputViewController.swift in Sources */,
 				215FAE472800E96F006291A8 /* Validatable.swift in Sources */,
@@ -537,6 +592,7 @@
 				FEB964D42800C194008DD002 /* AuthenticationInputView.swift in Sources */,
 				FE66F29F27F89C2F0051007F /* LoginViewModel.swift in Sources */,
 				FE66F29127F7C0360051007F /* AuthenticationSocialContainerView.swift in Sources */,
+				FEB964EB2801BCDD008DD002 /* AppState.swift in Sources */,
 				FE2E9F0D27E53BD2002C0021 /* AppDelegate.swift in Sources */,
 				21DC001827F7B1690098CBEA /* LoginWithSMSViewController.swift in Sources */,
 				21FC8CF727F8D4D10014914D /* LoginWithSMSViewModel.swift in Sources */,

@@ -20,6 +20,7 @@ final class AuthenticationSignUpInputViewController: UIViewController {
     private let checkAppSubject = PassthroughSubject<Void, Never>()
     private let loginSubject = PassthroughSubject<Void, Never>()
     private var authInputView: AuthenticationInputView!
+    private let viewModel: AuthenticationInputViewModel = .signup
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,10 +35,7 @@ final class AuthenticationSignUpInputViewController: UIViewController {
     }
 
     private func setupInputView() {
-        authInputView = AuthenticationInputView(viewModel: .signup,
-                                                onSubmit: UIAction(handler: { action in
-
-        }))
+        authInputView = AuthenticationInputView(viewModel: viewModel)
         view.addManagedSubview(authInputView)
         authInputView.topAnchor.constraint(equalTo: view.topAnchor).activate()
         authInputView.leadingAnchor.constraint(equalTo: view.leadingAnchor).activate()
@@ -49,9 +47,7 @@ final class AuthenticationSignUpInputViewController: UIViewController {
         var loginConfig = UIButton.Configuration.plain()
         loginConfig.title = String(localized: "auth.account.login")
         loginConfig.baseForegroundColor = .black
-        let loginButton = UIButton(configuration: loginConfig, primaryAction: UIAction { [loginSubject] action in
-            loginSubject.send(())
-        })
+        let loginButton = UIButton(configuration: loginConfig, publisher: loginSubject)
         view.addManagedSubview(loginButton)
         loginButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).activate()
         loginButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor).activate()
@@ -61,9 +57,7 @@ final class AuthenticationSignUpInputViewController: UIViewController {
         checkAppConfig.title = String(localized: "auth.skip.title")
         checkAppConfig.titleAlignment = .center
         checkAppConfig.baseForegroundColor = .black
-        let checkAppButton = UIButton(configuration: checkAppConfig, primaryAction: UIAction { [checkAppSubject] action in
-            checkAppSubject.send(())
-        })
+        let checkAppButton = UIButton(configuration: checkAppConfig, publisher: checkAppSubject)
         view.addManagedSubview(checkAppButton)
         checkAppButton.bottomAnchor.constraint(equalTo: loginButton.topAnchor, constant: -20).activate()
         checkAppButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor).activate()

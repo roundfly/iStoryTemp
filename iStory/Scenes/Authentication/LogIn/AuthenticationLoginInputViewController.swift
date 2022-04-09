@@ -21,6 +21,7 @@ final class AuthenticationLoginInputViewController: UIViewController {
     private let forgotPasswordSubject = PassthroughSubject<Void, Never>()
     private let createAccountSubject = PassthroughSubject<Void, Never>()
     private var authInputView: AuthenticationInputView!
+    private let viewModel: AuthenticationInputViewModel = .login
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,10 +36,7 @@ final class AuthenticationLoginInputViewController: UIViewController {
     }
 
     private func setupInputView() {
-        authInputView = AuthenticationInputView(viewModel: .login,
-                                                onSubmit: UIAction(handler: { action in
-
-        }))
+        authInputView = AuthenticationInputView(viewModel: viewModel)
         view.addManagedSubview(authInputView)
         authInputView.topAnchor.constraint(equalTo: view.topAnchor).activate()
         authInputView.leadingAnchor.constraint(equalTo: view.leadingAnchor).activate()
@@ -50,9 +48,7 @@ final class AuthenticationLoginInputViewController: UIViewController {
         var createAccountConfig = UIButton.Configuration.plain()
         createAccountConfig.title = String(localized: "auth.input.account.create.title")
         createAccountConfig.baseForegroundColor = .black
-        let createAccountButton = UIButton(configuration: createAccountConfig, primaryAction: UIAction { [createAccountSubject] action in
-            createAccountSubject.send(())
-        })
+        let createAccountButton = UIButton(configuration: createAccountConfig, publisher: createAccountSubject)
         view.addManagedSubview(createAccountButton)
         createAccountButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).activate()
         createAccountButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor).activate()
@@ -62,9 +58,7 @@ final class AuthenticationLoginInputViewController: UIViewController {
         forgotPasswordConfig.title = String(localized: "auth.input.forgot.password")
         forgotPasswordConfig.titleAlignment = .center
         forgotPasswordConfig.baseForegroundColor = .black
-        let forgotPasswordButton = UIButton(configuration: forgotPasswordConfig, primaryAction: UIAction { [forgotPasswordSubject] action in
-            forgotPasswordSubject.send(())
-        })
+        let forgotPasswordButton = UIButton(configuration: forgotPasswordConfig, publisher: createAccountSubject)
         view.addManagedSubview(forgotPasswordButton)
         forgotPasswordButton.bottomAnchor.constraint(equalTo: createAccountButton.topAnchor, constant: -20).activate()
         forgotPasswordButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor).activate()
