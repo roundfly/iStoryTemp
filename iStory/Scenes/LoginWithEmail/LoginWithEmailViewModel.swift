@@ -13,5 +13,6 @@ enum LoginWithEmailViewState {
 }
 
 struct LoginWithEmailViewModel {
+    var validator = EmailValidator.self
     var viewState: LoginWithEmailViewState
 }

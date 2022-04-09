@@ -21,12 +21,12 @@ final class LoginWithEmailViewController: UIViewController {
     private let submitButton = SubmitButton()
     private let errorMessageLabel = UILabel()
     private let skipButton = UIButton()
-    private var router: LoginWithSMSRoutingLogic!
+    private var router: LoginWithEmailRoutingLogic!
     
     init(viewModel: LoginWithEmailViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-        //router = LoginWithSMSRouter(controller: self)
+        router = LoginWithEmailRouter(controller: self)
     }
 
     required init?(coder: NSCoder) {
@@ -83,8 +83,8 @@ final class LoginWithEmailViewController: UIViewController {
         submitButton.textColor = .black
         submitButton.isEnabled = viewModel.viewState == .normal
         let action = UIAction { [weak self] handler in
-            let number = self?.emailTextField.text ?? ""
-            self?.router.number = number
+            let email = self?.emailTextField.text ?? ""
+            self?.router.email = email
             self?.router.showAccessCodeScreen()
         }
         submitButton.addAction(action, for: .touchUpInside)
@@ -112,8 +112,7 @@ final class LoginWithEmailViewController: UIViewController {
             return
         }
         
-        let isValid = EmailValidator.isValid(email)
+        let isValid = viewModel.validator.isValid(email)
         viewModel.viewState = isValid ? .normal : .error
     }
-
 }
