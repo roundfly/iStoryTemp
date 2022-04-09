@@ -27,3 +27,13 @@
 "auth.istory.signup.email.button.title" = "Sign Up with email";
 "auth.istory.signup.sms.button.title" = "Sign Up with SMS";
 "auth.istory.signup.disclaimer.button.title" = "Skip and check the app.\nOr go Back?\nAlready have account LogIn!";
+
+"auth.button.submit.title" = "Continue";
+"auth.input.login.title" = "Welcome back";
+"auth.input.login.desc" = "Enter your email and password.";
+"auth.input.email.placeholder" = "enter your email here";
+"auth.input.password.placeholder" = "enter your password";
+"auth.input.forgot.password" = "Forgot password?\n Get access code";
+"auth.input.account.create.title" = "No account? Create one.";
+"auth.account.login" = "Already have an account? LogIn!";
+"auth.skip.title" = "Skip and check the app.";
