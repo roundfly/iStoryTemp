@@ -10,7 +10,7 @@ import GoogleSignInService
 import AuthenticationServices
 
 final class AuthenticationLoginViewModel {
-    typealias Dependencies = GoogleDependency & AppleDependency
+    typealias Dependencies = GoogleDependency & AppleDependency & PhoneNumberDependency
     private let googleClient: GoogleClient
     private let appleClient: AppleClient
     var loginPublisher: AnyPublisher<Void, Never> {

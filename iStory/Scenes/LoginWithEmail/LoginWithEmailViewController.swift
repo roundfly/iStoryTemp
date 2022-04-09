@@ -50,6 +50,7 @@ final class LoginWithEmailViewController: UIViewController {
         let bigOffset: CGFloat = UIScreen.main.getDeviceSize().isSmallOrLess ? 45 : 90
         let titleFont: CGFloat = UIScreen.main.getDeviceSize().isSmallOrLess ? 30 : 48
         let subtitleFont: CGFloat = UIScreen.main.getDeviceSize().isSmallOrLess ? 15 : 20
+        let buttonSize: CGFloat = UIScreen.main.getDeviceSize().isSmallOrLess ? 44 : 60
 
         view.addManagedSubview(titleLabel)
         titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).activate()
@@ -78,7 +79,7 @@ final class LoginWithEmailViewController: UIViewController {
         view.addManagedSubview(submitButton)
         submitButton.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: smallOffset).activate()
         submitButton.setConstraintsRelativeToSuperView(leading: 16, trailing: 16)
-        submitButton.setHeightConstraint(equalToConstant: 44)
+        submitButton.setHeightConstraint(equalToConstant: buttonSize)
         submitButton.titleText = "Get code"
         submitButton.textColor = .black
         submitButton.isEnabled = viewModel.viewState == .normal
