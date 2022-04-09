@@ -19,8 +19,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         
-        let viewModel = LoginWithSMSViewModel(dependency: appFlow.dependencies.phoneNumberKit, viewState: .error)
-        let vc = LoginWithSMSViewController(viewModel: viewModel)
+//        let viewModel = LoginWithSMSViewModel(dependency: appFlow.dependencies.phoneNumberKit, viewState: .error)
+//        let vc = LoginWithSMSViewController(viewModel: viewModel)
+        
+        //TODO: Add EmailValidator as dependency
+        //TODO: Finish login with email screen ui
+        //TODO: Add router
+        
+        let vm = LoginWithEmailViewModel(viewState: .error)
+        let vc = LoginWithEmailViewController(viewModel: vm)
         let nc = UINavigationController(rootViewController: vc)
         window.rootViewController = nc
         self.window = window

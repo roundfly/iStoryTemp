@@ -18,7 +18,7 @@ struct LoginWithSMSRouter: LoginWithSMSRoutingLogic {
     var number: String = ""
 
     func showAccessCodeScreen() {
-        let accessCodeViewController = AccessCodeViewController(number: number)
+        let accessCodeViewController = SMSAccessCodeViewController(number: number)
         controller?.navigationController?.pushViewController(accessCodeViewController, animated: true)
     }
 }

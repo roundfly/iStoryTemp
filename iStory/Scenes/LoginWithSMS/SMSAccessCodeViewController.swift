@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class AccessCodeViewController: UIViewController {
+final class SMSAccessCodeViewController: UIViewController {
     private let titleLabel = UILabel()
     private let subtitleLabel = UILabel()
     private let stackView = UIStackView()
@@ -113,7 +113,7 @@ final class AccessCodeViewController: UIViewController {
     }
 }
 
-extension AccessCodeViewController: UITextFieldDelegate {
+extension SMSAccessCodeViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if string != "" {
             textField.text = string
