@@ -66,6 +66,10 @@
 		FEB964E72801BCCC008DD002 /* AppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB964E62801BCCC008DD002 /* AppAction.swift */; };
 		FEB964E92801BCD4008DD002 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB964E82801BCD4008DD002 /* AppReducer.swift */; };
 		FEB964EB2801BCDD008DD002 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB964EA2801BCDD008DD002 /* AppState.swift */; };
+		FEB964ED2801BDE2008DD002 /* AuthenticationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB964EC2801BDE2008DD002 /* AuthenticationState.swift */; };
+		FEB964EF2801C12F008DD002 /* AuthenticationAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB964EE2801C12F008DD002 /* AuthenticationAction.swift */; };
+		FEB964F12801C22B008DD002 /* AuthenticationReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB964F02801C22B008DD002 /* AuthenticationReducer.swift */; };
+		FEB964F32801C252008DD002 /* AuthenticationEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB964F22801C252008DD002 /* AuthenticationEnvironment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -142,6 +146,10 @@
 		FEB964E62801BCCC008DD002 /* AppAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAction.swift; sourceTree = "<group>"; };
 		FEB964E82801BCD4008DD002 /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
 		FEB964EA2801BCDD008DD002 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		FEB964EC2801BDE2008DD002 /* AuthenticationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationState.swift; sourceTree = "<group>"; };
+		FEB964EE2801C12F008DD002 /* AuthenticationAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationAction.swift; sourceTree = "<group>"; };
+		FEB964F02801C22B008DD002 /* AuthenticationReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationReducer.swift; sourceTree = "<group>"; };
+		FEB964F22801C252008DD002 /* AuthenticationEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationEnvironment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +234,10 @@
 				FE66F28B27F7BBD10051007F /* Styles */,
 				FEB964DA2800F6CE008DD002 /* ViewModels */,
 				FE66F28F27F7C0140051007F /* Views */,
+				FEB964EC2801BDE2008DD002 /* AuthenticationState.swift */,
+				FEB964EE2801C12F008DD002 /* AuthenticationAction.swift */,
+				FEB964F02801C22B008DD002 /* AuthenticationReducer.swift */,
+				FEB964F22801C252008DD002 /* AuthenticationEnvironment.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -564,6 +576,7 @@
 				219FF09E2800CD10004E9D53 /* LoginWithSMSRouter.swift in Sources */,
 				215FAE3E2800DF87006291A8 /* LoginWithEmailViewModel.swift in Sources */,
 				218910B528045176002BB295 /* UIApplication+Extension.swift in Sources */,
+				FEB964F32801C252008DD002 /* AuthenticationEnvironment.swift in Sources */,
 				FEB964D82800E2F5008DD002 /* AuthenticationSignUpInputViewController.swift in Sources */,
 				FE66F2A527F8A9F90051007F /* AuthenticationIstorySignUpViewController.swift in Sources */,
 				FEB964DC2800F6DD008DD002 /* AuthenticationInputViewModel.swift in Sources */,
@@ -573,6 +586,7 @@
 				FE66F29D27F89C170051007F /* SignUpViewModel.swift in Sources */,
 				21CCF0CA27F206C100096CE1 /* AmazonService.swift in Sources */,
 				21FC8CF527F8D24D0014914D /* PhoneNumberService.swift in Sources */,
+				FEB964ED2801BDE2008DD002 /* AuthenticationState.swift in Sources */,
 				FEB964E72801BCCC008DD002 /* AppAction.swift in Sources */,
 				FE66F2A127F89FA30051007F /* AuthenticationIstoryView.swift in Sources */,
 				FE66F29727F893E90051007F /* AuthenticationLoginViewController.swift in Sources */,
@@ -591,6 +605,7 @@
 				FE66F28D27F7BBE10051007F /* AuthenticationStyle.swift in Sources */,
 				FEB964D42800C194008DD002 /* AuthenticationInputView.swift in Sources */,
 				FE66F29F27F89C2F0051007F /* LoginViewModel.swift in Sources */,
+				FEB964EF2801C12F008DD002 /* AuthenticationAction.swift in Sources */,
 				FE66F29127F7C0360051007F /* AuthenticationSocialContainerView.swift in Sources */,
 				FEB964EB2801BCDD008DD002 /* AppState.swift in Sources */,
 				FE2E9F0D27E53BD2002C0021 /* AppDelegate.swift in Sources */,
@@ -601,6 +616,8 @@
 				2170151827EE7F4C00743B5B /* AmazonViewController.swift in Sources */,
 				FE2E9F0F27E53BD2002C0021 /* SceneDelegate.swift in Sources */,
 				21C4906127FCA77A00DBBDD2 /* SMSAccessCodeViewController.swift in Sources */,
+				FEB964F12801C22B008DD002 /* AuthenticationReducer.swift in Sources */,
+				21C4906127FCA77A00DBBDD2 /* AccessCodeViewController.swift in Sources */,
 				FE66F2A327F8A5E60051007F /* AuthenticationIstoryLoginViewController.swift in Sources */,
 				21FC8CF927F8D55A0014914D /* SubmitButton.swift in Sources */,
 			);

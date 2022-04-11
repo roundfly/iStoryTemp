@@ -9,19 +9,24 @@ import Combine
 import UIKit
 import StyleSheet
 
+typealias AppStore = Store<AppState, AppAction, AppEnvironment>
+
 final class AppFlowController: UIViewController {
     // MARK: - Instance variables
 
     private let navigation: UINavigationController
     private let authenticationFlow: AuthenticationFlowController
     private var timerCancellable: Cancellable?
-    let dependencies: AppDependencies
+    private let store: AppStore
 
-    init(dependencies: AppDependencies = .init()) {
+    init(dependencies: AppEnvironment = .production) {
         let navigationController = UINavigationController()
         self.navigation = navigationController
-        self.authenticationFlow = AuthenticationFlowController(navigation: navigationController, dependencies: dependencies)
-        self.dependencies = dependencies
+        self.store = AppStore(initialState: .production, environment: dependencies, reducer: appReducer)
+        self.authenticationFlow = AuthenticationFlowController(navigation: navigationController,
+                                                               store: store.derived(deriveState: \.authState,
+                                                                                    embedAction: AppAction.authentication,
+                                                                                    deriveEnvironment: \.authentication))
         super.init(nibName: nil, bundle: nil)
     }
 

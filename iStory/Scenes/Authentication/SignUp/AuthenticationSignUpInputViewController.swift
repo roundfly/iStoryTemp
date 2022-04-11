@@ -20,8 +20,17 @@ final class AuthenticationSignUpInputViewController: UIViewController {
     private let checkAppSubject = PassthroughSubject<Void, Never>()
     private let loginSubject = PassthroughSubject<Void, Never>()
     private var authInputView: AuthenticationInputView!
-    private let viewModel: AuthenticationInputViewModel = .signup
+    private let viewModel: AuthenticationInputViewModel
 
+    init(store: AuthenticationStore) {
+        self.viewModel = AuthenticationInputViewModel(authenticationType: .signup, store: store)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         applyAuthenticationStyle(to: view)

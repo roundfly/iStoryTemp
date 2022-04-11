@@ -32,16 +32,12 @@ final class AuthenticationInputView: UIView {
         inputVisibilityButton.frame = CGRect(x: 0, y: 0, width: 40.0, height: 40.0)
         return inputVisibilityButton
     }()
-
-    /// Publishes once the UIButton for submitting the form has been tapped
-    var submitFormPublisher: AnyPublisher<Void, Never> {
-        submitFormSubject.eraseToAnyPublisher()
-    }
-    private let submitFormSubject = PassthroughSubject<Void, Never>()
+    private let viewModel: AuthenticationInputViewModel
 
     // MARK: - Initialization
 
     init(viewModel: AuthenticationInputViewModel) {
+        self.viewModel = viewModel
         super.init(frame: .zero)
         titleLabel.text = viewModel.title
         descriptionLabel.text = viewModel.subtitle
@@ -108,7 +104,7 @@ final class AuthenticationInputView: UIView {
         config.baseBackgroundColor = AppColor.blue.uiColor
         config.baseForegroundColor = .black
         config.title = String(localized: "auth.button.submit.title")
-        let signupButton = UIButton(configuration: config, publisher: submitFormSubject)
+        let signupButton = UIButton(configuration: config, primaryAction: UIAction { [viewModel] _ in viewModel.submitForm() })
         let stackView = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, signupButton])
         addManagedSubview(stackView)
         stackView.axis = .vertical

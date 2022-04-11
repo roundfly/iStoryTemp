@@ -8,24 +8,24 @@
 import UIKit
 import Combine
 
+// MARK: - Utility types
+
+typealias AuthenticationStore = Store<AuthenticationState, AuthenticationAction, AuthenticationEnvironment>
+
 final class AuthenticationFlowController: UIViewController {
-    // MARK: - Utility types
-
-    typealias Dependencies = AuthenticationLoginViewModel.Dependencies
-
     // MARK: - Instance variables
 
     private let navigation: UINavigationController
-    private let dependencies: Dependencies
+    private let store: AuthenticationStore
     private let loginViewController: SplashAuthViewController
     private var cancenllables: Set<AnyCancellable> = []
 
     // MARK: - Initialization
 
-    init(navigation: UINavigationController, dependencies: Dependencies) {
+    init(navigation: UINavigationController, store: AuthenticationStore) {
         self.navigation = navigation
         self.loginViewController = SplashAuthViewController()
-        self.dependencies = dependencies
+        self.store = store
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -45,11 +45,11 @@ final class AuthenticationFlowController: UIViewController {
                 case .tryApp: // todo
                     break
                 case .signUp:
-                    let viewController = AuthenticationSignUpViewController(viewModel: .init(dependencies: self.dependencies))
+                    let viewController = AuthenticationSignUpViewController(viewModel: .init(store: self.store))
                     viewController.signupPublisher.sink(receiveValue: { _ in self.openSignUpFlow() }).store(in: &self.cancenllables)
                     self.navigation.pushViewController(viewController, animated: true)
                 case .logIn:
-                    let viewController = AuthenticationLoginViewController(viewModel: .init(dependencies: self.dependencies))
+                    let viewController = AuthenticationLoginViewController(viewModel: .init(store: self.store))
                     viewController.loginPublisher.sink(receiveValue: { _ in self.openLogInFlow() }).store(in: &self.cancenllables)
                     self.navigation.pushViewController(viewController, animated: true)
                 }
@@ -61,8 +61,8 @@ final class AuthenticationFlowController: UIViewController {
     private func openLogInFlow() {
         let viewController = AuthenticationIstoryLoginViewController()
         viewController.emailButtonPublisher
-            .sink { [navigation] _ in
-                navigation.pushViewController(AuthenticationLoginInputViewController(), animated: true)
+            .sink { [navigation, store] _ in
+                navigation.pushViewController(AuthenticationLoginInputViewController(store: store), animated: true)
             }.store(in: &cancenllables)
         
         viewController.smsButtonPublisher
@@ -76,8 +76,8 @@ final class AuthenticationFlowController: UIViewController {
 
     private func openSignUpFlow() {
         let viewController = AuthenticationIstorySignUpViewController()
-        viewController.emailButtonPublisher.sink { [navigation] _ in
-            navigation.pushViewController(AuthenticationSignUpInputViewController(), animated: true)
+        viewController.emailButtonPublisher.sink { [navigation, store] _ in
+            navigation.pushViewController(AuthenticationSignUpInputViewController(store: store), animated: true)
         }.store(in: &cancenllables)
         
         viewController.smsButtonPublisher.sink { [navigation] _ in

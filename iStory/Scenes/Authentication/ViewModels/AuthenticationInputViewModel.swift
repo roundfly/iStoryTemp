@@ -31,26 +31,40 @@ final class AuthenticationInputViewModel {
         String(localized: "auth.input.login.desc")
     }
 
-    static let login = AuthenticationInputViewModel(authenticationType: .login)
-    static let signup = AuthenticationInputViewModel(authenticationType: .signup)
+    private(set) var store: AuthenticationStore
 
-    var invalidInputPublisher: AnyPublisher<String, Never> {
-        invalidInputSubject.eraseToAnyPublisher()
-    }
+    private var email: String = "", password: String = ""
 
-    private let invalidInputSubject = PassthroughSubject<String, Never>()
-
-    init(authenticationType: AuthenticationInputType) {
+    init(authenticationType: AuthenticationInputType, store: AuthenticationStore) {
         self.type = authenticationType
+        self.store = store
     }
 
-    func validate(password: String) {
-        guard password.count > 8 else { return }
-        invalidInputSubject.send(String(localized: "auth.password.error"))
+
+    private func isValidPassowrd(_ password: String) -> Bool {
+        guard password.count > 8 else {
+            store.dispatch(.authFailure(reason: String(localized: "auth.password.error")))
+            return false
+        }
+        return true
     }
 
-    func validate(email: String) {
-        guard emailPredicate.evaluate(with: email) else { return }
-        invalidInputSubject.send(String(localized: "auth.email.error"))
+    private func isValidEmail(_ email: String) -> Bool {
+        guard emailPredicate.evaluate(with: email) else {
+            store.dispatch(.authFailure(reason: String(localized: "auth.email.error")))
+            return false
+        }
+        return true
+    }
+
+    func submitForm() {
+        guard isValidPassowrd(password), isValidEmail(email) else { return }
+        let credentials = (email: email, password: password)
+        switch type {
+        case .login:
+            store.dispatch(.logIn(user: credentials))
+        case .signup:
+            store.dispatch(.signUp(user: credentials))
+        }
     }
 }

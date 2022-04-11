@@ -5,4 +5,8 @@
 //  Created by Nikola Stojanovic on 9.4.22..
 //
 
-import Foundation
+struct AppState: Equatable {
+    var authState: AuthenticationState
+
+    static let production = Self(authState: .init())
+}

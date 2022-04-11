@@ -21,8 +21,26 @@ final class AuthenticationLoginInputViewController: UIViewController {
     private let forgotPasswordSubject = PassthroughSubject<Void, Never>()
     private let createAccountSubject = PassthroughSubject<Void, Never>()
     private var authInputView: AuthenticationInputView!
-    private let viewModel: AuthenticationInputViewModel = .login
+    private let viewModel: AuthenticationInputViewModel
+    private var cancellables: Set<AnyCancellable> = []
 
+    init(store: AuthenticationStore) {
+        self.viewModel = AuthenticationInputViewModel(authenticationType: .login, store: store)
+        super.init(nibName: nil, bundle: nil)
+        viewModel.store.$state
+            .dropFirst()
+            .sink { authState in
+                if let error = authState.authFailure {
+                    print(error)
+                }
+            }
+            .store(in: &cancellables)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         applyAuthenticationStyle(to: view)
