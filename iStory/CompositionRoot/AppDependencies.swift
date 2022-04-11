@@ -21,8 +21,13 @@ protocol PhoneNumberDependency {
     var phoneNumberKit: PhoneNumberService { get }
 }
 
-struct AppDependencies: GoogleDependency, AppleDependency, PhoneNumberDependency {
+protocol AmazonDependency {
+    var amazonService: AmazonService { get }
+}
+
+struct AppDependencies: GoogleDependency, AppleDependency, PhoneNumberDependency, AmazonDependency {    
     var phoneNumberKit: PhoneNumberService { .init() }
     var googleClient: GoogleClient { .prodution }
     var appleClient: AppleClient { .production }
+    var amazonService: AmazonService { .init() }
 }

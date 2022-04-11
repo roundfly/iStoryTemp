@@ -16,6 +16,8 @@
 		216B5D8127EBA14500CCF43C /* Gotham-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 216B5D7F27EBA14500CCF43C /* Gotham-Black.otf */; };
 		216B5D8227EBA14500CCF43C /* Gotham-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 216B5D8027EBA14500CCF43C /* Gotham-Bold.otf */; };
 		2170151827EE7F4C00743B5B /* AmazonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2170151727EE7F4C00743B5B /* AmazonViewController.swift */; };
+		218910B528045176002BB295 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218910B428045176002BB295 /* UIApplication+Extension.swift */; };
+		218910B72804519D002BB295 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218910B62804519D002BB295 /* UIViewController+Extension.swift */; };
 		219FF09E2800CD10004E9D53 /* LoginWithSMSRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219FF09D2800CD10004E9D53 /* LoginWithSMSRouter.swift */; };
 		21C4906127FCA77A00DBBDD2 /* SMSAccessCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C4906027FCA77A00DBBDD2 /* SMSAccessCodeViewController.swift */; };
 		21CCF0CA27F206C100096CE1 /* AmazonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CCF0C927F206C100096CE1 /* AmazonService.swift */; };
@@ -87,6 +89,8 @@
 		216B5D7F27EBA14500CCF43C /* Gotham-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Black.otf"; sourceTree = "<group>"; };
 		216B5D8027EBA14500CCF43C /* Gotham-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Bold.otf"; sourceTree = "<group>"; };
 		2170151727EE7F4C00743B5B /* AmazonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazonViewController.swift; sourceTree = "<group>"; };
+		218910B428045176002BB295 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
+		218910B62804519D002BB295 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		219FF09D2800CD10004E9D53 /* LoginWithSMSRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithSMSRouter.swift; sourceTree = "<group>"; };
 		21C4906027FCA77A00DBBDD2 /* SMSAccessCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSAccessCodeViewController.swift; sourceTree = "<group>"; };
 		21CCF0C927F206C100096CE1 /* AmazonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazonService.swift; sourceTree = "<group>"; };
@@ -215,6 +219,15 @@
 			path = Authentication;
 			sourceTree = "<group>";
 		};
+		218910B32804516A002BB295 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				218910B428045176002BB295 /* UIApplication+Extension.swift */,
+				218910B62804519D002BB295 /* UIViewController+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		21CCF0C827F206AF00096CE1 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,6 +280,7 @@
 		FE2E9F0B27E53BD2002C0021 /* iStory */ = {
 			isa = PBXGroup;
 			children = (
+				218910B32804516A002BB295 /* Extensions */,
 				215FAE432800E4AD006291A8 /* Validators */,
 				21FC8CF327F8D1BF0014914D /* Views */,
 				FE66F28127F7B0D70051007F /* Resources */,
@@ -478,6 +492,7 @@
 			files = (
 				219FF09E2800CD10004E9D53 /* LoginWithSMSRouter.swift in Sources */,
 				215FAE3E2800DF87006291A8 /* LoginWithEmailViewModel.swift in Sources */,
+				218910B528045176002BB295 /* UIApplication+Extension.swift in Sources */,
 				FEB964D82800E2F5008DD002 /* AuthenticationSignUpInputViewController.swift in Sources */,
 				FE66F2A527F8A9F90051007F /* AuthenticationIstorySignUpViewController.swift in Sources */,
 				FE66F29B27F89A780051007F /* AuthenticationSignUpViewController.swift in Sources */,
@@ -497,6 +512,7 @@
 				215FAE472800E96F006291A8 /* Validatable.swift in Sources */,
 				FE66F27A27F7A7820051007F /* SplashViewController.swift in Sources */,
 				FE66F26B27F79F330051007F /* AuthenticationFlowController.swift in Sources */,
+				218910B72804519D002BB295 /* UIViewController+Extension.swift in Sources */,
 				FE66F28D27F7BBE10051007F /* AuthenticationStyle.swift in Sources */,
 				FEB964D42800C194008DD002 /* AuthenticationInputView.swift in Sources */,
 				FE66F29F27F89C2F0051007F /* LoginViewModel.swift in Sources */,
