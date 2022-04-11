@@ -9,7 +9,7 @@ import Combine
 import UIKit
 import StyleSheet
 
-final class AuthenticationLoginInputViewController: UIViewController {
+final class AuthenticationLoginInputViewController: UIViewController, FailureShowable {
     // MARK: - Instance variables
 
     var forgotPasswordPublisher: AnyPublisher<Void, Never> {
@@ -21,17 +21,20 @@ final class AuthenticationLoginInputViewController: UIViewController {
 
     private let forgotPasswordSubject = PassthroughSubject<Void, Never>()
     private let createAccountSubject = PassthroughSubject<Void, Never>()
-    private var authInputView: AuthenticationInputView!
     private let viewModel: AuthenticationInputViewModel
-    private let errorLabel = UILabel()
     private var cancellables: Set<AnyCancellable> = []
+
+    // MARK: - FailureShowable conformance
+
+    var authInputView: AuthenticationInputView!
+    var errorLabel = UILabel()
 
     // MARK: - Initialization
 
     init(store: AuthenticationStore) {
         self.viewModel = AuthenticationInputViewModel(authenticationType: .login, store: store)
         super.init(nibName: nil, bundle: nil)
-        viewModel.store.$state
+        store.$state
             .dropFirst()
             .sink { [weak self] authState in
                 if let error = authState.authFailure {
@@ -93,32 +96,5 @@ final class AuthenticationLoginInputViewController: UIViewController {
         forgotPasswordButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor).activate()
         forgotPasswordButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor).activate()
         forgotPasswordButton.heightAnchor.constraint(equalToConstant: 44.0).activate()
-    }
-
-    private func show(failureReason: String) {
-        errorLabel.text = failureReason
-        guard errorLabel.superview == nil else { return }
-        errorLabel.alpha = 0.0
-        errorLabel.font = .preferredFont(forTextStyle: .body)
-        errorLabel.numberOfLines = 0
-        errorLabel.textAlignment = .center
-        view.addManagedSubview(errorLabel)
-        errorLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).activate()
-        errorLabel.leadingAnchor.constraint(equalTo: view.readableContentGuide.leadingAnchor).activate()
-        errorLabel.trailingAnchor.constraint(equalTo: view.readableContentGuide.trailingAnchor).activate()
-        errorLabel.topAnchor.constraint(equalTo: authInputView.bottomAnchor, constant: 40).activate()
-        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.5, delay: 0, options: .curveLinear, animations: {
-            self.errorLabel.alpha = 1.0
-        })
-    }
-
-    private func hideFailureLabel() {
-        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.5, delay: 0, options: .curveLinear, animations: {
-            self.errorLabel.alpha = 0.0
-        }) { position in
-            if position == .end {
-                self.errorLabel.removeFromSuperview()
-            }
-        }
     }
 }

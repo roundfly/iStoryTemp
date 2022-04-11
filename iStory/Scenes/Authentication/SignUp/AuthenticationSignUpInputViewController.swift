@@ -9,7 +9,8 @@ import Combine
 import UIKit
 import StyleSheet
 
-final class AuthenticationSignUpInputViewController: UIViewController {
+final class AuthenticationSignUpInputViewController: UIViewController, FailureShowable {
+    // MARK: - Instance variables
 
     var checkAppPublisher: AnyPublisher<Void, Never> {
         checkAppSubject.eraseToAnyPublisher()
@@ -19,17 +20,37 @@ final class AuthenticationSignUpInputViewController: UIViewController {
     }
     private let checkAppSubject = PassthroughSubject<Void, Never>()
     private let loginSubject = PassthroughSubject<Void, Never>()
-    private var authInputView: AuthenticationInputView!
     private let viewModel: AuthenticationInputViewModel
+    private var cancellables: Set<AnyCancellable> = []
+
+    // MARK: - FailureShowable conformance
+
+    var authInputView: AuthenticationInputView!
+    var errorLabel = UILabel()
+
+    // MARK: - Initialization
 
     init(store: AuthenticationStore) {
         self.viewModel = AuthenticationInputViewModel(authenticationType: .signup, store: store)
         super.init(nibName: nil, bundle: nil)
+        store.$state
+            .dropFirst()
+            .sink { [weak self] authState in
+                if let error = authState.authFailure {
+                    self?.show(failureReason: error)
+                } else if let _ = authState.currentUser {
+                    // do stuff with user
+                    self?.hideFailureLabel()
+                }
+            }
+            .store(in: &cancellables)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    // MARK: - View controller lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +58,8 @@ final class AuthenticationSignUpInputViewController: UIViewController {
         setupSubviews()
         hideKeyboardWhenTappedAround()
     }
+
+    // MARK: - Subview setup
 
     private func setupSubviews() {
         setupInputView()
