@@ -1,14 +1,14 @@
 //
-//  AccessCodeViewController.swift
+//  EmailAccessCodeViewController.swift
 //  iStory
 //
-//  Created by Shyft on 4/5/22.
+//  Created by Shyft on 4/8/22.
 //
 
 import Foundation
 import UIKit
 
-final class AccessCodeViewController: UIViewController {
+final class EmailAccessCodeViewController: UIViewController {
     private let titleLabel = UILabel()
     private let subtitleLabel = UILabel()
     private let stackView = UIStackView()
@@ -19,11 +19,11 @@ final class AccessCodeViewController: UIViewController {
     private let midLabel = UILabel()
     private let lowerLabel = UILabel()
     
-    private var number: String = ""
+    private var email: String = ""
     
-    init(number: String) {
+    init(email: String) {
         super.init(nibName: nil, bundle: nil)
-        self.number = number
+        self.email = email
     }
     
     required init?(coder: NSCoder) {
@@ -58,7 +58,7 @@ final class AccessCodeViewController: UIViewController {
         subtitleLabel.font = .systemFont(ofSize: subtitleFont)
         subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).activate()
         subtitleLabel.setConstraintsRelativeToSuperView(leading: 32, trailing: 32)
-        subtitleLabel.text = "We have sent the access code to: \n\(number)"
+        subtitleLabel.text = "We have sent the access code to: \n\(email)"
         subtitleLabel.textAlignment = .center
         
         view.addManagedSubview(stackView)
@@ -113,7 +113,7 @@ final class AccessCodeViewController: UIViewController {
     }
 }
 
-extension AccessCodeViewController: UITextFieldDelegate {
+extension EmailAccessCodeViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if string != "" {
             textField.text = string

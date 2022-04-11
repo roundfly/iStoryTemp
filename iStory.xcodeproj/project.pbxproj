@@ -7,11 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		215FAE3C2800DF7B006291A8 /* LoginWithEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215FAE3B2800DF7B006291A8 /* LoginWithEmailViewController.swift */; };
+		215FAE3E2800DF87006291A8 /* LoginWithEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215FAE3D2800DF87006291A8 /* LoginWithEmailViewModel.swift */; };
+		215FAE402800DF97006291A8 /* EmailAccessCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215FAE3F2800DF97006291A8 /* EmailAccessCodeViewController.swift */; };
+		215FAE422800DFA0006291A8 /* LoginWithEmailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215FAE412800DFA0006291A8 /* LoginWithEmailRouter.swift */; };
+		215FAE452800E4B6006291A8 /* EmailValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215FAE442800E4B6006291A8 /* EmailValidator.swift */; };
+		215FAE472800E96F006291A8 /* Validatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215FAE462800E96F006291A8 /* Validatable.swift */; };
 		216B5D8127EBA14500CCF43C /* Gotham-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 216B5D7F27EBA14500CCF43C /* Gotham-Black.otf */; };
 		216B5D8227EBA14500CCF43C /* Gotham-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 216B5D8027EBA14500CCF43C /* Gotham-Bold.otf */; };
 		2170151827EE7F4C00743B5B /* AmazonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2170151727EE7F4C00743B5B /* AmazonViewController.swift */; };
 		219FF09E2800CD10004E9D53 /* LoginWithSMSRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219FF09D2800CD10004E9D53 /* LoginWithSMSRouter.swift */; };
-		21C4906127FCA77A00DBBDD2 /* AccessCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C4906027FCA77A00DBBDD2 /* AccessCodeViewController.swift */; };
+		21C4906127FCA77A00DBBDD2 /* SMSAccessCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C4906027FCA77A00DBBDD2 /* SMSAccessCodeViewController.swift */; };
 		21CCF0CA27F206C100096CE1 /* AmazonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CCF0C927F206C100096CE1 /* AmazonService.swift */; };
 		21DC001227F7ACE30098CBEA /* PhoneNumberKit in Frameworks */ = {isa = PBXBuildFile; productRef = 21DC001127F7ACE30098CBEA /* PhoneNumberKit */; };
 		21DC001827F7B1690098CBEA /* LoginWithSMSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DC001727F7B1690098CBEA /* LoginWithSMSViewController.swift */; };
@@ -72,11 +78,17 @@
 
 /* Begin PBXFileReference section */
 		2144575D27E78B2B00675DD2 /* StyleSheet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StyleSheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		215FAE3B2800DF7B006291A8 /* LoginWithEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithEmailViewController.swift; sourceTree = "<group>"; };
+		215FAE3D2800DF87006291A8 /* LoginWithEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithEmailViewModel.swift; sourceTree = "<group>"; };
+		215FAE3F2800DF97006291A8 /* EmailAccessCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAccessCodeViewController.swift; sourceTree = "<group>"; };
+		215FAE412800DFA0006291A8 /* LoginWithEmailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithEmailRouter.swift; sourceTree = "<group>"; };
+		215FAE442800E4B6006291A8 /* EmailValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidator.swift; sourceTree = "<group>"; };
+		215FAE462800E96F006291A8 /* Validatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validatable.swift; sourceTree = "<group>"; };
 		216B5D7F27EBA14500CCF43C /* Gotham-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Black.otf"; sourceTree = "<group>"; };
 		216B5D8027EBA14500CCF43C /* Gotham-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Bold.otf"; sourceTree = "<group>"; };
 		2170151727EE7F4C00743B5B /* AmazonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazonViewController.swift; sourceTree = "<group>"; };
 		219FF09D2800CD10004E9D53 /* LoginWithSMSRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithSMSRouter.swift; sourceTree = "<group>"; };
-		21C4906027FCA77A00DBBDD2 /* AccessCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessCodeViewController.swift; sourceTree = "<group>"; };
+		21C4906027FCA77A00DBBDD2 /* SMSAccessCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSAccessCodeViewController.swift; sourceTree = "<group>"; };
 		21CCF0C927F206C100096CE1 /* AmazonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazonService.swift; sourceTree = "<group>"; };
 		21DC001727F7B1690098CBEA /* LoginWithSMSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithSMSViewController.swift; sourceTree = "<group>"; };
 		21EC082027EE7B9A00A39F84 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -148,6 +160,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		215FAE3A2800DF67006291A8 /* LoginWithEmail */ = {
+			isa = PBXGroup;
+			children = (
+				215FAE3B2800DF7B006291A8 /* LoginWithEmailViewController.swift */,
+				215FAE3D2800DF87006291A8 /* LoginWithEmailViewModel.swift */,
+				215FAE3F2800DF97006291A8 /* EmailAccessCodeViewController.swift */,
+				215FAE412800DFA0006291A8 /* LoginWithEmailRouter.swift */,
+			);
+			path = LoginWithEmail;
+			sourceTree = "<group>";
+		};
+		215FAE432800E4AD006291A8 /* Validators */ = {
+			isa = PBXGroup;
+			children = (
+				215FAE462800E96F006291A8 /* Validatable.swift */,
+				215FAE442800E4B6006291A8 /* EmailValidator.swift */,
+			);
+			path = Validators;
+			sourceTree = "<group>";
+		};
 		216B5D7E27EBA14500CCF43C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +193,7 @@
 		2170151B27EE930B00743B5B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				215FAE3A2800DF67006291A8 /* LoginWithEmail */,
 				21DC001627F7B14E0098CBEA /* LoginWithSMS */,
 				2170151C27EE931100743B5B /* Authentication */,
 				FE66F27827F7A7740051007F /* Splash */,
@@ -196,7 +229,7 @@
 			children = (
 				21DC001727F7B1690098CBEA /* LoginWithSMSViewController.swift */,
 				21FC8CF627F8D4D10014914D /* LoginWithSMSViewModel.swift */,
-				21C4906027FCA77A00DBBDD2 /* AccessCodeViewController.swift */,
+				21C4906027FCA77A00DBBDD2 /* SMSAccessCodeViewController.swift */,
 				219FF09D2800CD10004E9D53 /* LoginWithSMSRouter.swift */,
 			);
 			path = LoginWithSMS;
@@ -234,6 +267,7 @@
 		FE2E9F0B27E53BD2002C0021 /* iStory */ = {
 			isa = PBXGroup;
 			children = (
+				215FAE432800E4AD006291A8 /* Validators */,
 				21FC8CF327F8D1BF0014914D /* Views */,
 				FE66F28127F7B0D70051007F /* Resources */,
 				FE66F26427F79E150051007F /* CompositionRoot */,
@@ -443,18 +477,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				219FF09E2800CD10004E9D53 /* LoginWithSMSRouter.swift in Sources */,
+				215FAE3E2800DF87006291A8 /* LoginWithEmailViewModel.swift in Sources */,
 				FEB964D82800E2F5008DD002 /* AuthenticationSignUpInputViewController.swift in Sources */,
 				FE66F2A527F8A9F90051007F /* AuthenticationIstorySignUpViewController.swift in Sources */,
 				FE66F29B27F89A780051007F /* AuthenticationSignUpViewController.swift in Sources */,
+				215FAE402800DF97006291A8 /* EmailAccessCodeViewController.swift in Sources */,
 				FE66F27727F7A17E0051007F /* AppleClient.swift in Sources */,
 				FE66F29D27F89C170051007F /* SignUpViewModel.swift in Sources */,
 				21CCF0CA27F206C100096CE1 /* AmazonService.swift in Sources */,
 				21FC8CF527F8D24D0014914D /* PhoneNumberService.swift in Sources */,
 				FE66F2A127F89FA30051007F /* AuthenticationIstoryView.swift in Sources */,
 				FE66F29727F893E90051007F /* AuthenticationLoginViewController.swift in Sources */,
+				215FAE452800E4B6006291A8 /* EmailValidator.swift in Sources */,
+				215FAE422800DFA0006291A8 /* LoginWithEmailRouter.swift in Sources */,
+				215FAE3C2800DF7B006291A8 /* LoginWithEmailViewController.swift in Sources */,
 				FE66F27F27F7B0590051007F /* SplashAuthViewController.swift in Sources */,
 				FE66F29327F8874E0051007F /* AuthenticationSocialViews.swift in Sources */,
 				FEB964D62800CB81008DD002 /* AuthenticationLoginInputViewController.swift in Sources */,
+				215FAE472800E96F006291A8 /* Validatable.swift in Sources */,
 				FE66F27A27F7A7820051007F /* SplashViewController.swift in Sources */,
 				FE66F26B27F79F330051007F /* AuthenticationFlowController.swift in Sources */,
 				FE66F28D27F7BBE10051007F /* AuthenticationStyle.swift in Sources */,
@@ -468,7 +508,7 @@
 				FE66F29527F8907D0051007F /* AppDependencies.swift in Sources */,
 				2170151827EE7F4C00743B5B /* AmazonViewController.swift in Sources */,
 				FE2E9F0F27E53BD2002C0021 /* SceneDelegate.swift in Sources */,
-				21C4906127FCA77A00DBBDD2 /* AccessCodeViewController.swift in Sources */,
+				21C4906127FCA77A00DBBDD2 /* SMSAccessCodeViewController.swift in Sources */,
 				FE66F2A327F8A5E60051007F /* AuthenticationIstoryLoginViewController.swift in Sources */,
 				21FC8CF927F8D55A0014914D /* SubmitButton.swift in Sources */,
 			);

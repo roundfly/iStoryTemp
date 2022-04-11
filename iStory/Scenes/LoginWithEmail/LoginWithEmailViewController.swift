@@ -1,16 +1,15 @@
 //
-//  LoginWithSMSViewController.swift
+//  LoginWithEmailViewController.swift
 //  iStory
 //
-//  Created by Shyft on 4/2/22.
+//  Created by Shyft on 4/8/22.
 //
 
 import Foundation
 import UIKit
-import StyleSheet
 
-final class LoginWithSMSViewController: UIViewController {
-    private var viewModel: LoginWithSMSViewModel {
+final class LoginWithEmailViewController: UIViewController {
+    private var viewModel: LoginWithEmailViewModel {
         didSet {
             updateUI()
         }
@@ -18,19 +17,18 @@ final class LoginWithSMSViewController: UIViewController {
     
     private let titleLabel = UILabel()
     private let subtitleLabel = UILabel()
-    private let phoneNumberTextFieldTitleLabel = UILabel()
-    private var phoneNumberTextField: UITextField!
+    private var emailTextField = UITextField()
     private let submitButton = SubmitButton()
     private let errorMessageLabel = UILabel()
     private let skipButton = UIButton()
-    private var router: LoginWithSMSRoutingLogic!
+    private var router: LoginWithEmailRoutingLogic!
     
-    init(viewModel: LoginWithSMSViewModel) {
+    init(viewModel: LoginWithEmailViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-        router = LoginWithSMSRouter(controller: self)
+        router = LoginWithEmailRouter(controller: self)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -44,7 +42,6 @@ final class LoginWithSMSViewController: UIViewController {
     }
     
     private func updateUI() {
-        errorMessageLabel.text = viewModel.viewState == .normal ? viewModel.normalStateErrorMessage : viewModel.errorStateErrorMessage
         submitButton.isEnabled = viewModel.viewState == .normal
     }
     
@@ -59,7 +56,7 @@ final class LoginWithSMSViewController: UIViewController {
         titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).activate()
         titleLabel.setConstraintsRelativeToSuperView(leading: 32, trailing: 32)
         titleLabel.font = .systemFont(ofSize: titleFont)
-        titleLabel.text = "Welcome \nback"
+        titleLabel.text = "Request Code"
         titleLabel.numberOfLines = 0
         titleLabel.textAlignment = .center
         
@@ -67,35 +64,28 @@ final class LoginWithSMSViewController: UIViewController {
         subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: smallOffset).activate()
         subtitleLabel.setConstraintsRelativeToSuperView(leading: 24, trailing: 24)
         subtitleLabel.font = .systemFont(ofSize: subtitleFont)
-        subtitleLabel.text = "Enter your phone number \nto receive verification code"
+        subtitleLabel.text = "Enter your email to get one time access code."
         subtitleLabel.numberOfLines = 0
         subtitleLabel.textAlignment = .center
-
-        view.addManagedSubview(phoneNumberTextFieldTitleLabel)
-        phoneNumberTextFieldTitleLabel.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: bigOffset).activate()
-        phoneNumberTextFieldTitleLabel.setConstraintsRelativeToSuperView(leading: 18, trailing: 18)
-        phoneNumberTextFieldTitleLabel.font = .systemFont(ofSize: 15)
-        phoneNumberTextFieldTitleLabel.text = "Mobile number"
         
-        phoneNumberTextField = viewModel.dependency.createPhoneNumberTextField()
-        view.addManagedSubview(phoneNumberTextField)
-        phoneNumberTextField.topAnchor.constraint(equalTo: phoneNumberTextFieldTitleLabel.bottomAnchor, constant: smallOffset).activate()
-        phoneNumberTextField.setConstraintsRelativeToSuperView(leading: 16, trailing: 16)
-        phoneNumberTextField.setHeightConstraint(equalToConstant: 44)
-        phoneNumberTextField.layer.cornerRadius = 13
-        phoneNumberTextField.backgroundColor = UIColor.white.withAlphaComponent(0.7)
-        phoneNumberTextField.addTarget(self, action: #selector(onTextChange), for: .editingChanged)
+        view.addManagedSubview(emailTextField)
+        emailTextField.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 50).activate()
+        emailTextField.setConstraintsRelativeToSuperView(leading: 16, trailing: 16)
+        emailTextField.setHeightConstraint(equalToConstant: 44)
+        emailTextField.layer.cornerRadius = 13
+        emailTextField.backgroundColor = UIColor.white.withAlphaComponent(0.7)
+        emailTextField.addTarget(self, action: #selector(onTextChange), for: .editingChanged)
         
         view.addManagedSubview(submitButton)
-        submitButton.topAnchor.constraint(equalTo: phoneNumberTextField.bottomAnchor, constant: smallOffset).activate()
+        submitButton.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: smallOffset).activate()
         submitButton.setConstraintsRelativeToSuperView(leading: 16, trailing: 16)
         submitButton.setHeightConstraint(equalToConstant: buttonSize)
         submitButton.titleText = "Get code"
         submitButton.textColor = .black
         submitButton.isEnabled = viewModel.viewState == .normal
         let action = UIAction { [weak self] handler in
-            let number = self?.phoneNumberTextField.text ?? ""
-            self?.router.number = number
+            let email = self?.emailTextField.text ?? ""
+            self?.router.email = email
             self?.router.showAccessCodeScreen()
         }
         submitButton.addAction(action, for: .touchUpInside)
@@ -110,7 +100,7 @@ final class LoginWithSMSViewController: UIViewController {
         view.addManagedSubview(skipButton)
         skipButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -5).activate()
         skipButton.setConstraintsRelativeToSuperView(leading: 8, trailing: 8)
-        skipButton.setTitle("Skip and check the app? No account? Create one!", for: .normal)
+        skipButton.setTitle("Skip or go Back? No account? Create one!", for: .normal)
         skipButton.setTitleColor(.black, for: .normal)
         skipButton.backgroundColor = .clear
         skipButton.titleLabel?.font = .systemFont(ofSize: 12)
@@ -118,12 +108,12 @@ final class LoginWithSMSViewController: UIViewController {
     
     @objc
     func onTextChange() {
-        guard let phone = phoneNumberTextField.text, !phone.isEmpty else {
+        guard let email = emailTextField.text, !email.isEmpty else {
             viewModel.viewState = .error
             return
         }
         
-        let isValid = viewModel.dependency.isValidPhone(number: phone)
+        let isValid = viewModel.validator.isValid(email)
         viewModel.viewState = isValid ? .normal : .error
     }
 }
