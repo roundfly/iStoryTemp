@@ -67,7 +67,7 @@ final class AuthenticationFlowController: UIViewController {
         
         viewController.smsButtonPublisher
             .sink { [navigation] _ in
-                let viewModel = LoginWithSMSViewModel(dependency: self.dependencies.phoneNumberKit, viewState: .error)
+                let viewModel = LoginWithSMSViewModel(dependency: self.dependencies.phoneNumberKit, viewState: .error, authType: .login)
                 navigation.pushViewController(LoginWithSMSViewController(viewModel: viewModel), animated: true)
             }.store(in: &cancenllables)
         
@@ -79,6 +79,12 @@ final class AuthenticationFlowController: UIViewController {
         viewController.emailButtonPublisher.sink { [navigation] _ in
             navigation.pushViewController(AuthenticationSignUpInputViewController(), animated: true)
         }.store(in: &cancenllables)
+        
+        viewController.smsButtonPublisher.sink { [navigation] _ in
+            let viewModel = LoginWithSMSViewModel(dependency: self.dependencies.phoneNumberKit, viewState: .error, authType: .signup)
+            navigation.pushViewController(LoginWithSMSViewController(viewModel: viewModel), animated: true)
+        }.store(in: &cancenllables)
+        
         navigation.pushViewController(viewController, animated: true)
     }
 }
