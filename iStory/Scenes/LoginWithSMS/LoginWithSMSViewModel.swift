@@ -14,9 +14,15 @@ enum LoginWithSMSViewState {
     case error
 }
 
+enum AuthType {
+    case login
+    case signup
+}
+
 struct LoginWithSMSViewModel {
     let dependency: PhoneNumberService
     var viewState: LoginWithSMSViewState
+    var authType: AuthType
     let normalStateErrorMessage = "Please confirm your country code and enter your phone number"
     let errorStateErrorMessage = "Error, number that you have entered is wrong! Please try again."
 }

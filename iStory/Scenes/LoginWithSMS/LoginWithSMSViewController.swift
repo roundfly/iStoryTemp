@@ -59,15 +59,15 @@ final class LoginWithSMSViewController: UIViewController {
         titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).activate()
         titleLabel.setConstraintsRelativeToSuperView(leading: 32, trailing: 32)
         titleLabel.font = .systemFont(ofSize: titleFont)
-        titleLabel.text = "Welcome \nback"
         titleLabel.numberOfLines = 0
         titleLabel.textAlignment = .center
+        titleLabel.text = viewModel.authType == .login ? "Welcome \nback" : "Sign Up"
         
         view.addManagedSubview(subtitleLabel)
         subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: smallOffset).activate()
         subtitleLabel.setConstraintsRelativeToSuperView(leading: 24, trailing: 24)
         subtitleLabel.font = .systemFont(ofSize: subtitleFont)
-        subtitleLabel.text = "Enter your phone number \nto receive verification code"
+        subtitleLabel.text = viewModel.authType == .login ? "Enter your phone number \nto receive verification code" : "Enter your phone number"
         subtitleLabel.numberOfLines = 0
         subtitleLabel.textAlignment = .center
 
