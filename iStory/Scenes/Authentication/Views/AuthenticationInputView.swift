@@ -16,7 +16,6 @@ final class AuthenticationInputView: UIView {
     private let descriptionLabel = UILabel()
     private let emailTextField = UITextField()
     private let passwordTextField = UITextField()
-    private let onSubmit: UIAction
     private var isPasswordVisisble = false
     private lazy var inputVisibilityButton: UIButton = {
         var inputVisibilityConfig = UIButton.Configuration.filled()
@@ -33,14 +32,15 @@ final class AuthenticationInputView: UIView {
         inputVisibilityButton.frame = CGRect(x: 0, y: 0, width: 40.0, height: 40.0)
         return inputVisibilityButton
     }()
+    private let viewModel: AuthenticationInputViewModel
 
     // MARK: - Initialization
 
-    init(title: String, description: String, onSubmit: UIAction) {
-        self.onSubmit = onSubmit
+    init(viewModel: AuthenticationInputViewModel) {
+        self.viewModel = viewModel
         super.init(frame: .zero)
-        titleLabel.text = title
-        descriptionLabel.text = description
+        titleLabel.text = viewModel.title
+        descriptionLabel.text = viewModel.subtitle
         setupSubviews()
     }
 
@@ -104,7 +104,7 @@ final class AuthenticationInputView: UIView {
         config.baseBackgroundColor = AppColor.blue.uiColor
         config.baseForegroundColor = .black
         config.title = String(localized: "auth.button.submit.title")
-        let signupButton = UIButton(configuration: config, primaryAction: onSubmit)
+        let signupButton = UIButton(configuration: config, primaryAction: UIAction { [viewModel] _ in viewModel.submitForm() })
         let stackView = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, signupButton])
         addManagedSubview(stackView)
         stackView.axis = .vertical

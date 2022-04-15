@@ -9,25 +9,11 @@ import Foundation
 import GoogleSignInService
 import PhoneNumberKit
 
-protocol GoogleDependency {
-    var googleClient: GoogleClient { get }
-}
 
-protocol AppleDependency {
-    var appleClient: AppleClient { get }
-}
+struct AppEnvironment {
+    var authentication: AuthenticationEnvironment
 
-protocol PhoneNumberDependency {
-    var phoneNumberKit: PhoneNumberService { get }
-}
-
-protocol AmazonDependency {
-    var amazonService: AmazonService { get }
-}
-
-struct AppDependencies: GoogleDependency, AppleDependency, PhoneNumberDependency, AmazonDependency {    
-    var phoneNumberKit: PhoneNumberService { .init() }
-    var googleClient: GoogleClient { .prodution }
-    var appleClient: AppleClient { .production }
-    var amazonService: AmazonService { .init() }
+    static var production: AppEnvironment {
+        Self(authentication: .init(amazonClient: .init()))
+    }
 }
