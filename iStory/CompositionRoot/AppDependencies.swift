@@ -14,6 +14,6 @@ struct AppEnvironment {
     var authentication: AuthenticationEnvironment
 
     static var production: AppEnvironment {
-        Self(authentication: .init())
+        Self(authentication: .init(amazonClient: .init()))
     }
 }

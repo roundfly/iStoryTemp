@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import GoogleSignInService
 
 let authReducer: Reducer<AuthenticationState, AuthenticationAction, AuthenticationEnvironment> = { state, action, environment in
     switch action {
@@ -22,6 +23,25 @@ let authReducer: Reducer<AuthenticationState, AuthenticationAction, Authenticati
         state.currentUser = user
     case .authFailure(let reason):
         state.authFailure = reason
+    case .googleSignIn(presentingViewController: let presentingViewController):
+        return environment
+            .googleClient
+            .signIn(presentingViewController)
+            .map(AuthenticationAction.loggedInWithGoogle(googleUser:))
+            .catch { Just(AuthenticationAction.authFailure(reason: $0.localizedDescription)).eraseToAnyPublisher() }
+            .eraseToAnyPublisher()
+    case .amazonSignIn:
+        return environment
+            .amazonClient
+            .openAuthorizeRequest()
+            .map(AuthenticationAction.loggedInWithAmazon(token:))
+            .catch { Just(AuthenticationAction.authFailure(reason: $0.localizedDescription)).eraseToAnyPublisher() }
+            .eraseToAnyPublisher()
+        
+    case .loggedInWithGoogle(googleUser: let googleUser):
+        state.currentUser = .init()
+    case .loggedInWithAmazon(token: let token):
+        state.currentUser = .init()
     }
     return Empty().eraseToAnyPublisher()
 }

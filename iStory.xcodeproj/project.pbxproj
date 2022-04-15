@@ -15,7 +15,6 @@
 		215FAE472800E96F006291A8 /* Validatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215FAE462800E96F006291A8 /* Validatable.swift */; };
 		216B5D8127EBA14500CCF43C /* Gotham-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 216B5D7F27EBA14500CCF43C /* Gotham-Black.otf */; };
 		216B5D8227EBA14500CCF43C /* Gotham-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 216B5D8027EBA14500CCF43C /* Gotham-Bold.otf */; };
-		2170151827EE7F4C00743B5B /* AmazonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2170151727EE7F4C00743B5B /* AmazonViewController.swift */; };
 		218910B528045176002BB295 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218910B428045176002BB295 /* UIApplication+Extension.swift */; };
 		218910B72804519D002BB295 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218910B62804519D002BB295 /* UIViewController+Extension.swift */; };
 		219FF09E2800CD10004E9D53 /* LoginWithSMSRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219FF09D2800CD10004E9D53 /* LoginWithSMSRouter.swift */; };
@@ -98,7 +97,6 @@
 		215FAE462800E96F006291A8 /* Validatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validatable.swift; sourceTree = "<group>"; };
 		216B5D7F27EBA14500CCF43C /* Gotham-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Black.otf"; sourceTree = "<group>"; };
 		216B5D8027EBA14500CCF43C /* Gotham-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Bold.otf"; sourceTree = "<group>"; };
-		2170151727EE7F4C00743B5B /* AmazonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazonViewController.swift; sourceTree = "<group>"; };
 		218910B428045176002BB295 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		218910B62804519D002BB295 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		219FF09D2800CD10004E9D53 /* LoginWithSMSRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithSMSRouter.swift; sourceTree = "<group>"; };
@@ -228,7 +226,6 @@
 		2170151C27EE931100743B5B /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				2170151727EE7F4C00743B5B /* AmazonViewController.swift */,
 				FE66F27527F7A1680051007F /* AppleSignIn */,
 				FE66F29827F89A4E0051007F /* LogIn */,
 				FE66F26927F79F230051007F /* Navigation */,
@@ -617,11 +614,10 @@
 				21FC8CF727F8D4D10014914D /* LoginWithSMSViewModel.swift in Sources */,
 				FE66F26627F79E390051007F /* AppFlowController.swift in Sources */,
 				FE66F29527F8907D0051007F /* AppDependencies.swift in Sources */,
-				2170151827EE7F4C00743B5B /* AmazonViewController.swift in Sources */,
 				FE2E9F0F27E53BD2002C0021 /* SceneDelegate.swift in Sources */,
 				21C4906127FCA77A00DBBDD2 /* SMSAccessCodeViewController.swift in Sources */,
 				FEB964F12801C22B008DD002 /* AuthenticationReducer.swift in Sources */,
-				21C4906127FCA77A00DBBDD2 /* AccessCodeViewController.swift in Sources */,
+				21C4906127FCA77A00DBBDD2 /* SMSAccessCodeViewController.swift in Sources */,
 				FE66F2A327F8A5E60051007F /* AuthenticationIstoryLoginViewController.swift in Sources */,
 				21FC8CF927F8D55A0014914D /* SubmitButton.swift in Sources */,
 			);

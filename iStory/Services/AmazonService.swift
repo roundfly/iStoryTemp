@@ -5,17 +5,23 @@
 //  Created by Shyft on 3/28/22.
 //
 
-import Foundation
+import Combine
 import LoginWithAmazon
 
 final class AmazonService {
-    func openAuthorizeRequest() {
+    func openAuthorizeRequest() -> AnyPublisher<String, Error> {
         let request = AMZNAuthorizeRequest()
         request.scopes = [AMZNProfileScope.profile(), AMZNProfileScope.postalCode()]
-        
-        AMZNAuthorizationManager.shared().authorize(request) { result, isSuccess, error in
-            print("RESULT \(result?.token)")
-            print("Error \(error)")
-        }
+        return Future { promise in
+            AMZNAuthorizationManager.shared().authorize(request) { result, isSuccess, error in
+                if let error = error {
+                    promise(.failure(error))
+                    return
+                }
+                if let token = result?.token {
+                    promise(.success(token))
+                }
+            }
+        }.eraseToAnyPublisher()
     }
 }

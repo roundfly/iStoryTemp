@@ -10,6 +10,7 @@ import Combine
 
 struct AuthenticationEnvironment {
     var phoneNumberKit: PhoneNumberService { .init() }
+    var amazonClient: AmazonService
     var googleClient: GoogleClient { .prodution }
     var appleClient: AppleClient { .production }
     var authenticationClient: AuthenticationClient { .unhappyPath }

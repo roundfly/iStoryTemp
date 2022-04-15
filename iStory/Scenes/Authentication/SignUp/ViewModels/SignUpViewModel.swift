@@ -30,7 +30,7 @@ final class AuthenticationSignUpViewModel {
     }
 
     func onAmazon() {
-//        amazonService.openAuthorizeRequest()
+        store.dispatch(.amazonSignIn)
     }
 
     func onIstorySignUp() {
@@ -38,16 +38,10 @@ final class AuthenticationSignUpViewModel {
     }
 
     func onGoogle() {
-//        guard let currentViewController = UIApplication.shared.topMostViewController() else {
-//            NSLog("Can not present Google sign in, beacuse topMostViewController can not be found")
-//            return
-//        }
-//
-//        googleClient.signIn(currentViewController)
-//            .sink { error in
-//                NSLog("Error fetching google user \(error)")
-//            } receiveValue: { user in
-//                NSLog("User has founded with email \(user.email ?? "unknown")")
-//            }.store(in: &cancellables)
+        guard let currentViewController = UIApplication.shared.topMostViewController() else {
+            NSLog("Can not present Google sign in, beacuse topMostViewController can not be found")
+            return
+        }
+        store.dispatch(.googleSignIn(presentingViewController: currentViewController))
     }
 }
