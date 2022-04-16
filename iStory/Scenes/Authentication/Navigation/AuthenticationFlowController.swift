@@ -79,8 +79,8 @@ final class AuthenticationFlowController: UIViewController {
         let signUpViewController = AuthenticationSignUpInputViewController(store: store)
         let datePickerViewController = AuthenticationSignUpDatePickerViewController(store: store)
         datePickerViewController.dateCompletePublisher
-            .sink { [navigation] _ in
-                navigation.pushViewController(SMSAccessCodeViewController(receiver: "454353453"), animated: true)
+            .sink { [navigation, store] _ in
+                navigation.pushViewController(SMSAccessCodeViewController(receiver: store.state.currentUser?.email ?? ""), animated: true)
             }.store(in: &cancenllables)
         signUpViewController.signUpCompletePublisher
             .sink { [navigation] _ in

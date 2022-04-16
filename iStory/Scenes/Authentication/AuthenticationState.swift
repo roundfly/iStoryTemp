@@ -9,6 +9,8 @@ import Foundation
 
 struct User: Identifiable, Equatable {
     let id = UUID()
+    var email: String?
+    var number: String?
 }
 
 struct AuthenticationState: Equatable {

@@ -20,6 +20,7 @@ let authReducer: Reducer<AuthenticationState, AuthenticationAction, Authenticati
     case .signUp(let credentials):
         state.authFailure = nil
         state.currentUser = .init()
+        state.currentUser?.email = credentials.email
     case .loggedIn(let user):
         state.authFailure = nil
         state.currentUser = user
