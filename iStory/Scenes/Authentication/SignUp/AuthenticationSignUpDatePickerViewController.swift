@@ -14,6 +14,8 @@ final class AuthenticationSignUpDatePickerViewController: UIViewController {
     private let titleLabel = UILabel()
     private let descriptionLabel = UILabel()
     private let logoImageView = UIImageView()
+    private let datePicker = UIDatePicker()
+
 
     // MARK: - View controller lifecycle
 
@@ -31,6 +33,7 @@ final class AuthenticationSignUpDatePickerViewController: UIViewController {
         setupTitleLabel()
         setupDescriptionLabel()
         setupInputStackView()
+        setupDatePicker()
     }
 
     private func setupLogoImageView() {
@@ -79,9 +82,13 @@ final class AuthenticationSignUpDatePickerViewController: UIViewController {
         let dateLabel = UILabel()
         dateLabel.text = String(localized: "auth.date.picker.heading")
         dateLabel.font = .preferredFont(forTextStyle: .body)
-        let datePickerButton = UIButton(configuration: dateConfig, primaryAction: UIAction { _ in })
+        let datePickerContainer = UIView()
+        datePickerContainer.addManagedSubview(datePicker)
+        setupDateContainer(datePickerContainer)
+        datePicker.centerXAnchor.constraint(equalTo: datePickerContainer.centerXAnchor).activate()
+        datePicker.centerYAnchor.constraint(equalTo: datePickerContainer.centerYAnchor).activate()
         let submitButton = UIButton(configuration: submitConfig, primaryAction: UIAction { _ in })
-        let stackView = UIStackView(arrangedSubviews: [dateLabel, datePickerButton, submitButton])
+        let stackView = UIStackView(arrangedSubviews: [dateLabel, datePickerContainer, submitButton])
         view.addManagedSubview(stackView)
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
@@ -90,5 +97,39 @@ final class AuthenticationSignUpDatePickerViewController: UIViewController {
         stackView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 80.0).activate()
         stackView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor).activate()
         stackView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor).activate()
+    }
+
+    private func setupDatePicker() {
+        datePicker.datePickerMode = .date
+        datePicker.maximumDate = .now
+        datePicker.tintColor = .black
+        var components = DateComponents()
+        components.year = 1900
+        components.month = 9
+        components.day = 9
+        datePicker.timeZone = .autoupdatingCurrent
+        datePicker.locale = .autoupdatingCurrent
+        datePicker.calendar = .autoupdatingCurrent
+        components.timeZone = datePicker.timeZone
+        components.calendar = datePicker.calendar
+        datePicker.date = Calendar.autoupdatingCurrent.date(from: components) ?? .now
+        setDatePickerBackgrond()
+        datePicker.addTarget(self, action: #selector(selectDate(_:)), for: .valueChanged)
+    }
+
+    private func setupDateContainer(_ datePickerContainer: UIView) {
+        datePickerContainer.backgroundColor = .white
+        datePickerContainer.layer.cornerCurve = .continuous
+        datePickerContainer.layer.cornerRadius = 5.0
+        datePickerContainer.layer.masksToBounds = true
+    }
+
+    @objc
+    private func selectDate(_ datePicker: UIDatePicker) {
+        setDatePickerBackgrond()
+    }
+
+    private func setDatePickerBackgrond() {
+        datePicker.subviews.first?.subviews.first?.subviews.first?.backgroundColor = .white
     }
 }
