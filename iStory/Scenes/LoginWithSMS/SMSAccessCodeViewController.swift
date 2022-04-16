@@ -19,11 +19,11 @@ final class SMSAccessCodeViewController: UIViewController {
     private let midLabel = UILabel()
     private let lowerLabel = UILabel()
     
-    private var number: String = ""
+    private var receiver: String = ""
     
-    init(number: String) {
+    init(receiver: String) {
         super.init(nibName: nil, bundle: nil)
-        self.number = number
+        self.receiver = receiver
     }
     
     required init?(coder: NSCoder) {
@@ -58,7 +58,7 @@ final class SMSAccessCodeViewController: UIViewController {
         subtitleLabel.font = .systemFont(ofSize: subtitleFont)
         subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).activate()
         subtitleLabel.setConstraintsRelativeToSuperView(leading: 32, trailing: 32)
-        subtitleLabel.text = "We have sent the access code to: \n\(number)"
+        subtitleLabel.text = "We have sent the access code to: \n\(receiver)"
         subtitleLabel.textAlignment = .center
         
         view.addManagedSubview(stackView)

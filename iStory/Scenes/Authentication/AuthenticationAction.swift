@@ -13,6 +13,8 @@ typealias Credentials = (email: String, password: String)
 enum AuthenticationAction {
     case signUp(user: Credentials)
     case logIn(user: Credentials)
+    case submitBirthday(date: Date)
+    case submittedBirthday(date: Date)
     case loggedIn(user: User)
     case loggedInWithGoogle(googleUser: GoogleUser)
     case loggedInWithAmazon(token: String)

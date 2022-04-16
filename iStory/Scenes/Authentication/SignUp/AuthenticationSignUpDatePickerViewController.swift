@@ -5,6 +5,7 @@
 //  Created by Nikola Stojanovic on 15.4.22..
 //
 
+import Combine
 import UIKit
 import StyleSheet
 
@@ -15,7 +16,28 @@ final class AuthenticationSignUpDatePickerViewController: UIViewController {
     private let descriptionLabel = UILabel()
     private let logoImageView = UIImageView()
     private let datePicker = UIDatePicker()
+    var dateCompletePublisher: AnyPublisher<Void, Never> {
+        dateCompleteSubject.eraseToAnyPublisher()
+    }
+    private let dateCompleteSubject = PassthroughSubject<Void, Never>()
+    private var cancellables = Set<AnyCancellable>()
+    private let store: AuthenticationStore
 
+    init(store: AuthenticationStore) {
+        self.store = store
+        super.init(nibName: nil, bundle: nil)
+        store.$state.sink { [dateCompleteSubject] state in
+            if let _ = state.authFailure {
+                // prsent error
+            } else if let _ = state.userBirthday {
+                dateCompleteSubject.send()
+            }
+        }.store(in: &cancellables)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
 
     // MARK: - View controller lifecycle
 
@@ -87,7 +109,9 @@ final class AuthenticationSignUpDatePickerViewController: UIViewController {
         setupDateContainer(datePickerContainer)
         datePicker.centerXAnchor.constraint(equalTo: datePickerContainer.centerXAnchor).activate()
         datePicker.centerYAnchor.constraint(equalTo: datePickerContainer.centerYAnchor).activate()
-        let submitButton = UIButton(configuration: submitConfig, primaryAction: UIAction { _ in })
+        let submitButton = UIButton(configuration: submitConfig, primaryAction: UIAction { [store, datePicker] _ in
+            store.dispatch(.submitBirthday(date: datePicker.date))
+        })
         let stackView = UIStackView(arrangedSubviews: [dateLabel, datePickerContainer, submitButton])
         view.addManagedSubview(stackView)
         stackView.axis = .vertical

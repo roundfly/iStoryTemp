@@ -7,6 +7,7 @@
 
 import GoogleSignInService
 import Combine
+import Foundation
 
 struct AuthenticationEnvironment {
     var phoneNumberKit: PhoneNumberService { .init() }
@@ -18,22 +19,14 @@ struct AuthenticationEnvironment {
 
 struct AuthenticationClient /* iStory client */ {
     var logIn: (Credentials) -> AnyPublisher<User, Error>
+    var submitBirthday: (Date) -> AnyPublisher<Date, Error>
 
     static var prodution: AuthenticationClient {
         Self(logIn: { credentials in
             Just(User()).setFailureType(to: Error.self).eraseToAnyPublisher()
+        },
+             submitBirthday: { date in
+            Just(date).setFailureType(to: Error.self).eraseToAnyPublisher()
         })
     }
-
-    #if DEBUG
-    struct LoginError: Error {}
-
-    static let happyPath = Self { credentials in
-        Just(User()).setFailureType(to: Error.self).eraseToAnyPublisher()
-    }
-
-    static let unhappyPath = Self { credentials in
-        Fail(error: LoginError()).eraseToAnyPublisher()
-    }
-    #endif
 }

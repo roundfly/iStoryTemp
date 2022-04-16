@@ -77,19 +77,23 @@ final class AuthenticationFlowController: UIViewController {
     private func openSignUpFlow() {
         let viewController = AuthenticationIstorySignUpViewController()
         let signUpViewController = AuthenticationSignUpInputViewController(store: store)
+        let datePickerViewController = AuthenticationSignUpDatePickerViewController(store: store)
+        datePickerViewController.dateCompletePublisher
+            .sink { [navigation] _ in
+                navigation.pushViewController(SMSAccessCodeViewController(receiver: "454353453"), animated: true)
+            }.store(in: &cancenllables)
         signUpViewController.signUpCompletePublisher
             .sink { [navigation] _ in
-                navigation.pushViewController(AuthenticationSignUpDatePickerViewController(), animated: true)
+                guard !navigation.viewControllers.contains(datePickerViewController) else { return }
+                navigation.pushViewController(datePickerViewController, animated: true)
             }.store(in: &cancenllables)
         viewController.emailButtonPublisher.sink { [navigation] _ in
             navigation.pushViewController(signUpViewController, animated: true)
         }.store(in: &cancenllables)
-        
         viewController.smsButtonPublisher.sink { [navigation] _ in
             let viewModel = LoginWithSMSViewModel(dependency: .init(), viewState: .error, authType: .signup)
             navigation.pushViewController(LoginWithSMSViewController(viewModel: viewModel), animated: true)
         }.store(in: &cancenllables)
-        
         navigation.pushViewController(viewController, animated: true)
     }
 }

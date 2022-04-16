@@ -13,5 +13,6 @@ struct User: Identifiable, Equatable {
 
 struct AuthenticationState: Equatable {
     var currentUser: User?
+    var userBirthday: Date?
     var authFailure: String?
 }

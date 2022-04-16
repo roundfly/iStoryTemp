@@ -44,6 +44,15 @@ let authReducer: Reducer<AuthenticationState, AuthenticationAction, Authenticati
         state.currentUser = .init()
     case .loggedInWithAmazon(token: let token):
         state.currentUser = .init()
+    case .submitBirthday(let date):
+        return environment.authenticationClient
+            .submitBirthday(date)
+            .map(AuthenticationAction.submittedBirthday(date:))
+            .catch { Just(AuthenticationAction.authFailure(reason: $0.localizedDescription)).eraseToAnyPublisher() }
+            .eraseToAnyPublisher()
+    case .submittedBirthday(let date):
+        state.authFailure = nil
+        state.userBirthday = date
     }
     return Empty().eraseToAnyPublisher()
 }
