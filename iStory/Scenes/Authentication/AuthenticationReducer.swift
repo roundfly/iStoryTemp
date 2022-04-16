@@ -17,6 +17,7 @@ let authReducer: Reducer<AuthenticationState, AuthenticationAction, Authenticati
             .map { user in
                 var user = user
                 user.email = credentials.email
+                user.password = credentials.password
                 return AuthenticationAction.signedIn(user: user)
             }
             .catch { Just(AuthenticationAction.authFailure(reason: $0.localizedDescription)).eraseToAnyPublisher() }
@@ -27,6 +28,7 @@ let authReducer: Reducer<AuthenticationState, AuthenticationAction, Authenticati
             .map { user in
                 var user = user
                 user.email = credentials.email
+                user.password = credentials.password
                 return AuthenticationAction.signedIn(user: user)
             }
             .catch { Just(AuthenticationAction.authFailure(reason: $0.localizedDescription)).eraseToAnyPublisher() }

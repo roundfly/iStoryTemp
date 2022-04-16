@@ -17,6 +17,21 @@ struct AuthenticationEnvironment {
     var authenticationClient: AuthenticationClient { .prodution }
 }
 
+extension Future where Failure == Error {
+    convenience init(operation: @escaping () async throws -> Output) {
+        self.init { promise in
+            Task {
+                do {
+                    let output = try await operation()
+                    promise(.success(output))
+                } catch {
+                    promise(.failure(error))
+                }
+            }
+        }
+    }
+}
+
 struct AuthenticationClient /* iStory client */ {
     var logIn: (Credentials) -> AnyPublisher<User, Error>
     var signIn: (Credentials) -> AnyPublisher<User, Error>
@@ -27,7 +42,8 @@ struct AuthenticationClient /* iStory client */ {
             Just(User()).setFailureType(to: Error.self).eraseToAnyPublisher()
         },
              signIn: { credentials in
-            Just(User()).setFailureType(to: Error.self).eraseToAnyPublisher()
+            let worker = SignUpWorker(email: credentials.email, password: credentials.password)
+            return Future<User, Error>(operation: worker.performSignUp).eraseToAnyPublisher()
         },
              submitBirthday: { date in
             Just(date).setFailureType(to: Error.self).eraseToAnyPublisher()

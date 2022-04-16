@@ -11,6 +11,7 @@ struct User: Identifiable, Equatable {
     let id = UUID()
     var email: String?
     var number: String?
+    var password: String?
 }
 
 struct AuthenticationState: Equatable {

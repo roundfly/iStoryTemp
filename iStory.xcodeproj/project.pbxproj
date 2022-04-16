@@ -77,6 +77,7 @@
 		FEE3534C280B16BE007081AE /* KeychainServiceAPI in Frameworks */ = {isa = PBXBuildFile; productRef = FEE3534B280B16BE007081AE /* KeychainServiceAPI */; };
 		FEE3534F280B16E7007081AE /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE3534E280B16E7007081AE /* KeychainWrapper.swift */; };
 		FEE35351280B181F007081AE /* NetworkEnvironmentClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE35350280B181F007081AE /* NetworkEnvironmentClient.swift */; };
+		FEE35354280B1961007081AE /* SignUpWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE35353280B1961007081AE /* SignUpWorker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -162,6 +163,7 @@
 		FEE35349280B161A007081AE /* HTTPResponseMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPResponseMapper.swift; sourceTree = "<group>"; };
 		FEE3534E280B16E7007081AE /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		FEE35350280B181F007081AE /* NetworkEnvironmentClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEnvironmentClient.swift; sourceTree = "<group>"; };
+		FEE35353280B1961007081AE /* SignUpWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWorker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -509,6 +511,7 @@
 		FEE35342280B12B4007081AE /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				FEE35352280B1955007081AE /* Workers */,
 				FEE35343280B12BF007081AE /* HTTPClient.swift */,
 				FEE35349280B161A007081AE /* HTTPResponseMapper.swift */,
 				FEE35350280B181F007081AE /* NetworkEnvironmentClient.swift */,
@@ -522,6 +525,14 @@
 				FEE3534E280B16E7007081AE /* KeychainWrapper.swift */,
 			);
 			path = Keychain;
+			sourceTree = "<group>";
+		};
+		FEE35352280B1955007081AE /* Workers */ = {
+			isa = PBXGroup;
+			children = (
+				FEE35353280B1961007081AE /* SignUpWorker.swift */,
+			);
+			path = Workers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -628,6 +639,7 @@
 				FEB964ED2801BDE2008DD002 /* AuthenticationState.swift in Sources */,
 				FEE3533F280A1343007081AE /* AuthenticationSignUpDatePickerViewController.swift in Sources */,
 				FEB964E72801BCCC008DD002 /* AppAction.swift in Sources */,
+				FEE35354280B1961007081AE /* SignUpWorker.swift in Sources */,
 				FE66F2A127F89FA30051007F /* AuthenticationIstoryView.swift in Sources */,
 				FE66F29727F893E90051007F /* AuthenticationLoginViewController.swift in Sources */,
 				215FAE452800E4B6006291A8 /* EmailValidator.swift in Sources */,
