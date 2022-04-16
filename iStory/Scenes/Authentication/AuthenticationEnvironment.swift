@@ -19,10 +19,14 @@ struct AuthenticationEnvironment {
 
 struct AuthenticationClient /* iStory client */ {
     var logIn: (Credentials) -> AnyPublisher<User, Error>
+    var signIn: (Credentials) -> AnyPublisher<User, Error>
     var submitBirthday: (Date) -> AnyPublisher<Date, Error>
 
     static var prodution: AuthenticationClient {
         Self(logIn: { credentials in
+            Just(User()).setFailureType(to: Error.self).eraseToAnyPublisher()
+        },
+             signIn: { credentials in
             Just(User()).setFailureType(to: Error.self).eraseToAnyPublisher()
         },
              submitBirthday: { date in

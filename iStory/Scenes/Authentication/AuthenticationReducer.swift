@@ -14,13 +14,26 @@ let authReducer: Reducer<AuthenticationState, AuthenticationAction, Authenticati
     case .logIn(let credentials):
         return environment.authenticationClient
             .logIn(credentials)
-            .map(AuthenticationAction.loggedIn)
+            .map { user in
+                var user = user
+                user.email = credentials.email
+                return AuthenticationAction.signedIn(user: user)
+            }
             .catch { Just(AuthenticationAction.authFailure(reason: $0.localizedDescription)).eraseToAnyPublisher() }
             .eraseToAnyPublisher()
     case .signUp(let credentials):
+        return environment.authenticationClient
+            .signIn(credentials)
+            .map { user in
+                var user = user
+                user.email = credentials.email
+                return AuthenticationAction.signedIn(user: user)
+            }
+            .catch { Just(AuthenticationAction.authFailure(reason: $0.localizedDescription)).eraseToAnyPublisher() }
+            .eraseToAnyPublisher()
+    case .signedIn(let user):
         state.authFailure = nil
-        state.currentUser = .init()
-        state.currentUser?.email = credentials.email
+        state.currentUser = user
     case .loggedIn(let user):
         state.authFailure = nil
         state.currentUser = user

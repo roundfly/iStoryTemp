@@ -16,6 +16,7 @@ enum AuthenticationAction {
     case submitBirthday(date: Date)
     case submittedBirthday(date: Date)
     case loggedIn(user: User)
+    case signedIn(user: User)
     case loggedInWithGoogle(googleUser: GoogleUser)
     case loggedInWithAmazon(token: String)
     case authFailure(reason: String)
