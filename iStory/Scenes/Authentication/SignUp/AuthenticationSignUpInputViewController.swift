@@ -18,8 +18,12 @@ final class AuthenticationSignUpInputViewController: UIViewController, FailureSh
     var loginPublisher: AnyPublisher<Void, Never> {
         loginSubject.eraseToAnyPublisher()
     }
+    var signUpCompletePublisher: AnyPublisher<Void, Never> {
+        signUpCompleteSubject.eraseToAnyPublisher()
+    }
     private let checkAppSubject = PassthroughSubject<Void, Never>()
     private let loginSubject = PassthroughSubject<Void, Never>()
+    private let signUpCompleteSubject = PassthroughSubject<Void, Never>()
     private let viewModel: AuthenticationInputViewModel
     private var cancellables: Set<AnyCancellable> = []
 
@@ -41,6 +45,7 @@ final class AuthenticationSignUpInputViewController: UIViewController, FailureSh
                 } else if let _ = authState.currentUser {
                     // do stuff with user
                     self?.hideFailureLabel()
+                    self?.signUpCompleteSubject.send()
                 }
             }
             .store(in: &cancellables)

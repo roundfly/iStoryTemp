@@ -13,11 +13,17 @@ struct AuthenticationEnvironment {
     var amazonClient: AmazonService
     var googleClient: GoogleClient { .prodution }
     var appleClient: AppleClient { .production }
-    var authenticationClient: AuthenticationClient { .unhappyPath }
+    var authenticationClient: AuthenticationClient { .prodution }
 }
 
 struct AuthenticationClient /* iStory client */ {
     var logIn: (Credentials) -> AnyPublisher<User, Error>
+
+    static var prodution: AuthenticationClient {
+        Self(logIn: { credentials in
+            Just(User()).setFailureType(to: Error.self).eraseToAnyPublisher()
+        })
+    }
 
     #if DEBUG
     struct LoginError: Error {}

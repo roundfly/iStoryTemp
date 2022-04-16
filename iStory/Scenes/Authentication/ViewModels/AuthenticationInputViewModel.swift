@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import UIKit
 
 final class AuthenticationInputViewModel {
     enum AuthenticationInputType {
@@ -40,9 +41,8 @@ final class AuthenticationInputViewModel {
         self.store = store
     }
 
-
     private func isValidPassowrd(_ password: String) -> Bool {
-        guard password.count > 8 else {
+        guard password.count >= 8 else {
             store.dispatch(.authFailure(reason: String(localized: "auth.password.error")))
             return false
         }
@@ -66,5 +66,13 @@ final class AuthenticationInputViewModel {
         case .signup:
             store.dispatch(.signUp(user: credentials))
         }
+    }
+
+    @objc func enterEmail(_ textField: UITextField) {
+        email = textField.text ?? ""
+    }
+
+    @objc func enterPassword(_ textField: UITextField) {
+        password = textField.text ?? ""
     }
 }

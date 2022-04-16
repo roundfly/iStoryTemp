@@ -70,6 +70,7 @@
 		FEB964F12801C22B008DD002 /* AuthenticationReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB964F02801C22B008DD002 /* AuthenticationReducer.swift */; };
 		FEB964F32801C252008DD002 /* AuthenticationEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB964F22801C252008DD002 /* AuthenticationEnvironment.swift */; };
 		FEB964FA2804A958008DD002 /* FailureShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB964F92804A958008DD002 /* FailureShowable.swift */; };
+		FEE3533F280A1343007081AE /* AuthenticationSignUpDatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE3533E280A1343007081AE /* AuthenticationSignUpDatePickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -150,6 +151,7 @@
 		FEB964F02801C22B008DD002 /* AuthenticationReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationReducer.swift; sourceTree = "<group>"; };
 		FEB964F22801C252008DD002 /* AuthenticationEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationEnvironment.swift; sourceTree = "<group>"; };
 		FEB964F92804A958008DD002 /* FailureShowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailureShowable.swift; sourceTree = "<group>"; };
+		FEE3533E280A1343007081AE /* AuthenticationSignUpDatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationSignUpDatePickerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -409,6 +411,7 @@
 				FE66F29A27F89A780051007F /* AuthenticationSignUpViewController.swift */,
 				FE66F2A427F8A9F90051007F /* AuthenticationIstorySignUpViewController.swift */,
 				FEB964D72800E2F5008DD002 /* AuthenticationSignUpInputViewController.swift */,
+				FEE3533E280A1343007081AE /* AuthenticationSignUpDatePickerViewController.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -587,6 +590,7 @@
 				21CCF0CA27F206C100096CE1 /* AmazonService.swift in Sources */,
 				21FC8CF527F8D24D0014914D /* PhoneNumberService.swift in Sources */,
 				FEB964ED2801BDE2008DD002 /* AuthenticationState.swift in Sources */,
+				FEE3533F280A1343007081AE /* AuthenticationSignUpDatePickerViewController.swift in Sources */,
 				FEB964E72801BCCC008DD002 /* AppAction.swift in Sources */,
 				FE66F2A127F89FA30051007F /* AuthenticationIstoryView.swift in Sources */,
 				FE66F29727F893E90051007F /* AuthenticationLoginViewController.swift in Sources */,

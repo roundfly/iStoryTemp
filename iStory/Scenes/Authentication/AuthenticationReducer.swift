@@ -18,8 +18,10 @@ let authReducer: Reducer<AuthenticationState, AuthenticationAction, Authenticati
             .catch { Just(AuthenticationAction.authFailure(reason: $0.localizedDescription)).eraseToAnyPublisher() }
             .eraseToAnyPublisher()
     case .signUp(let credentials):
+        state.authFailure = nil
         state.currentUser = .init()
     case .loggedIn(let user):
+        state.authFailure = nil
         state.currentUser = user
     case .authFailure(let reason):
         state.authFailure = reason

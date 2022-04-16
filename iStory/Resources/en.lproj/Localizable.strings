@@ -40,3 +40,7 @@
 
 "auth.password.error" = "Error, password must be at least 8 characters! Please try again.";
 "auth.email.error" = "Error, email must be a valid email address! Please try again.";
+
+"auth.date.picker.description" = "Enter your birth date";
+"auth.date.picker.heading" = "Select your date of birth";
+"auth.date.picker.placeholder" = "09/09/1900";
