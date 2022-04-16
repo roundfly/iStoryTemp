@@ -71,6 +71,12 @@
 		FEB964F32801C252008DD002 /* AuthenticationEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB964F22801C252008DD002 /* AuthenticationEnvironment.swift */; };
 		FEB964FA2804A958008DD002 /* FailureShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB964F92804A958008DD002 /* FailureShowable.swift */; };
 		FEE3533F280A1343007081AE /* AuthenticationSignUpDatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE3533E280A1343007081AE /* AuthenticationSignUpDatePickerViewController.swift */; };
+		FEE35344280B12BF007081AE /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE35343280B12BF007081AE /* HTTPClient.swift */; };
+		FEE35348280B15C3007081AE /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FEE35347280B15C3007081AE /* KeychainSwift */; };
+		FEE3534A280B161A007081AE /* HTTPResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE35349280B161A007081AE /* HTTPResponseMapper.swift */; };
+		FEE3534C280B16BE007081AE /* KeychainServiceAPI in Frameworks */ = {isa = PBXBuildFile; productRef = FEE3534B280B16BE007081AE /* KeychainServiceAPI */; };
+		FEE3534F280B16E7007081AE /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE3534E280B16E7007081AE /* KeychainWrapper.swift */; };
+		FEE35351280B181F007081AE /* NetworkEnvironmentClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE35350280B181F007081AE /* NetworkEnvironmentClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -152,6 +158,10 @@
 		FEB964F22801C252008DD002 /* AuthenticationEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationEnvironment.swift; sourceTree = "<group>"; };
 		FEB964F92804A958008DD002 /* FailureShowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailureShowable.swift; sourceTree = "<group>"; };
 		FEE3533E280A1343007081AE /* AuthenticationSignUpDatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationSignUpDatePickerViewController.swift; sourceTree = "<group>"; };
+		FEE35343280B12BF007081AE /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		FEE35349280B161A007081AE /* HTTPResponseMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPResponseMapper.swift; sourceTree = "<group>"; };
+		FEE3534E280B16E7007081AE /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
+		FEE35350280B181F007081AE /* NetworkEnvironmentClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEnvironmentClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +171,7 @@
 			files = (
 				21EC082327EE7BA800A39F84 /* SafariServices.framework in Frameworks */,
 				21EC082127EE7B9A00A39F84 /* Security.framework in Frameworks */,
+				FEE35348280B15C3007081AE /* KeychainSwift in Frameworks */,
 				FE66F25827ED09E70051007F /* GoogleSignService in Frameworks */,
 				FE87F35327E627240062ACB4 /* KeychainService in Frameworks */,
 				FE87F34E27E6271B0062ACB4 /* StyleSheet.framework in Frameworks */,
@@ -168,6 +179,7 @@
 				21DC001227F7ACE30098CBEA /* PhoneNumberKit in Frameworks */,
 				FE87F35127E6271F0062ACB4 /* NetworkService in Frameworks */,
 				FE87F36127E62E660062ACB4 /* LoginWithAmazon.framework in Frameworks */,
+				FEE3534C280B16BE007081AE /* KeychainServiceAPI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,6 +464,8 @@
 		FEB964DF2801BC97008DD002 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				FEE3534D280B16DB007081AE /* Keychain */,
+				FEE35342280B12B4007081AE /* Network */,
 				FEB964E32801BCB6008DD002 /* Actions */,
 				FEB964E22801BCAF008DD002 /* Reducers */,
 				FEB964E12801BCAA008DD002 /* Stores */,
@@ -492,6 +506,24 @@
 			path = Actions;
 			sourceTree = "<group>";
 		};
+		FEE35342280B12B4007081AE /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				FEE35343280B12BF007081AE /* HTTPClient.swift */,
+				FEE35349280B161A007081AE /* HTTPResponseMapper.swift */,
+				FEE35350280B181F007081AE /* NetworkEnvironmentClient.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		FEE3534D280B16DB007081AE /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				FEE3534E280B16E7007081AE /* KeychainWrapper.swift */,
+			);
+			path = Keychain;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -514,6 +546,8 @@
 				FE87F35227E627240062ACB4 /* KeychainService */,
 				FE66F25727ED09E70051007F /* GoogleSignService */,
 				21DC001127F7ACE30098CBEA /* PhoneNumberKit */,
+				FEE35347280B15C3007081AE /* KeychainSwift */,
+				FEE3534B280B16BE007081AE /* KeychainServiceAPI */,
 			);
 			productName = iStory;
 			productReference = FE2E9F0927E53BD2002C0021 /* iStory.app */;
@@ -545,6 +579,7 @@
 			mainGroup = FE2E9F0027E53BD2002C0021;
 			packageReferences = (
 				21DC001027F7ACE30098CBEA /* XCRemoteSwiftPackageReference "PhoneNumberKit" */,
+				FEE35346280B15C3007081AE /* XCRemoteSwiftPackageReference "keychain-swift" */,
 			);
 			productRefGroup = FE2E9F0A27E53BD2002C0021 /* Products */;
 			projectDirPath = "";
@@ -579,6 +614,7 @@
 				219FF09E2800CD10004E9D53 /* LoginWithSMSRouter.swift in Sources */,
 				215FAE3E2800DF87006291A8 /* LoginWithEmailViewModel.swift in Sources */,
 				218910B528045176002BB295 /* UIApplication+Extension.swift in Sources */,
+				FEE35344280B12BF007081AE /* HTTPClient.swift in Sources */,
 				FEB964F32801C252008DD002 /* AuthenticationEnvironment.swift in Sources */,
 				FEB964D82800E2F5008DD002 /* AuthenticationSignUpInputViewController.swift in Sources */,
 				FE66F2A527F8A9F90051007F /* AuthenticationIstorySignUpViewController.swift in Sources */,
@@ -600,6 +636,7 @@
 				FEB964E92801BCD4008DD002 /* AppReducer.swift in Sources */,
 				FE66F27F27F7B0590051007F /* SplashAuthViewController.swift in Sources */,
 				FEB964E52801BCC3008DD002 /* AppStore.swift in Sources */,
+				FEE3534A280B161A007081AE /* HTTPResponseMapper.swift in Sources */,
 				FE66F29327F8874E0051007F /* AuthenticationSocialViews.swift in Sources */,
 				FEB964D62800CB81008DD002 /* AuthenticationLoginInputViewController.swift in Sources */,
 				215FAE472800E96F006291A8 /* Validatable.swift in Sources */,
@@ -613,9 +650,11 @@
 				FEB964EF2801C12F008DD002 /* AuthenticationAction.swift in Sources */,
 				FE66F29127F7C0360051007F /* AuthenticationSocialContainerView.swift in Sources */,
 				FEB964EB2801BCDD008DD002 /* AppState.swift in Sources */,
+				FEE35351280B181F007081AE /* NetworkEnvironmentClient.swift in Sources */,
 				FE2E9F0D27E53BD2002C0021 /* AppDelegate.swift in Sources */,
 				21DC001827F7B1690098CBEA /* LoginWithSMSViewController.swift in Sources */,
 				21FC8CF727F8D4D10014914D /* LoginWithSMSViewModel.swift in Sources */,
+				FEE3534F280B16E7007081AE /* KeychainWrapper.swift in Sources */,
 				FE66F26627F79E390051007F /* AppFlowController.swift in Sources */,
 				FE66F29527F8907D0051007F /* AppDependencies.swift in Sources */,
 				FE2E9F0F27E53BD2002C0021 /* SceneDelegate.swift in Sources */,
@@ -857,6 +896,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		FEE35346280B15C3007081AE /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 20.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -876,6 +923,15 @@
 		FE87F35227E627240062ACB4 /* KeychainService */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = KeychainService;
+		};
+		FEE35347280B15C3007081AE /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FEE35346280B15C3007081AE /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
+		};
+		FEE3534B280B16BE007081AE /* KeychainServiceAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = KeychainServiceAPI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
