@@ -27,14 +27,14 @@ struct Authenticator: AuthenticatorProtocol {
 
 struct AppEnvironment {
     var authentication: AuthenticationEnvironment
-    static var networking: NetworkManager {
+    static var networking: NetworkManager = {
         let configuration = NetworkConfiguration(environment: EnvironmentFactory.getEnvironment())
         let interceptor = NetworkRequestInterceptor(configuration: configuration,
                                                     keychain: KeychainService(keychain: KeychainWrapper(keychain: KeychainSwift())),
                                                     authenticator: Authenticator())
         let manager = NetworkManager(configuration: configuration, interceptor: interceptor)
         return manager
-    }
+    }()
 
     static var production: AppEnvironment {
         Self(authentication: .init(amazonClient: .init()))

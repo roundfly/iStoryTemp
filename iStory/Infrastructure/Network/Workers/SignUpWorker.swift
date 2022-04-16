@@ -29,7 +29,7 @@ struct SignUpWorker: HTTPClient {
     var headers: [String : String]? {
         [
             "Content-Type": "application/json",
-            "Accept": "application/json",
+            "Accept": "application/json"
         ]
     }
 
