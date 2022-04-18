@@ -11,10 +11,15 @@ import SwiftUI
 import AuthenticationServices
 import GoogleSignInService
 
+enum AuthIntent {
+    case logIn
+    case signUp
+}
+
 struct AuthSocialViewModel {
     var title: String
     var primaryButtonTitle: String
-    var disclaimerButtonTitle: String
+    var authIntent: AuthIntent
     var onGoogleRequest: () -> Void
     var onAmazonRequest: () -> Void
     var onIstoryRequest: () -> Void
@@ -57,11 +62,39 @@ struct AuthSocialContainerView: View {
         .offset(x: 0, y: -110)
     }
 
+    @ViewBuilder
     private var disclaimerButton: some View {
-        Button(action: {}) {
-            Text(viewModel.disclaimerButtonTitle)
-                .foregroundColor(.black)
-                .offset(x: 0, y: -20)
+        switch viewModel.authIntent {
+        case .logIn:
+            HStack {
+                Button(action: {}) {
+                    Text("Skip").bold() + Text(" and check the app?")
+                }
+                Button(action: {}) {
+                    Text("No account? ") + Text("Create one!").bold()
+                }
+            }
+            .font(.footnote)
+            .foregroundColor(.black)
+            .offset(x: 0, y: -20)
+        case .signUp:
+            VStack(spacing: 0) {
+                HStack {
+                    Button(action: {}) {
+                        Text("Skip").bold() + Text(" and check the app?")
+                    }
+                    Button(action: {}) {
+                        Text("Have account? ") + Text("Login!").bold()
+                    }
+                }
+                Button(action: {}) {
+                    Text("By signing up, you agree to our ") + Text("Terms of Service").bold() + Text(" and ") +  Text("Privacy Policy.").bold()
+                }
+                .padding()
+            }
+            .font(.footnote)
+            .foregroundColor(.black)
+            .offset(x: 0, y: -20)
         }
     }
 

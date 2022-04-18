@@ -17,7 +17,7 @@ extension FailureShowable {
         errorLabel.text = failureReason
         guard errorLabel.superview == nil else { return }
         errorLabel.alpha = 0.0
-        errorLabel.font = .preferredFont(forTextStyle: .body)
+        errorLabel.font = .preferredFont(forTextStyle: .callout)
         errorLabel.numberOfLines = 0
         errorLabel.textAlignment = .center
         view.addManagedSubview(errorLabel)
