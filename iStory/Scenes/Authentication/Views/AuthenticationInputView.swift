@@ -83,8 +83,10 @@ final class AuthenticationInputView: UIView {
         passwordTextField.rightView = inputVisibilityButton
         passwordTextField.rightViewMode = .always
         passwordTextField.placeholder = String(localized: "auth.input.password.placeholder")
+        passwordTextField.addTarget(viewModel, action: #selector(viewModel.enterPassword(_:)), for: .editingChanged)
         emailTextField.placeholder = String(localized: "auth.input.email.placeholder")
         emailTextField.keyboardType = .emailAddress
+        emailTextField.addTarget(viewModel, action: #selector(viewModel.enterEmail(_:)), for: .editingChanged)
         let spacer = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 40))
         passwordTextField.leftView = spacer
         passwordTextField.leftViewMode = .always
@@ -96,6 +98,7 @@ final class AuthenticationInputView: UIView {
             textField.layer.cornerRadius = 5.0
             textField.tintColor = AppColor.blue.uiColor
             textField.keyboardAppearance = .dark
+            textField.autocapitalizationType = .none
         }
     }
 

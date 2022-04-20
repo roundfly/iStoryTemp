@@ -18,8 +18,12 @@ final class AuthenticationSignUpInputViewController: UIViewController, FailureSh
     var loginPublisher: AnyPublisher<Void, Never> {
         loginSubject.eraseToAnyPublisher()
     }
+    var signUpCompletePublisher: AnyPublisher<Void, Never> {
+        signUpCompleteSubject.eraseToAnyPublisher()
+    }
     private let checkAppSubject = PassthroughSubject<Void, Never>()
     private let loginSubject = PassthroughSubject<Void, Never>()
+    private let signUpCompleteSubject = PassthroughSubject<Void, Never>()
     private let viewModel: AuthenticationInputViewModel
     private var cancellables: Set<AnyCancellable> = []
 
@@ -41,6 +45,7 @@ final class AuthenticationSignUpInputViewController: UIViewController, FailureSh
                 } else if let _ = authState.currentUser {
                     // do stuff with user
                     self?.hideFailureLabel()
+                    self?.signUpCompleteSubject.send()
                 }
             }
             .store(in: &cancellables)
@@ -77,21 +82,21 @@ final class AuthenticationSignUpInputViewController: UIViewController, FailureSh
 
     private func setupButtons() {
         var loginConfig = UIButton.Configuration.plain()
-        loginConfig.title = String(localized: "auth.account.login")
         loginConfig.baseForegroundColor = .black
         let loginButton = UIButton(configuration: loginConfig, publisher: loginSubject)
+        loginButton.setAttributedTitle(String(localized: "auth.account.login").bolded(text: "LogIn!", font: .preferredFont(forTextStyle: .footnote)), for: .normal)
         view.addManagedSubview(loginButton)
-        loginButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).activate()
+        loginButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40).activate()
         loginButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor).activate()
         loginButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor).activate()
 
         var checkAppConfig = UIButton.Configuration.plain()
-        checkAppConfig.title = String(localized: "auth.skip.title")
         checkAppConfig.titleAlignment = .center
         checkAppConfig.baseForegroundColor = .black
         let checkAppButton = UIButton(configuration: checkAppConfig, publisher: checkAppSubject)
+        checkAppButton.setAttributedTitle(String(localized: "auth.skip.title").bolded(text: "Skip", font: .preferredFont(forTextStyle: .footnote)), for: .normal)
         view.addManagedSubview(checkAppButton)
-        checkAppButton.bottomAnchor.constraint(equalTo: loginButton.topAnchor, constant: -20).activate()
+        checkAppButton.bottomAnchor.constraint(equalTo: loginButton.topAnchor).activate()
         checkAppButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor).activate()
         checkAppButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor).activate()
         checkAppButton.heightAnchor.constraint(equalToConstant: 44.0).activate()

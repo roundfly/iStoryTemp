@@ -19,6 +19,8 @@
 		FE66F26827F79E970051007F /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F26727F79E970051007F /* UIViewController+Extensions.swift */; };
 		FE66F27D27F7AA650051007F /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F27C27F7AA650051007F /* UIImage+Extensions.swift */; };
 		FEB964DE2801B721008DD002 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB964DD2801B721008DD002 /* UIButton+Extensions.swift */; };
+		FEE35341280AF2ED007081AE /* PrimarySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE35340280AF2ED007081AE /* PrimarySheet.swift */; };
+		FEE35357280DA75B007081AE /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE35356280DA75B007081AE /* String+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		FE66F26727F79E970051007F /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		FE66F27C27F7AA650051007F /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		FEB964DD2801B721008DD002 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
+		FEE35340280AF2ED007081AE /* PrimarySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimarySheet.swift; sourceTree = "<group>"; };
+		FEE35356280DA75B007081AE /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,18 +67,6 @@
 			path = Colors;
 			sourceTree = "<group>";
 		};
-		2144575027E7895B00675DD2 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				2144575127E7896A00675DD2 /* Bundle+Extensions.swift */,
-				2170151F27EE938C00743B5B /* UIView+Extensions.swift */,
-				FE66F26727F79E970051007F /* UIViewController+Extensions.swift */,
-				21DC001927F7CAA10098CBEA /* UIScreen+Extensions.swift */,
-				FEB964DD2801B721008DD002 /* UIButton+Extensions.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		2144575327E78A1000675DD2 /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,7 +83,6 @@
 			isa = PBXGroup;
 			children = (
 				2144575327E78A1000675DD2 /* Configurations */,
-				2144575027E7895B00675DD2 /* Extensions */,
 				21ABA23A27E5514800991445 /* Assets.xcassets */,
 				FE2E9F4E27E53D93002C0021 /* StyleSheet */,
 				FE2E9F4D27E53D93002C0021 /* Products */,
@@ -112,6 +103,7 @@
 				FE66F27B27F7AA570051007F /* Extensions */,
 				2144574727E7887200675DD2 /* Colors */,
 				2144574527E785A200675DD2 /* Theme.swift */,
+				FEE35340280AF2ED007081AE /* PrimarySheet.swift */,
 			);
 			path = StyleSheet;
 			sourceTree = "<group>";
@@ -119,7 +111,13 @@
 		FE66F27B27F7AA570051007F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2144575127E7896A00675DD2 /* Bundle+Extensions.swift */,
+				2170151F27EE938C00743B5B /* UIView+Extensions.swift */,
+				FE66F26727F79E970051007F /* UIViewController+Extensions.swift */,
+				21DC001927F7CAA10098CBEA /* UIScreen+Extensions.swift */,
+				FEB964DD2801B721008DD002 /* UIButton+Extensions.swift */,
 				FE66F27C27F7AA650051007F /* UIImage+Extensions.swift */,
+				FEE35356280DA75B007081AE /* String+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -205,7 +203,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2170152027EE938C00743B5B /* UIView+Extensions.swift in Sources */,
+				FEE35357280DA75B007081AE /* String+Extensions.swift in Sources */,
 				2144574627E785A200675DD2 /* Theme.swift in Sources */,
+				FEE35341280AF2ED007081AE /* PrimarySheet.swift in Sources */,
 				2144574E27E788AF00675DD2 /* AppColor.swift in Sources */,
 				2144574C27E788AF00675DD2 /* AppImages.swift in Sources */,
 				FE66F26827F79E970051007F /* UIViewController+Extensions.swift in Sources */,

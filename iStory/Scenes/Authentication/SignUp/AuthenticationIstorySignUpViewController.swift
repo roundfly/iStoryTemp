@@ -27,7 +27,7 @@ final class AuthenticationIstorySignUpViewController: UIViewController {
         let viewModel = AuthenticationIstoryViewModel(title: String(localized: "splash.auth.signup.title"),
                                                       emailButtonTitle: String(localized: "auth.istory.signup.email.button.title"),
                                                       smsButtonTitle: String(localized: "auth.istory.signup.sms.button.title"),
-                                                      disclaimerButtonTitle: String(localized: "auth.istory.signup.disclaimer.button.title"),
+                                                      authIntent: .signUp,
                                                       emailButtonAtion: { [emailSubject] in emailSubject.send(()) },
                                                       smsButtonAction: { [smsSubject] in smsSubject.send(()) })
         view = AuthenticationIstoryView(viewModel: viewModel)

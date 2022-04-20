@@ -9,9 +9,13 @@ import Foundation
 
 struct User: Identifiable, Equatable {
     let id = UUID()
+    var email: String?
+    var number: String?
+    var password: String?
 }
 
 struct AuthenticationState: Equatable {
     var currentUser: User?
+    var userBirthday: Date?
     var authFailure: String?
 }

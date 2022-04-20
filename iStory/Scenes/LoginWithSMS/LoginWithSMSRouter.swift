@@ -5,8 +5,6 @@
 //  Created by Shyft on 4/8/22.
 //
 
-import Foundation
-
 protocol LoginWithSMSRoutingLogic {
     func showAccessCodeScreen()
     var number: String { get set }
@@ -18,7 +16,7 @@ struct LoginWithSMSRouter: LoginWithSMSRoutingLogic {
     var number: String = ""
 
     func showAccessCodeScreen() {
-        let accessCodeViewController = SMSAccessCodeViewController(number: number)
+        let accessCodeViewController = SMSAccessCodeViewController(receiver: number)
         controller?.navigationController?.pushViewController(accessCodeViewController, animated: true)
     }
 }

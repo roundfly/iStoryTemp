@@ -14,12 +14,30 @@ let authReducer: Reducer<AuthenticationState, AuthenticationAction, Authenticati
     case .logIn(let credentials):
         return environment.authenticationClient
             .logIn(credentials)
-            .map(AuthenticationAction.loggedIn)
+            .map { user in
+                var user = user
+                user.email = credentials.email
+                user.password = credentials.password
+                return AuthenticationAction.signedIn(user: user)
+            }
             .catch { Just(AuthenticationAction.authFailure(reason: $0.localizedDescription)).eraseToAnyPublisher() }
             .eraseToAnyPublisher()
     case .signUp(let credentials):
-        state.currentUser = .init()
+        return environment.authenticationClient
+            .signIn(credentials)
+            .map { user in
+                var user = user
+                user.email = credentials.email
+                user.password = credentials.password
+                return AuthenticationAction.signedIn(user: user)
+            }
+            .catch { Just(AuthenticationAction.authFailure(reason: $0.localizedDescription)).eraseToAnyPublisher() }
+            .eraseToAnyPublisher()
+    case .signedIn(let user):
+        state.authFailure = nil
+        state.currentUser = user
     case .loggedIn(let user):
+        state.authFailure = nil
         state.currentUser = user
     case .authFailure(let reason):
         state.authFailure = reason
@@ -42,6 +60,15 @@ let authReducer: Reducer<AuthenticationState, AuthenticationAction, Authenticati
         state.currentUser = .init()
     case .loggedInWithAmazon(token: let token):
         state.currentUser = .init()
+    case .submitBirthday(let date):
+        return environment.authenticationClient
+            .submitBirthday(date)
+            .map(AuthenticationAction.submittedBirthday(date:))
+            .catch { Just(AuthenticationAction.authFailure(reason: $0.localizedDescription)).eraseToAnyPublisher() }
+            .eraseToAnyPublisher()
+    case .submittedBirthday(let date):
+        state.authFailure = nil
+        state.userBirthday = date
     }
     return Empty().eraseToAnyPublisher()
 }

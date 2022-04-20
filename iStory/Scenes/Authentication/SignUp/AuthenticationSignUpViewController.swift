@@ -30,7 +30,7 @@ final class AuthenticationSignUpViewController: UIViewController {
         super.viewDidLoad()
         let socialViewModel = AuthSocialViewModel(title: String(localized: "splash.auth.signup.title"),
                                                   primaryButtonTitle: String(localized: "auth.social.signup.button.title"),
-                                                  disclaimerButtonTitle: String(localized: "auth.social.signup.disclaimer"),
+                                                  authIntent: .signUp,
                                                   onGoogleRequest: viewModel.onGoogle,
                                                   onAmazonRequest: viewModel.onAmazon,
                                                   onIstoryRequest: viewModel.onIstorySignUp,

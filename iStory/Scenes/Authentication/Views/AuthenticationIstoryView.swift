@@ -12,7 +12,7 @@ struct AuthenticationIstoryViewModel {
     var title: String
     var emailButtonTitle: String
     var smsButtonTitle: String
-    var disclaimerButtonTitle: String
+    var authIntent: AuthIntent
     var emailButtonAtion: () -> Void
     var smsButtonAction: () -> Void
 }
@@ -21,15 +21,20 @@ final class AuthenticationIstoryView: UIView {
 
     private let titleLabel = UILabel()
     private let logoImageView = UIImageView()
+    private let switchAuthFlowButton: UIButton
     private let viewModel: AuthenticationIstoryViewModel
 
     init(viewModel: AuthenticationIstoryViewModel) {
         self.viewModel = viewModel
+        var config: UIButton.Configuration = .plain()
+        config.baseForegroundColor = .black
+        switchAuthFlowButton = UIButton(configuration: config)
         super.init(frame: .zero)
         applyAuthenticationStyle(to: self)
         setupLogoImageView()
         setupTitleLabel()
         setupButtonStackView()
+        setupSwitchAuthFlowButton()
         setupDisclaimerButton()
     }
 
@@ -82,13 +87,27 @@ final class AuthenticationIstoryView: UIView {
     }
 
     private func setupDisclaimerButton() {
-        let button = UIButton(configuration: .plain())
+        var config: UIButton.Configuration = .plain()
+        config.baseForegroundColor = .black
+        let button = UIButton(configuration: config)
         addManagedSubview(button)
-        button.setTitle(viewModel.disclaimerButtonTitle, for: .normal)
-        button.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).activate()
+        let title = "Skip and check the app.".bolded(text: "Skip", font: .preferredFont(forTextStyle: .footnote))
+        button.setAttributedTitle(title, for: .normal)
+        button.bottomAnchor.constraint(equalTo: switchAuthFlowButton.topAnchor).activate()
         button.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor).activate()
         button.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor).activate()
-        button.setTitleColor(.black, for: .normal)
         button.titleLabel?.textAlignment = .center
+    }
+
+    private func setupSwitchAuthFlowButton() {
+        addManagedSubview(switchAuthFlowButton)
+        let title = viewModel.authIntent == .signUp ? "Already have an account? LogIn!" : "No account? Create one!"
+        let attributed = title.bolded(text: viewModel.authIntent == .signUp ? "LogIn!" : "Create one!", font: .preferredFont(forTextStyle: .footnote))
+        switchAuthFlowButton.setAttributedTitle(attributed, for: .normal)
+        switchAuthFlowButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -40).activate()
+        switchAuthFlowButton.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor).activate()
+        switchAuthFlowButton.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor).activate()
+        switchAuthFlowButton.titleLabel?.textAlignment = .center
+
     }
 }

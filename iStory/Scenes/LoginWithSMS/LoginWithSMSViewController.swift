@@ -53,7 +53,7 @@ final class LoginWithSMSViewController: UIViewController {
         let bigOffset: CGFloat = UIScreen.main.getDeviceSize().isSmallOrLess ? 45 : 90
         let titleFont: CGFloat = UIScreen.main.getDeviceSize().isSmallOrLess ? 30 : 48
         let subtitleFont: CGFloat = UIScreen.main.getDeviceSize().isSmallOrLess ? 15 : 20
-        let buttonSize: CGFloat = UIScreen.main.getDeviceSize().isSmallOrLess ? 44 : 60
+        let buttonSize: CGFloat = UIScreen.main.getDeviceSize().isSmallOrLess ? 44.0 : 44.0
 
         view.addManagedSubview(titleLabel)
         titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).activate()
@@ -108,12 +108,12 @@ final class LoginWithSMSViewController: UIViewController {
         errorMessageLabel.textAlignment = .center
         
         view.addManagedSubview(skipButton)
-        skipButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -5).activate()
+        skipButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40).activate()
         skipButton.setConstraintsRelativeToSuperView(leading: 8, trailing: 8)
-        skipButton.setTitle("Skip and check the app? No account? Create one!", for: .normal)
+        skipButton.setAttributedTitle("Skip and check the app?".bolded(text: "Skip", font: .preferredFont(forTextStyle: .footnote)), for: .normal)
         skipButton.setTitleColor(.black, for: .normal)
         skipButton.backgroundColor = .clear
-        skipButton.titleLabel?.font = .systemFont(ofSize: 12)
+        skipButton.titleLabel?.font = .preferredFont(forTextStyle: .footnote)
     }
     
     @objc

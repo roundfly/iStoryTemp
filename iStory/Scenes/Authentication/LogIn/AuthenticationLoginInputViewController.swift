@@ -18,9 +18,13 @@ final class AuthenticationLoginInputViewController: UIViewController, FailureSho
     var createAccountPublisher: AnyPublisher<Void, Never> {
         createAccountSubject.eraseToAnyPublisher()
     }
+    var logInCompletePublisher: AnyPublisher<Void, Never> {
+        logInCompleteSubject.eraseToAnyPublisher()
+    }
 
     private let forgotPasswordSubject = PassthroughSubject<Void, Never>()
     private let createAccountSubject = PassthroughSubject<Void, Never>()
+    private let logInCompleteSubject = PassthroughSubject<Void, Never>()
     private let viewModel: AuthenticationInputViewModel
     private var cancellables: Set<AnyCancellable> = []
 
@@ -40,8 +44,8 @@ final class AuthenticationLoginInputViewController: UIViewController, FailureSho
                 if let error = authState.authFailure {
                     self?.show(failureReason: error)
                 } else if let _ = authState.currentUser {
-                    // do stuff with user
                     self?.hideFailureLabel()
+                    self?.logInCompleteSubject.send()
                 }
             }
             .store(in: &cancellables)
@@ -78,20 +82,26 @@ final class AuthenticationLoginInputViewController: UIViewController, FailureSho
 
     private func setupButtons() {
         var createAccountConfig = UIButton.Configuration.plain()
-        createAccountConfig.title = String(localized: "auth.input.account.create.title")
         createAccountConfig.baseForegroundColor = .black
+        createAccountConfig.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
+            var outgoing = incoming
+            outgoing.font = .preferredFont(forTextStyle: .footnote)
+            return outgoing
+        }
         let createAccountButton = UIButton(configuration: createAccountConfig, publisher: createAccountSubject)
         view.addManagedSubview(createAccountButton)
-        createAccountButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).activate()
+        createAccountButton.setTitle(String(localized: "auth.input.account.create.title"), for: .normal)
+        createAccountButton.titleLabel?.font = .preferredFont(forTextStyle: .footnote)
+        createAccountButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40.0).activate()
         createAccountButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor).activate()
         createAccountButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor).activate()
 
         var forgotPasswordConfig = UIButton.Configuration.plain()
-        forgotPasswordConfig.title = String(localized: "auth.input.forgot.password")
         forgotPasswordConfig.titleAlignment = .center
         forgotPasswordConfig.baseForegroundColor = .black
         let forgotPasswordButton = UIButton(configuration: forgotPasswordConfig, publisher: createAccountSubject)
         view.addManagedSubview(forgotPasswordButton)
+        forgotPasswordButton.setAttributedTitle("Forgot password?\nGet access code".bolded(text: "Get access code", font: .preferredFont(forTextStyle: .callout)), for: .normal)
         forgotPasswordButton.bottomAnchor.constraint(equalTo: createAccountButton.topAnchor, constant: -20).activate()
         forgotPasswordButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor).activate()
         forgotPasswordButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor).activate()

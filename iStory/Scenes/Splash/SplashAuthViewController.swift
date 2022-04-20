@@ -78,8 +78,9 @@ final class SplashAuthViewController: UIViewController {
             button.heightAnchor.constraint(equalToConstant: 44.0).activate()
         }
         view.addManagedSubview(vStackView)
-        skipButton.setTitle(String(localized: "splash.auth.skip"), for: .normal)
+        let title = String(localized: "splash.auth.skip").bolded(text: "and check the app", font: .preferredFont(forTextStyle: .footnote))
         skipButton.setTitleColor(.black, for: .normal)
+        skipButton.setAttributedTitle(title, for: .normal)
         vStackView.spacing = 20
         vStackView.setCustomSpacing(60, after: signUpButton)
         vStackView.axis = .vertical
