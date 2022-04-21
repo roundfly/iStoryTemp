@@ -17,7 +17,7 @@ enum SplashAuthNavigationEvent {
 
 final class SplashAuthViewController: UIViewController {
     // MARK: - Instance variables
-    private let theme = FontsDefault()
+    private let theme = ThemeDefault()
     private let titleLabel = UILabel()
     var navigationPublisher: AnyPublisher<SplashAuthNavigationEvent, Never> {
         subject.eraseToAnyPublisher()
@@ -34,8 +34,8 @@ final class SplashAuthViewController: UIViewController {
         setupButtonVStack()
         
         titleLabel.font = theme.fontBold
-        //titleLabel.font = theme.fontRegular
-       // titleLabel.font = theme.fontMedium
+        titleLabel.font = theme.fontRegular
+        titleLabel.font = theme.fontMedium
     }
 
     // MARK: - Subview setup

@@ -48,9 +48,9 @@
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Gotham-Bold.otf</string>
-		<string>Gotham-Regular.otf</string>
-		<string>Gotham-Medium.ttf</string>
+		<string>Gotham Bold.otf</string>
+		<string>Gotham Regular.otf</string>
+		<string>Gotham Medium.otf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
