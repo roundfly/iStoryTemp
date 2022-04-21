@@ -8,9 +8,11 @@
 import Foundation
 import UIKit
 import SwiftUI
+import StyleSheet
 
 final class InviteContactsViewController: UIViewController {
     private let contactsService = ContactsService()
+    private let theme = ThemeDefault()
     
     //MARK: UI
     private let titleLabel = UILabel()
@@ -39,7 +41,7 @@ final class InviteContactsViewController: UIViewController {
         titleLabel.textAlignment = .center
         titleLabel.text = "Import Contacts"
         titleLabel.numberOfLines = 2
-        titleLabel.font = .systemFont(ofSize: 48)
+        titleLabel.font = theme.fontBold.withSize(48)
         
         view.addManagedSubview(subtitleLabel)
         subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 55).activate()
@@ -47,12 +49,13 @@ final class InviteContactsViewController: UIViewController {
         subtitleLabel.textAlignment = .center
         subtitleLabel.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus justo elit."
         subtitleLabel.numberOfLines = 3
-        subtitleLabel.font = .systemFont(ofSize: 20)
+        subtitleLabel.font = theme.fontRegular.withSize(20)
 
         view.addManagedSubview(importFromPhoneBookOption)
         importFromPhoneBookOption.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 42).activate()
         importFromPhoneBookOption.setConstraintsRelativeToSuperView(leading: 32, trailing: 32)
         importFromPhoneBookOption.text = "Import from your phone book"
+        importFromPhoneBookOption.font = theme.fontRegular.withSize(17)
         
         let checkmarkView = UIImageView()
         checkmarkView.image = UIImage(namedInStyleSheet: "checkmark")
@@ -66,7 +69,6 @@ final class InviteContactsViewController: UIViewController {
         submitButton.setConstraintsRelativeToSuperView(leading: 32, trailing: 32)
         submitButton.setHeightConstraint(equalToConstant: 44)
         submitButton.titleText = "Next"
-        submitButton.titleLabel?.font = .systemFont(ofSize: 20)
         submitButton.textColor = .black
         let action = UIAction { [weak self] handler in
             guard let self = self else { return }
@@ -83,7 +85,7 @@ final class InviteContactsViewController: UIViewController {
         skipButton.setSizeConstraints(width: 40, height: 30)
         skipButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).activate()
         skipButton.setTitle("Skip", for: .normal)
-        skipButton.titleLabel?.font = .systemFont(ofSize: 12)
+        skipButton.titleLabel?.font = theme.fontRegular.withSize(12)
         skipButton.setTitleColor(.black, for: .normal)
     }
 }

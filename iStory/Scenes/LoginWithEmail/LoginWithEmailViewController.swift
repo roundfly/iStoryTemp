@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import StyleSheet
 
 final class LoginWithEmailViewController: UIViewController {
     private var viewModel: LoginWithEmailViewModel {
@@ -22,6 +23,7 @@ final class LoginWithEmailViewController: UIViewController {
     private let errorMessageLabel = UILabel()
     private let skipButton = UIButton()
     private var router: LoginWithEmailRoutingLogic!
+    private let theme = ThemeDefault()
     
     init(viewModel: LoginWithEmailViewModel) {
         self.viewModel = viewModel
@@ -55,7 +57,7 @@ final class LoginWithEmailViewController: UIViewController {
         view.addManagedSubview(titleLabel)
         titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).activate()
         titleLabel.setConstraintsRelativeToSuperView(leading: 32, trailing: 32)
-        titleLabel.font = .systemFont(ofSize: titleFont)
+        titleLabel.font = theme.fontBold.withSize(titleFont)
         titleLabel.text = "Request Code"
         titleLabel.numberOfLines = 0
         titleLabel.textAlignment = .center
@@ -63,7 +65,7 @@ final class LoginWithEmailViewController: UIViewController {
         view.addManagedSubview(subtitleLabel)
         subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: smallOffset).activate()
         subtitleLabel.setConstraintsRelativeToSuperView(leading: 24, trailing: 24)
-        subtitleLabel.font = .systemFont(ofSize: subtitleFont)
+        subtitleLabel.font = theme.fontBold.withSize(subtitleFont)
         subtitleLabel.text = "Enter your email to get one time access code."
         subtitleLabel.numberOfLines = 0
         subtitleLabel.textAlignment = .center
@@ -93,7 +95,7 @@ final class LoginWithEmailViewController: UIViewController {
         view.addManagedSubview(errorMessageLabel)
         errorMessageLabel.topAnchor.constraint(equalTo: submitButton.bottomAnchor, constant: bigOffset).activate()
         errorMessageLabel.setConstraintsRelativeToSuperView(leading: 16, trailing: 16)
-        errorMessageLabel.font = .systemFont(ofSize: 17)
+        errorMessageLabel.font = theme.fontRegular.withSize(17)
         errorMessageLabel.numberOfLines = 0
         errorMessageLabel.textAlignment = .center
         
@@ -103,7 +105,7 @@ final class LoginWithEmailViewController: UIViewController {
         skipButton.setTitle("Skip or go Back? No account? Create one!", for: .normal)
         skipButton.setTitleColor(.black, for: .normal)
         skipButton.backgroundColor = .clear
-        skipButton.titleLabel?.font = .systemFont(ofSize: 12)
+        skipButton.titleLabel?.font = theme.fontRegular.withSize(12)
     }
     
     @objc

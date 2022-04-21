@@ -7,8 +7,11 @@
 
 import Foundation
 import UIKit
+import StyleSheet
 
 final class SMSAccessCodeViewController: UIViewController {
+    private let theme = ThemeDefault()
+
     private let titleLabel = UILabel()
     private let subtitleLabel = UILabel()
     private let stackView = UIStackView()
@@ -47,18 +50,19 @@ final class SMSAccessCodeViewController: UIViewController {
 
         view.addManagedSubview(titleLabel)
         titleLabel.numberOfLines = 2
-        titleLabel.font = .systemFont(ofSize: titleFont)
+        titleLabel.font = theme.fontBold.withSize(titleFont)
         titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).activate()
         titleLabel.setConstraintsRelativeToSuperView(leading: 16, trailing: 16)
         titleLabel.text = "Enter your access code"
         titleLabel.textAlignment = .center
+        titleLabel.font = theme.fontBold.withSize(40)
         
         view.addManagedSubview(subtitleLabel)
         subtitleLabel.numberOfLines = 2
-        subtitleLabel.font = .systemFont(ofSize: subtitleFont)
+        subtitleLabel.font = theme.fontRegular.withSize(subtitleFont)
         subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).activate()
         subtitleLabel.setConstraintsRelativeToSuperView(leading: 32, trailing: 32)
-        subtitleLabel.attributedText = "We have sent the access code to: \n\(receiver)".bolded(text: "We have sent the access code to", font: .systemFont(ofSize: subtitleFont))
+        subtitleLabel.attributedText = "We have sent the access code to: \n\(receiver)".bolded(text: "We have sent the access code to", font: theme.fontRegular.withSize(subtitleFont))
         subtitleLabel.textAlignment = .center
         
         view.addManagedSubview(stackView)
@@ -96,25 +100,25 @@ final class SMSAccessCodeViewController: UIViewController {
         lowerLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20).activate()
         lowerLabel.setConstraintsRelativeToSuperView(leading: 20, trailing: 20)
         lowerLabel.numberOfLines = 0
-        lowerLabel.font = .systemFont(ofSize: 12)
-        lowerLabel.attributedText = "Skip and check the app. \nAlready have account LogIn!".bolded(text: "Skip", font: .systemFont(ofSize: 12))
+        lowerLabel.font = theme.fontBold.withSize(12)
+        lowerLabel.attributedText = "Skip and check the app. \nAlready have account LogIn!".bolded(text: "Skip", font: theme.fontRegular.withSize(12))
         lowerLabel.textAlignment = .center
         
         view.addManagedSubview(midLabel)
         midLabel.bottomAnchor.constraint(equalTo: lowerLabel.topAnchor, constant: -40).activate()
         midLabel.setConstraintsRelativeToSuperView(leading: 20, trailing: 20)
         midLabel.numberOfLines = 0
-        midLabel.font = .systemFont(ofSize: 14)
-        midLabel.attributedText = "Didn’t receive a code? Resend".bolded(text: "Resend", font: .systemFont(ofSize: 14))
+        midLabel.font = theme.fontBold.withSize(14)
+        midLabel.attributedText = "Didn’t receive a code? Resend".bolded(text: "Resend", font: theme.fontRegular.withSize(14))
         midLabel.textAlignment = .center
         
         view.addManagedSubview(upperLabel)
         upperLabel.bottomAnchor.constraint(equalTo: midLabel.topAnchor, constant: -bigOffset).activate()
         upperLabel.setConstraintsRelativeToSuperView(leading: 20, trailing: 20)
         upperLabel.numberOfLines = 0
-        upperLabel.font = .systemFont(ofSize: 16)
+        upperLabel.font = theme.fontBold.withSize(16)
         upperLabel.attributedText = "This code will expire in 5 minutes.\niStory may use your phone number to  send emails to your account."
-            .bolded(text: "This code will expire in 5 minutes.", font: .systemFont(ofSize: 16))
+            .bolded(text: "This code will expire in 5 minutes.", font: theme.fontRegular.withSize(16))
         upperLabel.textAlignment = .center
     }
 }

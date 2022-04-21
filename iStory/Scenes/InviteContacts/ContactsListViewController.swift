@@ -10,6 +10,8 @@ import StyleSheet
 import UIKit
 
 final class ContactsListViewController: UIViewController {
+    private let theme = ThemeDefault()
+    
     private let backgroundView = UIView()
     private let popupView = UIView()
     private let closeButton = UIButton()
@@ -53,7 +55,7 @@ final class ContactsListViewController: UIViewController {
         popupView.addManagedSubview(titleLabel)
         titleLabel.setConstraintsRelativeToSuperView(top: 40, leading: 16, trailing: 16)
         titleLabel.textAlignment = .center
-        titleLabel.font = .systemFont(ofSize: 22)
+        titleLabel.font = theme.fontBold.withSize(22)
         titleLabel.text = "Friends on iStory"
         
         popupView.addManagedSubview(tableView)
