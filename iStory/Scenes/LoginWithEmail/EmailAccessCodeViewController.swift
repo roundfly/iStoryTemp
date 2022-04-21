@@ -43,7 +43,7 @@ final class EmailAccessCodeViewController: UIViewController {
         let bigOffset: CGFloat = UIScreen.main.getDeviceSize().isSmallOrLess ? 25 : 45
         let titleFont: CGFloat = UIScreen.main.getDeviceSize().isSmallOrLess ? 30 : 40
         let subtitleFont: CGFloat = UIScreen.main.getDeviceSize().isSmallOrLess ? 15 : 20
-        let buttonSize: CGFloat = UIScreen.main.getDeviceSize().isSmallOrLess ? 44 : 60
+        let buttonSize: CGFloat = 44
 
         view.addManagedSubview(titleLabel)
         titleLabel.numberOfLines = 2

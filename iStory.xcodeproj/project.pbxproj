@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2147796228109ACD00DE2744 /* InviteContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2147796128109ACD00DE2744 /* InviteContactsViewController.swift */; };
+		2147796428109C3B00DE2744 /* ContactsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2147796328109C3B00DE2744 /* ContactsListViewController.swift */; };
+		2147796628109C5B00DE2744 /* ContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2147796528109C5B00DE2744 /* ContactsTableViewCell.swift */; };
+		21588C63280A222900450ABB /* ContactsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588C62280A222900450ABB /* ContactsService.swift */; };
 		215FAE3C2800DF7B006291A8 /* LoginWithEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215FAE3B2800DF7B006291A8 /* LoginWithEmailViewController.swift */; };
 		215FAE3E2800DF87006291A8 /* LoginWithEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215FAE3D2800DF87006291A8 /* LoginWithEmailViewModel.swift */; };
 		215FAE402800DF97006291A8 /* EmailAccessCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215FAE3F2800DF97006291A8 /* EmailAccessCodeViewController.swift */; };
@@ -97,6 +101,10 @@
 
 /* Begin PBXFileReference section */
 		2144575D27E78B2B00675DD2 /* StyleSheet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StyleSheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2147796128109ACD00DE2744 /* InviteContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteContactsViewController.swift; sourceTree = "<group>"; };
+		2147796328109C3B00DE2744 /* ContactsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListViewController.swift; sourceTree = "<group>"; };
+		2147796528109C5B00DE2744 /* ContactsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewCell.swift; sourceTree = "<group>"; };
+		21588C62280A222900450ABB /* ContactsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsService.swift; sourceTree = "<group>"; };
 		215FAE3B2800DF7B006291A8 /* LoginWithEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithEmailViewController.swift; sourceTree = "<group>"; };
 		215FAE3D2800DF87006291A8 /* LoginWithEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithEmailViewModel.swift; sourceTree = "<group>"; };
 		215FAE3F2800DF97006291A8 /* EmailAccessCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAccessCodeViewController.swift; sourceTree = "<group>"; };
@@ -198,6 +206,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		21588C61280A21FB00450ABB /* InviteContacts */ = {
+			isa = PBXGroup;
+			children = (
+				2147796128109ACD00DE2744 /* InviteContactsViewController.swift */,
+				2147796328109C3B00DE2744 /* ContactsListViewController.swift */,
+				2147796528109C5B00DE2744 /* ContactsTableViewCell.swift */,
+			);
+			path = InviteContacts;
+			sourceTree = "<group>";
+		};
 		215FAE3A2800DF67006291A8 /* LoginWithEmail */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +249,7 @@
 		2170151B27EE930B00743B5B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				21588C61280A21FB00450ABB /* InviteContacts */,
 				215FAE3A2800DF67006291A8 /* LoginWithEmail */,
 				21DC001627F7B14E0098CBEA /* LoginWithSMS */,
 				2170151C27EE931100743B5B /* Authentication */,
@@ -271,6 +290,7 @@
 			children = (
 				21FC8CF427F8D24D0014914D /* PhoneNumberService.swift */,
 				21CCF0C927F206C100096CE1 /* AmazonService.swift */,
+				21588C62280A222900450ABB /* ContactsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -630,14 +650,17 @@
 				FEB964D82800E2F5008DD002 /* AuthenticationSignUpInputViewController.swift in Sources */,
 				FE66F2A527F8A9F90051007F /* AuthenticationIstorySignUpViewController.swift in Sources */,
 				FEB964DC2800F6DD008DD002 /* AuthenticationInputViewModel.swift in Sources */,
+				21588C63280A222900450ABB /* ContactsService.swift in Sources */,
 				FE66F29B27F89A780051007F /* AuthenticationSignUpViewController.swift in Sources */,
 				215FAE402800DF97006291A8 /* EmailAccessCodeViewController.swift in Sources */,
 				FE66F27727F7A17E0051007F /* AppleClient.swift in Sources */,
 				FE66F29D27F89C170051007F /* SignUpViewModel.swift in Sources */,
 				21CCF0CA27F206C100096CE1 /* AmazonService.swift in Sources */,
 				21FC8CF527F8D24D0014914D /* PhoneNumberService.swift in Sources */,
+				2147796228109ACD00DE2744 /* InviteContactsViewController.swift in Sources */,
 				FEB964ED2801BDE2008DD002 /* AuthenticationState.swift in Sources */,
 				FEE3533F280A1343007081AE /* AuthenticationSignUpDatePickerViewController.swift in Sources */,
+				2147796428109C3B00DE2744 /* ContactsListViewController.swift in Sources */,
 				FEB964E72801BCCC008DD002 /* AppAction.swift in Sources */,
 				FEE35354280B1961007081AE /* SignUpWorker.swift in Sources */,
 				FE66F2A127F89FA30051007F /* AuthenticationIstoryView.swift in Sources */,
@@ -648,6 +671,7 @@
 				FEB964E92801BCD4008DD002 /* AppReducer.swift in Sources */,
 				FE66F27F27F7B0590051007F /* SplashAuthViewController.swift in Sources */,
 				FEB964E52801BCC3008DD002 /* AppStore.swift in Sources */,
+				2147796628109C5B00DE2744 /* ContactsTableViewCell.swift in Sources */,
 				FEE3534A280B161A007081AE /* HTTPResponseMapper.swift in Sources */,
 				FE66F29327F8874E0051007F /* AuthenticationSocialViews.swift in Sources */,
 				FEB964D62800CB81008DD002 /* AuthenticationLoginInputViewController.swift in Sources */,
@@ -822,6 +846,7 @@
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iStory/Info.plist;
+				INFOPLIST_KEY_NSContactsUsageDescription = "If you want to connect to people from your phone book, please allow contacts access.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -856,6 +881,7 @@
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iStory/Info.plist;
+				INFOPLIST_KEY_NSContactsUsageDescription = "If you want to connect to people from your phone book, please allow contacts access.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

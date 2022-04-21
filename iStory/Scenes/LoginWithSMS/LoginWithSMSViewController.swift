@@ -53,7 +53,7 @@ final class LoginWithSMSViewController: UIViewController {
         let bigOffset: CGFloat = UIScreen.main.getDeviceSize().isSmallOrLess ? 45 : 90
         let titleFont: CGFloat = UIScreen.main.getDeviceSize().isSmallOrLess ? 30 : 48
         let subtitleFont: CGFloat = UIScreen.main.getDeviceSize().isSmallOrLess ? 15 : 20
-        let buttonSize: CGFloat = UIScreen.main.getDeviceSize().isSmallOrLess ? 44.0 : 44.0
+        let buttonSize: CGFloat = 44.0
 
         view.addManagedSubview(titleLabel)
         titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).activate()

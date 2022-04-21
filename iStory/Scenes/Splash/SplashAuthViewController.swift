@@ -23,7 +23,7 @@ final class SplashAuthViewController: UIViewController {
         subject.eraseToAnyPublisher()
     }
     private let subject = PassthroughSubject<SplashAuthNavigationEvent, Never>()
-
+    
     // MARK: - View controller lifecycle
 
     override func viewDidLoad() {
