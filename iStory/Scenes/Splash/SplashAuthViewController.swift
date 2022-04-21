@@ -17,13 +17,13 @@ enum SplashAuthNavigationEvent {
 
 final class SplashAuthViewController: UIViewController {
     // MARK: - Instance variables
-
+    private let theme = ThemeDefault()
     private let titleLabel = UILabel()
     var navigationPublisher: AnyPublisher<SplashAuthNavigationEvent, Never> {
         subject.eraseToAnyPublisher()
     }
     private let subject = PassthroughSubject<SplashAuthNavigationEvent, Never>()
-
+    
     // MARK: - View controller lifecycle
 
     override func viewDidLoad() {
@@ -32,6 +32,10 @@ final class SplashAuthViewController: UIViewController {
         setupLogoImageView()
         setupTitleLabel()
         setupButtonVStack()
+        
+        titleLabel.font = theme.fontBold
+        titleLabel.font = theme.fontRegular
+        titleLabel.font = theme.fontMedium
     }
 
     // MARK: - Subview setup

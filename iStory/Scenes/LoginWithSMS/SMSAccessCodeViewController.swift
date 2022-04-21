@@ -43,7 +43,7 @@ final class SMSAccessCodeViewController: UIViewController {
         let bigOffset: CGFloat = UIScreen.main.getDeviceSize().isSmallOrLess ? 25 : 45
         let titleFont: CGFloat = UIScreen.main.getDeviceSize().isSmallOrLess ? 30 : 40
         let subtitleFont: CGFloat = UIScreen.main.getDeviceSize().isSmallOrLess ? 15 : 20
-        let buttonSize: CGFloat = UIScreen.main.getDeviceSize().isSmallOrLess ? 44 : 60
+        let buttonSize: CGFloat = 44
 
         view.addManagedSubview(titleLabel)
         titleLabel.numberOfLines = 2
@@ -86,6 +86,11 @@ final class SMSAccessCodeViewController: UIViewController {
         submitButton.setHeightConstraint(equalToConstant: buttonSize)
         submitButton.titleText = "Submit code"
         submitButton.textColor = .black
+        let action = UIAction { [weak self] action in
+            let vc = InviteContactsViewController()
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
+        submitButton.addAction(action, for: .touchUpInside)
 
         view.addManagedSubview(lowerLabel)
         lowerLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20).activate()
