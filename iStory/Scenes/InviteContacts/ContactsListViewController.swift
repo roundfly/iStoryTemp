@@ -61,8 +61,8 @@ final class ContactsListViewController: UIViewController {
         popupView.addManagedSubview(tableView)
         tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 30).activate()
         tableView.setConstraintsRelativeToSuperView(leading: 0, bottom: 0, trailing: 0)
-        tableView.backgroundColor = .white.withAlphaComponent(0.9)
         tableView.register(ContactsTableViewCell.self)
+        tableView.backgroundColor = .clear
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -86,6 +86,10 @@ extension ContactsListViewController: UITableViewDelegate, UITableViewDataSource
     
     func numberOfSections(in tableView: UITableView) -> Int {
         1
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = .clear
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
