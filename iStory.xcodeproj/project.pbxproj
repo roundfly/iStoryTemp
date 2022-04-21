@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		212D952928119DE9006BB89A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212D952828119DE9006BB89A /* Theme.swift */; };
+		212D952B28119FA5006BB89A /* Gotham-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 212D952A28119FA5006BB89A /* Gotham-Regular.otf */; };
 		2147796228109ACD00DE2744 /* InviteContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2147796128109ACD00DE2744 /* InviteContactsViewController.swift */; };
 		2147796428109C3B00DE2744 /* ContactsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2147796328109C3B00DE2744 /* ContactsListViewController.swift */; };
 		2147796628109C5B00DE2744 /* ContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2147796528109C5B00DE2744 /* ContactsTableViewCell.swift */; };
+		2147796C281195FD00DE2744 /* Gotham-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2147796B281195FD00DE2744 /* Gotham-Medium.ttf */; };
 		21588C63280A222900450ABB /* ContactsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588C62280A222900450ABB /* ContactsService.swift */; };
 		215FAE3C2800DF7B006291A8 /* LoginWithEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215FAE3B2800DF7B006291A8 /* LoginWithEmailViewController.swift */; };
 		215FAE3E2800DF87006291A8 /* LoginWithEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215FAE3D2800DF87006291A8 /* LoginWithEmailViewModel.swift */; };
@@ -17,7 +20,6 @@
 		215FAE422800DFA0006291A8 /* LoginWithEmailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215FAE412800DFA0006291A8 /* LoginWithEmailRouter.swift */; };
 		215FAE452800E4B6006291A8 /* EmailValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215FAE442800E4B6006291A8 /* EmailValidator.swift */; };
 		215FAE472800E96F006291A8 /* Validatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215FAE462800E96F006291A8 /* Validatable.swift */; };
-		216B5D8127EBA14500CCF43C /* Gotham-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 216B5D7F27EBA14500CCF43C /* Gotham-Black.otf */; };
 		216B5D8227EBA14500CCF43C /* Gotham-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 216B5D8027EBA14500CCF43C /* Gotham-Bold.otf */; };
 		218910B528045176002BB295 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218910B428045176002BB295 /* UIApplication+Extension.swift */; };
 		218910B72804519D002BB295 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218910B62804519D002BB295 /* UIViewController+Extension.swift */; };
@@ -40,7 +42,6 @@
 		FE66F27727F7A17E0051007F /* AppleClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F27627F7A17E0051007F /* AppleClient.swift */; };
 		FE66F27A27F7A7820051007F /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F27927F7A7820051007F /* SplashViewController.swift */; };
 		FE66F27F27F7B0590051007F /* SplashAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F27E27F7B0590051007F /* SplashAuthViewController.swift */; };
-		FE66F28427F7B0D70051007F /* Gotham-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = FE66F28227F7B0D70051007F /* Gotham-Black.otf */; };
 		FE66F28527F7B0D70051007F /* Gotham-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FE66F28327F7B0D70051007F /* Gotham-Bold.otf */; };
 		FE66F28827F7B0F40051007F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FE66F28A27F7B0F40051007F /* Localizable.strings */; };
 		FE66F28D27F7BBE10051007F /* AuthenticationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F28C27F7BBE10051007F /* AuthenticationStyle.swift */; };
@@ -100,10 +101,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		212D952828119DE9006BB89A /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		212D952A28119FA5006BB89A /* Gotham-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Regular.otf"; sourceTree = "<group>"; };
 		2144575D27E78B2B00675DD2 /* StyleSheet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StyleSheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2147796128109ACD00DE2744 /* InviteContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteContactsViewController.swift; sourceTree = "<group>"; };
 		2147796328109C3B00DE2744 /* ContactsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListViewController.swift; sourceTree = "<group>"; };
 		2147796528109C5B00DE2744 /* ContactsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewCell.swift; sourceTree = "<group>"; };
+		2147796B281195FD00DE2744 /* Gotham-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Medium.ttf"; sourceTree = "<group>"; };
 		21588C62280A222900450ABB /* ContactsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsService.swift; sourceTree = "<group>"; };
 		215FAE3B2800DF7B006291A8 /* LoginWithEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithEmailViewController.swift; sourceTree = "<group>"; };
 		215FAE3D2800DF87006291A8 /* LoginWithEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithEmailViewModel.swift; sourceTree = "<group>"; };
@@ -111,7 +115,6 @@
 		215FAE412800DFA0006291A8 /* LoginWithEmailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithEmailRouter.swift; sourceTree = "<group>"; };
 		215FAE442800E4B6006291A8 /* EmailValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidator.swift; sourceTree = "<group>"; };
 		215FAE462800E96F006291A8 /* Validatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validatable.swift; sourceTree = "<group>"; };
-		216B5D7F27EBA14500CCF43C /* Gotham-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Black.otf"; sourceTree = "<group>"; };
 		216B5D8027EBA14500CCF43C /* Gotham-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Bold.otf"; sourceTree = "<group>"; };
 		218910B428045176002BB295 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		218910B62804519D002BB295 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -136,7 +139,6 @@
 		FE66F27627F7A17E0051007F /* AppleClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleClient.swift; sourceTree = "<group>"; };
 		FE66F27927F7A7820051007F /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		FE66F27E27F7B0590051007F /* SplashAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAuthViewController.swift; sourceTree = "<group>"; };
-		FE66F28227F7B0D70051007F /* Gotham-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Black.otf"; sourceTree = "<group>"; };
 		FE66F28327F7B0D70051007F /* Gotham-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Bold.otf"; sourceTree = "<group>"; };
 		FE66F28927F7B0F40051007F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FE66F28C27F7BBE10051007F /* AuthenticationStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationStyle.swift; sourceTree = "<group>"; };
@@ -239,7 +241,8 @@
 		216B5D7E27EBA14500CCF43C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				216B5D7F27EBA14500CCF43C /* Gotham-Black.otf */,
+				212D952A28119FA5006BB89A /* Gotham-Regular.otf */,
+				2147796B281195FD00DE2744 /* Gotham-Medium.ttf */,
 				216B5D8027EBA14500CCF43C /* Gotham-Bold.otf */,
 			);
 			name = Resources;
@@ -310,6 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				21FC8CF827F8D55A0014914D /* SubmitButton.swift */,
+				212D952828119DE9006BB89A /* Theme.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -400,7 +404,6 @@
 			isa = PBXGroup;
 			children = (
 				FE2E9F1527E53BD5002C0021 /* Assets.xcassets */,
-				FE66F28227F7B0D70051007F /* Gotham-Black.otf */,
 				FE66F28327F7B0D70051007F /* Gotham-Bold.otf */,
 				FE66F28A27F7B0F40051007F /* Localizable.strings */,
 			);
@@ -627,11 +630,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE66F28527F7B0D70051007F /* Gotham-Bold.otf in Resources */,
+				212D952B28119FA5006BB89A /* Gotham-Regular.otf in Resources */,
 				FE66F28827F7B0F40051007F /* Localizable.strings in Resources */,
 				216B5D8227EBA14500CCF43C /* Gotham-Bold.otf in Resources */,
-				FE66F28427F7B0D70051007F /* Gotham-Black.otf in Resources */,
+				2147796C281195FD00DE2744 /* Gotham-Medium.ttf in Resources */,
 				FE2E9F1627E53BD5002C0021 /* Assets.xcassets in Resources */,
-				216B5D8127EBA14500CCF43C /* Gotham-Black.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -693,6 +696,7 @@
 				FEE3534F280B16E7007081AE /* KeychainWrapper.swift in Sources */,
 				FE66F26627F79E390051007F /* AppFlowController.swift in Sources */,
 				FE66F29527F8907D0051007F /* AppDependencies.swift in Sources */,
+				212D952928119DE9006BB89A /* Theme.swift in Sources */,
 				FE2E9F0F27E53BD2002C0021 /* SceneDelegate.swift in Sources */,
 				21C4906127FCA77A00DBBDD2 /* SMSAccessCodeViewController.swift in Sources */,
 				FEB964F12801C22B008DD002 /* AuthenticationReducer.swift in Sources */,

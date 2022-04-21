@@ -32,11 +32,9 @@ public struct ThemeDefault: Theme {
     
     public var colorYellow: UIColor { AppColor.yellow.uiColor }
     
-    public var fontLight: UIFont { .init(name: "GothamLight", size: 14)! }
+    public var fontRegular: UIFont { .init(name: "Gotham-Regular", size: 12)! }
     
-    public var fontBlack: UIFont { .init(name: "Gotham-Black", size: 14)! }
+    public var fontMedium: UIFont { .init(name: "Gotham-Medium", size: 20)! }
 
-    public var fontMedium: UIFont { .init(name: "GothamMedium", size: 14)! }
-
-    public var fontBold: UIFont { .init(name: "Gotham-Bold", size: 14)! }
+    public var fontBold: UIFont { .init(name: "Gotham-Bold", size: 48)! }
 }
