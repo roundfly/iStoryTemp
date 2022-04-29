@@ -23,7 +23,7 @@
 		218910B528045176002BB295 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218910B428045176002BB295 /* UIApplication+Extension.swift */; };
 		218910B72804519D002BB295 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218910B62804519D002BB295 /* UIViewController+Extension.swift */; };
 		219FF09E2800CD10004E9D53 /* LoginWithSMSRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219FF09D2800CD10004E9D53 /* LoginWithSMSRouter.swift */; };
-		21C4906127FCA77A00DBBDD2 /* SMSAccessCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C4906027FCA77A00DBBDD2 /* SMSAccessCodeViewController.swift */; };
+		21C4906127FCA77A00DBBDD2 /* AccessCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C4906027FCA77A00DBBDD2 /* AccessCodeViewController.swift */; };
 		21CCF0CA27F206C100096CE1 /* AmazonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CCF0C927F206C100096CE1 /* AmazonService.swift */; };
 		21DC001227F7ACE30098CBEA /* PhoneNumberKit in Frameworks */ = {isa = PBXBuildFile; productRef = 21DC001127F7ACE30098CBEA /* PhoneNumberKit */; };
 		21DC001827F7B1690098CBEA /* LoginWithSMSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DC001727F7B1690098CBEA /* LoginWithSMSViewController.swift */; };
@@ -35,6 +35,9 @@
 		FE2E9F0D27E53BD2002C0021 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E9F0C27E53BD2002C0021 /* AppDelegate.swift */; };
 		FE2E9F0F27E53BD2002C0021 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E9F0E27E53BD2002C0021 /* SceneDelegate.swift */; };
 		FE2E9F1627E53BD5002C0021 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE2E9F1527E53BD5002C0021 /* Assets.xcassets */; };
+		FE3AD3EA281C7C6B0093D28B /* BirthDateWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3AD3E9281C7C6B0093D28B /* BirthDateWorker.swift */; };
+		FE3AD3ED281C85CC0093D28B /* AccessCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3AD3EC281C85CC0093D28B /* AccessCodeViewModel.swift */; };
+		FE3AD3EF281C93CE0093D28B /* EmailAccessCodeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3AD3EE281C93CE0093D28B /* EmailAccessCodeWorker.swift */; };
 		FE66F25827ED09E70051007F /* GoogleSignService in Frameworks */ = {isa = PBXBuildFile; productRef = FE66F25727ED09E70051007F /* GoogleSignService */; };
 		FE66F26627F79E390051007F /* AppFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F26527F79E390051007F /* AppFlowController.swift */; };
 		FE66F26B27F79F330051007F /* AuthenticationFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F26A27F79F330051007F /* AuthenticationFlowController.swift */; };
@@ -116,7 +119,7 @@
 		218910B428045176002BB295 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		218910B62804519D002BB295 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		219FF09D2800CD10004E9D53 /* LoginWithSMSRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithSMSRouter.swift; sourceTree = "<group>"; };
-		21C4906027FCA77A00DBBDD2 /* SMSAccessCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSAccessCodeViewController.swift; sourceTree = "<group>"; };
+		21C4906027FCA77A00DBBDD2 /* AccessCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessCodeViewController.swift; sourceTree = "<group>"; };
 		21CCF0C927F206C100096CE1 /* AmazonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazonService.swift; sourceTree = "<group>"; };
 		21DC001727F7B1690098CBEA /* LoginWithSMSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithSMSViewController.swift; sourceTree = "<group>"; };
 		21EC082027EE7B9A00A39F84 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -128,6 +131,9 @@
 		FE2E9F0C27E53BD2002C0021 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE2E9F0E27E53BD2002C0021 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FE2E9F1527E53BD5002C0021 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FE3AD3E9281C7C6B0093D28B /* BirthDateWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDateWorker.swift; sourceTree = "<group>"; };
+		FE3AD3EC281C85CC0093D28B /* AccessCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessCodeViewModel.swift; sourceTree = "<group>"; };
+		FE3AD3EE281C93CE0093D28B /* EmailAccessCodeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAccessCodeWorker.swift; sourceTree = "<group>"; };
 		FE66F25927EE8AA30051007F /* iStory.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iStory.entitlements; sourceTree = "<group>"; };
 		FE66F25D27EE8F360051007F /* AppleClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleClient.swift; sourceTree = "<group>"; };
 		FE66F26027EF3CB30051007F /* AppleSignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignInViewController.swift; sourceTree = "<group>"; };
@@ -248,9 +254,6 @@
 		2170151B27EE930B00743B5B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				21588C61280A21FB00450ABB /* InviteContacts */,
-				215FAE3A2800DF67006291A8 /* LoginWithEmail */,
-				21DC001627F7B14E0098CBEA /* LoginWithSMS */,
 				2170151C27EE931100743B5B /* Authentication */,
 				FE66F27827F7A7740051007F /* Splash */,
 			);
@@ -260,6 +263,10 @@
 		2170151C27EE931100743B5B /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				FE3AD3EB281C84F00093D28B /* AccessCode */,
+				21588C61280A21FB00450ABB /* InviteContacts */,
+				215FAE3A2800DF67006291A8 /* LoginWithEmail */,
+				21DC001627F7B14E0098CBEA /* LoginWithSMS */,
 				FE66F27527F7A1680051007F /* AppleSignIn */,
 				FE66F29827F89A4E0051007F /* LogIn */,
 				FE66F26927F79F230051007F /* Navigation */,
@@ -299,7 +306,6 @@
 			children = (
 				21DC001727F7B1690098CBEA /* LoginWithSMSViewController.swift */,
 				21FC8CF627F8D4D10014914D /* LoginWithSMSViewModel.swift */,
-				21C4906027FCA77A00DBBDD2 /* SMSAccessCodeViewController.swift */,
 				219FF09D2800CD10004E9D53 /* LoginWithSMSRouter.swift */,
 			);
 			path = LoginWithSMS;
@@ -348,6 +354,15 @@
 				FE66F25927EE8AA30051007F /* iStory.entitlements */,
 			);
 			path = iStory;
+			sourceTree = "<group>";
+		};
+		FE3AD3EB281C84F00093D28B /* AccessCode */ = {
+			isa = PBXGroup;
+			children = (
+				21C4906027FCA77A00DBBDD2 /* AccessCodeViewController.swift */,
+				FE3AD3EC281C85CC0093D28B /* AccessCodeViewModel.swift */,
+			);
+			path = AccessCode;
 			sourceTree = "<group>";
 		};
 		FE66F26327F799790051007F /* Recovered References */ = {
@@ -548,6 +563,8 @@
 			isa = PBXGroup;
 			children = (
 				FEE35353280B1961007081AE /* SignUpWorker.swift */,
+				FE3AD3E9281C7C6B0093D28B /* BirthDateWorker.swift */,
+				FE3AD3EE281C93CE0093D28B /* EmailAccessCodeWorker.swift */,
 			);
 			path = Workers;
 			sourceTree = "<group>";
@@ -638,6 +655,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE3AD3ED281C85CC0093D28B /* AccessCodeViewModel.swift in Sources */,
 				219FF09E2800CD10004E9D53 /* LoginWithSMSRouter.swift in Sources */,
 				215FAE3E2800DF87006291A8 /* LoginWithEmailViewModel.swift in Sources */,
 				218910B528045176002BB295 /* UIApplication+Extension.swift in Sources */,
@@ -646,6 +664,7 @@
 				FEB964D82800E2F5008DD002 /* AuthenticationSignUpInputViewController.swift in Sources */,
 				FE66F2A527F8A9F90051007F /* AuthenticationIstorySignUpViewController.swift in Sources */,
 				FEB964DC2800F6DD008DD002 /* AuthenticationInputViewModel.swift in Sources */,
+				FE3AD3EF281C93CE0093D28B /* EmailAccessCodeWorker.swift in Sources */,
 				21588C63280A222900450ABB /* ContactsService.swift in Sources */,
 				FE66F29B27F89A780051007F /* AuthenticationSignUpViewController.swift in Sources */,
 				215FAE402800DF97006291A8 /* EmailAccessCodeViewController.swift in Sources */,
@@ -665,6 +684,7 @@
 				215FAE422800DFA0006291A8 /* LoginWithEmailRouter.swift in Sources */,
 				215FAE3C2800DF7B006291A8 /* LoginWithEmailViewController.swift in Sources */,
 				FEB964E92801BCD4008DD002 /* AppReducer.swift in Sources */,
+				FE3AD3EA281C7C6B0093D28B /* BirthDateWorker.swift in Sources */,
 				FE66F27F27F7B0590051007F /* SplashAuthViewController.swift in Sources */,
 				FEB964E52801BCC3008DD002 /* AppStore.swift in Sources */,
 				2147796628109C5B00DE2744 /* ContactsTableViewCell.swift in Sources */,
@@ -690,9 +710,9 @@
 				FE66F26627F79E390051007F /* AppFlowController.swift in Sources */,
 				FE66F29527F8907D0051007F /* AppDependencies.swift in Sources */,
 				FE2E9F0F27E53BD2002C0021 /* SceneDelegate.swift in Sources */,
-				21C4906127FCA77A00DBBDD2 /* SMSAccessCodeViewController.swift in Sources */,
+				21C4906127FCA77A00DBBDD2 /* AccessCodeViewController.swift in Sources */,
 				FEB964F12801C22B008DD002 /* AuthenticationReducer.swift in Sources */,
-				21C4906127FCA77A00DBBDD2 /* SMSAccessCodeViewController.swift in Sources */,
+				21C4906127FCA77A00DBBDD2 /* AccessCodeViewController.swift in Sources */,
 				FE66F2A327F8A5E60051007F /* AuthenticationIstoryLoginViewController.swift in Sources */,
 				21FC8CF927F8D55A0014914D /* SubmitButton.swift in Sources */,
 			);

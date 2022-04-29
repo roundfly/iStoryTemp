@@ -15,11 +15,14 @@ enum AuthenticationAction {
     case logIn(user: Credentials)
     case submitBirthday(date: Date)
     case submittedBirthday(date: Date)
+    case submitEmailAccessCode(accessCode: String)
+    case submittedAccessCode
     case loggedIn(user: User)
     case signedIn(user: User)
     case loggedInWithGoogle(googleUser: GoogleUser)
     case loggedInWithAmazon(token: String)
     case authFailure(reason: String)
+    case accessCodeFailure(reason: String)
     case googleSignIn(presentingViewController: UIViewController)
     case amazonSignIn
 }

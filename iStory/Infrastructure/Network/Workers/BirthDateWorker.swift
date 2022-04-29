@@ -1,17 +1,17 @@
 //
-//  SignUpWorker.swift
+//  BirthDateWorker.swift
 //  iStory
 //
-//  Created by Nikola Stojanovic on 16.4.22..
+//  Created by Nikola Stojanovic on 29.4.22..
 //
 
 import NetworkServiceAPI
 
-struct SignUpWorker: HTTPClient {
+struct BirthDateWorker: HTTPClient {
     var email: String
-    var password: String
+    var birthday: String
     var path: String {
-        "api/register"
+        "api/birthday"
     }
 
     var requestMethod: RequestMethod {
@@ -21,7 +21,7 @@ struct SignUpWorker: HTTPClient {
     var params: Parameters? {
         [
             "email": email,
-            "password": password
+            "birthday": birthday
         ]
     }
 
@@ -32,8 +32,7 @@ struct SignUpWorker: HTTPClient {
         ]
     }
 
-    func performSignUp() async throws -> User {
+    func submitBirthday() async throws {
         try await execute()
-        return User(email: email, number: nil, password: password)
     }
 }

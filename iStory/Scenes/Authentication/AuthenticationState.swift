@@ -12,10 +12,12 @@ struct User: Identifiable, Equatable {
     var email: String?
     var number: String?
     var password: String?
+    var didSubmitValidAccessCodeInSession: Bool = false
 }
 
 struct AuthenticationState: Equatable {
     var currentUser: User?
     var userBirthday: Date?
     var authFailure: String?
+    var accessCodeFailure: String?
 }

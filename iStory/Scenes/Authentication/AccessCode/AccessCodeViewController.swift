@@ -7,23 +7,37 @@
 
 import Foundation
 import UIKit
+import Combine
+import StyleSheet
 
-final class SMSAccessCodeViewController: UIViewController {
+final class AccessCodeViewController: UIViewController {
     private let titleLabel = UILabel()
     private let subtitleLabel = UILabel()
     private let stackView = UIStackView()
-    private let passwordTextFields = [UITextField(), UITextField(), UITextField(), UITextField(), UITextField(), UITextField()]
+    private let accessCodeTextFields = [UITextField(), UITextField(), UITextField(), UITextField(), UITextField(), UITextField()]
     private let submitButton = SubmitButton()
-    
     private let upperLabel = UILabel()
     private let midLabel = UILabel()
     private let lowerLabel = UILabel()
+    private let viewModel: AccessCodeViewModel
+    var accessCodeCompletePublisher: AnyPublisher<Void, Never> {
+        accessCodeCompleteSubject.eraseToAnyPublisher()
+    }
+    private let accessCodeCompleteSubject = PassthroughSubject<Void, Never>()
+    private var cancellables: Set<AnyCancellable> = []
     
-    private var receiver: String = ""
-    
-    init(receiver: String) {
+    init(viewModel: AccessCodeViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-        self.receiver = receiver
+        viewModel.store.$state
+            .dropFirst()
+            .sink { [weak self] authState in
+                if let error = authState.accessCodeFailure {
+                    // show error
+                } else if authState.currentUser?.didSubmitValidAccessCodeInSession == true {
+                    self?.accessCodeCompleteSubject.send()
+                }
+            }.store(in: &cancellables)
     }
     
     required init?(coder: NSCoder) {
@@ -58,7 +72,7 @@ final class SMSAccessCodeViewController: UIViewController {
         subtitleLabel.font = .systemFont(ofSize: subtitleFont)
         subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).activate()
         subtitleLabel.setConstraintsRelativeToSuperView(leading: 32, trailing: 32)
-        subtitleLabel.attributedText = "We have sent the access code to: \n\(receiver)".bolded(text: "We have sent the access code to", font: .systemFont(ofSize: subtitleFont))
+        subtitleLabel.attributedText = "We have sent the access code to: \n\(viewModel.receiver)".bolded(text: "We have sent the access code to", font: .systemFont(ofSize: subtitleFont))
         subtitleLabel.textAlignment = .center
         
         view.addManagedSubview(stackView)
@@ -70,7 +84,7 @@ final class SMSAccessCodeViewController: UIViewController {
         stackView.alignment = .fill
         stackView.distribution = .fillEqually
 
-        passwordTextFields.forEach { textField in
+        accessCodeTextFields.forEach { textField in
             stackView.addArrangedSubview(textField)
             textField.textContentType = .oneTimeCode
             textField.backgroundColor = .white
@@ -87,8 +101,7 @@ final class SMSAccessCodeViewController: UIViewController {
         submitButton.titleText = "Submit code"
         submitButton.textColor = .black
         let action = UIAction { [weak self] action in
-            let vc = InviteContactsViewController()
-            self?.navigationController?.pushViewController(vc, animated: true)
+            self?.viewModel.submitCode()
         }
         submitButton.addAction(action, for: .touchUpInside)
 
@@ -119,21 +132,25 @@ final class SMSAccessCodeViewController: UIViewController {
     }
 }
 
-extension SMSAccessCodeViewController: UITextFieldDelegate {
+extension AccessCodeViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if string != "" {
             textField.text = string
-            for (index, passwordTextField) in passwordTextFields.enumerated() {
-                if textField == passwordTextFields.last {
-                    passwordTextFields.last?.resignFirstResponder()
+            for (index, accessCodeTextField) in accessCodeTextFields.enumerated() {
+                if textField == accessCodeTextFields.last {
+                    accessCodeTextFields.last?.resignFirstResponder()
                     break
-                } else if textField == passwordTextField {
-                    passwordTextFields[index + 1].becomeFirstResponder()
+                } else if textField == accessCodeTextField {
+                    accessCodeTextFields[index + 1].becomeFirstResponder()
                 }
             }
             return false
         }
         return true
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        viewModel.consumeAccessCode(from: accessCodeTextFields)
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {

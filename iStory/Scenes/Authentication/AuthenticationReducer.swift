@@ -36,7 +36,7 @@ let authReducer: Reducer<AuthenticationState, AuthenticationAction, Authenticati
     case .signedIn(let user):
         state.authFailure = nil
         state.currentUser = user
-        environment.keychain.setUserEmail(user.email)
+        environment.keychain.setUserEmail(user.email ?? "")
     case .loggedIn(let user):
         state.authFailure = nil
         state.currentUser = user
@@ -63,13 +63,25 @@ let authReducer: Reducer<AuthenticationState, AuthenticationAction, Authenticati
         state.currentUser = .init()
     case .submitBirthday(let date):
         return environment.authenticationClient
-            .submitBirthday(date)
-            .map(AuthenticationAction.submittedBirthday(date:))
+            .submitBirthday(environment.dateFormatter.string(from: date),
+                            state.currentUser?.email ?? "")
+            .map { AuthenticationAction.submittedBirthday(date: date) }
             .catch { Just(AuthenticationAction.authFailure(reason: $0.localizedDescription)).eraseToAnyPublisher() }
             .eraseToAnyPublisher()
     case .submittedBirthday(let date):
         state.authFailure = nil
         state.userBirthday = date
+    case .submitEmailAccessCode(let accessCode):
+        return environment.authenticationClient
+            .submitAccessCodeWithEmail(accessCode, state.currentUser?.email ?? "")
+            .map { _ in AuthenticationAction.submittedAccessCode }
+            .catch { Just(AuthenticationAction.accessCodeFailure(reason: $0.localizedDescription)).eraseToAnyPublisher() }
+            .eraseToAnyPublisher()
+    case .accessCodeFailure(let reason):
+        state.accessCodeFailure = reason
+    case .submittedAccessCode:
+        state.accessCodeFailure = nil
+        state.currentUser?.didSubmitValidAccessCodeInSession = true
     }
     return Empty().eraseToAnyPublisher()
 }
