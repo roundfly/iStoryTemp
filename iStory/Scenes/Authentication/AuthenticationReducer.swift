@@ -36,6 +36,7 @@ let authReducer: Reducer<AuthenticationState, AuthenticationAction, Authenticati
     case .signedIn(let user):
         state.authFailure = nil
         state.currentUser = user
+        environment.keychain.setUserEmail(user.email)
     case .loggedIn(let user):
         state.authFailure = nil
         state.currentUser = user

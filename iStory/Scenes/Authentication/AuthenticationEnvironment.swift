@@ -6,8 +6,13 @@
 //
 
 import GoogleSignInService
+import KeychainService
+import KeychainServiceAPI
+import KeychainSwift
 import Combine
 import Foundation
+
+private let keychainSwift = KeychainSwift()
 
 struct AuthenticationEnvironment {
     var phoneNumberKit: PhoneNumberService { .init() }
@@ -15,6 +20,7 @@ struct AuthenticationEnvironment {
     var googleClient: GoogleClient { .prodution }
     var appleClient: AppleClient { .production }
     var authenticationClient: AuthenticationClient { .prodution }
+    var keychain: KeychainServiceAPI { KeychainService(keychain: KeychainWrapper(keychain: keychainSwift)) }
 }
 
 extension Future where Failure == Error {
