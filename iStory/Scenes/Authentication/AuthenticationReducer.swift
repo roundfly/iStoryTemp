@@ -63,7 +63,7 @@ let authReducer: Reducer<AuthenticationState, AuthenticationAction, Authenticati
         state.currentUser = .init()
     case .submitBirthday(let date):
         return environment.authenticationClient
-            .submitBirthday(environment.dateFormatter.string(from: date),
+            .submitBirthdayWithEmail(environment.dateFormatter.string(from: date),
                             state.currentUser?.email ?? "")
             .map { AuthenticationAction.submittedBirthday(date: date) }
             .catch { Just(AuthenticationAction.authFailure(reason: $0.localizedDescription)).eraseToAnyPublisher() }

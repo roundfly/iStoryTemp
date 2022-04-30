@@ -42,7 +42,7 @@ extension Future where Failure == Error {
 struct AuthenticationClient /* iStory client */ {
     var logIn: (Credentials) -> AnyPublisher<User, Error>
     var signIn: (Credentials) -> AnyPublisher<User, Error>
-    var submitBirthday: (_ date: String, _ email: String) -> AnyPublisher<Void, Error>
+    var submitBirthdayWithEmail: (_ date: String, _ email: String) -> AnyPublisher<Void, Error>
     var submitAccessCodeWithEmail: (_ accessCode: String, _ email: String) -> AnyPublisher<Void, Error>
 
     static var prodution: AuthenticationClient {
@@ -53,7 +53,7 @@ struct AuthenticationClient /* iStory client */ {
             let worker = SignUpWorker(email: credentials.email, password: credentials.password)
             return Future<User, Error>(operation: worker.performSignUp).eraseToAnyPublisher()
         },
-             submitBirthday: { date, email in
+             submitBirthdayWithEmail: { date, email in
             let worker = BirthDateWorker(email: email, birthday: date)
             return Future<Void, Error>(operation: worker.submitBirthday).eraseToAnyPublisher()
         }, submitAccessCodeWithEmail: { accessCode, email in

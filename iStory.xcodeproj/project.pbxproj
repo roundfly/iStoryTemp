@@ -38,6 +38,8 @@
 		FE3AD3EA281C7C6B0093D28B /* BirthDateWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3AD3E9281C7C6B0093D28B /* BirthDateWorker.swift */; };
 		FE3AD3ED281C85CC0093D28B /* AccessCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3AD3EC281C85CC0093D28B /* AccessCodeViewModel.swift */; };
 		FE3AD3EF281C93CE0093D28B /* EmailAccessCodeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3AD3EE281C93CE0093D28B /* EmailAccessCodeWorker.swift */; };
+		FE3AD3F1281C9B720093D28B /* LoginWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3AD3F0281C9B720093D28B /* LoginWorker.swift */; };
+		FE3AD3F3281C9BBD0093D28B /* GoogleSignInWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3AD3F2281C9BBD0093D28B /* GoogleSignInWorker.swift */; };
 		FE66F25827ED09E70051007F /* GoogleSignService in Frameworks */ = {isa = PBXBuildFile; productRef = FE66F25727ED09E70051007F /* GoogleSignService */; };
 		FE66F26627F79E390051007F /* AppFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F26527F79E390051007F /* AppFlowController.swift */; };
 		FE66F26B27F79F330051007F /* AuthenticationFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F26A27F79F330051007F /* AuthenticationFlowController.swift */; };
@@ -134,6 +136,8 @@
 		FE3AD3E9281C7C6B0093D28B /* BirthDateWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDateWorker.swift; sourceTree = "<group>"; };
 		FE3AD3EC281C85CC0093D28B /* AccessCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessCodeViewModel.swift; sourceTree = "<group>"; };
 		FE3AD3EE281C93CE0093D28B /* EmailAccessCodeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAccessCodeWorker.swift; sourceTree = "<group>"; };
+		FE3AD3F0281C9B720093D28B /* LoginWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWorker.swift; sourceTree = "<group>"; };
+		FE3AD3F2281C9BBD0093D28B /* GoogleSignInWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInWorker.swift; sourceTree = "<group>"; };
 		FE66F25927EE8AA30051007F /* iStory.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iStory.entitlements; sourceTree = "<group>"; };
 		FE66F25D27EE8F360051007F /* AppleClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleClient.swift; sourceTree = "<group>"; };
 		FE66F26027EF3CB30051007F /* AppleSignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignInViewController.swift; sourceTree = "<group>"; };
@@ -565,6 +569,8 @@
 				FEE35353280B1961007081AE /* SignUpWorker.swift */,
 				FE3AD3E9281C7C6B0093D28B /* BirthDateWorker.swift */,
 				FE3AD3EE281C93CE0093D28B /* EmailAccessCodeWorker.swift */,
+				FE3AD3F0281C9B720093D28B /* LoginWorker.swift */,
+				FE3AD3F2281C9BBD0093D28B /* GoogleSignInWorker.swift */,
 			);
 			path = Workers;
 			sourceTree = "<group>";
@@ -667,6 +673,7 @@
 				FE3AD3EF281C93CE0093D28B /* EmailAccessCodeWorker.swift in Sources */,
 				21588C63280A222900450ABB /* ContactsService.swift in Sources */,
 				FE66F29B27F89A780051007F /* AuthenticationSignUpViewController.swift in Sources */,
+				FE3AD3F3281C9BBD0093D28B /* GoogleSignInWorker.swift in Sources */,
 				215FAE402800DF97006291A8 /* EmailAccessCodeViewController.swift in Sources */,
 				FE66F27727F7A17E0051007F /* AppleClient.swift in Sources */,
 				FE66F29D27F89C170051007F /* SignUpViewModel.swift in Sources */,
@@ -698,6 +705,7 @@
 				FE66F28D27F7BBE10051007F /* AuthenticationStyle.swift in Sources */,
 				FEB964FA2804A958008DD002 /* FailureShowable.swift in Sources */,
 				FEB964D42800C194008DD002 /* AuthenticationInputView.swift in Sources */,
+				FE3AD3F1281C9B720093D28B /* LoginWorker.swift in Sources */,
 				FE66F29F27F89C2F0051007F /* LoginViewModel.swift in Sources */,
 				FEB964EF2801C12F008DD002 /* AuthenticationAction.swift in Sources */,
 				FE66F29127F7C0360051007F /* AuthenticationSocialContainerView.swift in Sources */,
