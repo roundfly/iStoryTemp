@@ -58,8 +58,6 @@
 		FE66F2A127F89FA30051007F /* AuthenticationIstoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F2A027F89FA30051007F /* AuthenticationIstoryView.swift */; };
 		FE66F2A327F8A5E60051007F /* AuthenticationIstoryLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F2A227F8A5E60051007F /* AuthenticationIstoryLoginViewController.swift */; };
 		FE66F2A527F8A9F90051007F /* AuthenticationIstorySignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F2A427F8A9F90051007F /* AuthenticationIstorySignUpViewController.swift */; };
-		FE87F34A27E627150062ACB4 /* Authentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE87F34927E627150062ACB4 /* Authentication.framework */; };
-		FE87F34B27E627150062ACB4 /* Authentication.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FE87F34927E627150062ACB4 /* Authentication.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FE87F34E27E6271B0062ACB4 /* StyleSheet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE87F34D27E6271B0062ACB4 /* StyleSheet.framework */; };
 		FE87F34F27E6271B0062ACB4 /* StyleSheet.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FE87F34D27E6271B0062ACB4 /* StyleSheet.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FE87F35127E6271F0062ACB4 /* NetworkService in Frameworks */ = {isa = PBXBuildFile; productRef = FE87F35027E6271F0062ACB4 /* NetworkService */; };
@@ -96,7 +94,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				FE87F34F27E6271B0062ACB4 /* StyleSheet.framework in Embed Frameworks */,
-				FE87F34B27E627150062ACB4 /* Authentication.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,7 +190,6 @@
 				FE66F25827ED09E70051007F /* GoogleSignService in Frameworks */,
 				FE87F35327E627240062ACB4 /* KeychainService in Frameworks */,
 				FE87F34E27E6271B0062ACB4 /* StyleSheet.framework in Frameworks */,
-				FE87F34A27E627150062ACB4 /* Authentication.framework in Frameworks */,
 				21DC001227F7ACE30098CBEA /* PhoneNumberKit in Frameworks */,
 				FE87F35127E6271F0062ACB4 /* NetworkService in Frameworks */,
 				FE87F36127E62E660062ACB4 /* LoginWithAmazon.framework in Frameworks */,
@@ -864,6 +860,7 @@
 				CODE_SIGN_ENTITLEMENTS = iStory/iStory.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 93WV4LTCJK;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Amazon",
@@ -899,6 +896,7 @@
 				CODE_SIGN_ENTITLEMENTS = iStory/iStory.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 93WV4LTCJK;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Amazon",
