@@ -82,6 +82,25 @@ let authReducer: Reducer<AuthenticationState, AuthenticationAction, Authenticati
     case .submittedAccessCode:
         state.accessCodeFailure = nil
         state.currentUser?.didSubmitValidAccessCodeInSession = true
+    case .forgotPassword(let email):
+        state.currentUser = User(email: email)
+        return environment.authenticationClient
+            .forgotPassword(email)
+            .map { AuthenticationAction.forgotPasswordSubmitted }
+            .catch { Just(AuthenticationAction.forgotPasswordFailure(reason: $0.localizedDescription)).eraseToAnyPublisher() }
+            .eraseToAnyPublisher()
+    case .forgotPasswordFailure(let reason):
+        break
+    case .forgotPasswordSubmitted:
+        state.showForgotPasswordAccessCodeFlow = true
+    case .submitForgotPasswordAccessCode(accessCode: let accessCode):
+        return environment.authenticationClient
+            .submitForgotPasswordAccessCodeWithEmail(accessCode, state.currentUser?.email ?? "")
+            .map { AuthenticationAction.forgotPasswordAcessCodeSubmitted }
+            .catch { Just(AuthenticationAction.forgotPasswordFailure(reason: $0.localizedDescription)).eraseToAnyPublisher() }
+            .eraseToAnyPublisher()
+    case .forgotPasswordAcessCodeSubmitted:
+        break
     }
     return Empty().eraseToAnyPublisher()
 }

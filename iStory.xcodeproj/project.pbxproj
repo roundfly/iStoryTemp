@@ -63,6 +63,10 @@
 		FE87F35127E6271F0062ACB4 /* NetworkService in Frameworks */ = {isa = PBXBuildFile; productRef = FE87F35027E6271F0062ACB4 /* NetworkService */; };
 		FE87F35327E627240062ACB4 /* KeychainService in Frameworks */ = {isa = PBXBuildFile; productRef = FE87F35227E627240062ACB4 /* KeychainService */; };
 		FE87F36127E62E660062ACB4 /* LoginWithAmazon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE87F35F27E62E630062ACB4 /* LoginWithAmazon.framework */; };
+		FEA7774E281D599000B7CCF2 /* ForgotPasswordWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA7774D281D599000B7CCF2 /* ForgotPasswordWorker.swift */; };
+		FEA77750281D5AC000B7CCF2 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA7774F281D5AC000B7CCF2 /* ForgotPasswordViewController.swift */; };
+		FEA77752281D6AEB00B7CCF2 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA77751281D6AEB00B7CCF2 /* ForgotPasswordViewModel.swift */; };
+		FEA77754281D731000B7CCF2 /* ForgotPasswordAccessCodeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA77753281D731000B7CCF2 /* ForgotPasswordAccessCodeWorker.swift */; };
 		FEB964D42800C194008DD002 /* AuthenticationInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB964D32800C194008DD002 /* AuthenticationInputView.swift */; };
 		FEB964D62800CB81008DD002 /* AuthenticationLoginInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB964D52800CB81008DD002 /* AuthenticationLoginInputViewController.swift */; };
 		FEB964D82800E2F5008DD002 /* AuthenticationSignUpInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB964D72800E2F5008DD002 /* AuthenticationSignUpInputViewController.swift */; };
@@ -158,6 +162,10 @@
 		FE87F34927E627150062ACB4 /* Authentication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Authentication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE87F34D27E6271B0062ACB4 /* StyleSheet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StyleSheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE87F35F27E62E630062ACB4 /* LoginWithAmazon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LoginWithAmazon.framework; sourceTree = "<group>"; };
+		FEA7774D281D599000B7CCF2 /* ForgotPasswordWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordWorker.swift; sourceTree = "<group>"; };
+		FEA7774F281D5AC000B7CCF2 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		FEA77751281D6AEB00B7CCF2 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
+		FEA77753281D731000B7CCF2 /* ForgotPasswordAccessCodeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordAccessCodeWorker.swift; sourceTree = "<group>"; };
 		FEB964D32800C194008DD002 /* AuthenticationInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInputView.swift; sourceTree = "<group>"; };
 		FEB964D52800CB81008DD002 /* AuthenticationLoginInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationLoginInputViewController.swift; sourceTree = "<group>"; };
 		FEB964D72800E2F5008DD002 /* AuthenticationSignUpInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationSignUpInputViewController.swift; sourceTree = "<group>"; };
@@ -263,21 +271,22 @@
 		2170151C27EE931100743B5B /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				FEB964EE2801C12F008DD002 /* AuthenticationAction.swift */,
+				FEB964F22801C252008DD002 /* AuthenticationEnvironment.swift */,
+				FEB964F02801C22B008DD002 /* AuthenticationReducer.swift */,
+				FEB964EC2801BDE2008DD002 /* AuthenticationState.swift */,
 				FE3AD3EB281C84F00093D28B /* AccessCode */,
+				FE66F27527F7A1680051007F /* AppleSignIn */,
+				FEA7774C281D592900B7CCF2 /* ForgotPassword */,
 				21588C61280A21FB00450ABB /* InviteContacts */,
+				FE66F29827F89A4E0051007F /* LogIn */,
 				215FAE3A2800DF67006291A8 /* LoginWithEmail */,
 				21DC001627F7B14E0098CBEA /* LoginWithSMS */,
-				FE66F27527F7A1680051007F /* AppleSignIn */,
-				FE66F29827F89A4E0051007F /* LogIn */,
 				FE66F26927F79F230051007F /* Navigation */,
 				FE66F29927F89A540051007F /* SignUp */,
 				FE66F28B27F7BBD10051007F /* Styles */,
 				FEB964DA2800F6CE008DD002 /* ViewModels */,
 				FE66F28F27F7C0140051007F /* Views */,
-				FEB964EC2801BDE2008DD002 /* AuthenticationState.swift */,
-				FEB964EE2801C12F008DD002 /* AuthenticationAction.swift */,
-				FEB964F02801C22B008DD002 /* AuthenticationReducer.swift */,
-				FEB964F22801C252008DD002 /* AuthenticationEnvironment.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -479,6 +488,15 @@
 			path = Amazon;
 			sourceTree = "<group>";
 		};
+		FEA7774C281D592900B7CCF2 /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				FEA7774F281D5AC000B7CCF2 /* ForgotPasswordViewController.swift */,
+				FEA77751281D6AEB00B7CCF2 /* ForgotPasswordViewModel.swift */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
 		FEB964D92800F6BF008DD002 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -567,6 +585,8 @@
 				FE3AD3EE281C93CE0093D28B /* EmailAccessCodeWorker.swift */,
 				FE3AD3F0281C9B720093D28B /* LoginWorker.swift */,
 				FE3AD3F2281C9BBD0093D28B /* GoogleSignInWorker.swift */,
+				FEA7774D281D599000B7CCF2 /* ForgotPasswordWorker.swift */,
+				FEA77753281D731000B7CCF2 /* ForgotPasswordAccessCodeWorker.swift */,
 			);
 			path = Workers;
 			sourceTree = "<group>";
@@ -657,11 +677,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEA77750281D5AC000B7CCF2 /* ForgotPasswordViewController.swift in Sources */,
 				FE3AD3ED281C85CC0093D28B /* AccessCodeViewModel.swift in Sources */,
 				219FF09E2800CD10004E9D53 /* LoginWithSMSRouter.swift in Sources */,
 				215FAE3E2800DF87006291A8 /* LoginWithEmailViewModel.swift in Sources */,
 				218910B528045176002BB295 /* UIApplication+Extension.swift in Sources */,
 				FEE35344280B12BF007081AE /* HTTPClient.swift in Sources */,
+				FEA77752281D6AEB00B7CCF2 /* ForgotPasswordViewModel.swift in Sources */,
 				FEB964F32801C252008DD002 /* AuthenticationEnvironment.swift in Sources */,
 				FEB964D82800E2F5008DD002 /* AuthenticationSignUpInputViewController.swift in Sources */,
 				FE66F2A527F8A9F90051007F /* AuthenticationIstorySignUpViewController.swift in Sources */,
@@ -681,7 +703,9 @@
 				2147796428109C3B00DE2744 /* ContactsListViewController.swift in Sources */,
 				FEB964E72801BCCC008DD002 /* AppAction.swift in Sources */,
 				FEE35354280B1961007081AE /* SignUpWorker.swift in Sources */,
+				FEA77754281D731000B7CCF2 /* ForgotPasswordAccessCodeWorker.swift in Sources */,
 				FE66F2A127F89FA30051007F /* AuthenticationIstoryView.swift in Sources */,
+				FEA7774E281D599000B7CCF2 /* ForgotPasswordWorker.swift in Sources */,
 				FE66F29727F893E90051007F /* AuthenticationLoginViewController.swift in Sources */,
 				215FAE452800E4B6006291A8 /* EmailValidator.swift in Sources */,
 				215FAE422800DFA0006291A8 /* LoginWithEmailRouter.swift in Sources */,

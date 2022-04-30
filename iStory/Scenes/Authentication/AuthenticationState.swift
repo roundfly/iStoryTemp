@@ -20,4 +20,5 @@ struct AuthenticationState: Equatable {
     var userBirthday: Date?
     var authFailure: String?
     var accessCodeFailure: String?
+    var showForgotPasswordAccessCodeFlow = false
 }

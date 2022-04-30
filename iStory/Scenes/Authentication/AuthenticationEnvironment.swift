@@ -42,8 +42,12 @@ extension Future where Failure == Error {
 struct AuthenticationClient /* iStory client */ {
     var logIn: (Credentials) -> AnyPublisher<User, Error>
     var signIn: (Credentials) -> AnyPublisher<User, Error>
+    var forgotPassword: (_ email: String) -> AnyPublisher<Void, Error>
     var submitBirthdayWithEmail: (_ date: String, _ email: String) -> AnyPublisher<Void, Error>
+    /// Signup flow
     var submitAccessCodeWithEmail: (_ accessCode: String, _ email: String) -> AnyPublisher<Void, Error>
+    /// Forgot password flow
+    var submitForgotPasswordAccessCodeWithEmail: (_ accessCode: String, _ email: String) -> AnyPublisher<Void, Error>
 
     static var prodution: AuthenticationClient {
         Self(logIn: { credentials in
@@ -53,11 +57,22 @@ struct AuthenticationClient /* iStory client */ {
             let worker = SignUpWorker(email: credentials.email, password: credentials.password)
             return Future<User, Error>(operation: worker.performSignUp).eraseToAnyPublisher()
         },
+             forgotPassword: { email in
+            let worker = ForgotPasswordWorker(email: email)
+            return Future<Void, Error>(operation: worker.performForgotPassword).eraseToAnyPublisher()
+        },
              submitBirthdayWithEmail: { date, email in
             let worker = BirthDateWorker(email: email, birthday: date)
             return Future<Void, Error>(operation: worker.submitBirthday).eraseToAnyPublisher()
-        }, submitAccessCodeWithEmail: { accessCode, email in
+
+        },
+             submitAccessCodeWithEmail: { accessCode, email in
             let worker = EmailAccessCodeWorker(email: email, accessCode: accessCode)
+            return Future<Void, Error>(operation: worker.submitAccessCode).eraseToAnyPublisher()
+
+        },
+             submitForgotPasswordAccessCodeWithEmail: { accessCode, email in
+            let worker = ForgotPasswordAccessCodeWorker(email: email, accessCode: accessCode)
             return Future<Void, Error>(operation: worker.submitAccessCode).eraseToAnyPublisher()
         })
     }

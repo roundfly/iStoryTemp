@@ -99,7 +99,7 @@ final class AuthenticationLoginInputViewController: UIViewController, FailureSho
         var forgotPasswordConfig = UIButton.Configuration.plain()
         forgotPasswordConfig.titleAlignment = .center
         forgotPasswordConfig.baseForegroundColor = .black
-        let forgotPasswordButton = UIButton(configuration: forgotPasswordConfig, publisher: createAccountSubject)
+        let forgotPasswordButton = UIButton(configuration: forgotPasswordConfig, publisher: forgotPasswordSubject)
         view.addManagedSubview(forgotPasswordButton)
         forgotPasswordButton.setAttributedTitle("Forgot password?\nGet access code".bolded(text: "Get access code", font: .preferredFont(forTextStyle: .callout)), for: .normal)
         forgotPasswordButton.bottomAnchor.constraint(equalTo: createAccountButton.topAnchor, constant: -20).activate()

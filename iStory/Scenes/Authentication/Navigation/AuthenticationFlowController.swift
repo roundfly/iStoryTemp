@@ -60,9 +60,23 @@ final class AuthenticationFlowController: UIViewController {
 
     private func openLogInFlow() {
         let viewController = AuthenticationIstoryLoginViewController()
+        let forgotPasswordViewController = ForgotPasswordViewController(viewModel: ForgotPasswordViewModel(store: store))
+        let loginInputViewController = AuthenticationLoginInputViewController(store: store)
+        let accessCodeViewController = AccessCodeViewController(viewModel: .init(accessCodeSource: .forgotPassword, store: store))
+        forgotPasswordViewController.forgotPasswordSubmitPublisher
+            .sink { [navigation] _ in
+                guard !navigation.viewControllers.contains(accessCodeViewController) else { return }
+                navigation.pushViewController(accessCodeViewController, animated: true)
+            }.store(in: &cancenllables)
+        loginInputViewController.forgotPasswordPublisher
+            .sink { [navigation] _ in
+                guard !navigation.viewControllers.contains(forgotPasswordViewController) else { return }
+                navigation.pushViewController(forgotPasswordViewController, animated: true)
+            }.store(in: &cancenllables)
         viewController.emailButtonPublisher
-            .sink { [navigation, store] _ in
-                navigation.pushViewController(AuthenticationLoginInputViewController(store: store), animated: true)
+            .sink { [navigation] _ in
+                guard !navigation.viewControllers.contains(loginInputViewController) else { return }
+                navigation.pushViewController(loginInputViewController, animated: true)
             }.store(in: &cancenllables)
         
         viewController.smsButtonPublisher
@@ -86,6 +100,7 @@ final class AuthenticationFlowController: UIViewController {
             .store(in: &cancenllables)
         datePickerViewController.dateCompletePublisher
             .sink { [navigation] _ in
+                guard !navigation.viewControllers.contains(accessCodeViewController) else { return }
                 navigation.pushViewController(accessCodeViewController, animated: true)
             }.store(in: &cancenllables)
         signUpViewController.signUpCompletePublisher
@@ -94,6 +109,7 @@ final class AuthenticationFlowController: UIViewController {
                 navigation.pushViewController(datePickerViewController, animated: true)
             }.store(in: &cancenllables)
         viewController.emailButtonPublisher.sink { [navigation] _ in
+            guard !navigation.viewControllers.contains(signUpViewController) else { return }
             navigation.pushViewController(signUpViewController, animated: true)
         }.store(in: &cancenllables)
         viewController.smsButtonPublisher.sink { [navigation, store] _ in

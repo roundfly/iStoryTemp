@@ -11,6 +11,7 @@ import UIKit
 
 final class AccessCodeViewModel {
     enum AccessCodeSource {
+        case forgotPassword
         case email
         case sms
     }
@@ -20,7 +21,12 @@ final class AccessCodeViewModel {
     private var accessCodeSource: AccessCodeSource
 
     var receiver: String {
-        accessCodeSource == .email ? store.state.currentUser?.email ?? "" : store.state.currentUser?.number ?? ""
+        switch accessCodeSource {
+        case .email, .forgotPassword:
+            return store.state.currentUser?.email ?? ""
+        case .sms:
+            return store.state.currentUser?.number ?? ""
+        }
     }
 
     init(accessCodeSource: AccessCodeSource, store: AuthenticationStore) {
@@ -40,6 +46,13 @@ final class AccessCodeViewModel {
             store.dispatch(.accessCodeFailure(reason: "Please enter a 6 character access code."))
             return
         }
-        store.dispatch(.submitEmailAccessCode(accessCode: accessCode))
+        switch accessCodeSource {
+        case .forgotPassword:
+            store.dispatch(.submitForgotPasswordAccessCode(accessCode: accessCode))
+        case .email:
+            store.dispatch(.submitEmailAccessCode(accessCode: accessCode))
+        case .sms:
+            break
+        }
     }
 }
