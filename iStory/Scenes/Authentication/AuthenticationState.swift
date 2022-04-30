@@ -17,8 +17,10 @@ struct User: Identifiable, Equatable {
 
 struct AuthenticationState: Equatable {
     var currentUser: User?
+    var accessToken: AccessToken?
     var userBirthday: Date?
     var authFailure: String?
     var accessCodeFailure: String?
     var showForgotPasswordAccessCodeFlow = false
+    var didSignIn = false
 }

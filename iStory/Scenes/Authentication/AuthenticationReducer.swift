@@ -14,11 +14,10 @@ let authReducer: Reducer<AuthenticationState, AuthenticationAction, Authenticati
     case .logIn(let credentials):
         return environment.authenticationClient
             .logIn(credentials)
-            .map { user in
-                var user = user
-                user.email = credentials.email
-                user.password = credentials.password
-                return AuthenticationAction.signedIn(user: user)
+            .map { token in
+                environment.keychain.setAccessToken(token.accessToken)
+                let user = User(email: credentials.email, password: credentials.password)
+                return AuthenticationAction.signedIn(user: user, token: token)
             }
             .catch { Just(AuthenticationAction.authFailure(reason: $0.localizedDescription)).eraseToAnyPublisher() }
             .eraseToAnyPublisher()
@@ -29,13 +28,15 @@ let authReducer: Reducer<AuthenticationState, AuthenticationAction, Authenticati
                 var user = user
                 user.email = credentials.email
                 user.password = credentials.password
-                return AuthenticationAction.signedIn(user: user)
+                return AuthenticationAction.signedIn(user: user, token: nil)
             }
             .catch { Just(AuthenticationAction.authFailure(reason: $0.localizedDescription)).eraseToAnyPublisher() }
             .eraseToAnyPublisher()
-    case .signedIn(let user):
+    case .signedIn(let user, let token):
         state.authFailure = nil
         state.currentUser = user
+        state.accessToken = token
+        state.didSignIn = true
         environment.keychain.setUserEmail(user.email ?? "")
     case .loggedIn(let user):
         state.authFailure = nil

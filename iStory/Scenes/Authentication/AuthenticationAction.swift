@@ -22,7 +22,7 @@ enum AuthenticationAction {
     case submitForgotPasswordAccessCode(accessCode: String)
     case forgotPasswordAcessCodeSubmitted
     case loggedIn(user: User)
-    case signedIn(user: User)
+    case signedIn(user: User, token: AccessToken?)
     case loggedInWithGoogle(googleUser: GoogleUser)
     case loggedInWithAmazon(token: String)
     case authFailure(reason: String)

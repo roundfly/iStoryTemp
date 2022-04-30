@@ -24,23 +24,8 @@ struct AuthenticationEnvironment {
     var dateFormatter = ISO8601DateFormatter()
 }
 
-extension Future where Failure == Error {
-    convenience init(operation: @escaping () async throws -> Output) {
-        self.init { promise in
-            Task {
-                do {
-                    let output = try await operation()
-                    promise(.success(output))
-                } catch {
-                    promise(.failure(error))
-                }
-            }
-        }
-    }
-}
-
 struct AuthenticationClient /* iStory client */ {
-    var logIn: (Credentials) -> AnyPublisher<User, Error>
+    var logIn: (Credentials) -> AnyPublisher<AccessToken, Error>
     var signIn: (Credentials) -> AnyPublisher<User, Error>
     var forgotPassword: (_ email: String) -> AnyPublisher<Void, Error>
     var submitBirthdayWithEmail: (_ date: String, _ email: String) -> AnyPublisher<Void, Error>
@@ -51,7 +36,8 @@ struct AuthenticationClient /* iStory client */ {
 
     static var prodution: AuthenticationClient {
         Self(logIn: { credentials in
-            Just(User()).setFailureType(to: Error.self).eraseToAnyPublisher()
+            let worker = LoginEmailWorker(email: credentials.email, password: credentials.password)
+            return Future<AccessToken, Error>(operation: worker.performLogIn).eraseToAnyPublisher()
         },
              signIn: { credentials in
             let worker = SignUpWorker(email: credentials.email, password: credentials.password)

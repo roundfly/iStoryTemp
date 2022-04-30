@@ -38,7 +38,7 @@
 		FE3AD3EA281C7C6B0093D28B /* BirthDateWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3AD3E9281C7C6B0093D28B /* BirthDateWorker.swift */; };
 		FE3AD3ED281C85CC0093D28B /* AccessCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3AD3EC281C85CC0093D28B /* AccessCodeViewModel.swift */; };
 		FE3AD3EF281C93CE0093D28B /* EmailAccessCodeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3AD3EE281C93CE0093D28B /* EmailAccessCodeWorker.swift */; };
-		FE3AD3F1281C9B720093D28B /* LoginWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3AD3F0281C9B720093D28B /* LoginWorker.swift */; };
+		FE3AD3F1281C9B720093D28B /* LoginEmailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3AD3F0281C9B720093D28B /* LoginEmailWorker.swift */; };
 		FE3AD3F3281C9BBD0093D28B /* GoogleSignInWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3AD3F2281C9BBD0093D28B /* GoogleSignInWorker.swift */; };
 		FE66F25827ED09E70051007F /* GoogleSignService in Frameworks */ = {isa = PBXBuildFile; productRef = FE66F25727ED09E70051007F /* GoogleSignService */; };
 		FE66F26627F79E390051007F /* AppFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F26527F79E390051007F /* AppFlowController.swift */; };
@@ -67,6 +67,9 @@
 		FEA77750281D5AC000B7CCF2 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA7774F281D5AC000B7CCF2 /* ForgotPasswordViewController.swift */; };
 		FEA77752281D6AEB00B7CCF2 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA77751281D6AEB00B7CCF2 /* ForgotPasswordViewModel.swift */; };
 		FEA77754281D731000B7CCF2 /* ForgotPasswordAccessCodeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA77753281D731000B7CCF2 /* ForgotPasswordAccessCodeWorker.swift */; };
+		FEA77757281D7CC600B7CCF2 /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA77756281D7CC600B7CCF2 /* AccessToken.swift */; };
+		FEA7775A281D7D5600B7CCF2 /* Future+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA77759281D7D5600B7CCF2 /* Future+Extensions.swift */; };
+		FEA7775C281D80AC00B7CCF2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA7775B281D80AC00B7CCF2 /* HomeViewController.swift */; };
 		FEB964D42800C194008DD002 /* AuthenticationInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB964D32800C194008DD002 /* AuthenticationInputView.swift */; };
 		FEB964D62800CB81008DD002 /* AuthenticationLoginInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB964D52800CB81008DD002 /* AuthenticationLoginInputViewController.swift */; };
 		FEB964D82800E2F5008DD002 /* AuthenticationSignUpInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB964D72800E2F5008DD002 /* AuthenticationSignUpInputViewController.swift */; };
@@ -137,7 +140,7 @@
 		FE3AD3E9281C7C6B0093D28B /* BirthDateWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDateWorker.swift; sourceTree = "<group>"; };
 		FE3AD3EC281C85CC0093D28B /* AccessCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessCodeViewModel.swift; sourceTree = "<group>"; };
 		FE3AD3EE281C93CE0093D28B /* EmailAccessCodeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAccessCodeWorker.swift; sourceTree = "<group>"; };
-		FE3AD3F0281C9B720093D28B /* LoginWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWorker.swift; sourceTree = "<group>"; };
+		FE3AD3F0281C9B720093D28B /* LoginEmailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEmailWorker.swift; sourceTree = "<group>"; };
 		FE3AD3F2281C9BBD0093D28B /* GoogleSignInWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInWorker.swift; sourceTree = "<group>"; };
 		FE66F25927EE8AA30051007F /* iStory.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iStory.entitlements; sourceTree = "<group>"; };
 		FE66F25D27EE8F360051007F /* AppleClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleClient.swift; sourceTree = "<group>"; };
@@ -166,6 +169,9 @@
 		FEA7774F281D5AC000B7CCF2 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		FEA77751281D6AEB00B7CCF2 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
 		FEA77753281D731000B7CCF2 /* ForgotPasswordAccessCodeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordAccessCodeWorker.swift; sourceTree = "<group>"; };
+		FEA77756281D7CC600B7CCF2 /* AccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
+		FEA77759281D7D5600B7CCF2 /* Future+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Future+Extensions.swift"; sourceTree = "<group>"; };
+		FEA7775B281D80AC00B7CCF2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FEB964D32800C194008DD002 /* AuthenticationInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInputView.swift; sourceTree = "<group>"; };
 		FEB964D52800CB81008DD002 /* AuthenticationLoginInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationLoginInputViewController.swift; sourceTree = "<group>"; };
 		FEB964D72800E2F5008DD002 /* AuthenticationSignUpInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationSignUpInputViewController.swift; sourceTree = "<group>"; };
@@ -287,6 +293,7 @@
 				FE66F28B27F7BBD10051007F /* Styles */,
 				FEB964DA2800F6CE008DD002 /* ViewModels */,
 				FE66F28F27F7C0140051007F /* Views */,
+				FEA7775B281D80AC00B7CCF2 /* HomeViewController.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -497,6 +504,22 @@
 			path = ForgotPassword;
 			sourceTree = "<group>";
 		};
+		FEA77755281D7CBA00B7CCF2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FEA77756281D7CC600B7CCF2 /* AccessToken.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FEA77758281D7D4800B7CCF2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FEA77759281D7D5600B7CCF2 /* Future+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		FEB964D92800F6BF008DD002 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -516,6 +539,7 @@
 		FEB964DF2801BC97008DD002 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				FEA77758281D7D4800B7CCF2 /* Extensions */,
 				FEE3534D280B16DB007081AE /* Keychain */,
 				FEE35342280B12B4007081AE /* Network */,
 				FEB964E32801BCB6008DD002 /* Actions */,
@@ -561,6 +585,7 @@
 		FEE35342280B12B4007081AE /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				FEA77755281D7CBA00B7CCF2 /* Models */,
 				FEE35352280B1955007081AE /* Workers */,
 				FEE35343280B12BF007081AE /* HTTPClient.swift */,
 				FEE35349280B161A007081AE /* HTTPResponseMapper.swift */,
@@ -583,7 +608,7 @@
 				FEE35353280B1961007081AE /* SignUpWorker.swift */,
 				FE3AD3E9281C7C6B0093D28B /* BirthDateWorker.swift */,
 				FE3AD3EE281C93CE0093D28B /* EmailAccessCodeWorker.swift */,
-				FE3AD3F0281C9B720093D28B /* LoginWorker.swift */,
+				FE3AD3F0281C9B720093D28B /* LoginEmailWorker.swift */,
 				FE3AD3F2281C9BBD0093D28B /* GoogleSignInWorker.swift */,
 				FEA7774D281D599000B7CCF2 /* ForgotPasswordWorker.swift */,
 				FEA77753281D731000B7CCF2 /* ForgotPasswordAccessCodeWorker.swift */,
@@ -686,6 +711,7 @@
 				FEA77752281D6AEB00B7CCF2 /* ForgotPasswordViewModel.swift in Sources */,
 				FEB964F32801C252008DD002 /* AuthenticationEnvironment.swift in Sources */,
 				FEB964D82800E2F5008DD002 /* AuthenticationSignUpInputViewController.swift in Sources */,
+				FEA77757281D7CC600B7CCF2 /* AccessToken.swift in Sources */,
 				FE66F2A527F8A9F90051007F /* AuthenticationIstorySignUpViewController.swift in Sources */,
 				FEB964DC2800F6DD008DD002 /* AuthenticationInputViewModel.swift in Sources */,
 				FE3AD3EF281C93CE0093D28B /* EmailAccessCodeWorker.swift in Sources */,
@@ -700,10 +726,12 @@
 				2147796228109ACD00DE2744 /* InviteContactsViewController.swift in Sources */,
 				FEB964ED2801BDE2008DD002 /* AuthenticationState.swift in Sources */,
 				FEE3533F280A1343007081AE /* AuthenticationSignUpDatePickerViewController.swift in Sources */,
+				FEA7775A281D7D5600B7CCF2 /* Future+Extensions.swift in Sources */,
 				2147796428109C3B00DE2744 /* ContactsListViewController.swift in Sources */,
 				FEB964E72801BCCC008DD002 /* AppAction.swift in Sources */,
 				FEE35354280B1961007081AE /* SignUpWorker.swift in Sources */,
 				FEA77754281D731000B7CCF2 /* ForgotPasswordAccessCodeWorker.swift in Sources */,
+				FEA7775C281D80AC00B7CCF2 /* HomeViewController.swift in Sources */,
 				FE66F2A127F89FA30051007F /* AuthenticationIstoryView.swift in Sources */,
 				FEA7774E281D599000B7CCF2 /* ForgotPasswordWorker.swift in Sources */,
 				FE66F29727F893E90051007F /* AuthenticationLoginViewController.swift in Sources */,
@@ -725,7 +753,7 @@
 				FE66F28D27F7BBE10051007F /* AuthenticationStyle.swift in Sources */,
 				FEB964FA2804A958008DD002 /* FailureShowable.swift in Sources */,
 				FEB964D42800C194008DD002 /* AuthenticationInputView.swift in Sources */,
-				FE3AD3F1281C9B720093D28B /* LoginWorker.swift in Sources */,
+				FE3AD3F1281C9B720093D28B /* LoginEmailWorker.swift in Sources */,
 				FE66F29F27F89C2F0051007F /* LoginViewModel.swift in Sources */,
 				FEB964EF2801C12F008DD002 /* AuthenticationAction.swift in Sources */,
 				FE66F29127F7C0360051007F /* AuthenticationSocialContainerView.swift in Sources */,

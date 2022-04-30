@@ -73,6 +73,10 @@ final class AuthenticationFlowController: UIViewController {
                 guard !navigation.viewControllers.contains(forgotPasswordViewController) else { return }
                 navigation.pushViewController(forgotPasswordViewController, animated: true)
             }.store(in: &cancenllables)
+        loginInputViewController.logInCompletePublisher
+            .sink { [navigation, store] _ in
+                navigation.pushViewController(HomeViewController(store: store), animated: true)
+            }.store(in: &cancenllables)
         viewController.emailButtonPublisher
             .sink { [navigation] _ in
                 guard !navigation.viewControllers.contains(loginInputViewController) else { return }

@@ -77,28 +77,29 @@ public final class NetworkRequestInterceptor: RequestInterceptor {
     }
 
     public func retry(_ request: Request, for _: Session, dueTo _: Error, completion: @escaping (RetryResult) -> Void) {
-        // Retry if user is not authorized and if refreshToken exists
-        guard shouldRetry(response: request.response), let refreshToken = keychain.getRefreshToken() else {
-            completion(.doNotRetry)
-            return
-        }
-
-        if canRetry(request: request) {
-            Task {
-                let refreshTokenParams = RefreshTokenParams(clientId: configuration.environment.clientId,
-                                                            redirectUri: configuration.environment.redirectUri,
-                                                            refreshToken: refreshToken)
-                do {
-                    try await authenticator.refreshToken(with: refreshTokenParams)
-                } catch {
-                    // logger(category: .networking).error("Refresh token fails with error \(error.localizedDescription)")
-                }
-                completion(.retry)
-            }
-        } else {
-            completion(.doNotRetry)
-            // MY-TODO: Logout and reset ui
-        }
+        completion(.doNotRetry)
+//        // Retry if user is not authorized and if refreshToken exists
+//        guard shouldRetry(response: request.response), let refreshToken = keychain.getRefreshToken() else {
+//            completion(.doNotRetry)
+//            return
+//        }
+//
+//        if canRetry(request: request) {
+//            Task {
+//                let refreshTokenParams = RefreshTokenParams(clientId: configuration.environment.clientId,
+//                                                            redirectUri: configuration.environment.redirectUri,
+//                                                            refreshToken: refreshToken)
+//                do {
+//                    try await authenticator.refreshToken(with: refreshTokenParams)
+//                } catch {
+//                    // logger(category: .networking).error("Refresh token fails with error \(error.localizedDescription)")
+//                }
+//                completion(.retry)
+//            }
+//        } else {
+//            completion(.doNotRetry)
+//            // MY-TODO: Logout and reset ui
+//        }
     }
 
     private func shouldRetry(response: HTTPURLResponse?) -> Bool {
