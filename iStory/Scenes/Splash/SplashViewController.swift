@@ -7,19 +7,46 @@
 
 import UIKit
 import StyleSheet
+import AVFoundation
 
 final class SplashViewController: UIViewController {
 
+    private var player: AVPlayer?
+    private var playerLayer: AVPlayerLayer?
+    
     // MARK: - View controller lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = AppColor.yellow.uiColor
-        setupImageView()
-        setupAssetImageViews()
+        //setupImageView()
+        //setupAssetImageViews()
+        playVideo()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        player?.pause()
+        playerLayer?.player = nil
+        playerLayer?.removeFromSuperlayer()
     }
 
     // MARK: - Subview setup
+    private func playVideo() {
+        guard let videoURL = Bundle.main.path(forResource: "SplashVideo", ofType: "mp4") else {
+            return
+        }
+        let url = URL(fileURLWithPath: videoURL)
+        
+        player = AVPlayer(url: url)
+        playerLayer = AVPlayerLayer(player: player)
+        view.layoutIfNeeded()
+        playerLayer?.frame = self.view.bounds
+        self.view.layer.addSublayer(playerLayer!)
+        player?.volume = 0
+        player?.play()
+    }
 
     private func setupImageView() {
         let imageView = UIImageView()
@@ -31,7 +58,7 @@ final class SplashViewController: UIViewController {
         imageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.2).activate()
         imageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.2).activate()
     }
-
+    
     private func setupAssetImageViews() {
         let topAsset = UIImageView(), bottomAsset = UIImageView()
         topAsset.image = UIImage(namedInStyleSheet: "green 1")

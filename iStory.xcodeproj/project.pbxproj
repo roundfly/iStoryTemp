@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2106BF8B2825BEE000C5FD79 /* SplashVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2106BF8A2825BEE000C5FD79 /* SplashVideo.mp4 */; };
 		2124AB122825186A00C47BFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2124AB112825186A00C47BFF /* LaunchScreen.storyboard */; };
 		212D952D2811A447006BB89A /* Gotham Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 212D952C2811A447006BB89A /* Gotham Regular.otf */; };
 		212D952F2811A46D006BB89A /* Gotham Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 212D952E2811A46D006BB89A /* Gotham Bold.otf */; };
@@ -109,6 +110,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2106BF8A2825BEE000C5FD79 /* SplashVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SplashVideo.mp4; sourceTree = "<group>"; };
 		2124AB112825186A00C47BFF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		212D952C2811A447006BB89A /* Gotham Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham Regular.otf"; sourceTree = "<group>"; };
 		212D952E2811A46D006BB89A /* Gotham Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham Bold.otf"; sourceTree = "<group>"; };
@@ -432,6 +434,7 @@
 		FE66F28127F7B0D70051007F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2106BF8A2825BEE000C5FD79 /* SplashVideo.mp4 */,
 				FE2E9F1527E53BD5002C0021 /* Assets.xcassets */,
 				FE66F28A27F7B0F40051007F /* Localizable.strings */,
 			);
@@ -691,6 +694,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				212D952D2811A447006BB89A /* Gotham Regular.otf in Resources */,
+				2106BF8B2825BEE000C5FD79 /* SplashVideo.mp4 in Resources */,
 				212D95312811A496006BB89A /* Gotham Medium.otf in Resources */,
 				FE66F28827F7B0F40051007F /* Localizable.strings in Resources */,
 				2124AB122825186A00C47BFF /* LaunchScreen.storyboard in Resources */,
