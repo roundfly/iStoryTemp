@@ -10,6 +10,8 @@ import UIKit
 import StyleSheet
 
 final class LoginWithSMSViewController: UIViewController {
+    private let theme = ThemeDefault()
+
     private var viewModel: LoginWithSMSViewModel {
         didSet {
             updateUI()
@@ -58,7 +60,7 @@ final class LoginWithSMSViewController: UIViewController {
         view.addManagedSubview(titleLabel)
         titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).activate()
         titleLabel.setConstraintsRelativeToSuperView(leading: 32, trailing: 32)
-        titleLabel.font = .systemFont(ofSize: titleFont)
+        titleLabel.font = theme.fontBold.withSize(titleFont)
         titleLabel.numberOfLines = 0
         titleLabel.textAlignment = .center
         titleLabel.text = viewModel.authType == .login ? "Welcome \nback" : "Sign Up"
@@ -66,7 +68,7 @@ final class LoginWithSMSViewController: UIViewController {
         view.addManagedSubview(subtitleLabel)
         subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: smallOffset).activate()
         subtitleLabel.setConstraintsRelativeToSuperView(leading: 24, trailing: 24)
-        subtitleLabel.font = .systemFont(ofSize: subtitleFont)
+        subtitleLabel.font = theme.fontBold.withSize(subtitleFont)
         subtitleLabel.text = viewModel.authType == .login ? "Enter your phone number \nto receive verification code" : "Enter your phone number"
         subtitleLabel.numberOfLines = 0
         subtitleLabel.textAlignment = .center
@@ -74,7 +76,7 @@ final class LoginWithSMSViewController: UIViewController {
         view.addManagedSubview(phoneNumberTextFieldTitleLabel)
         phoneNumberTextFieldTitleLabel.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: bigOffset).activate()
         phoneNumberTextFieldTitleLabel.setConstraintsRelativeToSuperView(leading: 18, trailing: 18)
-        phoneNumberTextFieldTitleLabel.font = .systemFont(ofSize: 15)
+        phoneNumberTextFieldTitleLabel.font = theme.fontMedium.withSize(20)
         phoneNumberTextFieldTitleLabel.text = "Mobile number"
         
         phoneNumberTextField = viewModel.dependency.createPhoneNumberTextField()
@@ -103,7 +105,7 @@ final class LoginWithSMSViewController: UIViewController {
         view.addManagedSubview(errorMessageLabel)
         errorMessageLabel.topAnchor.constraint(equalTo: submitButton.bottomAnchor, constant: bigOffset).activate()
         errorMessageLabel.setConstraintsRelativeToSuperView(leading: 16, trailing: 16)
-        errorMessageLabel.font = .systemFont(ofSize: 17)
+        errorMessageLabel.font = theme.fontMedium.withSize(17)
         errorMessageLabel.numberOfLines = 0
         errorMessageLabel.textAlignment = .center
         

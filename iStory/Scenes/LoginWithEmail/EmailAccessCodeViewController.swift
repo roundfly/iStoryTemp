@@ -7,8 +7,11 @@
 
 import Foundation
 import UIKit
+import StyleSheet
 
 final class EmailAccessCodeViewController: UIViewController {
+    private let theme = ThemeDefault()
+
     private let titleLabel = UILabel()
     private let subtitleLabel = UILabel()
     private let stackView = UIStackView()
@@ -47,7 +50,7 @@ final class EmailAccessCodeViewController: UIViewController {
 
         view.addManagedSubview(titleLabel)
         titleLabel.numberOfLines = 2
-        titleLabel.font = .systemFont(ofSize: titleFont)
+        titleLabel.font = theme.fontBold.withSize(titleFont)
         titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).activate()
         titleLabel.setConstraintsRelativeToSuperView(leading: 16, trailing: 16)
         titleLabel.text = "Enter your access code"
@@ -55,7 +58,7 @@ final class EmailAccessCodeViewController: UIViewController {
         
         view.addManagedSubview(subtitleLabel)
         subtitleLabel.numberOfLines = 2
-        subtitleLabel.font = .systemFont(ofSize: subtitleFont)
+        subtitleLabel.font = theme.fontRegular.withSize(subtitleFont)
         subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).activate()
         subtitleLabel.setConstraintsRelativeToSuperView(leading: 32, trailing: 32)
         subtitleLabel.text = "We have sent the access code to: \n\(email)"
@@ -93,7 +96,7 @@ final class EmailAccessCodeViewController: UIViewController {
         lowerLabel.numberOfLines = 0
         lowerLabel.text = "Skip and check the app. \nOr go Back? \nAlready have account LogIn!"
         lowerLabel.textAlignment = .center
-        lowerLabel.font = .systemFont(ofSize: 12)
+        lowerLabel.font = theme.fontBold.withSize(12)
         
         view.addManagedSubview(midLabel)
         midLabel.bottomAnchor.constraint(equalTo: lowerLabel.topAnchor, constant: -40).activate()
@@ -101,7 +104,7 @@ final class EmailAccessCodeViewController: UIViewController {
         midLabel.numberOfLines = 0
         midLabel.text = "Didn’t receive a code? Resend"
         midLabel.textAlignment = .center
-        midLabel.font = .systemFont(ofSize: 14)
+        midLabel.font = theme.fontBold.withSize(14)
         
         view.addManagedSubview(upperLabel)
         upperLabel.bottomAnchor.constraint(equalTo: midLabel.topAnchor, constant: -bigOffset).activate()
@@ -109,7 +112,7 @@ final class EmailAccessCodeViewController: UIViewController {
         upperLabel.numberOfLines = 0
         upperLabel.text = "This code will expire in 5 minutes. iStory may use your phone number to  send emails to your account."
         upperLabel.textAlignment = .center
-        upperLabel.font = .systemFont(ofSize: 16)
+        upperLabel.font = theme.fontBold.withSize(16)
     }
 }
 

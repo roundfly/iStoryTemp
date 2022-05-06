@@ -10,6 +10,8 @@ import UIKit
 import StyleSheet
 
 final class ContactsTableViewCell: UITableViewCell {
+    private let theme = ThemeDefault()
+
     private let personImageView = UIImageView()
     private let personTitleLabel = UILabel()
     private let personSubtitleLabel = UILabel()
@@ -39,12 +41,12 @@ final class ContactsTableViewCell: UITableViewCell {
         addManagedSubview(personTitleLabel)
         personTitleLabel.bottomAnchor.constraint(equalTo: centerYAnchor, constant: -2).activate()
         personTitleLabel.leadingAnchor.constraint(equalTo: personImageView.trailingAnchor, constant: 15).activate()
-        personTitleLabel.font = .systemFont(ofSize: 14)
+        personTitleLabel.font = theme.fontMedium.withSize(14)
         
         addManagedSubview(personSubtitleLabel)
         personSubtitleLabel.topAnchor.constraint(equalTo: centerYAnchor, constant: 2).activate()
         personSubtitleLabel.leadingAnchor.constraint(equalTo: personImageView.trailingAnchor, constant: 15).activate()
-        personSubtitleLabel.font = .systemFont(ofSize: 12)
+        personSubtitleLabel.font = theme.fontMedium.withSize(12)
         personSubtitleLabel.text = "From your contacts"
 
         addManagedSubview(followButton)
@@ -53,7 +55,7 @@ final class ContactsTableViewCell: UITableViewCell {
         followButton.centerYAnchor.constraint(equalTo: centerYAnchor).activate()
         followButton.titleText = "Follow"
         followButton.textColor = .black
-        followButton.titleLabel?.font = .systemFont(ofSize: 14)
+        followButton.titleLabel?.font = theme.fontMedium.withSize(14)
         followButton.isEnabled = true
     }
 }

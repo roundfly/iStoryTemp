@@ -10,6 +10,7 @@ import UIKit
 import StyleSheet
 
 final class SubmitButton: UIButton {
+    private let theme = ThemeDefault()
     
     var textColor: UIColor? {
         didSet {
@@ -37,6 +38,7 @@ final class SubmitButton: UIButton {
     private func setupUI() {
         layer.cornerRadius = 13
         backgroundColor = AppColor.blue.uiColor.withAlphaComponent(0.9)
+        titleLabel?.font = theme.fontMedium.withSize(20)
     }
     
     override var isEnabled: Bool {
