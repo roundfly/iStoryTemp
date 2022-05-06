@@ -63,7 +63,7 @@ final class AppFlowController: UIViewController {
         let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
         timerCancellable = timer
             .sink { [navigation, authenticationFlow] date in
-                if date.timeIntervalSince(now) > 1 {
+                if date.timeIntervalSince(now) > 3 {
                     timer.upstream.connect().cancel()
                     navigation.setViewControllers([authenticationFlow], animated: true)
                 }
