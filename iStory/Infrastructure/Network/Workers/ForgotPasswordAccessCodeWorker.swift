@@ -33,7 +33,7 @@ struct ForgotPasswordAccessCodeWorker: HTTPClient {
         ]
     }
 
-    func submitAccessCode() async throws {
-        try await execute()
+    func submitAccessCode() async throws -> AccessToken {
+        try await execute().decoded()
     }
 }

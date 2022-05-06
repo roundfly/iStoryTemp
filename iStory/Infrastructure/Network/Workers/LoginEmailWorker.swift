@@ -34,6 +34,6 @@ struct LoginEmailWorker: HTTPClient {
     }
 
     func performLogIn() async throws -> AccessToken {
-        return try await execute().decoded()
+        try await execute().decoded()
     }
 }

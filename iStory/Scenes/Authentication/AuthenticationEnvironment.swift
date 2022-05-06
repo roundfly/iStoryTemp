@@ -21,6 +21,7 @@ struct AuthenticationEnvironment {
     var appleClient: AppleClient { .production }
     var authenticationClient: AuthenticationClient { .prodution }
     var keychain: KeychainServiceAPI { KeychainService(keychain: KeychainWrapper(keychain: keychainSwift)) }
+    var notificationCenter: NotificationCenter { .default }
     var dateFormatter = ISO8601DateFormatter()
 }
 
@@ -32,7 +33,7 @@ struct AuthenticationClient /* iStory client */ {
     /// Signup flow
     var submitAccessCodeWithEmail: (_ accessCode: String, _ email: String) -> AnyPublisher<Void, Error>
     /// Forgot password flow
-    var submitForgotPasswordAccessCodeWithEmail: (_ accessCode: String, _ email: String) -> AnyPublisher<Void, Error>
+    var submitForgotPasswordAccessCodeWithEmail: (_ accessCode: String, _ email: String) -> AnyPublisher<AccessToken, Error>
 
     static var prodution: AuthenticationClient {
         Self(logIn: { credentials in
@@ -59,7 +60,7 @@ struct AuthenticationClient /* iStory client */ {
         },
              submitForgotPasswordAccessCodeWithEmail: { accessCode, email in
             let worker = ForgotPasswordAccessCodeWorker(email: email, accessCode: accessCode)
-            return Future<Void, Error>(operation: worker.submitAccessCode).eraseToAnyPublisher()
+            return Future<AccessToken, Error>(operation: worker.submitAccessCode).eraseToAnyPublisher()
         })
     }
 }
