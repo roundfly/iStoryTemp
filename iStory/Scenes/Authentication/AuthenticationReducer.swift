@@ -9,6 +9,10 @@ import Foundation
 import Combine
 import GoogleSignInService
 
+extension Notification.Name {
+    static let userDidLogIn = Self(rawValue: "iStory.log.in")
+}
+
 let authReducer: Reducer<AuthenticationState, AuthenticationAction, AuthenticationEnvironment> = { state, action, environment in
     switch action {
     case .logIn(let credentials):
@@ -84,7 +88,7 @@ let authReducer: Reducer<AuthenticationState, AuthenticationAction, Authenticati
         state.accessCodeFailure = nil
         state.currentUser?.didSubmitValidAccessCodeInSession = true
     case .forgotPassword(let email):
-        state.currentUser = User(email: email)
+        environment.keychain.setUserEmail(email)
         return environment.authenticationClient
             .forgotPassword(email)
             .map { AuthenticationAction.forgotPasswordSubmitted }
@@ -94,14 +98,25 @@ let authReducer: Reducer<AuthenticationState, AuthenticationAction, Authenticati
         break
     case .forgotPasswordSubmitted:
         state.showForgotPasswordAccessCodeFlow = true
-    case .submitForgotPasswordAccessCode(accessCode: let accessCode):
+    case .submitForgotPasswordAccessCode(let accessCode):
+        guard let email = environment.keychain.getUserEmail() else {
+            preconditionFailure("Email address not set")
+        }
         return environment.authenticationClient
-            .submitForgotPasswordAccessCodeWithEmail(accessCode, state.currentUser?.email ?? "")
-            .map { AuthenticationAction.forgotPasswordAcessCodeSubmitted }
+            .submitForgotPasswordAccessCodeWithEmail(accessCode, email)
+            .map { token in
+                environment.keychain.setAccessToken(token.accessToken)
+                return AuthenticationAction.forgotPasswordAcessCodeSubmitted(email: email, token: token.accessToken)
+            }
             .catch { Just(AuthenticationAction.forgotPasswordFailure(reason: $0.localizedDescription)).eraseToAnyPublisher() }
             .eraseToAnyPublisher()
-    case .forgotPasswordAcessCodeSubmitted:
-        break
+    case .forgotPasswordAcessCodeSubmitted(let email, let token):
+        guard let email = environment.keychain.getUserEmail() else {
+            preconditionFailure("Email address not set")
+        }
+        state.accessToken = AccessToken(accessToken: token)
+        state.currentUser = User(email: email, didSubmitValidAccessCodeInSession: true)
+        environment.notificationCenter.post(name: .userDidLogIn, object: nil)
     }
     return Empty().eraseToAnyPublisher()
 }

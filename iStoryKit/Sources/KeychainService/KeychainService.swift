@@ -36,6 +36,10 @@ public struct KeychainService: KeychainServiceAPI {
         keychain.get(Key.refreshToken)
     }
 
+    public func getUserEmail() -> String? {
+        keychain.get(Key.email)
+    }
+
     @discardableResult
     public func deleteAccessToken() -> Bool {
         keychain.delete(Key.authToken)
