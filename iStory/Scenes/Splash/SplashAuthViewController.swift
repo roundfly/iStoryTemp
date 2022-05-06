@@ -32,10 +32,6 @@ final class SplashAuthViewController: UIViewController {
         setupLogoImageView()
         setupTitleLabel()
         setupButtonVStack()
-        
-        titleLabel.font = theme.fontBold
-        titleLabel.font = theme.fontRegular
-        titleLabel.font = theme.fontMedium
     }
 
     // MARK: - Subview setup
@@ -53,7 +49,7 @@ final class SplashAuthViewController: UIViewController {
 
     private func setupTitleLabel() {
         titleLabel.text = String(localized: "splash.auth.title")
-        titleLabel.font = .preferredFont(forTextStyle: .title2)
+        titleLabel.font = theme.fontBold.withSize(19)
         view.addManagedSubview(titleLabel)
         titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).activate()
         titleLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).activate()
@@ -82,8 +78,12 @@ final class SplashAuthViewController: UIViewController {
             button.heightAnchor.constraint(equalToConstant: 44.0).activate()
         }
         view.addManagedSubview(vStackView)
-        let title = String(localized: "splash.auth.skip").bolded(text: "and check the app", font: .preferredFont(forTextStyle: .footnote))
+        
+        loginButton.titleLabel?.font = theme.fontBold.withSize(20)
+        signUpButton.titleLabel?.font = theme.fontMedium.withSize(20)
+        skipButton.titleLabel?.font = theme.fontRegular.withSize(15)
         skipButton.setTitleColor(.black, for: .normal)
+        let title = String(localized: "splash.auth.skip").bolded(text: "and check the app", font: .preferredFont(forTextStyle: .footnote))
         skipButton.setAttributedTitle(title, for: .normal)
         vStackView.spacing = 20
         vStackView.setCustomSpacing(60, after: signUpButton)

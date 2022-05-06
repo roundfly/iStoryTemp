@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2124AB122825186A00C47BFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2124AB112825186A00C47BFF /* LaunchScreen.storyboard */; };
 		212D952D2811A447006BB89A /* Gotham Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 212D952C2811A447006BB89A /* Gotham Regular.otf */; };
 		212D952F2811A46D006BB89A /* Gotham Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 212D952E2811A46D006BB89A /* Gotham Bold.otf */; };
 		212D95312811A496006BB89A /* Gotham Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 212D95302811A496006BB89A /* Gotham Medium.otf */; };
@@ -108,6 +109,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2124AB112825186A00C47BFF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		212D952C2811A447006BB89A /* Gotham Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham Regular.otf"; sourceTree = "<group>"; };
 		212D952E2811A46D006BB89A /* Gotham Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham Bold.otf"; sourceTree = "<group>"; };
 		212D95302811A496006BB89A /* Gotham Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham Medium.otf"; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 			children = (
 				2170151C27EE931100743B5B /* Authentication */,
 				FE66F27827F7A7740051007F /* Splash */,
+				2124AB112825186A00C47BFF /* LaunchScreen.storyboard */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -690,6 +693,7 @@
 				212D952D2811A447006BB89A /* Gotham Regular.otf in Resources */,
 				212D95312811A496006BB89A /* Gotham Medium.otf in Resources */,
 				FE66F28827F7B0F40051007F /* Localizable.strings in Resources */,
+				2124AB122825186A00C47BFF /* LaunchScreen.storyboard in Resources */,
 				FE2E9F1627E53BD5002C0021 /* Assets.xcassets in Resources */,
 				212D952F2811A46D006BB89A /* Gotham Bold.otf in Resources */,
 			);
@@ -910,15 +914,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = iStory/iStory.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 93WV4LTCJK;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 14;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Amazon",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iStory/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "iStory Application";
 				INFOPLIST_KEY_NSContactsUsageDescription = "If you want to connect to people from your phone book, please allow contacts access.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -930,12 +935,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.istoryapp.istory;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_WORKSPACE = NO;
 			};
 			name = Debug;
@@ -946,8 +952,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = iStory/iStory.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = 93WV4LTCJK;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -955,6 +962,7 @@
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iStory/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "iStory Application";
 				INFOPLIST_KEY_NSContactsUsageDescription = "If you want to connect to people from your phone book, please allow contacts access.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -966,12 +974,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.istoryapp.istory;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "iStory App Store";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_WORKSPACE = NO;
 			};
 			name = Release;
