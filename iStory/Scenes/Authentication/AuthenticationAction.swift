@@ -24,6 +24,7 @@ enum AuthenticationAction {
     case loggedIn(user: User)
     case signedIn(user: User, token: AccessToken?)
     case loggedInWithGoogle(googleUser: GoogleUser)
+    case loggedInWithIstoryFromGoogle(User, AccessToken)
     case loggedInWithAmazon(token: String)
     case authFailure(reason: String)
     case accessCodeFailure(reason: String)
