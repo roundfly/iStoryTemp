@@ -27,6 +27,7 @@ final class AuthenticationFlowController: UIViewController {
         self.loginViewController = SplashAuthViewController()
         self.store = store
         super.init(nibName: nil, bundle: nil)
+        userDidLogInFromForgotPassword()
     }
 
     required init?(coder: NSCoder) {
@@ -63,6 +64,7 @@ final class AuthenticationFlowController: UIViewController {
         let forgotPasswordViewController = ForgotPasswordViewController(viewModel: ForgotPasswordViewModel(store: store))
         let loginInputViewController = AuthenticationLoginInputViewController(store: store)
         let accessCodeViewController = AccessCodeViewController(viewModel: .init(accessCodeSource: .forgotPassword, store: store))
+        let homeViewController = HomeViewController(store: store)
         forgotPasswordViewController.forgotPasswordSubmitPublisher
             .sink { [navigation] _ in
                 guard !navigation.viewControllers.contains(accessCodeViewController) else { return }
@@ -74,8 +76,9 @@ final class AuthenticationFlowController: UIViewController {
                 navigation.pushViewController(forgotPasswordViewController, animated: true)
             }.store(in: &cancenllables)
         loginInputViewController.logInCompletePublisher
-            .sink { [navigation, store] _ in
-                navigation.pushViewController(HomeViewController(store: store), animated: true)
+            .sink { [navigation] _ in
+                guard !navigation.viewControllers.contains(homeViewController) else { return }
+                navigation.pushViewController(homeViewController, animated: true)
             }.store(in: &cancenllables)
         viewController.emailButtonPublisher
             .sink { [navigation] _ in
@@ -121,5 +124,14 @@ final class AuthenticationFlowController: UIViewController {
             navigation.pushViewController(LoginWithSMSViewController(viewModel: viewModel), animated: true)
         }.store(in: &cancenllables)
         navigation.pushViewController(viewController, animated: true)
+    }
+
+    private func userDidLogInFromForgotPassword() {
+        NotificationCenter.default.publisher(for: .userDidLogIn, object: nil)
+            .sink { [weak self] _ in
+                guard let self = self else { return }
+                self.navigation.pushViewController(HomeViewController(store: self.store), animated: false)
+            }
+            .store(in: &cancenllables)
     }
 }

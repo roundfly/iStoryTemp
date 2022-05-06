@@ -3,6 +3,7 @@ import Foundation
 public protocol KeychainServiceAPI {
     @discardableResult func setAccessToken(_ token: String) -> Bool
     @discardableResult func setUserEmail(_ email: String) -> Bool
+    func getUserEmail() -> String?
     func getAccessToken() -> String?
     @discardableResult func setRefreshToken(_ token: String) -> Bool
     func getRefreshToken() -> String?
