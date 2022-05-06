@@ -63,7 +63,19 @@ let authReducer: Reducer<AuthenticationState, AuthenticationAction, Authenticati
             .eraseToAnyPublisher()
         
     case .loggedInWithGoogle(googleUser: let googleUser):
-        state.currentUser = .init()
+        return environment
+            .authenticationClient
+            .googleSignIn(googleUser)
+            .map { token in
+                environment.keychain.setAccessToken(token.accessToken)
+                return AuthenticationAction.loggedInWithIstoryFromGoogle(User(email: googleUser.email), token)
+            }
+            .catch { Just(AuthenticationAction.authFailure(reason: $0.localizedDescription)).eraseToAnyPublisher() }
+            .eraseToAnyPublisher()
+    case .loggedInWithIstoryFromGoogle(let user, let token):
+        state.currentUser = user
+        state.accessToken = token
+        environment.notificationCenter.post(name: .userDidLogIn, object: nil)
     case .loggedInWithAmazon(token: let token):
         state.currentUser = .init()
     case .submitBirthday(let date):

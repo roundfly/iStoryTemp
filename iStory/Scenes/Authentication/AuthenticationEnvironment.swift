@@ -28,6 +28,7 @@ struct AuthenticationEnvironment {
 struct AuthenticationClient /* iStory client */ {
     var logIn: (Credentials) -> AnyPublisher<AccessToken, Error>
     var signIn: (Credentials) -> AnyPublisher<User, Error>
+    var googleSignIn: (GoogleUser) -> AnyPublisher<AccessToken, Error>
     var forgotPassword: (_ email: String) -> AnyPublisher<Void, Error>
     var submitBirthdayWithEmail: (_ date: String, _ email: String) -> AnyPublisher<Void, Error>
     /// Signup flow
@@ -43,6 +44,13 @@ struct AuthenticationClient /* iStory client */ {
              signIn: { credentials in
             let worker = SignUpWorker(email: credentials.email, password: credentials.password)
             return Future<User, Error>(operation: worker.performSignUp).eraseToAnyPublisher()
+        },
+             googleSignIn: { googleUser in
+            guard let token = googleUser.accessToken else {
+                return Fail(error: NSError(domain: "google.sign.in.failure", code: 0, userInfo: nil)).eraseToAnyPublisher()
+            }
+            let worker = GoogleSignInWorker(accessToken: token)
+            return Future<AccessToken, Error>(operation: worker.performSignUp).eraseToAnyPublisher()
         },
              forgotPassword: { email in
             let worker = ForgotPasswordWorker(email: email)

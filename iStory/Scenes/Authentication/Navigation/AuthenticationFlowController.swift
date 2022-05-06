@@ -128,6 +128,7 @@ final class AuthenticationFlowController: UIViewController {
 
     private func userDidLogInFromForgotPassword() {
         NotificationCenter.default.publisher(for: .userDidLogIn, object: nil)
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
                 guard let self = self else { return }
                 self.navigation.pushViewController(HomeViewController(store: self.store), animated: false)

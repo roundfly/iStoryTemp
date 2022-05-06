@@ -30,7 +30,7 @@ struct GoogleSignInWorker: HTTPClient {
         ]
     }
 
-    func performSignUp() async throws {
-        try await execute()
+    func performSignUp() async throws -> AccessToken {
+        try await execute().decoded()
     }
 }
