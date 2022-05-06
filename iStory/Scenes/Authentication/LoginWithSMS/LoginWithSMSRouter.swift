@@ -14,9 +14,11 @@ struct LoginWithSMSRouter: LoginWithSMSRoutingLogic {
     
     weak var controller: LoginWithSMSViewController?
     var number: String = ""
+    var store: AuthenticationStore
 
     func showAccessCodeScreen() {
-        let accessCodeViewController = SMSAccessCodeViewController(receiver: number)
+        let viewModel = AccessCodeViewModel(accessCodeSource: .sms, store: store)
+        let accessCodeViewController = AccessCodeViewController(viewModel: viewModel)
         controller?.navigationController?.pushViewController(accessCodeViewController, animated: true)
     }
 }

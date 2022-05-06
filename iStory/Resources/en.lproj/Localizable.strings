@@ -44,3 +44,7 @@
 "auth.date.picker.description" = "Enter your birth date";
 "auth.date.picker.heading" = "Select your date of birth";
 "auth.date.picker.placeholder" = "09/09/1900";
+
+"auth.forgot.password.title" = "Request Code";
+"auth.forgot.password.desc" = "Enter your email to get one time access code.";
+"auth.forgot.password.button.title" = "Get code";

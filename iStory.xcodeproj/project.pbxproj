@@ -24,7 +24,7 @@
 		218910B528045176002BB295 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218910B428045176002BB295 /* UIApplication+Extension.swift */; };
 		218910B72804519D002BB295 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218910B62804519D002BB295 /* UIViewController+Extension.swift */; };
 		219FF09E2800CD10004E9D53 /* LoginWithSMSRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219FF09D2800CD10004E9D53 /* LoginWithSMSRouter.swift */; };
-		21C4906127FCA77A00DBBDD2 /* SMSAccessCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C4906027FCA77A00DBBDD2 /* SMSAccessCodeViewController.swift */; };
+		21C4906127FCA77A00DBBDD2 /* AccessCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C4906027FCA77A00DBBDD2 /* AccessCodeViewController.swift */; };
 		21CCF0CA27F206C100096CE1 /* AmazonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CCF0C927F206C100096CE1 /* AmazonService.swift */; };
 		21DC001227F7ACE30098CBEA /* PhoneNumberKit in Frameworks */ = {isa = PBXBuildFile; productRef = 21DC001127F7ACE30098CBEA /* PhoneNumberKit */; };
 		21DC001827F7B1690098CBEA /* LoginWithSMSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DC001727F7B1690098CBEA /* LoginWithSMSViewController.swift */; };
@@ -36,6 +36,11 @@
 		FE2E9F0D27E53BD2002C0021 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E9F0C27E53BD2002C0021 /* AppDelegate.swift */; };
 		FE2E9F0F27E53BD2002C0021 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E9F0E27E53BD2002C0021 /* SceneDelegate.swift */; };
 		FE2E9F1627E53BD5002C0021 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE2E9F1527E53BD5002C0021 /* Assets.xcassets */; };
+		FE3AD3EA281C7C6B0093D28B /* BirthDateWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3AD3E9281C7C6B0093D28B /* BirthDateWorker.swift */; };
+		FE3AD3ED281C85CC0093D28B /* AccessCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3AD3EC281C85CC0093D28B /* AccessCodeViewModel.swift */; };
+		FE3AD3EF281C93CE0093D28B /* EmailAccessCodeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3AD3EE281C93CE0093D28B /* EmailAccessCodeWorker.swift */; };
+		FE3AD3F1281C9B720093D28B /* LoginEmailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3AD3F0281C9B720093D28B /* LoginEmailWorker.swift */; };
+		FE3AD3F3281C9BBD0093D28B /* GoogleSignInWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3AD3F2281C9BBD0093D28B /* GoogleSignInWorker.swift */; };
 		FE66F25827ED09E70051007F /* GoogleSignService in Frameworks */ = {isa = PBXBuildFile; productRef = FE66F25727ED09E70051007F /* GoogleSignService */; };
 		FE66F26627F79E390051007F /* AppFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F26527F79E390051007F /* AppFlowController.swift */; };
 		FE66F26B27F79F330051007F /* AuthenticationFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F26A27F79F330051007F /* AuthenticationFlowController.swift */; };
@@ -54,13 +59,18 @@
 		FE66F2A127F89FA30051007F /* AuthenticationIstoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F2A027F89FA30051007F /* AuthenticationIstoryView.swift */; };
 		FE66F2A327F8A5E60051007F /* AuthenticationIstoryLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F2A227F8A5E60051007F /* AuthenticationIstoryLoginViewController.swift */; };
 		FE66F2A527F8A9F90051007F /* AuthenticationIstorySignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F2A427F8A9F90051007F /* AuthenticationIstorySignUpViewController.swift */; };
-		FE87F34A27E627150062ACB4 /* Authentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE87F34927E627150062ACB4 /* Authentication.framework */; };
-		FE87F34B27E627150062ACB4 /* Authentication.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FE87F34927E627150062ACB4 /* Authentication.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FE87F34E27E6271B0062ACB4 /* StyleSheet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE87F34D27E6271B0062ACB4 /* StyleSheet.framework */; };
 		FE87F34F27E6271B0062ACB4 /* StyleSheet.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FE87F34D27E6271B0062ACB4 /* StyleSheet.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FE87F35127E6271F0062ACB4 /* NetworkService in Frameworks */ = {isa = PBXBuildFile; productRef = FE87F35027E6271F0062ACB4 /* NetworkService */; };
 		FE87F35327E627240062ACB4 /* KeychainService in Frameworks */ = {isa = PBXBuildFile; productRef = FE87F35227E627240062ACB4 /* KeychainService */; };
 		FE87F36127E62E660062ACB4 /* LoginWithAmazon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE87F35F27E62E630062ACB4 /* LoginWithAmazon.framework */; };
+		FEA7774E281D599000B7CCF2 /* ForgotPasswordWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA7774D281D599000B7CCF2 /* ForgotPasswordWorker.swift */; };
+		FEA77750281D5AC000B7CCF2 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA7774F281D5AC000B7CCF2 /* ForgotPasswordViewController.swift */; };
+		FEA77752281D6AEB00B7CCF2 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA77751281D6AEB00B7CCF2 /* ForgotPasswordViewModel.swift */; };
+		FEA77754281D731000B7CCF2 /* ForgotPasswordAccessCodeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA77753281D731000B7CCF2 /* ForgotPasswordAccessCodeWorker.swift */; };
+		FEA77757281D7CC600B7CCF2 /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA77756281D7CC600B7CCF2 /* AccessToken.swift */; };
+		FEA7775A281D7D5600B7CCF2 /* Future+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA77759281D7D5600B7CCF2 /* Future+Extensions.swift */; };
+		FEA7775C281D80AC00B7CCF2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA7775B281D80AC00B7CCF2 /* HomeViewController.swift */; };
 		FEB964D42800C194008DD002 /* AuthenticationInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB964D32800C194008DD002 /* AuthenticationInputView.swift */; };
 		FEB964D62800CB81008DD002 /* AuthenticationLoginInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB964D52800CB81008DD002 /* AuthenticationLoginInputViewController.swift */; };
 		FEB964D82800E2F5008DD002 /* AuthenticationSignUpInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB964D72800E2F5008DD002 /* AuthenticationSignUpInputViewController.swift */; };
@@ -92,7 +102,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				FE87F34F27E6271B0062ACB4 /* StyleSheet.framework in Embed Frameworks */,
-				FE87F34B27E627150062ACB4 /* Authentication.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -118,7 +127,7 @@
 		218910B428045176002BB295 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		218910B62804519D002BB295 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		219FF09D2800CD10004E9D53 /* LoginWithSMSRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithSMSRouter.swift; sourceTree = "<group>"; };
-		21C4906027FCA77A00DBBDD2 /* SMSAccessCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSAccessCodeViewController.swift; sourceTree = "<group>"; };
+		21C4906027FCA77A00DBBDD2 /* AccessCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessCodeViewController.swift; sourceTree = "<group>"; };
 		21CCF0C927F206C100096CE1 /* AmazonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazonService.swift; sourceTree = "<group>"; };
 		21DC001727F7B1690098CBEA /* LoginWithSMSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithSMSViewController.swift; sourceTree = "<group>"; };
 		21EC082027EE7B9A00A39F84 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -130,6 +139,11 @@
 		FE2E9F0C27E53BD2002C0021 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE2E9F0E27E53BD2002C0021 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FE2E9F1527E53BD5002C0021 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FE3AD3E9281C7C6B0093D28B /* BirthDateWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDateWorker.swift; sourceTree = "<group>"; };
+		FE3AD3EC281C85CC0093D28B /* AccessCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessCodeViewModel.swift; sourceTree = "<group>"; };
+		FE3AD3EE281C93CE0093D28B /* EmailAccessCodeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAccessCodeWorker.swift; sourceTree = "<group>"; };
+		FE3AD3F0281C9B720093D28B /* LoginEmailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEmailWorker.swift; sourceTree = "<group>"; };
+		FE3AD3F2281C9BBD0093D28B /* GoogleSignInWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInWorker.swift; sourceTree = "<group>"; };
 		FE66F25927EE8AA30051007F /* iStory.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iStory.entitlements; sourceTree = "<group>"; };
 		FE66F25D27EE8F360051007F /* AppleClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleClient.swift; sourceTree = "<group>"; };
 		FE66F26027EF3CB30051007F /* AppleSignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignInViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +167,13 @@
 		FE87F34927E627150062ACB4 /* Authentication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Authentication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE87F34D27E6271B0062ACB4 /* StyleSheet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StyleSheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE87F35F27E62E630062ACB4 /* LoginWithAmazon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LoginWithAmazon.framework; sourceTree = "<group>"; };
+		FEA7774D281D599000B7CCF2 /* ForgotPasswordWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordWorker.swift; sourceTree = "<group>"; };
+		FEA7774F281D5AC000B7CCF2 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		FEA77751281D6AEB00B7CCF2 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
+		FEA77753281D731000B7CCF2 /* ForgotPasswordAccessCodeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordAccessCodeWorker.swift; sourceTree = "<group>"; };
+		FEA77756281D7CC600B7CCF2 /* AccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
+		FEA77759281D7D5600B7CCF2 /* Future+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Future+Extensions.swift"; sourceTree = "<group>"; };
+		FEA7775B281D80AC00B7CCF2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FEB964D32800C194008DD002 /* AuthenticationInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInputView.swift; sourceTree = "<group>"; };
 		FEB964D52800CB81008DD002 /* AuthenticationLoginInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationLoginInputViewController.swift; sourceTree = "<group>"; };
 		FEB964D72800E2F5008DD002 /* AuthenticationSignUpInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationSignUpInputViewController.swift; sourceTree = "<group>"; };
@@ -185,7 +206,6 @@
 				FE66F25827ED09E70051007F /* GoogleSignService in Frameworks */,
 				FE87F35327E627240062ACB4 /* KeychainService in Frameworks */,
 				FE87F34E27E6271B0062ACB4 /* StyleSheet.framework in Frameworks */,
-				FE87F34A27E627150062ACB4 /* Authentication.framework in Frameworks */,
 				21DC001227F7ACE30098CBEA /* PhoneNumberKit in Frameworks */,
 				FE87F35127E6271F0062ACB4 /* NetworkService in Frameworks */,
 				FE87F36127E62E660062ACB4 /* LoginWithAmazon.framework in Frameworks */,
@@ -250,9 +270,6 @@
 		2170151B27EE930B00743B5B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				21588C61280A21FB00450ABB /* InviteContacts */,
-				215FAE3A2800DF67006291A8 /* LoginWithEmail */,
-				21DC001627F7B14E0098CBEA /* LoginWithSMS */,
 				2170151C27EE931100743B5B /* Authentication */,
 				FE66F27827F7A7740051007F /* Splash */,
 				2124AB112825186A00C47BFF /* LaunchScreen.storyboard */,
@@ -263,17 +280,23 @@
 		2170151C27EE931100743B5B /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				FEB964EE2801C12F008DD002 /* AuthenticationAction.swift */,
+				FEB964F22801C252008DD002 /* AuthenticationEnvironment.swift */,
+				FEB964F02801C22B008DD002 /* AuthenticationReducer.swift */,
+				FEB964EC2801BDE2008DD002 /* AuthenticationState.swift */,
+				FE3AD3EB281C84F00093D28B /* AccessCode */,
 				FE66F27527F7A1680051007F /* AppleSignIn */,
+				FEA7774C281D592900B7CCF2 /* ForgotPassword */,
+				21588C61280A21FB00450ABB /* InviteContacts */,
 				FE66F29827F89A4E0051007F /* LogIn */,
+				215FAE3A2800DF67006291A8 /* LoginWithEmail */,
+				21DC001627F7B14E0098CBEA /* LoginWithSMS */,
 				FE66F26927F79F230051007F /* Navigation */,
 				FE66F29927F89A540051007F /* SignUp */,
 				FE66F28B27F7BBD10051007F /* Styles */,
 				FEB964DA2800F6CE008DD002 /* ViewModels */,
 				FE66F28F27F7C0140051007F /* Views */,
-				FEB964EC2801BDE2008DD002 /* AuthenticationState.swift */,
-				FEB964EE2801C12F008DD002 /* AuthenticationAction.swift */,
-				FEB964F02801C22B008DD002 /* AuthenticationReducer.swift */,
-				FEB964F22801C252008DD002 /* AuthenticationEnvironment.swift */,
+				FEA7775B281D80AC00B7CCF2 /* HomeViewController.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -302,7 +325,6 @@
 			children = (
 				21DC001727F7B1690098CBEA /* LoginWithSMSViewController.swift */,
 				21FC8CF627F8D4D10014914D /* LoginWithSMSViewModel.swift */,
-				21C4906027FCA77A00DBBDD2 /* SMSAccessCodeViewController.swift */,
 				219FF09D2800CD10004E9D53 /* LoginWithSMSRouter.swift */,
 			);
 			path = LoginWithSMS;
@@ -351,6 +373,15 @@
 				FE66F25927EE8AA30051007F /* iStory.entitlements */,
 			);
 			path = iStory;
+			sourceTree = "<group>";
+		};
+		FE3AD3EB281C84F00093D28B /* AccessCode */ = {
+			isa = PBXGroup;
+			children = (
+				21C4906027FCA77A00DBBDD2 /* AccessCodeViewController.swift */,
+				FE3AD3EC281C85CC0093D28B /* AccessCodeViewModel.swift */,
+			);
+			path = AccessCode;
 			sourceTree = "<group>";
 		};
 		FE66F26327F799790051007F /* Recovered References */ = {
@@ -467,6 +498,31 @@
 			path = Amazon;
 			sourceTree = "<group>";
 		};
+		FEA7774C281D592900B7CCF2 /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				FEA7774F281D5AC000B7CCF2 /* ForgotPasswordViewController.swift */,
+				FEA77751281D6AEB00B7CCF2 /* ForgotPasswordViewModel.swift */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
+		FEA77755281D7CBA00B7CCF2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FEA77756281D7CC600B7CCF2 /* AccessToken.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FEA77758281D7D4800B7CCF2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FEA77759281D7D5600B7CCF2 /* Future+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		FEB964D92800F6BF008DD002 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -486,6 +542,7 @@
 		FEB964DF2801BC97008DD002 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				FEA77758281D7D4800B7CCF2 /* Extensions */,
 				FEE3534D280B16DB007081AE /* Keychain */,
 				FEE35342280B12B4007081AE /* Network */,
 				FEB964E32801BCB6008DD002 /* Actions */,
@@ -531,6 +588,7 @@
 		FEE35342280B12B4007081AE /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				FEA77755281D7CBA00B7CCF2 /* Models */,
 				FEE35352280B1955007081AE /* Workers */,
 				FEE35343280B12BF007081AE /* HTTPClient.swift */,
 				FEE35349280B161A007081AE /* HTTPResponseMapper.swift */,
@@ -551,6 +609,12 @@
 			isa = PBXGroup;
 			children = (
 				FEE35353280B1961007081AE /* SignUpWorker.swift */,
+				FE3AD3E9281C7C6B0093D28B /* BirthDateWorker.swift */,
+				FE3AD3EE281C93CE0093D28B /* EmailAccessCodeWorker.swift */,
+				FE3AD3F0281C9B720093D28B /* LoginEmailWorker.swift */,
+				FE3AD3F2281C9BBD0093D28B /* GoogleSignInWorker.swift */,
+				FEA7774D281D599000B7CCF2 /* ForgotPasswordWorker.swift */,
+				FEA77753281D731000B7CCF2 /* ForgotPasswordAccessCodeWorker.swift */,
 			);
 			path = Workers;
 			sourceTree = "<group>";
@@ -642,16 +706,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEA77750281D5AC000B7CCF2 /* ForgotPasswordViewController.swift in Sources */,
+				FE3AD3ED281C85CC0093D28B /* AccessCodeViewModel.swift in Sources */,
 				219FF09E2800CD10004E9D53 /* LoginWithSMSRouter.swift in Sources */,
 				215FAE3E2800DF87006291A8 /* LoginWithEmailViewModel.swift in Sources */,
 				218910B528045176002BB295 /* UIApplication+Extension.swift in Sources */,
 				FEE35344280B12BF007081AE /* HTTPClient.swift in Sources */,
+				FEA77752281D6AEB00B7CCF2 /* ForgotPasswordViewModel.swift in Sources */,
 				FEB964F32801C252008DD002 /* AuthenticationEnvironment.swift in Sources */,
 				FEB964D82800E2F5008DD002 /* AuthenticationSignUpInputViewController.swift in Sources */,
+				FEA77757281D7CC600B7CCF2 /* AccessToken.swift in Sources */,
 				FE66F2A527F8A9F90051007F /* AuthenticationIstorySignUpViewController.swift in Sources */,
 				FEB964DC2800F6DD008DD002 /* AuthenticationInputViewModel.swift in Sources */,
+				FE3AD3EF281C93CE0093D28B /* EmailAccessCodeWorker.swift in Sources */,
 				21588C63280A222900450ABB /* ContactsService.swift in Sources */,
 				FE66F29B27F89A780051007F /* AuthenticationSignUpViewController.swift in Sources */,
+				FE3AD3F3281C9BBD0093D28B /* GoogleSignInWorker.swift in Sources */,
 				215FAE402800DF97006291A8 /* EmailAccessCodeViewController.swift in Sources */,
 				FE66F27727F7A17E0051007F /* AppleClient.swift in Sources */,
 				FE66F29D27F89C170051007F /* SignUpViewModel.swift in Sources */,
@@ -660,15 +730,20 @@
 				2147796228109ACD00DE2744 /* InviteContactsViewController.swift in Sources */,
 				FEB964ED2801BDE2008DD002 /* AuthenticationState.swift in Sources */,
 				FEE3533F280A1343007081AE /* AuthenticationSignUpDatePickerViewController.swift in Sources */,
+				FEA7775A281D7D5600B7CCF2 /* Future+Extensions.swift in Sources */,
 				2147796428109C3B00DE2744 /* ContactsListViewController.swift in Sources */,
 				FEB964E72801BCCC008DD002 /* AppAction.swift in Sources */,
 				FEE35354280B1961007081AE /* SignUpWorker.swift in Sources */,
+				FEA77754281D731000B7CCF2 /* ForgotPasswordAccessCodeWorker.swift in Sources */,
+				FEA7775C281D80AC00B7CCF2 /* HomeViewController.swift in Sources */,
 				FE66F2A127F89FA30051007F /* AuthenticationIstoryView.swift in Sources */,
+				FEA7774E281D599000B7CCF2 /* ForgotPasswordWorker.swift in Sources */,
 				FE66F29727F893E90051007F /* AuthenticationLoginViewController.swift in Sources */,
 				215FAE452800E4B6006291A8 /* EmailValidator.swift in Sources */,
 				215FAE422800DFA0006291A8 /* LoginWithEmailRouter.swift in Sources */,
 				215FAE3C2800DF7B006291A8 /* LoginWithEmailViewController.swift in Sources */,
 				FEB964E92801BCD4008DD002 /* AppReducer.swift in Sources */,
+				FE3AD3EA281C7C6B0093D28B /* BirthDateWorker.swift in Sources */,
 				FE66F27F27F7B0590051007F /* SplashAuthViewController.swift in Sources */,
 				FEB964E52801BCC3008DD002 /* AppStore.swift in Sources */,
 				2147796628109C5B00DE2744 /* ContactsTableViewCell.swift in Sources */,
@@ -682,6 +757,7 @@
 				FE66F28D27F7BBE10051007F /* AuthenticationStyle.swift in Sources */,
 				FEB964FA2804A958008DD002 /* FailureShowable.swift in Sources */,
 				FEB964D42800C194008DD002 /* AuthenticationInputView.swift in Sources */,
+				FE3AD3F1281C9B720093D28B /* LoginEmailWorker.swift in Sources */,
 				FE66F29F27F89C2F0051007F /* LoginViewModel.swift in Sources */,
 				FEB964EF2801C12F008DD002 /* AuthenticationAction.swift in Sources */,
 				FE66F29127F7C0360051007F /* AuthenticationSocialContainerView.swift in Sources */,
@@ -694,9 +770,9 @@
 				FE66F26627F79E390051007F /* AppFlowController.swift in Sources */,
 				FE66F29527F8907D0051007F /* AppDependencies.swift in Sources */,
 				FE2E9F0F27E53BD2002C0021 /* SceneDelegate.swift in Sources */,
-				21C4906127FCA77A00DBBDD2 /* SMSAccessCodeViewController.swift in Sources */,
+				21C4906127FCA77A00DBBDD2 /* AccessCodeViewController.swift in Sources */,
 				FEB964F12801C22B008DD002 /* AuthenticationReducer.swift in Sources */,
-				21C4906127FCA77A00DBBDD2 /* SMSAccessCodeViewController.swift in Sources */,
+				21C4906127FCA77A00DBBDD2 /* AccessCodeViewController.swift in Sources */,
 				FE66F2A327F8A5E60051007F /* AuthenticationIstoryLoginViewController.swift in Sources */,
 				21FC8CF927F8D55A0014914D /* SubmitButton.swift in Sources */,
 			);

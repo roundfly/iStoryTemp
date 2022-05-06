@@ -30,7 +30,7 @@ final class LoginWithSMSViewController: UIViewController {
     init(viewModel: LoginWithSMSViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-        router = LoginWithSMSRouter(controller: self)
+        router = LoginWithSMSRouter(controller: self, store: viewModel.store)
     }
     
     required init?(coder: NSCoder) {

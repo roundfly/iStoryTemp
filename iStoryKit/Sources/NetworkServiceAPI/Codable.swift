@@ -4,14 +4,14 @@
 
 import Foundation
 
-public extension Decodable {
-    static func decode(_ data: Data) throws -> Self {
+public extension Data {
+
+    func decoded<T: Decodable>() throws -> T {
         do {
             let decoder = JSONDecoder()
             decoder.dateDecodingStrategy = .iso8601withFractionalSeconds
             decoder.keyDecodingStrategy = .convertFromSnakeCase
-            let obj = try decoder.decode(Self.self, from: data)
-            return obj
+            return try decoder.decode(T.self, from: self)
         } catch {
             print("Error \(error)")
             throw HTTPClientError.jsonConversionFailure(reason: error.localizedDescription)

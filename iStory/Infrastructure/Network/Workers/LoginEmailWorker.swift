@@ -1,17 +1,18 @@
 //
-//  SignUpWorker.swift
+//  LoginEmailWorker.swift
 //  iStory
 //
-//  Created by Nikola Stojanovic on 16.4.22..
+//  Created by Nikola Stojanovic on 30.4.22..
 //
 
 import NetworkServiceAPI
 
-struct SignUpWorker: HTTPClient {
+struct LoginEmailWorker: HTTPClient {
     var email: String
     var password: String
+
     var path: String {
-        "api/register"
+        "api/login"
     }
 
     var requestMethod: RequestMethod {
@@ -32,8 +33,7 @@ struct SignUpWorker: HTTPClient {
         ]
     }
 
-    func performSignUp() async throws -> User {
-        try await execute()
-        return User(email: email, number: nil, password: password)
+    func performLogIn() async throws -> AccessToken {
+        return try await execute().decoded()
     }
 }

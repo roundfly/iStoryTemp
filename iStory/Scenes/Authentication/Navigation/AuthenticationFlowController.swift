@@ -60,14 +60,32 @@ final class AuthenticationFlowController: UIViewController {
 
     private func openLogInFlow() {
         let viewController = AuthenticationIstoryLoginViewController()
-        viewController.emailButtonPublisher
+        let forgotPasswordViewController = ForgotPasswordViewController(viewModel: ForgotPasswordViewModel(store: store))
+        let loginInputViewController = AuthenticationLoginInputViewController(store: store)
+        let accessCodeViewController = AccessCodeViewController(viewModel: .init(accessCodeSource: .forgotPassword, store: store))
+        forgotPasswordViewController.forgotPasswordSubmitPublisher
+            .sink { [navigation] _ in
+                guard !navigation.viewControllers.contains(accessCodeViewController) else { return }
+                navigation.pushViewController(accessCodeViewController, animated: true)
+            }.store(in: &cancenllables)
+        loginInputViewController.forgotPasswordPublisher
+            .sink { [navigation] _ in
+                guard !navigation.viewControllers.contains(forgotPasswordViewController) else { return }
+                navigation.pushViewController(forgotPasswordViewController, animated: true)
+            }.store(in: &cancenllables)
+        loginInputViewController.logInCompletePublisher
             .sink { [navigation, store] _ in
-                navigation.pushViewController(AuthenticationLoginInputViewController(store: store), animated: true)
+                navigation.pushViewController(HomeViewController(store: store), animated: true)
+            }.store(in: &cancenllables)
+        viewController.emailButtonPublisher
+            .sink { [navigation] _ in
+                guard !navigation.viewControllers.contains(loginInputViewController) else { return }
+                navigation.pushViewController(loginInputViewController, animated: true)
             }.store(in: &cancenllables)
         
         viewController.smsButtonPublisher
-            .sink { [navigation] _ in
-                let viewModel = LoginWithSMSViewModel(dependency: .init(), viewState: .error, authType: .login)
+            .sink { [navigation, store] _ in
+                let viewModel = LoginWithSMSViewModel(dependency: .init(), viewState: .error, store: store, authType: .login)
                 navigation.pushViewController(LoginWithSMSViewController(viewModel: viewModel), animated: true)
             }.store(in: &cancenllables)
         
@@ -78,9 +96,16 @@ final class AuthenticationFlowController: UIViewController {
         let viewController = AuthenticationIstorySignUpViewController()
         let signUpViewController = AuthenticationSignUpInputViewController(store: store)
         let datePickerViewController = AuthenticationSignUpDatePickerViewController(store: store)
+        let accessCodeViewController = AccessCodeViewController(viewModel: AccessCodeViewModel(accessCodeSource: .email, store: store))
+        accessCodeViewController.accessCodeCompletePublisher
+            .sink { [navigation] in
+                navigation.pushViewController(InviteContactsViewController(), animated: true)
+            }
+            .store(in: &cancenllables)
         datePickerViewController.dateCompletePublisher
-            .sink { [navigation, store] _ in
-                navigation.pushViewController(SMSAccessCodeViewController(receiver: store.state.currentUser?.email ?? ""), animated: true)
+            .sink { [navigation] _ in
+                guard !navigation.viewControllers.contains(accessCodeViewController) else { return }
+                navigation.pushViewController(accessCodeViewController, animated: true)
             }.store(in: &cancenllables)
         signUpViewController.signUpCompletePublisher
             .sink { [navigation] _ in
@@ -88,10 +113,11 @@ final class AuthenticationFlowController: UIViewController {
                 navigation.pushViewController(datePickerViewController, animated: true)
             }.store(in: &cancenllables)
         viewController.emailButtonPublisher.sink { [navigation] _ in
+            guard !navigation.viewControllers.contains(signUpViewController) else { return }
             navigation.pushViewController(signUpViewController, animated: true)
         }.store(in: &cancenllables)
-        viewController.smsButtonPublisher.sink { [navigation] _ in
-            let viewModel = LoginWithSMSViewModel(dependency: .init(), viewState: .error, authType: .signup)
+        viewController.smsButtonPublisher.sink { [navigation, store] _ in
+            let viewModel = LoginWithSMSViewModel(dependency: .init(), viewState: .error, store: store, authType: .signup)
             navigation.pushViewController(LoginWithSMSViewController(viewModel: viewModel), animated: true)
         }.store(in: &cancenllables)
         navigation.pushViewController(viewController, animated: true)

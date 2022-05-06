@@ -9,6 +9,7 @@ public struct KeychainService: KeychainServiceAPI {
     enum Key {
         static let authToken = "AuthToken"
         static let refreshToken = "RefreshToken"
+        static let email = "UserEmail"
     }
 
     private var keychain: KeychainWrapperAPI
@@ -43,6 +44,16 @@ public struct KeychainService: KeychainServiceAPI {
     @discardableResult
     public func deleteRefreshToken() -> Bool {
         keychain.delete(Key.refreshToken)
+    }
+
+    @discardableResult
+    public func setUserEmail(_ email: String) -> Bool {
+        keychain.set(email, forKey: Key.email)
+    }
+
+    @discardableResult
+    public func deleteUserEmail() -> Bool {
+        keychain.delete(Key.email)
     }
 
     @discardableResult

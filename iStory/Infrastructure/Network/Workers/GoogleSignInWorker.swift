@@ -1,17 +1,16 @@
 //
-//  SignUpWorker.swift
+//  GoogleSignInWorker.swift
 //  iStory
 //
-//  Created by Nikola Stojanovic on 16.4.22..
+//  Created by Nikola Stojanovic on 30.4.22..
 //
 
 import NetworkServiceAPI
 
-struct SignUpWorker: HTTPClient {
-    var email: String
-    var password: String
+struct GoogleSignInWorker: HTTPClient {
+    var accessToken: String
     var path: String {
-        "api/register"
+        "api/social/google"
     }
 
     var requestMethod: RequestMethod {
@@ -20,8 +19,7 @@ struct SignUpWorker: HTTPClient {
 
     var params: Parameters? {
         [
-            "email": email,
-            "password": password
+            "access_token": accessToken,
         ]
     }
 
@@ -32,8 +30,7 @@ struct SignUpWorker: HTTPClient {
         ]
     }
 
-    func performSignUp() async throws -> User {
+    func performSignUp() async throws {
         try await execute()
-        return User(email: email, number: nil, password: password)
     }
 }
