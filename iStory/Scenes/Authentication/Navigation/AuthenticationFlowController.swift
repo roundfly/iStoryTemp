@@ -64,7 +64,9 @@ final class AuthenticationFlowController: UIViewController {
         let forgotPasswordViewController = ForgotPasswordViewController(viewModel: ForgotPasswordViewModel(store: store))
         let loginInputViewController = AuthenticationLoginInputViewController(store: store)
         let accessCodeViewController = AccessCodeViewController(viewModel: .init(accessCodeSource: .forgotPassword, store: store))
-        let homeViewController = HomeViewController(store: store)
+        let tabBarController = TabBarController(store: store)
+        tabBarController.modalPresentationStyle = .fullScreen
+        
         forgotPasswordViewController.forgotPasswordSubmitPublisher
             .sink { [navigation] _ in
                 guard !navigation.viewControllers.contains(accessCodeViewController) else { return }
@@ -77,8 +79,10 @@ final class AuthenticationFlowController: UIViewController {
             }.store(in: &cancenllables)
         loginInputViewController.logInCompletePublisher
             .sink { [navigation] _ in
-                guard !navigation.viewControllers.contains(homeViewController) else { return }
-                navigation.pushViewController(homeViewController, animated: true)
+                guard !navigation.viewControllers.contains(tabBarController) else { return }
+                navigation.present(tabBarController, animated: true) {
+                    navigation.popToRootViewController(animated: true)
+                }
             }.store(in: &cancenllables)
         viewController.emailButtonPublisher
             .sink { [navigation] _ in
@@ -131,7 +135,12 @@ final class AuthenticationFlowController: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
                 guard let self = self else { return }
-                self.navigation.pushViewController(HomeViewController(store: self.store), animated: false)
+                let tabBarController = TabBarController(store: self.store)
+                tabBarController.modalPresentationStyle = .fullScreen
+
+                self.navigation.present(tabBarController, animated: false) {
+                    self.navigation.popToRootViewController(animated: true)
+                }
             }
             .store(in: &cancenllables)
     }

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2106BF8B2825BEE000C5FD79 /* SplashVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2106BF8A2825BEE000C5FD79 /* SplashVideo.mp4 */; };
 		2106BF912825CD4400C5FD79 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2106BF902825CD4400C5FD79 /* TabBarItem.swift */; };
+		2106BF942825D4D200C5FD79 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2106BF932825D4D200C5FD79 /* TabBarController.swift */; };
+		2106BF962826CAE600C5FD79 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2106BF952826CAE600C5FD79 /* SearchBar.swift */; };
 		2124AB122825186A00C47BFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2124AB112825186A00C47BFF /* LaunchScreen.storyboard */; };
 		212D952D2811A447006BB89A /* Gotham Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 212D952C2811A447006BB89A /* Gotham Regular.otf */; };
 		212D952F2811A46D006BB89A /* Gotham Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 212D952E2811A46D006BB89A /* Gotham Bold.otf */; };
@@ -113,6 +115,8 @@
 /* Begin PBXFileReference section */
 		2106BF8A2825BEE000C5FD79 /* SplashVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SplashVideo.mp4; sourceTree = "<group>"; };
 		2106BF902825CD4400C5FD79 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
+		2106BF932825D4D200C5FD79 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		2106BF952826CAE600C5FD79 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		2124AB112825186A00C47BFF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		212D952C2811A447006BB89A /* Gotham Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham Regular.otf"; sourceTree = "<group>"; };
 		212D952E2811A46D006BB89A /* Gotham Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham Bold.otf"; sourceTree = "<group>"; };
@@ -238,6 +242,7 @@
 		2106BF8E2825CD3500C5FD79 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				2106BF922825D47500C5FD79 /* Views */,
 				2106BF8F2825CD3D00C5FD79 /* Model */,
 			);
 			path = Navigation;
@@ -249,6 +254,15 @@
 				2106BF902825CD4400C5FD79 /* TabBarItem.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		2106BF922825D47500C5FD79 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2106BF932825D4D200C5FD79 /* TabBarController.swift */,
+				2106BF952826CAE600C5FD79 /* SearchBar.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		2144575C27E78B2B00675DD2 /* Frameworks */ = {
@@ -750,6 +764,7 @@
 				219FF09E2800CD10004E9D53 /* LoginWithSMSRouter.swift in Sources */,
 				215FAE3E2800DF87006291A8 /* LoginWithEmailViewModel.swift in Sources */,
 				218910B528045176002BB295 /* UIApplication+Extension.swift in Sources */,
+				2106BF962826CAE600C5FD79 /* SearchBar.swift in Sources */,
 				FEE35344280B12BF007081AE /* HTTPClient.swift in Sources */,
 				FEA77752281D6AEB00B7CCF2 /* ForgotPasswordViewModel.swift in Sources */,
 				FEB964F32801C252008DD002 /* AuthenticationEnvironment.swift in Sources */,
@@ -796,6 +811,7 @@
 				FE66F28D27F7BBE10051007F /* AuthenticationStyle.swift in Sources */,
 				FEB964FA2804A958008DD002 /* FailureShowable.swift in Sources */,
 				FEB964D42800C194008DD002 /* AuthenticationInputView.swift in Sources */,
+				2106BF942825D4D200C5FD79 /* TabBarController.swift in Sources */,
 				FE3AD3F1281C9B720093D28B /* LoginEmailWorker.swift in Sources */,
 				FE66F29F27F89C2F0051007F /* LoginViewModel.swift in Sources */,
 				FEB964EF2801C12F008DD002 /* AuthenticationAction.swift in Sources */,
@@ -955,7 +971,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = iStory/iStory.entitlements;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -994,7 +1010,7 @@
 				CODE_SIGN_ENTITLEMENTS = iStory/iStory.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = 93WV4LTCJK;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
