@@ -109,6 +109,18 @@ public extension UIView {
         subview.translatesAutoresizingMaskIntoConstraints = false
         addSubview(subview)
     }
+
+    func pinEdgesToSuperview(inset: CGFloat = 0) {
+        guard let superview = superview else {
+            assertionFailure("View has no parent")
+            return
+        }
+        translatesAutoresizingMaskIntoConstraints = false
+        leadingAnchor.constraint(equalTo: superview.leadingAnchor, constant: inset).activate()
+        bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -inset).activate()
+        topAnchor.constraint(equalTo: superview.topAnchor, constant: inset).activate()
+        trailingAnchor.constraint(equalTo: superview.trailingAnchor, constant: -inset).activate()
+    }
 }
 
 public struct ConstraintGroup {
