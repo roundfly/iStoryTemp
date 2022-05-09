@@ -9,6 +9,28 @@ import UIKit
 import StyleSheet
 
 final class HomeViewController: UIViewController {
+    // MARK: - Utility types
+
+    private typealias DataSource = UICollectionViewDiffableDataSource<FeedSection, StoryFeedItem.ID>
+    private typealias Snapshot = NSDiffableDataSourceSnapshot<FeedSection, StoryFeedItem.ID>
+    private enum FeedSection: CaseIterable {
+        case main
+    }
+
+    // MARK: - Instance variables
+
+    private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
+
+    private lazy var dataSource: DataSource = {
+        DataSource(collectionView: collectionView) { [viewModel] collectionView, indexPath, storyId in
+            let cell = collectionView.dequeueReusableCell(for: indexPath) as StoryFeedCell
+            guard let story = viewModel.item(for: storyId) else { return cell }
+            cell.configureCell(with: story)
+            return cell
+        }
+    }()
+
+    private let viewModel = StoryFeedViewModel()
 
     private let store: AuthenticationStore
     private let theme = ThemeDefault()
@@ -35,6 +57,7 @@ final class HomeViewController: UIViewController {
         logJwtToken()
         setupScrollView()
         setupUI()
+        applySnapshot()
     }
     
     private func setupScrollView() {
@@ -94,13 +117,41 @@ final class HomeViewController: UIViewController {
         searchBar.setConstraintsRelativeToSuperView(leading: 26, trailing: 26)
         searchBar.setHeightConstraint(equalToConstant: 30)
         
-        let collectionViewDummyExample = UIView()
-        contentView.addManagedSubview(collectionViewDummyExample)
-        collectionViewDummyExample.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 50).activate()
-        collectionViewDummyExample.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).activate()
-        collectionViewDummyExample.setConstraintsRelativeToSuperView(leading: 0, bottom: 0, trailing: 0)
-        collectionViewDummyExample.setSizeConstraints(height: 1600)
-        collectionViewDummyExample.backgroundColor = .systemGray
+        contentView.addManagedSubview(collectionView)
+        collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 50).activate()
+        collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).activate()
+        collectionView.setConstraintsRelativeToSuperView(leading: 0, bottom: 0, trailing: 0)
+        collectionView.setSizeConstraints(height: 1600)
+        collectionView.register(StoryFeedCell.self)
+        collectionView.alwaysBounceVertical = true
+        collectionView.dataSource = dataSource
+        collectionView.alpha = 0.0
+        collectionView.isScrollEnabled = false
+    }
+
+    private func applySnapshot() {
+        var snapshot = Snapshot()
+        snapshot.appendSections(FeedSection.allCases)
+        snapshot.appendItems(viewModel.feed.map(\.id))
+        dataSource.apply(snapshot, animatingDifferences: true)
+        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0, options: [.curveLinear]) {
+            self.collectionView.alpha = 1.0
+        }
+    }
+
+    private func createLayout() -> UICollectionViewLayout {
+        UICollectionViewCompositionalLayout(sectionProvider: { _, _ in
+            let groupCount = 1
+            let groupHeight = 2.0 / 3.0
+            let padding: CGFloat = 10.0
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            item.contentInsets = NSDirectionalEdgeInsets(top: padding, leading: padding, bottom: padding, trailing: padding)
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(groupHeight))
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: groupCount)
+            let section = NSCollectionLayoutSection(group: group)
+            return section
+        })
     }
     
     private func logJwtToken() {
