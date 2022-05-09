@@ -66,6 +66,10 @@
 		FE87F35127E6271F0062ACB4 /* NetworkService in Frameworks */ = {isa = PBXBuildFile; productRef = FE87F35027E6271F0062ACB4 /* NetworkService */; };
 		FE87F35327E627240062ACB4 /* KeychainService in Frameworks */ = {isa = PBXBuildFile; productRef = FE87F35227E627240062ACB4 /* KeychainService */; };
 		FE87F36127E62E660062ACB4 /* LoginWithAmazon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE87F35F27E62E630062ACB4 /* LoginWithAmazon.framework */; };
+		FEA1CE1B2825D34200962166 /* StoryFeedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA1CE1A2825D34200962166 /* StoryFeedListViewController.swift */; };
+		FEA1CE1E2825D42D00962166 /* StoryFeedFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA1CE1D2825D42D00962166 /* StoryFeedFlowController.swift */; };
+		FEA1CE212825D4E000962166 /* StoryFeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA1CE202825D4E000962166 /* StoryFeedItem.swift */; };
+		FEA1CE242825D94400962166 /* StoryFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA1CE232825D94400962166 /* StoryFeedCell.swift */; };
 		FEA7774E281D599000B7CCF2 /* ForgotPasswordWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA7774D281D599000B7CCF2 /* ForgotPasswordWorker.swift */; };
 		FEA77750281D5AC000B7CCF2 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA7774F281D5AC000B7CCF2 /* ForgotPasswordViewController.swift */; };
 		FEA77752281D6AEB00B7CCF2 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA77751281D6AEB00B7CCF2 /* ForgotPasswordViewModel.swift */; };
@@ -171,6 +175,10 @@
 		FE87F34927E627150062ACB4 /* Authentication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Authentication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE87F34D27E6271B0062ACB4 /* StyleSheet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StyleSheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE87F35F27E62E630062ACB4 /* LoginWithAmazon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LoginWithAmazon.framework; sourceTree = "<group>"; };
+		FEA1CE1A2825D34200962166 /* StoryFeedListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryFeedListViewController.swift; sourceTree = "<group>"; };
+		FEA1CE1D2825D42D00962166 /* StoryFeedFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryFeedFlowController.swift; sourceTree = "<group>"; };
+		FEA1CE202825D4E000962166 /* StoryFeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryFeedItem.swift; sourceTree = "<group>"; };
+		FEA1CE232825D94400962166 /* StoryFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryFeedCell.swift; sourceTree = "<group>"; };
 		FEA7774D281D599000B7CCF2 /* ForgotPasswordWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordWorker.swift; sourceTree = "<group>"; };
 		FEA7774F281D5AC000B7CCF2 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		FEA77751281D6AEB00B7CCF2 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
@@ -220,21 +228,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2106BF8C2825CB4200C5FD79 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				2106BF8D2825CB5600C5FD79 /* Feed */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		2106BF8D2825CB5600C5FD79 /* Feed */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Feed;
-			sourceTree = "<group>";
-		};
 		2106BF8E2825CD3500C5FD79 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,7 +298,7 @@
 		2170151B27EE930B00743B5B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				2106BF8C2825CB4200C5FD79 /* Home */,
+				FEA1CE182825D2B600962166 /* Home */,
 				2170151C27EE931100743B5B /* Authentication */,
 				FE66F27827F7A7740051007F /* Splash */,
 				2124AB112825186A00C47BFF /* LaunchScreen.storyboard */,
@@ -535,6 +528,49 @@
 			path = Amazon;
 			sourceTree = "<group>";
 		};
+		FEA1CE182825D2B600962166 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FEA1CE192825D2BB00962166 /* Feed */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		FEA1CE192825D2BB00962166 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				FEA1CE222825D93900962166 /* Views */,
+				FEA1CE1F2825D4D500962166 /* Models */,
+				FEA1CE1C2825D41300962166 /* Navigation */,
+				FEA1CE1A2825D34200962166 /* StoryFeedListViewController.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		FEA1CE1C2825D41300962166 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				FEA1CE1D2825D42D00962166 /* StoryFeedFlowController.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		FEA1CE1F2825D4D500962166 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FEA1CE202825D4E000962166 /* StoryFeedItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FEA1CE222825D93900962166 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FEA1CE232825D94400962166 /* StoryFeedCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		FEA7774C281D592900B7CCF2 /* ForgotPassword */ = {
 			isa = PBXGroup;
 			children = (
@@ -762,13 +798,16 @@
 				FE66F29B27F89A780051007F /* AuthenticationSignUpViewController.swift in Sources */,
 				FE3AD3F3281C9BBD0093D28B /* GoogleSignInWorker.swift in Sources */,
 				215FAE402800DF97006291A8 /* EmailAccessCodeViewController.swift in Sources */,
+				FEA1CE212825D4E000962166 /* StoryFeedItem.swift in Sources */,
 				FE66F27727F7A17E0051007F /* AppleClient.swift in Sources */,
 				FE66F29D27F89C170051007F /* SignUpViewModel.swift in Sources */,
 				21CCF0CA27F206C100096CE1 /* AmazonService.swift in Sources */,
+				FEA1CE1B2825D34200962166 /* StoryFeedListViewController.swift in Sources */,
 				21FC8CF527F8D24D0014914D /* PhoneNumberService.swift in Sources */,
 				2147796228109ACD00DE2744 /* InviteContactsViewController.swift in Sources */,
 				FEB964ED2801BDE2008DD002 /* AuthenticationState.swift in Sources */,
 				FEE3533F280A1343007081AE /* AuthenticationSignUpDatePickerViewController.swift in Sources */,
+				FEA1CE1E2825D42D00962166 /* StoryFeedFlowController.swift in Sources */,
 				FEA7775A281D7D5600B7CCF2 /* Future+Extensions.swift in Sources */,
 				2147796428109C3B00DE2744 /* ContactsListViewController.swift in Sources */,
 				FEB964E72801BCCC008DD002 /* AppAction.swift in Sources */,
@@ -799,6 +838,7 @@
 				FE3AD3F1281C9B720093D28B /* LoginEmailWorker.swift in Sources */,
 				FE66F29F27F89C2F0051007F /* LoginViewModel.swift in Sources */,
 				FEB964EF2801C12F008DD002 /* AuthenticationAction.swift in Sources */,
+				FEA1CE242825D94400962166 /* StoryFeedCell.swift in Sources */,
 				FE66F29127F7C0360051007F /* AuthenticationSocialContainerView.swift in Sources */,
 				FEB964EB2801BCDD008DD002 /* AppState.swift in Sources */,
 				FEE35351280B181F007081AE /* NetworkEnvironmentClient.swift in Sources */,
