@@ -1,7 +1,7 @@
 import UIKit
 import StyleSheet
 
-enum TabBarItemId: Int {
+enum TabBarItemId: Int, CaseIterable {
     case feed
     case search
     case create
@@ -13,7 +13,7 @@ struct TabBarItem: Equatable {
     var id: TabBarItemId
     var viewController: UIViewController
     var uiTabBarItem: UITabBarItem {
-        UITabBarItem(title: nil, image: icon, tag: id.rawValue)
+        UITabBarItem(title: nil, image: icon, selectedImage: nil)
     }
 
     var icon: UIImage? {
