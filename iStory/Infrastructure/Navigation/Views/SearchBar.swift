@@ -21,7 +21,9 @@ final class SearchBar: UIView {
     private var type: SearchBarType = .withFilterButton
     private let textField = UITextField()
     private let bottomLineView = UIView()
-    private let filterButton = UIButton()
+    private var filterButton: UIButton?
+    private let magnifierImageView = UIImageView()
+    
     var placeholder = "Search"
     weak var delegate: SearchBarDelegate?
     
@@ -42,10 +44,12 @@ final class SearchBar: UIView {
         
     func perform(search: String) {
         textField.text = search
+        applyStyle(for: search)
     }
     
     func removeSearchEntry() {
         textField.text?.removeAll()
+        applyStyle(for: "")
         didEndSearch()
     }
     
@@ -76,11 +80,19 @@ final class SearchBar: UIView {
         bottomLineView.setSizeConstraints(height: 1)
         bottomLineView.setConstraintsRelativeToSuperView(leading: 0, trailing: 26)
         
-        addManagedSubview(filterButton)
-        filterButton.setSizeConstraints(width: 25, height: 25)
-        filterButton.trailingAnchor.constraint(equalTo: trailingAnchor).activate()
-        filterButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).activate()
-        filterButton.setImage(UIImage(namedInStyleSheet: "search.filter"), for: .normal)
+        filterButton = UIButton()
+        addManagedSubview(filterButton!)
+        filterButton!.setSizeConstraints(width: 25, height: 25)
+        filterButton!.trailingAnchor.constraint(equalTo: trailingAnchor).activate()
+        filterButton!.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).activate()
+        filterButton!.setImage(UIImage(namedInStyleSheet: "search.filter"), for: .normal)
+        
+        addManagedSubview(magnifierImageView)
+        magnifierImageView.setSizeConstraints(width: 25, height: 25)
+        magnifierImageView.trailingAnchor.constraint(equalTo: trailingAnchor).activate()
+        magnifierImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).activate()
+        magnifierImageView.image = UIImage(namedInStyleSheet: "search.magnifier")
+        magnifierImageView.alpha = 0
     }
     
     private func configureFullWidth() {
@@ -92,6 +104,32 @@ final class SearchBar: UIView {
         bottomLineView.topAnchor.constraint(equalTo: textField.bottomAnchor).activate()
         bottomLineView.setSizeConstraints(height: 1)
         bottomLineView.setConstraintsRelativeToSuperView(leading: 0, trailing: 0)
+        
+        addManagedSubview(magnifierImageView)
+        magnifierImageView.setSizeConstraints(width: 25, height: 25)
+        magnifierImageView.trailingAnchor.constraint(equalTo: trailingAnchor).activate()
+        magnifierImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).activate()
+        magnifierImageView.image = UIImage(namedInStyleSheet: "search.magnifier")
+        magnifierImageView.alpha = 0
+    }
+    
+    private func applyStyle(for text: String) {
+        setMagnifierImageView(visible: !text.isEmpty)
+        
+        if text.isEmpty {
+            textField.text = placeholder
+            textField.textColor = .lightGray
+        } else if textField.text == placeholder {
+            textField.text = ""
+            textField.textColor = .black
+        } else {
+            textField.textColor = .black
+        }
+    }
+    
+    private func setMagnifierImageView(visible: Bool) {
+        magnifierImageView.alpha = visible ? 1 : 0
+        filterButton?.alpha = visible ? 0 : 1
     }
 }
 
@@ -102,14 +140,7 @@ extension SearchBar: UITextFieldDelegate {
         }
         
         delegate?.didEnterSearch(query: text)
-                
-        if text.isEmpty {
-            textField.text = placeholder
-            textField.textColor = .lightGray
-        } else if textField.text == placeholder {
-            textField.text = ""
-            textField.textColor = .black
-        }
+        applyStyle(for: text)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -118,10 +149,6 @@ extension SearchBar: UITextFieldDelegate {
         }
         
         delegate?.didEnterSearch(query: text)
-        
-        if text.isEmpty {
-            textField.text = placeholder
-            textField.textColor = .lightGray
-        }
+        applyStyle(for: text)
     }
 }

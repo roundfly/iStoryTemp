@@ -163,4 +163,3 @@ extension HomeViewController: UIScrollViewDelegate {
         }
     }
 }
-
