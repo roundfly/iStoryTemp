@@ -32,29 +32,19 @@ final class HomeViewController: UIViewController {
 
     private let viewModel = StoryFeedViewModel()
 
-    private let store: AuthenticationStore
     private let theme = ThemeDefault()
+    private let navigationBar = NavigationBar(type: .feed, frame: .zero)
     
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     private let bellImageView = UIImageView()
     private let titleLabel = UILabel()
     private let subtitleLabel = UILabel()
-    private let searchBar = SearchBar()
-
-    init(store: AuthenticationStore) {
-        self.store = store
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError()
-    }
+    private let searchBar = SearchBar(type: .withFilterButton, frame: .zero)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        logJwtToken()
         setupScrollView()
         setupUI()
         applySnapshot()
@@ -66,6 +56,7 @@ final class HomeViewController: UIViewController {
         scrollView.setConstraintsEqualToSuperView()
                 
         scrollView.addManagedSubview(contentView)
+        scrollView.delegate = self
         contentView.setConstraintsEqualToSuperView()
 
         let contentViewCenterY = contentView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor)
@@ -89,15 +80,19 @@ final class HomeViewController: UIViewController {
         searchBar.didEndSearch()
     }
     
-    private func setupUI() {
-        contentView.addManagedSubview(bellImageView)
-        bellImageView.setConstraintsRelativeToSuperView(top: 20, leading: 27)
-        bellImageView.setSizeConstraints(width: 25, height: 25)
-        bellImageView.contentMode = .scaleAspectFit
-        bellImageView.image = UIImage(namedInStyleSheet: "bell")
+    private func setupUI() {        
+        view.addManagedSubview(navigationBar)
+        navigationBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).activate()
+        navigationBar.setConstraintsRelativeToSuperView(leading: 0, trailing: 0)
+                
+        let whiteView = UIView()
+        whiteView.backgroundColor = .white
+        view.addManagedSubview(whiteView)
+        whiteView.setConstraintsRelativeToSuperView(top: 0, leading: 0, trailing: 0)
+        whiteView.bottomAnchor.constraint(equalTo: navigationBar.topAnchor).activate()
         
         contentView.addManagedSubview(titleLabel)
-        titleLabel.topAnchor.constraint(equalTo: bellImageView.bottomAnchor, constant: 11).activate()
+        titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 45).activate()
         titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 26).activate()
         titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 26).activate()
         titleLabel.font = theme.fontBold.withSize(26)
@@ -153,12 +148,19 @@ final class HomeViewController: UIViewController {
             return section
         })
     }
-    
-    private func logJwtToken() {
-        let jwtToken = """
-        iStory user: \(store.state.currentUser?.email ?? "")
-        JWT: \(store.state.accessToken?.accessToken ?? "nil")
-        """
-        print(jwtToken)
+}
+
+extension HomeViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset.y
+        print("Offset \(offset)")
+        if offset > 72 {
+            navigationBar.isRightButtonHidden = false
+            navigationBar.isSearchBarHidden = false
+        } else {
+            navigationBar.isRightButtonHidden = true
+            navigationBar.isSearchBarHidden = true
+        }
     }
 }
+
