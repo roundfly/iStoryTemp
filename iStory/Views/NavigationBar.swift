@@ -96,11 +96,7 @@ final class NavigationBar: UIView {
     }
 }
 
-extension NavigationBar: SearchBarDelegate {
-    func shouldPresentMagnifier(_ present: Bool) {
-        rightButton.alpha = present ? 0 : 1
-    }
-    
+extension NavigationBar: SearchBarDelegate {    
     func didEnterSearch(query: String) {
         delegate?.didEnterNavigationSearch(query: query)
     }
