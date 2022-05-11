@@ -65,6 +65,7 @@ private extension AppleClient {
                 logger.info("Unable to serialize token string from data: \(token.debugDescription)")
                 return
             }
+            print("Apple token \(tokenString)")
             subject.send(tokenString)
         }
 
