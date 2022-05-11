@@ -42,7 +42,19 @@ final class SearchBar: UIView {
         fatalError("init(coder:) has not been implemented")
     }
         
-    func perform(search: String) {
+    func update(search: String) {
+        guard let text = textField.text else {
+            return
+        }
+        
+        if search == text {
+            return
+        }
+        
+        if search == placeholder {
+            return
+        }
+        
         textField.text = search
         applyStyle(for: search)
     }
@@ -61,6 +73,7 @@ final class SearchBar: UIView {
         textField.delegate = self
         textField.textColor = .lightGray
         textField.text = placeholder
+        textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
 
         switch type {
         case .withFilterButton:
@@ -114,7 +127,7 @@ final class SearchBar: UIView {
     }
     
     private func applyStyle(for text: String) {
-        setMagnifierImageView(visible: !text.isEmpty)
+        setMagnifierfImageView(visible: !text.isEmpty)
         
         if text.isEmpty {
             textField.text = placeholder
@@ -127,9 +140,18 @@ final class SearchBar: UIView {
         }
     }
     
-    private func setMagnifierImageView(visible: Bool) {
+    private func setMagnifierfImageView(visible: Bool) {        
         magnifierImageView.alpha = visible ? 1 : 0
         filterButton?.alpha = visible ? 0 : 1
+    }
+    
+    @objc
+    private func textFieldDidChange(_ textField: UITextField) {
+        guard let text = textField.text else {
+            return
+        }
+
+        delegate?.didEnterSearch(query: text)
     }
 }
 
@@ -139,7 +161,6 @@ extension SearchBar: UITextFieldDelegate {
             return
         }
         
-        delegate?.didEnterSearch(query: text)
         applyStyle(for: text)
     }
     
@@ -148,7 +169,6 @@ extension SearchBar: UITextFieldDelegate {
             return
         }
         
-        delegate?.didEnterSearch(query: text)
         applyStyle(for: text)
     }
 }

@@ -78,13 +78,15 @@ final class HomeViewController: UIViewController {
     @objc
     func didEndSearch() {
         searchBar.didEndSearch()
+        navigationBar.didEndSearch()
     }
     
     private func setupUI() {        
         view.addManagedSubview(navigationBar)
         navigationBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).activate()
         navigationBar.setConstraintsRelativeToSuperView(leading: 0, trailing: 0)
-                
+        navigationBar.delegate = self
+
         let whiteView = UIView()
         whiteView.backgroundColor = .white
         view.addManagedSubview(whiteView)
@@ -111,6 +113,7 @@ final class HomeViewController: UIViewController {
         searchBar.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 25).activate()
         searchBar.setConstraintsRelativeToSuperView(leading: 26, trailing: 26)
         searchBar.setHeightConstraint(equalToConstant: 30)
+        searchBar.delegate = self
         
         contentView.addManagedSubview(collectionView)
         collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 50).activate()
@@ -153,7 +156,6 @@ final class HomeViewController: UIViewController {
 extension HomeViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset.y
-        print("Offset \(offset)")
         if offset > 72 {
             navigationBar.isRightButtonHidden = false
             navigationBar.isSearchBarHidden = false
@@ -161,5 +163,17 @@ extension HomeViewController: UIScrollViewDelegate {
             navigationBar.isRightButtonHidden = true
             navigationBar.isSearchBarHidden = true
         }
+    }
+}
+
+extension HomeViewController: SearchBarDelegate {
+    func didEnterSearch(query: String) {
+        navigationBar.updateSearchBar(with: query)
+    }
+}
+
+extension HomeViewController: NavigationBarDelegate {
+    func didEnterNavigationSearch(query: String) {
+        searchBar.update(search: query)
     }
 }

@@ -13,13 +13,18 @@ enum NavigationBarType {
     case feed
 }
 
+protocol NavigationBarDelegate: AnyObject {
+    func didEnterNavigationSearch(query: String)
+}
+
 final class NavigationBar: UIView {
     
     private var type: NavigationBarType = .empty
     private var leftButton = UIButton()
     private var rightButton = UIButton()
-    private var searchBar = SearchBar(type: .fullWidth, frame: .zero)
+    private let searchBar = SearchBar(type: .fullWidth, frame: .zero)
     private var searchBarHeightAnchor: NSLayoutConstraint?
+    weak var delegate: NavigationBarDelegate?
     
     var isRightButtonHidden: Bool = true {
         didSet {
@@ -47,12 +52,21 @@ final class NavigationBar: UIView {
         setupUI()
     }
     
+    func updateSearchBar(with query: String) {
+        searchBar.update(search: query)
+    }
+    
+    func didEndSearch() {
+        searchBar.didEndSearch()
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     private func setupUI() {
         backgroundColor = .white
+        searchBar.delegate = self
         
         switch type {
         case .empty:
@@ -79,5 +93,15 @@ final class NavigationBar: UIView {
         searchBar.setConstraintsRelativeToSuperView(leading: 27, bottom: 10, trailing: 32)
         searchBarHeightAnchor = searchBar.heightAnchor.constraint(equalToConstant: 30).activate()
         searchBar.clipsToBounds = true
+    }
+}
+
+extension NavigationBar: SearchBarDelegate {
+    func shouldPresentMagnifier(_ present: Bool) {
+        rightButton.alpha = present ? 0 : 1
+    }
+    
+    func didEnterSearch(query: String) {
+        delegate?.didEnterNavigationSearch(query: query)
     }
 }
