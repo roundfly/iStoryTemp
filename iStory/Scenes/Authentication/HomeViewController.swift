@@ -35,96 +35,71 @@ final class HomeViewController: UIViewController {
     private let theme = ThemeDefault()
     private let navigationBar = NavigationBar(type: .feed, frame: .zero)
     
-    private let scrollView = UIScrollView()
-    private let contentView = UIView()
-    private let bellImageView = UIImageView()
     private let titleLabel = UILabel()
     private let subtitleLabel = UILabel()
     private let searchBar = SearchBar(type: .withFilterButton, frame: .zero)
 
+    private var labelContentViewHeightAnchor: NSLayoutConstraint!
+    private var collectionViewTopConstraint: NSLayoutConstraint!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupScrollView()
+        navigationBar.isSearchBarHidden = true
         setupUI()
         applySnapshot()
+        hideKeyboardWhenTappedAround()
     }
-    
-    private func setupScrollView() {
+
+    private func setupUI() {
         view.backgroundColor = .white
-        view.addManagedSubview(scrollView)
-        scrollView.setConstraintsEqualToSuperView()
-                
-        scrollView.addManagedSubview(contentView)
-        scrollView.delegate = self
-        contentView.setConstraintsEqualToSuperView()
-
-        let contentViewCenterY = contentView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor)
-        contentViewCenterY.priority = .defaultLow
-
-        let contentViewHeight = contentView.heightAnchor.constraint(greaterThanOrEqualTo: contentView.heightAnchor)
-        contentViewHeight.priority = .defaultLow
-        
-        NSLayoutConstraint.activate([
-            contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            contentViewCenterY,
-            contentViewHeight
-        ])
-
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didEndSearch))
-        view.addGestureRecognizer(tapGesture)
-    }
-    
-    @objc
-    func didEndSearch() {
-        searchBar.didEndSearch()
-        navigationBar.didEndSearch()
-    }
-    
-    private func setupUI() {        
         view.addManagedSubview(navigationBar)
         navigationBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).activate()
         navigationBar.setConstraintsRelativeToSuperView(leading: 0, trailing: 0)
         navigationBar.delegate = self
 
-        let whiteView = UIView()
-        whiteView.backgroundColor = .white
-        view.addManagedSubview(whiteView)
-        whiteView.setConstraintsRelativeToSuperView(top: 0, leading: 0, trailing: 0)
-        whiteView.bottomAnchor.constraint(equalTo: navigationBar.topAnchor).activate()
-        
-        contentView.addManagedSubview(titleLabel)
-        titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 45).activate()
-        titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 26).activate()
-        titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 26).activate()
+        let labelContentView = UIView()
+        view.addManagedSubview(labelContentView)
+        labelContentView.addManagedSubview(titleLabel)
+        labelContentView.leadingAnchor.constraint(equalTo: view.leadingAnchor).activate()
+        labelContentView.trailingAnchor.constraint(equalTo: view.trailingAnchor).activate()
+        labelContentView.topAnchor.constraint(equalTo: navigationBar.bottomAnchor).activate()
+        labelContentViewHeightAnchor = labelContentView.heightAnchor.constraint(equalToConstant: 70)
+        labelContentViewHeightAnchor.activate()
+
+        titleLabel.topAnchor.constraint(equalTo: labelContentView.topAnchor).activate()
+        titleLabel.leadingAnchor.constraint(equalTo: labelContentView.leadingAnchor, constant: 26).activate()
+        titleLabel.trailingAnchor.constraint(equalTo: labelContentView.trailingAnchor, constant: 26).activate()
         titleLabel.font = theme.fontBold.withSize(26)
         titleLabel.text = "Hello"
+        titleLabel.numberOfLines = 0
         
-        contentView.addManagedSubview(subtitleLabel)
+        labelContentView.addManagedSubview(subtitleLabel)
         subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 6).activate()
-        subtitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 26).activate()
-        subtitleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 26).activate()
+        subtitleLabel.leadingAnchor.constraint(equalTo: labelContentView.leadingAnchor, constant: 26).activate()
+        subtitleLabel.trailingAnchor.constraint(equalTo: labelContentView.trailingAnchor, constant: 26).activate()
+        subtitleLabel.bottomAnchor.constraint(equalTo: labelContentView.bottomAnchor).activate()
         subtitleLabel.numberOfLines = 2
         subtitleLabel.font = theme.fontBold.withSize(18)
         subtitleLabel.textColor = AppColor.textFieldTextColor.uiColor
         subtitleLabel.text = "Let’s Explore activities \nof your friends"
         
-        contentView.addManagedSubview(searchBar)
-        searchBar.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 25).activate()
+        view.addManagedSubview(searchBar)
+        searchBar.topAnchor.constraint(equalTo: labelContentView.bottomAnchor, constant: 25).activate()
         searchBar.setConstraintsRelativeToSuperView(leading: 26, trailing: 26)
         searchBar.setHeightConstraint(equalToConstant: 30)
         searchBar.delegate = self
         
-        contentView.addManagedSubview(collectionView)
-        collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 50).activate()
-        collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).activate()
-        collectionView.setConstraintsRelativeToSuperView(leading: 0, bottom: 0, trailing: 0)
-        collectionView.setSizeConstraints(height: 1600)
+        view.addManagedSubview(collectionView)
+        collectionViewTopConstraint = collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 10)
+        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).activate()
+        collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).activate()
+        collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).activate()
+        collectionViewTopConstraint.activate()
         collectionView.register(StoryFeedCell.self)
         collectionView.alwaysBounceVertical = true
         collectionView.dataSource = dataSource
+        collectionView.delegate = self
         collectionView.alpha = 0.0
-        collectionView.isScrollEnabled = false
     }
 
     private func applySnapshot() {
@@ -153,15 +128,34 @@ final class HomeViewController: UIViewController {
     }
 }
 
-extension HomeViewController: UIScrollViewDelegate {
+extension HomeViewController: UIScrollViewDelegate, UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset.y
+        if offset > 5 {
+            collectionViewTopConstraint.constant -= 10
+            if collectionViewTopConstraint.constant <= -30 {
+                collectionViewTopConstraint.constant = -30
+            }
+            labelContentViewHeightAnchor.constant -= 10
+            if labelContentViewHeightAnchor.constant < 0 {
+                labelContentViewHeightAnchor.constant = 0.0
+            }
+        } else {
+            collectionViewTopConstraint.constant += 10
+            if collectionViewTopConstraint.constant >= 10 {
+                collectionViewTopConstraint.constant = 10
+            }
+            guard labelContentViewHeightAnchor.constant <= 60 else { return }
+            labelContentViewHeightAnchor.constant += 10
+        }
         if offset > 72 {
+            searchBar.isHidden = true
             navigationBar.isRightButtonHidden = false
             navigationBar.isSearchBarHidden = false
         } else {
             navigationBar.isRightButtonHidden = true
             navigationBar.isSearchBarHidden = true
+            searchBar.isHidden = false
         }
     }
 }
