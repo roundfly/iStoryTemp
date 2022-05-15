@@ -5,8 +5,17 @@
 //  Created by Nikola Stojanovic on 30.4.22..
 //
 
+import Combine
 import UIKit
 import StyleSheet
+
+final class StoryFeedViewModel {
+    private(set) var feed: [StoryFeedItem] = .stub
+
+    func item(for id: UUID) -> StoryFeedItem? {
+        feed.first(where: { $0.id == id })
+    }
+}
 
 final class HomeViewController: UIViewController {
     // MARK: - Utility types
@@ -19,15 +28,17 @@ final class HomeViewController: UIViewController {
 
     // MARK: - Instance variables
 
-    private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
+    private let collectionView: UICollectionView
+    private var style: LayoutStyle {
+        didSet {
+            let layout = LayoutProvider.createLayout(style: style)
+            update(layout: layout)
+        }
+    }
+    private let styleSubject = PassthroughSubject<LayoutStyle, Never>()
 
     private lazy var dataSource: DataSource = {
-        DataSource(collectionView: collectionView) { [viewModel] collectionView, indexPath, storyId in
-            let cell = collectionView.dequeueReusableCell(for: indexPath) as StoryFeedCell
-            guard let story = viewModel.item(for: storyId) else { return cell }
-            cell.configureCell(with: story)
-            return cell
-        }
+        DataSource(collectionView: collectionView, cellProvider: configureCell(collectionView:indexPath:storyId:))
     }()
 
     private let viewModel = StoryFeedViewModel()
@@ -42,12 +53,32 @@ final class HomeViewController: UIViewController {
     private var labelContentViewHeightAnchor: NSLayoutConstraint!
     private var collectionViewTopConstraint: NSLayoutConstraint!
 
+    init() {
+        let layout = LayoutProvider.createLayout(style: .feed)
+        self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        self.style = .feed
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationBar.isSearchBarHidden = true
         setupUI()
         applySnapshot()
         hideKeyboardWhenTappedAround()
+        setupLeadingNavbarButtonAction()
+    }
+
+    private func configureCell(collectionView: UICollectionView, indexPath: IndexPath, storyId: StoryFeedItem.ID) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(for: indexPath) as StoryFeedCell
+        guard let story = viewModel.item(for: storyId) else { return cell }
+        cell.stylePublisher = styleSubject.eraseToAnyPublisher()
+        cell.configureCell(with: story, using: style)
+        return cell
     }
 
     private func setupUI() {
@@ -112,19 +143,15 @@ final class HomeViewController: UIViewController {
         }
     }
 
-    private func createLayout() -> UICollectionViewLayout {
-        UICollectionViewCompositionalLayout(sectionProvider: { _, _ in
-            let groupCount = 1
-            let groupHeight = 2.0 / 3.0
-            let padding: CGFloat = 10.0
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
-            let item = NSCollectionLayoutItem(layoutSize: itemSize)
-            item.contentInsets = NSDirectionalEdgeInsets(top: padding, leading: padding, bottom: padding, trailing: padding)
-            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(groupHeight))
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: groupCount)
-            let section = NSCollectionLayoutSection(group: group)
-            return section
-        })
+    private func update(layout: UICollectionViewLayout, animated: Bool = true) {
+        collectionView.setCollectionViewLayout(layout, animated: animated)
+        styleSubject.send(style)
+    }
+
+    private func setupLeadingNavbarButtonAction() {
+        navigationBar.leadingButtonAction = UIAction { [weak self] _ in
+            self?.style.toggle()
+        }
     }
 }
 

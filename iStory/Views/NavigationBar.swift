@@ -5,7 +5,6 @@
 //  Created by Bratislav Baljak on 5/10/22.
 //
 
-import Foundation
 import UIKit
 
 enum NavigationBarType {
@@ -18,7 +17,6 @@ protocol NavigationBarDelegate: AnyObject {
 }
 
 final class NavigationBar: UIView {
-    
     private var type: NavigationBarType = .empty
     private var leftButton = UIButton()
     private var rightButton = UIButton()
@@ -40,6 +38,13 @@ final class NavigationBar: UIView {
             self.searchBar.layoutIfNeeded()
         }
     }
+
+    var leadingButtonAction: UIAction? {
+        willSet {
+            guard let newValue = newValue else { return }
+            leftButton.addAction(newValue, for: .touchUpInside)
+        }
+    }
     
     private override init(frame: CGRect) {
         super.init(frame: frame)
@@ -48,7 +53,6 @@ final class NavigationBar: UIView {
     convenience init(type: NavigationBarType, frame: CGRect) {
         self.init(frame: frame)
         self.type = type
-        
         setupUI()
     }
     
@@ -67,7 +71,6 @@ final class NavigationBar: UIView {
     private func setupUI() {
         backgroundColor = .white
         searchBar.delegate = self
-        
         switch type {
         case .empty:
             break
