@@ -110,16 +110,21 @@ public extension UIView {
         addSubview(subview)
     }
 
-    func pinEdgesToSuperview(inset: CGFloat = 0) {
+    @discardableResult
+    func pinEdgesToSuperview(inset: CGFloat = 0) -> [NSLayoutConstraint] {
         guard let superview = superview else {
             assertionFailure("View has no parent")
-            return
+            return []
         }
         translatesAutoresizingMaskIntoConstraints = false
-        leadingAnchor.constraint(equalTo: superview.leadingAnchor, constant: inset).activate()
-        bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -inset).activate()
-        topAnchor.constraint(equalTo: superview.topAnchor, constant: inset).activate()
-        trailingAnchor.constraint(equalTo: superview.trailingAnchor, constant: -inset).activate()
+        let constraints = [
+            leadingAnchor.constraint(equalTo: superview.leadingAnchor, constant: inset),
+            bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -inset),
+            topAnchor.constraint(equalTo: superview.topAnchor, constant: inset),
+            trailingAnchor.constraint(equalTo: superview.trailingAnchor, constant: -inset)
+        ]
+        constraints.forEach { $0.activate() }
+        return constraints
     }
 }
 

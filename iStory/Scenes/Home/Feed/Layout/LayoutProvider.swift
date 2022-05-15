@@ -10,12 +10,15 @@ import UIKit
 public enum LayoutStyle {
     case feed
     case grid
+    case list
 
     mutating func toggle() {
         switch self {
         case .feed:
             self = .grid
         case .grid:
+            self = .list
+        case .list:
             self = .feed
         }
     }
@@ -27,9 +30,19 @@ enum LayoutProvider {
 
     static func createLayout(style: LayoutStyle) -> UICollectionViewLayout {
         UICollectionViewCompositionalLayout { _, _ in
-            let predicate = style == .feed
-            let groupCount = predicate ? 1 : 2
-            let groupHeight = predicate ? 2.0 / 3.0 : 2.0 / 5.0
+            let groupCount: Int
+            let groupHeight: CGFloat
+            switch style {
+            case .feed:
+                groupCount = 1
+                groupHeight = 2.0 / 3.0
+            case .grid:
+                groupCount = 2
+                groupHeight = 2.0 / 5.0
+            case .list:
+                groupCount = 1
+                groupHeight = 2.0 / 9.0
+            }
             let padding: CGFloat = 10.0
             let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
