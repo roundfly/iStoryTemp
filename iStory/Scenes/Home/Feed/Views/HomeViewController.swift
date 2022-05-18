@@ -131,6 +131,14 @@ final class HomeViewController: UIViewController {
         collectionView.dataSource = dataSource
         collectionView.delegate = self
         collectionView.alpha = 0.0
+        
+        let action = UIAction { [weak self] action in
+            let vc = FilterViewController()
+            primarySheet(for: vc)
+            self?.present(vc, animated: true)
+        }
+        searchBar.addFilter(action: action)
+        navigationBar.addActionTo(rightButton: action)
     }
 
     private func applySnapshot() {

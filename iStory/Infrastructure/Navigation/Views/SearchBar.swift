@@ -69,6 +69,10 @@ final class SearchBar: UIView {
         textField.endEditing(true)
     }
     
+    func addFilter(action: UIAction) {
+        filterButton?.addAction(action, for: .touchUpInside)
+    }
+    
     private func setupUI() {
         textField.delegate = self
         textField.textColor = .lightGray
@@ -99,7 +103,7 @@ final class SearchBar: UIView {
         filterButton!.trailingAnchor.constraint(equalTo: trailingAnchor).activate()
         filterButton!.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).activate()
         filterButton!.setImage(UIImage(namedInStyleSheet: "search.filter"), for: .normal)
-        
+
         addManagedSubview(magnifierImageView)
         magnifierImageView.setSizeConstraints(width: 25, height: 25)
         magnifierImageView.trailingAnchor.constraint(equalTo: trailingAnchor).activate()
