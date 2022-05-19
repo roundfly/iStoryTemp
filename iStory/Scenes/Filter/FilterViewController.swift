@@ -11,9 +11,12 @@ import StyleSheet
 
 final class FilterViewController: UIViewController {
     private var filterByPeopleView: FilterByPeopleView!
+    private let filterByDate = FilterDateView()
     private let titleLabel = UILabel()
     private let leftButton = UIButton()
     private let rightButton = UIButton()
+    private let submitButton = SubmitButton()
+    
     private let theme = ThemeDefault()
     
     override func viewDidLoad() {
@@ -30,10 +33,34 @@ final class FilterViewController: UIViewController {
         titleLabel.font = theme.fontBold.withSize(20)
         titleLabel.textAlignment = .center
         
+        view.addManagedSubview(leftButton)
+        leftButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor).activate()
+        leftButton.setSizeConstraints(width: 25, height: 25)
+        leftButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).activate()
+        
+        view.addManagedSubview(rightButton)
+        rightButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor).activate()
+        rightButton.setSizeConstraints(width: 25, height: 25)
+        rightButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -35).activate()
+
+        leftButton.setImage(UIImage(namedInStyleSheet: "arrow-clockwise"), for: .normal)
+        rightButton.setImage(UIImage(namedInStyleSheet: "bookmark"), for: .normal)
+        
         let images: [UIImage] = [.checkmark, .remove, .checkmark, .remove, .checkmark, .remove, .checkmark, .remove, .checkmark]
         filterByPeopleView = FilterByPeopleView(peopleImages: images)
         view.addManagedSubview(filterByPeopleView)
         filterByPeopleView.setConstraintsRelativeToSuperView(top: 100, leading: 0, trailing: 0)
-        filterByPeopleView.setSizeConstraints(height: 200)
+        filterByPeopleView.setSizeConstraints(height: 100)
+        
+        view.addManagedSubview(filterByDate)
+        filterByDate.topAnchor.constraint(equalTo: filterByPeopleView.bottomAnchor, constant: 10).activate()
+        filterByDate.setConstraintsRelativeToSuperView(leading: 0, trailing: 0)
+        filterByDate.setSizeConstraints(height: 100)
+        
+        view.addManagedSubview(submitButton)
+        submitButton.setConstraintsRelativeToSuperView(leading: 15, bottom: 30, trailing: 15)
+        submitButton.setSizeConstraints(height: 60)
+        submitButton.setTitle("Filter", for: .normal)
+        submitButton.setTitleColor(.black, for: .normal)
     }
 }

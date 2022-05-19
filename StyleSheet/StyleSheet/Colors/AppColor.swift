@@ -12,6 +12,7 @@ public enum AppColor: String, View, Identifiable, CaseIterable {
     case yellow = "Yellow"
     case textFieldTextColor = "TextFieldTextColor"
     case textFieldTextColorDisabled = "TextFieldTextColorDisabled"
+    case backgroundGrayColor = "BackgroundGrayColor"
 
     public var id: String {
         rawValue

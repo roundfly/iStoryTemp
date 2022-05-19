@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// State Machine
 enum FilterViewState {
     case empty
     case savedFilters
