@@ -23,4 +23,11 @@ struct AuthenticationState: Equatable {
     var accessCodeFailure: String?
     var showForgotPasswordAccessCodeFlow = false
     var didSignIn = false
+
+    var authStatus: AuthenticationStatus {
+        guard let user = currentUser, accessToken != nil else {
+            return .anonymous
+        }
+        return .loggedIn(user)
+    }
 }

@@ -36,7 +36,7 @@ final class TabBarController: UITabBarController {
             var viewController: UIViewController
             switch id {
             case .feed:
-                viewController = HomeViewController()
+                viewController = HomeViewController(authStatus: store.state.authStatus)
             default:
                 viewController = UIViewController()
             }

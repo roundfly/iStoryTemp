@@ -9,12 +9,9 @@ import Combine
 import UIKit
 import StyleSheet
 
-final class StoryFeedViewModel {
-    private(set) var feed: [StoryFeedItem] = .stub
-
-    func item(for id: UUID) -> StoryFeedItem? {
-        feed.first(where: { $0.id == id })
-    }
+enum AuthenticationStatus {
+    case anonymous
+    case loggedIn(User)
 }
 
 final class HomeViewController: UIViewController {
@@ -41,7 +38,7 @@ final class HomeViewController: UIViewController {
         DataSource(collectionView: collectionView, cellProvider: configureCell(collectionView:indexPath:storyId:))
     }()
 
-    private let viewModel = StoryFeedViewModel()
+    private let viewModel: StoryFeedViewModel
 
     private let theme = ThemeDefault()
     private let navigationBar = NavigationBar(type: .feed, frame: .zero)
@@ -53,7 +50,8 @@ final class HomeViewController: UIViewController {
     private var labelContentViewHeightAnchor: NSLayoutConstraint!
     private var collectionViewTopConstraint: NSLayoutConstraint!
 
-    init() {
+    init(authStatus: AuthenticationStatus) {
+        self.viewModel = StoryFeedViewModel(authStatus: authStatus)
         let layout = LayoutProvider.createLayout(style: .feed)
         self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         self.style = .feed
