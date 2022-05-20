@@ -94,6 +94,9 @@ final class StoryFeedCell: UICollectionViewCell {
         contentView.addManagedSubview(storyThumbnailImageView)
         storyThumbnailImageView.contentMode = .scaleAspectFill
         storyThumbnailImageView.clipsToBounds = true
+        let gradient = GradientView.backgroundNoise
+        storyThumbnailImageView.addManagedSubview(gradient)
+        gradient.pinEdgesToSuperview()
         feedStoryThumbnailImageViewEdgesConstraints = storyThumbnailImageView.pinEdgesToSuperview()
 
         listStoryThumbnailTopAnchorConstraint = storyThumbnailImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5)

@@ -11,7 +11,7 @@ public final class GradientView: UIView {
 
     public static var backgroundNoise: GradientView {
         GradientView(startColor: UIColor.black.withAlphaComponent(0.6),
-                     endColor: UIColor.black.withAlphaComponent(0))
+                     endColor: UIColor.black.withAlphaComponent(0.3))
     }
 
     public init(startColor: UIColor, endColor: UIColor) {

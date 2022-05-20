@@ -15,6 +15,10 @@ final class StoryFeedViewModel {
     private let defaults: UserDefaultsClient
     private let authStatus: AuthenticationStatus
 
+    var isAnonymous: Bool {
+        authStatus == .anonymous
+    }
+
     // MARK: - Initialization
 
     init(defaults: UserDefaultsClient = .production, authStatus: AuthenticationStatus) {
