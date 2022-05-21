@@ -7,9 +7,11 @@
 
 import Foundation
 import UIKit
+import StyleSheet
 
 enum SearchBarType {
     case withFilterButton
+    case fullWidthWithMagnifier
     case fullWidth
 }
 
@@ -23,8 +25,13 @@ final class SearchBar: UIView {
     private let bottomLineView = UIView()
     private var filterButton: UIButton?
     private let magnifierImageView = UIImageView()
+    private let theme = ThemeDefault()
     
-    var placeholder = "Search"
+    var placeholder = "Search" {
+        didSet {
+            textField.text = placeholder
+        }
+    }
     weak var delegate: SearchBarDelegate?
     
     convenience init(type: SearchBarType, frame: CGRect) {
@@ -82,6 +89,8 @@ final class SearchBar: UIView {
         switch type {
         case .withFilterButton:
             configureWithFilterButton()
+        case .fullWidthWithMagnifier:
+            configureFullWidth()
         case .fullWidth:
             configureFullWidth()
         }
@@ -89,6 +98,7 @@ final class SearchBar: UIView {
     
     private func configureWithFilterButton() {
         addManagedSubview(textField)
+        textField.font = theme.fontRegular.withSize(14)
         textField.setConstraintsRelativeToSuperView(top: 0, leading: 0, bottom: 1, trailing: 26)
         
         addManagedSubview(bottomLineView)
@@ -112,8 +122,9 @@ final class SearchBar: UIView {
         magnifierImageView.alpha = 0
     }
     
-    private func configureFullWidth() {
+    private func configureFullWidthWithMagnifier() {
         addManagedSubview(textField)
+        textField.font = theme.fontRegular.withSize(14)
         textField.setConstraintsRelativeToSuperView(top: 0, leading: 0, bottom: 1, trailing: 0)
         
         addManagedSubview(bottomLineView)
@@ -128,6 +139,18 @@ final class SearchBar: UIView {
         magnifierImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).activate()
         magnifierImageView.image = UIImage(namedInStyleSheet: "search.magnifier")
         magnifierImageView.alpha = 0
+    }
+    
+    private func configureFullWidth() {
+        addManagedSubview(textField)
+        textField.font = theme.fontBold.withSize(12)
+        textField.setConstraintsRelativeToSuperView(top: 0, leading: 0, bottom: 1, trailing: 0)
+        
+        addManagedSubview(bottomLineView)
+        bottomLineView.backgroundColor = .black.withAlphaComponent(0.5)
+        bottomLineView.topAnchor.constraint(equalTo: textField.bottomAnchor).activate()
+        bottomLineView.setSizeConstraints(height: 1)
+        bottomLineView.setConstraintsRelativeToSuperView(leading: 0, trailing: 0)
     }
     
     private func applyStyle(for text: String) {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2103E7532837FEBA008A82B5 /* SaveFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2103E7522837FEBA008A82B5 /* SaveFilterView.swift */; };
+		2103E7552838488F008A82B5 /* FilterFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2103E7542838488F008A82B5 /* FilterFlowController.swift */; };
 		2106BF8B2825BEE000C5FD79 /* SplashVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2106BF8A2825BEE000C5FD79 /* SplashVideo.mp4 */; };
 		2106BF912825CD4400C5FD79 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2106BF902825CD4400C5FD79 /* TabBarItem.swift */; };
 		2106BF942825D4D200C5FD79 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2106BF932825D4D200C5FD79 /* TabBarController.swift */; };
@@ -32,7 +34,6 @@
 		21C4906127FCA77A00DBBDD2 /* AccessCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C4906027FCA77A00DBBDD2 /* AccessCodeViewController.swift */; };
 		21CCF0CA27F206C100096CE1 /* AmazonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CCF0C927F206C100096CE1 /* AmazonService.swift */; };
 		21D088A1282F00DB00084198 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D088A0282F00DB00084198 /* FilterViewController.swift */; };
-		21D088A3282F011000084198 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D088A2282F011000084198 /* FilterView.swift */; };
 		21D088A8282F070E00084198 /* FilterByPeopleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D088A7282F070E00084198 /* FilterByPeopleView.swift */; };
 		21D088AA2833846F00084198 /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D088A92833846F00084198 /* DateView.swift */; };
 		21D088AC2833856200084198 /* FilterDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D088AB2833856200084198 /* FilterDateView.swift */; };
@@ -123,6 +124,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2103E7522837FEBA008A82B5 /* SaveFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFilterView.swift; sourceTree = "<group>"; };
+		2103E7542838488F008A82B5 /* FilterFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterFlowController.swift; sourceTree = "<group>"; };
 		2106BF8A2825BEE000C5FD79 /* SplashVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SplashVideo.mp4; sourceTree = "<group>"; };
 		2106BF902825CD4400C5FD79 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
 		2106BF932825D4D200C5FD79 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -149,7 +152,6 @@
 		21C4906027FCA77A00DBBDD2 /* AccessCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessCodeViewController.swift; sourceTree = "<group>"; };
 		21CCF0C927F206C100096CE1 /* AmazonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazonService.swift; sourceTree = "<group>"; };
 		21D088A0282F00DB00084198 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
-		21D088A2282F011000084198 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		21D088A7282F070E00084198 /* FilterByPeopleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterByPeopleView.swift; sourceTree = "<group>"; };
 		21D088A92833846F00084198 /* DateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
 		21D088AB2833856200084198 /* FilterDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDateView.swift; sourceTree = "<group>"; };
@@ -244,6 +246,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2103E75628384BFB008A82B5 /* DateFilter */ = {
+			isa = PBXGroup;
+			children = (
+				21D088AB2833856200084198 /* FilterDateView.swift */,
+				21D088A92833846F00084198 /* DateView.swift */,
+			);
+			path = DateFilter;
+			sourceTree = "<group>";
+		};
+		2103E7592838F1BF008A82B5 /* PeopleFilter */ = {
+			isa = PBXGroup;
+			children = (
+				21D088A7282F070E00084198 /* FilterByPeopleView.swift */,
+			);
+			path = PeopleFilter;
+			sourceTree = "<group>";
+		};
 		2106BF8E2825CD3500C5FD79 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -378,21 +397,21 @@
 		21D0889F282F00C500084198 /* Filter */ = {
 			isa = PBXGroup;
 			children = (
-				21D088A4282F032C00084198 /* Views */,
+				2103E7592838F1BF008A82B5 /* PeopleFilter */,
+				2103E75628384BFB008A82B5 /* DateFilter */,
+				21D088A4282F032C00084198 /* SaveFilter */,
+				2103E7542838488F008A82B5 /* FilterFlowController.swift */,
 				21D088A0282F00DB00084198 /* FilterViewController.swift */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
 		};
-		21D088A4282F032C00084198 /* Views */ = {
+		21D088A4282F032C00084198 /* SaveFilter */ = {
 			isa = PBXGroup;
 			children = (
-				21D088A2282F011000084198 /* FilterView.swift */,
-				21D088A7282F070E00084198 /* FilterByPeopleView.swift */,
-				21D088A92833846F00084198 /* DateView.swift */,
-				21D088AB2833856200084198 /* FilterDateView.swift */,
+				2103E7522837FEBA008A82B5 /* SaveFilterView.swift */,
 			);
-			path = Views;
+			path = SaveFilter;
 			sourceTree = "<group>";
 		};
 		21DC001627F7B14E0098CBEA /* LoginWithSMS */ = {
@@ -852,6 +871,7 @@
 				FEB964DC2800F6DD008DD002 /* AuthenticationInputViewModel.swift in Sources */,
 				FE3AD3EF281C93CE0093D28B /* EmailAccessCodeWorker.swift in Sources */,
 				21588C63280A222900450ABB /* ContactsService.swift in Sources */,
+				2103E7552838488F008A82B5 /* FilterFlowController.swift in Sources */,
 				FE66F29B27F89A780051007F /* AuthenticationSignUpViewController.swift in Sources */,
 				FE3AD3F3281C9BBD0093D28B /* GoogleSignInWorker.swift in Sources */,
 				215FAE402800DF97006291A8 /* EmailAccessCodeViewController.swift in Sources */,
@@ -887,6 +907,7 @@
 				21D088A8282F070E00084198 /* FilterByPeopleView.swift in Sources */,
 				FEB964D62800CB81008DD002 /* AuthenticationLoginInputViewController.swift in Sources */,
 				215FAE472800E96F006291A8 /* Validatable.swift in Sources */,
+				2103E7532837FEBA008A82B5 /* SaveFilterView.swift in Sources */,
 				FE66F27A27F7A7820051007F /* SplashViewController.swift in Sources */,
 				FE66F26B27F79F330051007F /* AuthenticationFlowController.swift in Sources */,
 				218910B72804519D002BB295 /* UIViewController+Extension.swift in Sources */,
@@ -897,7 +918,6 @@
 				FE3AD3F1281C9B720093D28B /* LoginEmailWorker.swift in Sources */,
 				21D088AC2833856200084198 /* FilterDateView.swift in Sources */,
 				FE66F29F27F89C2F0051007F /* LoginViewModel.swift in Sources */,
-				21D088A3282F011000084198 /* FilterView.swift in Sources */,
 				FEB964EF2801C12F008DD002 /* AuthenticationAction.swift in Sources */,
 				FEA1CE242825D94400962166 /* StoryFeedCell.swift in Sources */,
 				217EB23D282AC0910072043E /* NavigationBar.swift in Sources */,

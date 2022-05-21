@@ -133,9 +133,9 @@ final class HomeViewController: UIViewController {
         collectionView.alpha = 0.0
         
         let action = UIAction { [weak self] action in
-            let vc = FilterViewController()
-            primarySheet(for: vc)
-            self?.present(vc, animated: true)
+            let nc = UINavigationController(rootViewController: FilterViewController())
+            primarySheet(for: nc)
+            self?.present(nc, animated: true)
         }
         searchBar.addFilter(action: action)
         navigationBar.addActionTo(rightButton: action)

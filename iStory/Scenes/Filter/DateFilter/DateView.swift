@@ -18,7 +18,7 @@ final class DateView: UIView {
     private var type: DateFilterType = .from
     private let squaredContentView = UIView()
     private let textLabel = UILabel()
-    private let dateLabel = UILabel()
+    private let datePicker = UIDatePicker()
     private let theme = ThemeDefault()
     
     convenience init(type: DateFilterType) {
@@ -37,22 +37,27 @@ final class DateView: UIView {
     }
     
     private func setupUI() {
-        addManagedSubview(squaredContentView)
-        squaredContentView.setConstraintsEqualToSuperView()
-        squaredContentView.layer.cornerRadius = 13
-        squaredContentView.clipsToBounds = true
-        squaredContentView.backgroundColor = AppColor.backgroundGrayColor.uiColor
+        backgroundColor = .clear
         
-        squaredContentView.addManagedSubview(textLabel)
-        textLabel.setConstraintsRelativeToSuperView(leading: 10)
+//        addManagedSubview(squaredContentView)
+//        squaredContentView.setConstraintsEqualToSuperView()
+//        squaredContentView.layer.cornerRadius = 13
+//        squaredContentView.clipsToBounds = true
+//        squaredContentView.backgroundColor = AppColor.backgroundGrayColor.uiColor
+        
+        addManagedSubview(textLabel)
+        textLabel.setConstraintsRelativeToSuperView(leading: 0)
         textLabel.centerYAnchor.constraint(equalTo: centerYAnchor).activate()
         textLabel.font = theme.fontBold.withSize(12)
         textLabel.text = type == .from ? "from" : "to"
         
-        squaredContentView.addManagedSubview(dateLabel)
-        dateLabel.leadingAnchor.constraint(equalTo: textLabel.trailingAnchor, constant: 10).activate()
-        dateLabel.centerYAnchor.constraint(equalTo: centerYAnchor).activate()
-        dateLabel.font = theme.fontRegular.withSize(16)
-        dateLabel.text = "05/05/2000"
+        addManagedSubview(datePicker)
+        let leadingOffset: CGFloat = type == .from ? 30 : 0
+        datePicker.setConstraintsRelativeToSuperView(top: 0, leading: leadingOffset, bottom: 0, trailing: 0)
+        datePicker.datePickerMode = .date
+        datePicker.sizeToFit()
+
+        //dateLabel.font = theme.fontRegular.withSize(16)
+        //dateLabel.text = "05/05/2000"
     }
 }

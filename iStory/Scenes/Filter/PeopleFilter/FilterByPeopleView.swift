@@ -38,12 +38,12 @@ final class FilterByPeopleView: UIView {
         
     private func setupUI() {
         addManagedSubview(titleLabel)
-        titleLabel.setConstraintsRelativeToSuperView(top: 0, leading: 50, trailing: 50)
+        titleLabel.setConstraintsRelativeToSuperView(top: 0, leading: 0, trailing: 50)
         titleLabel.font = theme.fontBold.withSize(16)
         titleLabel.text = "Filter by people or circle"
         
         addManagedSubview(plusButton)
-        plusButton.setConstraintsRelativeToSuperView(leading: 50)
+        plusButton.setConstraintsRelativeToSuperView(leading: 0)
         plusButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).activate()
         plusButton.setSizeConstraints(width: 40, height: 40)
         plusButton.setImage(UIImage(namedInStyleSheet: "plus-button"), for: .normal)
