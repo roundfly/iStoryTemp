@@ -30,6 +30,7 @@ final class StoryFeedCell: UICollectionViewCell {
     private var feedButtonHStackViewBottomAnchorConstraint: NSLayoutConstraint!
     private var feedButtonHStackViewHeightConstraint: NSLayoutConstraint!
     private var feedButtonHStackViewTrailingAnchorConstraint: NSLayoutConstraint!
+    private var feedTitleLabelLeadingAhcorConstraint: NSLayoutConstraint!
 
     private var gridPublishedAtLabelBottomConstraint: NSLayoutConstraint!
     private var gridUserNameLabelBottomAnchor: NSLayoutConstraint!
@@ -45,6 +46,11 @@ final class StoryFeedCell: UICollectionViewCell {
     private var listButtonHStackViewBottomAnchorConstraint: NSLayoutConstraint!
     private var listButtonHStackViewHeightConstraint: NSLayoutConstraint!
     private var listButtonHStackViewTrailingAnchorConstraint: NSLayoutConstraint!
+    private var listTitleLabelLeadingAhcorConstraint: NSLayoutConstraint!
+
+    private var userImageViewLeadingAnchorConstraint: NSLayoutConstraint!
+    private var userImageViewTopAnchorConstraint: NSLayoutConstraint!
+    private var listPublishedAtBottomConstraint: NSLayoutConstraint!
 
     // workaround for layout changes not calling configureCell(with:using:)
     var stylePublisher: AnyPublisher<LayoutStyle, Never>!
@@ -103,12 +109,15 @@ final class StoryFeedCell: UICollectionViewCell {
         listStoryThumbnailBottomAnchorConstraint = storyThumbnailImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5)
         listStoryThumbnailLeadingAnchorConstraint = storyThumbnailImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5)
         listStoryThumbnailWidthConstraint = storyThumbnailImageView.widthAnchor.constraint(equalTo: storyThumbnailImageView.heightAnchor)
+        listStoryThumbnailWidthConstraint.priority = .required
     }
 
     private func setupUserImageView() {
         contentView.addManagedSubview(userImageView)
-        userImageView.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor, constant: 15).activate()
-        userImageView.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor, constant: 15).activate()
+        userImageViewLeadingAnchorConstraint = userImageView.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor, constant: 15)
+        userImageViewTopAnchorConstraint = userImageView.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor, constant: 15)
+        userImageViewLeadingAnchorConstraint.activate()
+        userImageViewTopAnchorConstraint.activate()
         userImageView.heightAnchor.constraint(equalToConstant: 40).activate()
         userImageView.widthAnchor.constraint(equalToConstant: 40).activate()
         userImageView.layer.cornerRadius = 20
@@ -117,10 +126,13 @@ final class StoryFeedCell: UICollectionViewCell {
         userImageView.layer.borderColor = UIColor.white.cgColor
     }
 
+    private var listUserNameLabelTopAnchorConstraint: NSLayoutConstraint!
+
     private func setupUserNameLabel() {
         contentView.addManagedSubview(userNameLabel)
         feedUserNameLabelTopAnchorConstraint = userNameLabel.topAnchor.constraint(equalTo: userImageView.centerYAnchor, constant: -15)
         feedUserNameLabelTopAnchorConstraint.activate()
+        
         feedUserNameLabelLeadingAnchorConstraint = userNameLabel.leadingAnchor.constraint(equalTo: userImageView.trailingAnchor, constant: 10)
         feedUserNameLabelLeadingAnchorConstraint.activate()
 
@@ -128,6 +140,8 @@ final class StoryFeedCell: UICollectionViewCell {
         gridUserNameLabelBottomAnchor = userNameLabel.bottomAnchor.constraint(equalTo: titleLabel.topAnchor, constant: -10)
 
         listUserNameLeadingAnchorConstraint = userNameLabel.leadingAnchor.constraint(equalTo: storyThumbnailImageView.trailingAnchor, constant: 10)
+
+        listUserNameLabelTopAnchorConstraint = userNameLabel.topAnchor.constraint(equalTo: storyThumbnailImageView.centerYAnchor, constant: -10)
 
         userNameLabel.textColor = .white
         userNameLabel.font = .preferredFont(forTextStyle: .headline)
@@ -140,6 +154,7 @@ final class StoryFeedCell: UICollectionViewCell {
         feedPublishedAtLabelTopAnchorConstraint.activate()
         gridPublishedAtLabelTopAnchorConstraint = publishedAtLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5)
         gridPublishedAtLabelBottomConstraint = publishedAtLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15)
+        listPublishedAtBottomConstraint = publishedAtLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15)
         publishedAtLabel.textColor = .white
         publishedAtLabel.font = .preferredFont(forTextStyle: .caption1)
     }
@@ -161,7 +176,7 @@ final class StoryFeedCell: UICollectionViewCell {
         listButtonHStackViewTrailingAnchorConstraint = buttonHStackView.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor, constant: -5)
         feedButtonHStackViewBottomAnchorConstraint = buttonHStackView.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor, constant: -50)
         feedButtonHStackViewBottomAnchorConstraint.activate()
-        listButtonHStackViewBottomAnchorConstraint = buttonHStackView.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor, constant: -10).activate()
+        listButtonHStackViewBottomAnchorConstraint = buttonHStackView.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor, constant: -10)
         feedButtonHStackViewHeightConstraint = buttonHStackView.heightAnchor.constraint(equalToConstant: 40.0)
         feedButtonHStackViewHeightConstraint.activate()
         listButtonHStackViewHeightConstraint = buttonHStackView.heightAnchor.constraint(equalToConstant: 10)
@@ -179,6 +194,8 @@ final class StoryFeedCell: UICollectionViewCell {
         descLabel.numberOfLines = 2
     }
 
+    var listTitleLabelBottomConstraint: NSLayoutConstraint!
+
     private func setupTitleLabel() {
         contentView.addManagedSubview(titleLabel)
         titleLabel.font = .preferredFont(forTextStyle: .headline)
@@ -187,7 +204,12 @@ final class StoryFeedCell: UICollectionViewCell {
         feedTitleLabelBottomAnchorConstraint.activate()
         gridTitleLabelBottomAnchorConstraint = titleLabel.bottomAnchor.constraint(equalTo: publishedAtLabel.topAnchor, constant: -10)
         titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5).activate()
-        titleLabel.leadingAnchor.constraint(equalTo: contentView.readableContentGuide.leadingAnchor, constant: 15).activate()
+        feedTitleLabelLeadingAhcorConstraint = titleLabel.leadingAnchor.constraint(equalTo: descLabel.leadingAnchor)
+        feedTitleLabelLeadingAhcorConstraint.activate()
+        listTitleLabelLeadingAhcorConstraint = titleLabel.leadingAnchor.constraint(equalTo: storyThumbnailImageView.trailingAnchor, constant: 10)
+
+        listTitleLabelBottomConstraint = titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -35)
+
         titleLabel.numberOfLines = 1
     }
 
@@ -237,21 +259,27 @@ final class StoryFeedCell: UICollectionViewCell {
             listButtonHStackViewBottomAnchorConstraint.isActive = false
             listButtonHStackViewHeightConstraint.isActive = false
             listButtonHStackViewTrailingAnchorConstraint.isActive = false
+            gridPublishedAtLabelBottomConstraint.isActive = false
+            gridUserNameLabelLeadingAchorConstraint.isActive = false
+            gridTitleLabelBottomAnchorConstraint.isActive = false
+            gridUserNameLabelBottomAnchor.isActive = false
+            gridPublishedAtLabelTopAnchorConstraint.isActive = false
+            listTitleLabelLeadingAhcorConstraint.isActive = false
+            listUserNameLabelTopAnchorConstraint.isActive = false
+            listTitleLabelBottomConstraint.isActive = false
+            listPublishedAtBottomConstraint.isActive = false
 
+            feedTitleLabelLeadingAhcorConstraint.activate()
+            userImageViewLeadingAnchorConstraint.activate()
+            userImageViewTopAnchorConstraint.activate()
             feedButtonHStackViewTrailingAnchorConstraint.activate()
             feedButtonHStackViewBottomAnchorConstraint.activate()
             feedStoryThumbnailImageViewEdgesConstraints.forEach { $0.activate() }
-            gridPublishedAtLabelBottomConstraint.isActive = false
             feedUserNameLabelTopAnchorConstraint.activate()
-            gridUserNameLabelLeadingAchorConstraint.isActive = false
             feedUserNameLabelLeadingAnchorConstraint.activate()
             feedTitleLabelBottomAnchorConstraint.activate()
-            gridTitleLabelBottomAnchorConstraint.isActive = false
-            gridUserNameLabelBottomAnchor.isActive = false
             feedPublishedAtLabelTopAnchorConstraint.activate()
-            gridPublishedAtLabelTopAnchorConstraint.isActive = false
             feedButtonHStackViewHeightConstraint.activate()
-
         case .grid:
             feedUserNameLabelLeadingAnchorConstraint.isActive = false
             gridUserNameLabelLeadingAchorConstraint.activate()
@@ -263,21 +291,39 @@ final class StoryFeedCell: UICollectionViewCell {
             feedPublishedAtLabelTopAnchorConstraint.isActive = false
             gridPublishedAtLabelTopAnchorConstraint.activate()
         case .list:
+            gridPublishedAtLabelBottomConstraint.isActive = false
+            gridTitleLabelBottomAnchorConstraint.isActive = false
+            feedButtonHStackViewTrailingAnchorConstraint.isActive = false
+            feedButtonHStackViewHeightConstraint.isActive = false
+            feedButtonHStackViewBottomAnchorConstraint.isActive = false
+            feedStoryThumbnailImageViewEdgesConstraints.forEach { $0.isActive = false }
+            userImageViewLeadingAnchorConstraint.isActive = false
+            userImageViewTopAnchorConstraint.isActive = false
+            feedTitleLabelBottomAnchorConstraint.isActive = false
+            gridUserNameLabelLeadingAchorConstraint.isActive = false
+            feedTitleLabelLeadingAhcorConstraint.isActive = false
+            gridPublishedAtLabelTopAnchorConstraint.isActive = false
+            feedPublishedAtLabelTopAnchorConstraint.isActive = false
+
+            gridUserNameLabelBottomAnchor.isActive = false
+            listUserNameLabelTopAnchorConstraint.activate()
+
             updateSubview(color: .black)
             buttonHStackView.removeArrangedSubview(playButton)
             playButton.isHidden = true
-            feedStoryThumbnailImageViewEdgesConstraints.forEach { $0.isActive = false }
-            feedButtonHStackViewHeightConstraint.isActive = false
+            listTitleLabelBottomConstraint.activate()
+
+            feedUserNameLabelTopAnchorConstraint.activate()
+            listTitleLabelLeadingAhcorConstraint.activate()
             listButtonHStackViewHeightConstraint.activate()
             listStoryThumbnailTopAnchorConstraint.activate()
             listStoryThumbnailBottomAnchorConstraint.activate()
             listStoryThumbnailWidthConstraint.activate()
             listStoryThumbnailLeadingAnchorConstraint.activate()
             listUserNameLeadingAnchorConstraint.activate()
-            feedButtonHStackViewBottomAnchorConstraint.isActive = false
             listButtonHStackViewBottomAnchorConstraint.activate()
             listButtonHStackViewTrailingAnchorConstraint.activate()
-            feedButtonHStackViewTrailingAnchorConstraint.isActive = false
+            listPublishedAtBottomConstraint.activate()
         }
     }
 
