@@ -44,7 +44,7 @@ final class FilterDateView: UIView {
         fromDateView.setSizeConstraints(width: 157, height: 56)
         
         addManagedSubview(toDateView)
-        toDateView.leadingAnchor.constraint(equalTo: fromDateView.trailingAnchor, constant: 10).activate()
+        toDateView.leadingAnchor.constraint(equalTo: fromDateView.trailingAnchor).activate()
         toDateView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).activate()
         toDateView.setSizeConstraints(width: 140, height: 56)
     }

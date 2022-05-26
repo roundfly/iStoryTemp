@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 final class FilterFlowController: UIViewController {
-    private let navigation: UINavigationController?
+    private let navigation: UINavigationController
     
-    init(navigation: UINavigationController? = nil) {
+    init(navigation: UINavigationController) {
         self.navigation = navigation
         
         super.init(nibName: nil, bundle: nil)
@@ -19,5 +19,10 @@ final class FilterFlowController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func openPeopleView() {
+        let vc = AddPeopleFilterViewController()
+        navigation.pushViewController(vc, animated: true)
     }
 }

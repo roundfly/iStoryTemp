@@ -53,7 +53,7 @@ final class DateView: UIView {
         
         addManagedSubview(datePicker)
         let leadingOffset: CGFloat = type == .from ? 30 : 0
-        datePicker.setConstraintsRelativeToSuperView(top: 0, leading: leadingOffset, bottom: 0, trailing: 0)
+        datePicker.setConstraintsRelativeToSuperView(top: 0, leading: leadingOffset, bottom: 0, trailing: 30)
         datePicker.datePickerMode = .date
         datePicker.sizeToFit()
 

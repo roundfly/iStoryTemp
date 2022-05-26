@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2103E7532837FEBA008A82B5 /* SaveFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2103E7522837FEBA008A82B5 /* SaveFilterView.swift */; };
 		2103E7552838488F008A82B5 /* FilterFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2103E7542838488F008A82B5 /* FilterFlowController.swift */; };
+		2103E75B2838F433008A82B5 /* AddPeopleFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2103E75A2838F433008A82B5 /* AddPeopleFilterViewController.swift */; };
+		2103E75F28391048008A82B5 /* SavedFiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2103E75E28391048008A82B5 /* SavedFiltersView.swift */; };
 		2106BF8B2825BEE000C5FD79 /* SplashVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2106BF8A2825BEE000C5FD79 /* SplashVideo.mp4 */; };
 		2106BF912825CD4400C5FD79 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2106BF902825CD4400C5FD79 /* TabBarItem.swift */; };
 		2106BF942825D4D200C5FD79 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2106BF932825D4D200C5FD79 /* TabBarController.swift */; };
@@ -126,6 +128,8 @@
 /* Begin PBXFileReference section */
 		2103E7522837FEBA008A82B5 /* SaveFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFilterView.swift; sourceTree = "<group>"; };
 		2103E7542838488F008A82B5 /* FilterFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterFlowController.swift; sourceTree = "<group>"; };
+		2103E75A2838F433008A82B5 /* AddPeopleFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPeopleFilterViewController.swift; sourceTree = "<group>"; };
+		2103E75E28391048008A82B5 /* SavedFiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedFiltersView.swift; sourceTree = "<group>"; };
 		2106BF8A2825BEE000C5FD79 /* SplashVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SplashVideo.mp4; sourceTree = "<group>"; };
 		2106BF902825CD4400C5FD79 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
 		2106BF932825D4D200C5FD79 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -258,9 +262,18 @@
 		2103E7592838F1BF008A82B5 /* PeopleFilter */ = {
 			isa = PBXGroup;
 			children = (
+				2103E75A2838F433008A82B5 /* AddPeopleFilterViewController.swift */,
 				21D088A7282F070E00084198 /* FilterByPeopleView.swift */,
 			);
 			path = PeopleFilter;
+			sourceTree = "<group>";
+		};
+		2103E75D28391004008A82B5 /* SavedFilters */ = {
+			isa = PBXGroup;
+			children = (
+				2103E75E28391048008A82B5 /* SavedFiltersView.swift */,
+			);
+			path = SavedFilters;
 			sourceTree = "<group>";
 		};
 		2106BF8E2825CD3500C5FD79 /* Navigation */ = {
@@ -397,6 +410,7 @@
 		21D0889F282F00C500084198 /* Filter */ = {
 			isa = PBXGroup;
 			children = (
+				2103E75D28391004008A82B5 /* SavedFilters */,
 				2103E7592838F1BF008A82B5 /* PeopleFilter */,
 				2103E75628384BFB008A82B5 /* DateFilter */,
 				21D088A4282F032C00084198 /* SaveFilter */,
@@ -885,6 +899,7 @@
 				FEE3533F280A1343007081AE /* AuthenticationSignUpDatePickerViewController.swift in Sources */,
 				FEA1CE2928312E7D00962166 /* LayoutProvider.swift in Sources */,
 				FEA1CE1E2825D42D00962166 /* StoryFeedFlowController.swift in Sources */,
+				2103E75B2838F433008A82B5 /* AddPeopleFilterViewController.swift in Sources */,
 				FEA7775A281D7D5600B7CCF2 /* Future+Extensions.swift in Sources */,
 				2147796428109C3B00DE2744 /* ContactsListViewController.swift in Sources */,
 				FEB964E72801BCCC008DD002 /* AppAction.swift in Sources */,
@@ -909,6 +924,7 @@
 				215FAE472800E96F006291A8 /* Validatable.swift in Sources */,
 				2103E7532837FEBA008A82B5 /* SaveFilterView.swift in Sources */,
 				FE66F27A27F7A7820051007F /* SplashViewController.swift in Sources */,
+				2103E75F28391048008A82B5 /* SavedFiltersView.swift in Sources */,
 				FE66F26B27F79F330051007F /* AuthenticationFlowController.swift in Sources */,
 				218910B72804519D002BB295 /* UIViewController+Extension.swift in Sources */,
 				FE66F28D27F7BBE10051007F /* AuthenticationStyle.swift in Sources */,

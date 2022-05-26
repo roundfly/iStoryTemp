@@ -16,6 +16,7 @@ final class FilterViewController: UIViewController {
     private var filterByDate: FilterDateView!
     private let titleLabel = UILabel()
     private let saveFilterView = SaveFilterView()
+    private let savedFiltersView = SavedFiltersView(peopleImages: [UIImage(), UIImage()])
     private var flowController: FilterFlowController!
     
     private let submitButton = SubmitButton()
@@ -26,7 +27,7 @@ final class FilterViewController: UIViewController {
         super.viewDidLoad()
         
         navigationController?.setNavigationBarHidden(true, animated: false)
-        flowController = FilterFlowController(navigation: navigationController)
+        flowController = FilterFlowController(navigation: navigationController!)
         filterByDate = FilterDateView(flowController: flowController)
         view.backgroundColor = .white
         setupUI()
@@ -46,6 +47,8 @@ final class FilterViewController: UIViewController {
         leftButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor).activate()
         leftButton.setSizeConstraints(width: 25, height: 25)
         leftButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).activate()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(click))
+        leftButton.addGestureRecognizer(tapGesture)
         
         view.addManagedSubview(rightButton)
         rightButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor).activate()
@@ -70,11 +73,20 @@ final class FilterViewController: UIViewController {
         saveFilterView.topAnchor.constraint(equalTo: filterByDate.bottomAnchor, constant: 10).activate()
         saveFilterView.setConstraintsRelativeToSuperView(leading: leadingOffset, trailing: 0)
         saveFilterView.setSizeConstraints(height: 60)
+        
+        view.addManagedSubview(savedFiltersView)
+        savedFiltersView.topAnchor.constraint(equalTo: saveFilterView.bottomAnchor, constant: 10).activate()
+        savedFiltersView.setConstraintsRelativeToSuperView(leading: leadingOffset, trailing: 0)
+        savedFiltersView.setSizeConstraints(height: 100)
 
         view.addManagedSubview(submitButton)
         submitButton.setConstraintsRelativeToSuperView(leading: 15, bottom: 30, trailing: 15)
         submitButton.setSizeConstraints(height: 44)
         submitButton.setTitle("Filter", for: .normal)
         submitButton.setTitleColor(.black, for: .normal)
+    }
+    
+    @objc func click() {
+        flowController.openPeopleView()
     }
 }
