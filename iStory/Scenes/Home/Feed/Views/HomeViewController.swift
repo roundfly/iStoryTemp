@@ -9,12 +9,9 @@ import Combine
 import UIKit
 import StyleSheet
 
-final class StoryFeedViewModel {
-    private(set) var feed: [StoryFeedItem] = .stub
-
-    func item(for id: UUID) -> StoryFeedItem? {
-        feed.first(where: { $0.id == id })
-    }
+enum AuthenticationStatus: Equatable {
+    case anonymous
+    case loggedIn(User)
 }
 
 final class HomeViewController: UIViewController {
@@ -22,11 +19,17 @@ final class HomeViewController: UIViewController {
 
     private typealias DataSource = UICollectionViewDiffableDataSource<FeedSection, StoryFeedItem.ID>
     private typealias Snapshot = NSDiffableDataSourceSnapshot<FeedSection, StoryFeedItem.ID>
-    private enum FeedSection: CaseIterable {
+    private enum FeedSection: Int, CaseIterable {
+        case fourAngels
         case main
     }
 
     // MARK: - Instance variables
+
+    var anonymousUserInteractionPublisher: AnyPublisher<Void, Never> {
+        anonymousUserInteractionSubject.eraseToAnyPublisher()
+    }
+    private let anonymousUserInteractionSubject = PassthroughSubject<Void, Never>()
 
     private let collectionView: UICollectionView
     private var style: LayoutStyle {
@@ -41,7 +44,7 @@ final class HomeViewController: UIViewController {
         DataSource(collectionView: collectionView, cellProvider: configureCell(collectionView:indexPath:storyId:))
     }()
 
-    private let viewModel = StoryFeedViewModel()
+    private let viewModel: StoryFeedViewModel
 
     private let theme = ThemeDefault()
     private let navigationBar = NavigationBar(type: .feed, frame: .zero)
@@ -53,7 +56,8 @@ final class HomeViewController: UIViewController {
     private var labelContentViewHeightAnchor: NSLayoutConstraint!
     private var collectionViewTopConstraint: NSLayoutConstraint!
 
-    init() {
+    init(authStatus: AuthenticationStatus) {
+        self.viewModel = StoryFeedViewModel(authStatus: authStatus)
         let layout = LayoutProvider.createLayout(style: .feed)
         self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         self.style = .feed
@@ -74,11 +78,17 @@ final class HomeViewController: UIViewController {
     }
 
     private func configureCell(collectionView: UICollectionView, indexPath: IndexPath, storyId: StoryFeedItem.ID) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(for: indexPath) as StoryFeedCell
-        guard let story = viewModel.item(for: storyId) else { return cell }
-        cell.stylePublisher = styleSubject.eraseToAnyPublisher()
-        cell.configureCell(with: story, using: style)
-        return cell
+        guard let section = FeedSection(rawValue: indexPath.section) else { preconditionFailure() }
+        switch section {
+        case .fourAngels:
+            return collectionView.dequeueReusableCell(for: indexPath) as FourAngelsCell
+        case .main:
+            let cell = collectionView.dequeueReusableCell(for: indexPath) as StoryFeedCell
+            guard let story = viewModel.item(for: storyId) else { return cell }
+            cell.stylePublisher = styleSubject.eraseToAnyPublisher()
+            cell.configureCell(with: story, using: style)
+            return cell
+        }
     }
 
     private func setupUI() {
@@ -127,6 +137,7 @@ final class HomeViewController: UIViewController {
         collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).activate()
         collectionViewTopConstraint.activate()
         collectionView.register(StoryFeedCell.self)
+        collectionView.register(FourAngelsCell.self)
         collectionView.alwaysBounceVertical = true
         collectionView.dataSource = dataSource
         collectionView.delegate = self
@@ -144,7 +155,14 @@ final class HomeViewController: UIViewController {
     private func applySnapshot() {
         var snapshot = Snapshot()
         snapshot.appendSections(FeedSection.allCases)
-        snapshot.appendItems(viewModel.feed.map(\.id))
+        for section in FeedSection.allCases {
+            switch section {
+            case .fourAngels:
+                snapshot.appendItems([UUID()], toSection: .fourAngels)
+            case .main:
+                snapshot.appendItems(viewModel.feed.map(\.id), toSection: .main)
+            }
+        }
         dataSource.apply(snapshot, animatingDifferences: true)
         UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0, options: [.curveLinear]) {
             self.collectionView.alpha = 1.0
@@ -152,8 +170,20 @@ final class HomeViewController: UIViewController {
     }
 
     private func update(layout: UICollectionViewLayout, animated: Bool = true) {
-        collectionView.setCollectionViewLayout(layout, animated: animated)
-        styleSubject.send(style)
+        if style == .list {
+            UIView.animate(withDuration: 0.2, animations: {
+                self.collectionView.alpha = 0.0
+            }, completion: { _ in
+                self.collectionView.setCollectionViewLayout(layout, animated: false)
+                self.styleSubject.send(self.style)
+                UIView.animate(withDuration: 0.2) {
+                    self.collectionView.alpha = 1.0
+                }
+            })
+        } else {
+            collectionView.setCollectionViewLayout(layout, animated: style != .list)
+            styleSubject.send(style)
+        }
     }
 
     private func setupLeadingNavbarButtonAction() {
@@ -191,6 +221,13 @@ extension HomeViewController: UIScrollViewDelegate, UICollectionViewDelegate {
             navigationBar.isRightButtonHidden = true
             navigationBar.isSearchBarHidden = true
             searchBar.isHidden = false
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard !viewModel.isAnonymous else {
+            anonymousUserInteractionSubject.send()
+            return
         }
     }
 }

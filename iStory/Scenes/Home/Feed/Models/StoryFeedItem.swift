@@ -54,6 +54,26 @@ extension Array where Element == StoryFeedItem {
                           desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquet dictum aliquet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi tempus lacus et odio blandit, eget viverra quam interdum. Proin consequat, nisi id blandit sollicitudin, dolor mauris ullamcorper justo, quis efficitur nunc arcu sed velit.",
                        thumbnail: UIImage(namedInStyleSheet: "dinner"),
                        user: .init(name: "John Doe", profileImage: UIImage(namedInStyleSheet: "tom"))),
+            StoryFeedItem(title: "Awesome story",
+                          publishedAt: .now,
+                          desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquet dictum aliquet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi tempus lacus et odio blandit, eget viverra quam interdum. Proin consequat, nisi id blandit sollicitudin, dolor mauris ullamcorper justo, quis efficitur nunc arcu sed velit.",
+                       thumbnail: UIImage(namedInStyleSheet: "dinner"),
+                       user: .init(name: "John Doe", profileImage: UIImage(namedInStyleSheet: "tom"))),
+            StoryFeedItem(title: "Awesome story",
+                          publishedAt: .now,
+                          desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquet dictum aliquet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi tempus lacus et odio blandit, eget viverra quam interdum. Proin consequat, nisi id blandit sollicitudin, dolor mauris ullamcorper justo, quis efficitur nunc arcu sed velit.",
+                       thumbnail: UIImage(namedInStyleSheet: "dinner"),
+                       user: .init(name: "John Doe", profileImage: UIImage(namedInStyleSheet: "tom"))),
+            StoryFeedItem(title: "Awesome story",
+                          publishedAt: .now,
+                          desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquet dictum aliquet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi tempus lacus et odio blandit, eget viverra quam interdum. Proin consequat, nisi id blandit sollicitudin, dolor mauris ullamcorper justo, quis efficitur nunc arcu sed velit.",
+                       thumbnail: UIImage(namedInStyleSheet: "dinner"),
+                       user: .init(name: "John Doe", profileImage: UIImage(namedInStyleSheet: "tom"))),
+            StoryFeedItem(title: "Awesome story",
+                          publishedAt: .now,
+                          desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquet dictum aliquet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi tempus lacus et odio blandit, eget viverra quam interdum. Proin consequat, nisi id blandit sollicitudin, dolor mauris ullamcorper justo, quis efficitur nunc arcu sed velit.",
+                       thumbnail: UIImage(namedInStyleSheet: "dinner"),
+                       user: .init(name: "John Doe", profileImage: UIImage(namedInStyleSheet: "tom")))
         ]
     }
 }

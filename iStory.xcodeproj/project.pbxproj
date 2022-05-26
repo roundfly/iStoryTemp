@@ -81,6 +81,9 @@
 		FEA1CE212825D4E000962166 /* StoryFeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA1CE202825D4E000962166 /* StoryFeedItem.swift */; };
 		FEA1CE242825D94400962166 /* StoryFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA1CE232825D94400962166 /* StoryFeedCell.swift */; };
 		FEA1CE2928312E7D00962166 /* LayoutProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA1CE2828312E7D00962166 /* LayoutProvider.swift */; };
+		FEA1CE2B2838363700962166 /* UserDefaultsClient in Frameworks */ = {isa = PBXBuildFile; productRef = FEA1CE2A2838363700962166 /* UserDefaultsClient */; };
+		FEA1CE2D2838364B00962166 /* StoryFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA1CE2C2838364B00962166 /* StoryFeedViewModel.swift */; };
+		FEA1CE2F28384A2100962166 /* 4AngelsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA1CE2E28384A2100962166 /* 4AngelsCell.swift */; };
 		FEA7774E281D599000B7CCF2 /* ForgotPasswordWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA7774D281D599000B7CCF2 /* ForgotPasswordWorker.swift */; };
 		FEA77750281D5AC000B7CCF2 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA7774F281D5AC000B7CCF2 /* ForgotPasswordViewController.swift */; };
 		FEA77752281D6AEB00B7CCF2 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA77751281D6AEB00B7CCF2 /* ForgotPasswordViewModel.swift */; };
@@ -201,6 +204,8 @@
 		FEA1CE202825D4E000962166 /* StoryFeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryFeedItem.swift; sourceTree = "<group>"; };
 		FEA1CE232825D94400962166 /* StoryFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryFeedCell.swift; sourceTree = "<group>"; };
 		FEA1CE2828312E7D00962166 /* LayoutProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutProvider.swift; sourceTree = "<group>"; };
+		FEA1CE2C2838364B00962166 /* StoryFeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryFeedViewModel.swift; sourceTree = "<group>"; };
+		FEA1CE2E28384A2100962166 /* 4AngelsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 4AngelsCell.swift; sourceTree = "<group>"; };
 		FEA7774D281D599000B7CCF2 /* ForgotPasswordWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordWorker.swift; sourceTree = "<group>"; };
 		FEA7774F281D5AC000B7CCF2 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		FEA77751281D6AEB00B7CCF2 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
@@ -243,6 +248,7 @@
 				21DC001227F7ACE30098CBEA /* PhoneNumberKit in Frameworks */,
 				FE87F35127E6271F0062ACB4 /* NetworkService in Frameworks */,
 				FE87F36127E62E660062ACB4 /* LoginWithAmazon.framework in Frameworks */,
+				FEA1CE2B2838363700962166 /* UserDefaultsClient in Frameworks */,
 				FEE3534C280B16BE007081AE /* KeychainServiceAPI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -623,6 +629,7 @@
 				FEA1CE222825D93900962166 /* Views */,
 				FEA1CE1F2825D4D500962166 /* Models */,
 				FEA1CE1C2825D41300962166 /* Navigation */,
+				FEA1CE2C2838364B00962166 /* StoryFeedViewModel.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -648,6 +655,7 @@
 			children = (
 				FEA7775B281D80AC00B7CCF2 /* HomeViewController.swift */,
 				FEA1CE232825D94400962166 /* StoryFeedCell.swift */,
+				FEA1CE2E28384A2100962166 /* 4AngelsCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -806,6 +814,7 @@
 				21DC001127F7ACE30098CBEA /* PhoneNumberKit */,
 				FEE35347280B15C3007081AE /* KeychainSwift */,
 				FEE3534B280B16BE007081AE /* KeychainServiceAPI */,
+				FEA1CE2A2838363700962166 /* UserDefaultsClient */,
 			);
 			productName = iStory;
 			productReference = FE2E9F0927E53BD2002C0021 /* iStory.app */;
@@ -906,6 +915,7 @@
 				FEE35354280B1961007081AE /* SignUpWorker.swift in Sources */,
 				FEA77754281D731000B7CCF2 /* ForgotPasswordAccessCodeWorker.swift in Sources */,
 				FEA7775C281D80AC00B7CCF2 /* HomeViewController.swift in Sources */,
+				FEA1CE2D2838364B00962166 /* StoryFeedViewModel.swift in Sources */,
 				FE66F2A127F89FA30051007F /* AuthenticationIstoryView.swift in Sources */,
 				FEA7774E281D599000B7CCF2 /* ForgotPasswordWorker.swift in Sources */,
 				FE66F29727F893E90051007F /* AuthenticationLoginViewController.swift in Sources */,
@@ -914,6 +924,7 @@
 				215FAE3C2800DF7B006291A8 /* LoginWithEmailViewController.swift in Sources */,
 				FEB964E92801BCD4008DD002 /* AppReducer.swift in Sources */,
 				FE3AD3EA281C7C6B0093D28B /* BirthDateWorker.swift in Sources */,
+				FEA1CE2F28384A2100962166 /* 4AngelsCell.swift in Sources */,
 				FE66F27F27F7B0590051007F /* SplashAuthViewController.swift in Sources */,
 				FEB964E52801BCC3008DD002 /* AppStore.swift in Sources */,
 				2147796628109C5B00DE2744 /* ContactsTableViewCell.swift in Sources */,
@@ -1227,6 +1238,10 @@
 		FE87F35227E627240062ACB4 /* KeychainService */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = KeychainService;
+		};
+		FEA1CE2A2838363700962166 /* UserDefaultsClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = UserDefaultsClient;
 		};
 		FEE35347280B15C3007081AE /* KeychainSwift */ = {
 			isa = XCSwiftPackageProductDependency;

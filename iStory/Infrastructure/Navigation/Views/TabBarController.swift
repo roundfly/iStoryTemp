@@ -8,10 +8,16 @@
 import Foundation
 import UIKit
 import StyleSheet
+import Combine
 
 final class TabBarController: UITabBarController {
     
     let store: AuthenticationStore
+    var anonymousUserInteractionPublisher: AnyPublisher<Void, Never> {
+        anonymousUserInteractionSubject.eraseToAnyPublisher()
+    }
+    private let anonymousUserInteractionSubject = PassthroughSubject<Void, Never>()
+    private var cancellables: Set<AnyCancellable> = []
     
     init(store: AuthenticationStore) {
         self.store = store
@@ -30,25 +36,25 @@ final class TabBarController: UITabBarController {
     }
     
     private func setupControllers() {
-        var vc: [UIViewController] = []
-        
-        TabBarItemId.allCases.forEach { id in
+        viewControllers = TabBarItemId.allCases.map({ id in
             var viewController: UIViewController
             switch id {
             case .feed:
-                viewController = HomeViewController()
+                let home = HomeViewController(authStatus: store.state.authStatus)
+                home
+                    .anonymousUserInteractionPublisher
+                    .sink { [anonymousUserInteractionSubject] _ in
+                        anonymousUserInteractionSubject.send()
+                    }.store(in: &cancellables)
+                viewController = home
             default:
                 viewController = UIViewController()
             }
-            
             let tabBarItem = TabBarItem(id: id, viewController: viewController)
             viewController.tabBarItem = tabBarItem.uiTabBarItem
             viewController.tabBarItem.accessibilityIdentifier = tabBarItem.accessibilityIdentifier
-            
-            vc.append(viewController)
-        }
-        
-        viewControllers = vc
+            return viewController
+        })
     }
     
     private func setupUI() {
@@ -74,5 +80,3 @@ final class TabBarController: UITabBarController {
         tabBar.tintColor = activeColor
     }
 }
-
-

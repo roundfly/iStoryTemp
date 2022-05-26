@@ -65,7 +65,11 @@ final class AuthenticationFlowController: UIViewController {
         let loginInputViewController = AuthenticationLoginInputViewController(store: store)
         let accessCodeViewController = AccessCodeViewController(viewModel: .init(accessCodeSource: .forgotPassword, store: store))
         let tabBarController = TabBarController(store: store)
+
         tabBarController.modalPresentationStyle = .fullScreen
+        tabBarController.anonymousUserInteractionPublisher.sink { [weak tabBarController] _ in
+            tabBarController?.dismiss(animated: true)
+        }.store(in: &cancenllables)
         
         forgotPasswordViewController.forgotPasswordSubmitPublisher
             .sink { [navigation] _ in

@@ -28,6 +28,10 @@ let package = Package(
             targets: ["GoogleSignInService"]
         ),
         .library(
+            name: "UserDefaultsClient",
+            targets: ["UserDefaultsClient"]
+        ),
+        .library(
             name: "Logging",
             type: .dynamic,
             targets: ["Logging"]
@@ -57,6 +61,10 @@ let package = Package(
         ),
         .target(
             name: "Logging",
+            dependencies: []
+        ),
+        .target(
+            name: "UserDefaultsClient",
             dependencies: []
         ),
         .target(
