@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import StyleSheet
 
 enum NavigationBarType {
     case empty
@@ -20,7 +21,7 @@ final class NavigationBar: UIView {
     private var type: NavigationBarType = .empty
     private var leftButton = UIButton()
     private var rightButton = UIButton()
-    private let searchBar = SearchBar(type: .fullWidth, frame: .zero)
+    private let searchBar = SearchBar(type: .fullWidthWithMagnifier, frame: .zero)
     private var searchBarHeightAnchor: NSLayoutConstraint?
     weak var delegate: NavigationBarDelegate?
     
@@ -96,6 +97,10 @@ final class NavigationBar: UIView {
         searchBar.setConstraintsRelativeToSuperView(leading: 27, bottom: 10, trailing: 32)
         searchBarHeightAnchor = searchBar.heightAnchor.constraint(equalToConstant: 30).activate()
         searchBar.clipsToBounds = true
+    }
+    
+    func addActionTo(rightButton action: UIAction) {
+        rightButton.addAction(action, for: .touchUpInside)
     }
 }
 

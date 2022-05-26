@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2103E7532837FEBA008A82B5 /* SaveFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2103E7522837FEBA008A82B5 /* SaveFilterView.swift */; };
+		2103E7552838488F008A82B5 /* FilterFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2103E7542838488F008A82B5 /* FilterFlowController.swift */; };
+		2103E75B2838F433008A82B5 /* AddPeopleFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2103E75A2838F433008A82B5 /* AddPeopleFilterViewController.swift */; };
+		2103E75F28391048008A82B5 /* SavedFiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2103E75E28391048008A82B5 /* SavedFiltersView.swift */; };
 		2106BF8B2825BEE000C5FD79 /* SplashVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2106BF8A2825BEE000C5FD79 /* SplashVideo.mp4 */; };
 		2106BF912825CD4400C5FD79 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2106BF902825CD4400C5FD79 /* TabBarItem.swift */; };
 		2106BF942825D4D200C5FD79 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2106BF932825D4D200C5FD79 /* TabBarController.swift */; };
@@ -31,6 +35,10 @@
 		219FF09E2800CD10004E9D53 /* LoginWithSMSRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219FF09D2800CD10004E9D53 /* LoginWithSMSRouter.swift */; };
 		21C4906127FCA77A00DBBDD2 /* AccessCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C4906027FCA77A00DBBDD2 /* AccessCodeViewController.swift */; };
 		21CCF0CA27F206C100096CE1 /* AmazonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CCF0C927F206C100096CE1 /* AmazonService.swift */; };
+		21D088A1282F00DB00084198 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D088A0282F00DB00084198 /* FilterViewController.swift */; };
+		21D088A8282F070E00084198 /* FilterByPeopleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D088A7282F070E00084198 /* FilterByPeopleView.swift */; };
+		21D088AA2833846F00084198 /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D088A92833846F00084198 /* DateView.swift */; };
+		21D088AC2833856200084198 /* FilterDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D088AB2833856200084198 /* FilterDateView.swift */; };
 		21DC001227F7ACE30098CBEA /* PhoneNumberKit in Frameworks */ = {isa = PBXBuildFile; productRef = 21DC001127F7ACE30098CBEA /* PhoneNumberKit */; };
 		21DC001827F7B1690098CBEA /* LoginWithSMSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DC001727F7B1690098CBEA /* LoginWithSMSViewController.swift */; };
 		21EC082127EE7B9A00A39F84 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21EC082027EE7B9A00A39F84 /* Security.framework */; };
@@ -118,6 +126,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2103E7522837FEBA008A82B5 /* SaveFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFilterView.swift; sourceTree = "<group>"; };
+		2103E7542838488F008A82B5 /* FilterFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterFlowController.swift; sourceTree = "<group>"; };
+		2103E75A2838F433008A82B5 /* AddPeopleFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPeopleFilterViewController.swift; sourceTree = "<group>"; };
+		2103E75E28391048008A82B5 /* SavedFiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedFiltersView.swift; sourceTree = "<group>"; };
 		2106BF8A2825BEE000C5FD79 /* SplashVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SplashVideo.mp4; sourceTree = "<group>"; };
 		2106BF902825CD4400C5FD79 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
 		2106BF932825D4D200C5FD79 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -143,6 +155,10 @@
 		219FF09D2800CD10004E9D53 /* LoginWithSMSRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithSMSRouter.swift; sourceTree = "<group>"; };
 		21C4906027FCA77A00DBBDD2 /* AccessCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessCodeViewController.swift; sourceTree = "<group>"; };
 		21CCF0C927F206C100096CE1 /* AmazonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazonService.swift; sourceTree = "<group>"; };
+		21D088A0282F00DB00084198 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		21D088A7282F070E00084198 /* FilterByPeopleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterByPeopleView.swift; sourceTree = "<group>"; };
+		21D088A92833846F00084198 /* DateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
+		21D088AB2833856200084198 /* FilterDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDateView.swift; sourceTree = "<group>"; };
 		21DC001727F7B1690098CBEA /* LoginWithSMSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithSMSViewController.swift; sourceTree = "<group>"; };
 		21EC082027EE7B9A00A39F84 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		21EC082227EE7BA800A39F84 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
@@ -234,6 +250,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2103E75628384BFB008A82B5 /* DateFilter */ = {
+			isa = PBXGroup;
+			children = (
+				21D088AB2833856200084198 /* FilterDateView.swift */,
+				21D088A92833846F00084198 /* DateView.swift */,
+			);
+			path = DateFilter;
+			sourceTree = "<group>";
+		};
+		2103E7592838F1BF008A82B5 /* PeopleFilter */ = {
+			isa = PBXGroup;
+			children = (
+				2103E75A2838F433008A82B5 /* AddPeopleFilterViewController.swift */,
+				21D088A7282F070E00084198 /* FilterByPeopleView.swift */,
+			);
+			path = PeopleFilter;
+			sourceTree = "<group>";
+		};
+		2103E75D28391004008A82B5 /* SavedFilters */ = {
+			isa = PBXGroup;
+			children = (
+				2103E75E28391048008A82B5 /* SavedFiltersView.swift */,
+			);
+			path = SavedFilters;
+			sourceTree = "<group>";
+		};
 		2106BF8E2825CD3500C5FD79 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +356,7 @@
 		2170151B27EE930B00743B5B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				21D0889F282F00C500084198 /* Filter */,
 				FEA1CE182825D2B600962166 /* Home */,
 				2170151C27EE931100743B5B /* Authentication */,
 				FE66F27827F7A7740051007F /* Splash */,
@@ -362,6 +405,27 @@
 				21588C62280A222900450ABB /* ContactsService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		21D0889F282F00C500084198 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				2103E75D28391004008A82B5 /* SavedFilters */,
+				2103E7592838F1BF008A82B5 /* PeopleFilter */,
+				2103E75628384BFB008A82B5 /* DateFilter */,
+				21D088A4282F032C00084198 /* SaveFilter */,
+				2103E7542838488F008A82B5 /* FilterFlowController.swift */,
+				21D088A0282F00DB00084198 /* FilterViewController.swift */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
+		21D088A4282F032C00084198 /* SaveFilter */ = {
+			isa = PBXGroup;
+			children = (
+				2103E7522837FEBA008A82B5 /* SaveFilterView.swift */,
+			);
+			path = SaveFilter;
 			sourceTree = "<group>";
 		};
 		21DC001627F7B14E0098CBEA /* LoginWithSMS */ = {
@@ -821,6 +885,7 @@
 				FEB964DC2800F6DD008DD002 /* AuthenticationInputViewModel.swift in Sources */,
 				FE3AD3EF281C93CE0093D28B /* EmailAccessCodeWorker.swift in Sources */,
 				21588C63280A222900450ABB /* ContactsService.swift in Sources */,
+				2103E7552838488F008A82B5 /* FilterFlowController.swift in Sources */,
 				FE66F29B27F89A780051007F /* AuthenticationSignUpViewController.swift in Sources */,
 				FE3AD3F3281C9BBD0093D28B /* GoogleSignInWorker.swift in Sources */,
 				215FAE402800DF97006291A8 /* EmailAccessCodeViewController.swift in Sources */,
@@ -834,6 +899,7 @@
 				FEE3533F280A1343007081AE /* AuthenticationSignUpDatePickerViewController.swift in Sources */,
 				FEA1CE2928312E7D00962166 /* LayoutProvider.swift in Sources */,
 				FEA1CE1E2825D42D00962166 /* StoryFeedFlowController.swift in Sources */,
+				2103E75B2838F433008A82B5 /* AddPeopleFilterViewController.swift in Sources */,
 				FEA7775A281D7D5600B7CCF2 /* Future+Extensions.swift in Sources */,
 				2147796428109C3B00DE2744 /* ContactsListViewController.swift in Sources */,
 				FEB964E72801BCCC008DD002 /* AppAction.swift in Sources */,
@@ -853,9 +919,12 @@
 				2147796628109C5B00DE2744 /* ContactsTableViewCell.swift in Sources */,
 				FEE3534A280B161A007081AE /* HTTPResponseMapper.swift in Sources */,
 				FE66F29327F8874E0051007F /* AuthenticationSocialViews.swift in Sources */,
+				21D088A8282F070E00084198 /* FilterByPeopleView.swift in Sources */,
 				FEB964D62800CB81008DD002 /* AuthenticationLoginInputViewController.swift in Sources */,
 				215FAE472800E96F006291A8 /* Validatable.swift in Sources */,
+				2103E7532837FEBA008A82B5 /* SaveFilterView.swift in Sources */,
 				FE66F27A27F7A7820051007F /* SplashViewController.swift in Sources */,
+				2103E75F28391048008A82B5 /* SavedFiltersView.swift in Sources */,
 				FE66F26B27F79F330051007F /* AuthenticationFlowController.swift in Sources */,
 				218910B72804519D002BB295 /* UIViewController+Extension.swift in Sources */,
 				FE66F28D27F7BBE10051007F /* AuthenticationStyle.swift in Sources */,
@@ -863,6 +932,7 @@
 				FEB964D42800C194008DD002 /* AuthenticationInputView.swift in Sources */,
 				2106BF942825D4D200C5FD79 /* TabBarController.swift in Sources */,
 				FE3AD3F1281C9B720093D28B /* LoginEmailWorker.swift in Sources */,
+				21D088AC2833856200084198 /* FilterDateView.swift in Sources */,
 				FE66F29F27F89C2F0051007F /* LoginViewModel.swift in Sources */,
 				FEB964EF2801C12F008DD002 /* AuthenticationAction.swift in Sources */,
 				FEA1CE242825D94400962166 /* StoryFeedCell.swift in Sources */,
@@ -874,10 +944,12 @@
 				21DC001827F7B1690098CBEA /* LoginWithSMSViewController.swift in Sources */,
 				21FC8CF727F8D4D10014914D /* LoginWithSMSViewModel.swift in Sources */,
 				FEE3534F280B16E7007081AE /* KeychainWrapper.swift in Sources */,
+				21D088AA2833846F00084198 /* DateView.swift in Sources */,
 				FE66F26627F79E390051007F /* AppFlowController.swift in Sources */,
 				FE66F29527F8907D0051007F /* AppDependencies.swift in Sources */,
 				FE2E9F0F27E53BD2002C0021 /* SceneDelegate.swift in Sources */,
 				21C4906127FCA77A00DBBDD2 /* AccessCodeViewController.swift in Sources */,
+				21D088A1282F00DB00084198 /* FilterViewController.swift in Sources */,
 				2106BF912825CD4400C5FD79 /* TabBarItem.swift in Sources */,
 				FEB964F12801C22B008DD002 /* AuthenticationReducer.swift in Sources */,
 				21C4906127FCA77A00DBBDD2 /* AccessCodeViewController.swift in Sources */,
@@ -1024,7 +1096,7 @@
 				CODE_SIGN_ENTITLEMENTS = iStory/iStory.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = 93WV4LTCJK;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1064,7 +1136,7 @@
 				CODE_SIGN_ENTITLEMENTS = iStory/iStory.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = 93WV4LTCJK;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

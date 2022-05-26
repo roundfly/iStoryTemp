@@ -19,7 +19,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         self.window = window
-        appFlow.configure(window: window)
+        self.window?.rootViewController = HomeViewController()
+        self.window?.makeKeyAndVisible()
+       // appFlow.configure(window: window)
     }
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
