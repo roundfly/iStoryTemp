@@ -14,7 +14,11 @@ final class AuthenticationLoginViewModel {
     var loginPublisher: AnyPublisher<Void, Never> {
         subject.eraseToAnyPublisher()
     }
+    var tryAppPublisher: AnyPublisher<Void, Never> {
+        tryAppSubject.eraseToAnyPublisher()
+    }
     private let subject = PassthroughSubject<Void, Never>()
+    private let tryAppSubject = PassthroughSubject<Void, Never>()
     private var cancellables = Set<AnyCancellable>()
 
     init(store: AuthenticationStore) {
@@ -35,6 +39,10 @@ final class AuthenticationLoginViewModel {
 
     func onIstoryLogin() {
         subject.send(())
+    }
+
+    func tryApp() {
+        tryAppSubject.send()
     }
 
     func onGoogle() {

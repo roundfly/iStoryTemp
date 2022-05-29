@@ -15,6 +15,9 @@ final class AuthenticationSignUpViewController: UIViewController {
     var signupPublisher: AnyPublisher<Void, Never> {
         viewModel.signupPublisher
     }
+    var tryAppPublisher: AnyPublisher<Void, Never> {
+        viewModel.tryAppPublisher
+    }
 
     init(viewModel: AuthenticationSignUpViewModel) {
         self.viewModel = viewModel
@@ -35,7 +38,8 @@ final class AuthenticationSignUpViewController: UIViewController {
                                                   onAmazonRequest: viewModel.onAmazon,
                                                   onIstoryRequest: viewModel.onIstorySignUp,
                                                   onAppleRequest: viewModel.onAppleRequest(req:),
-                                                  onAppleCompletion: viewModel.onAppleCompletion(_:))
+                                                  onAppleCompletion: viewModel.onAppleCompletion(_:),
+                                                  tryApp: viewModel.tryApp)
         add(UIHostingController(rootView: AuthSocialContainerView(viewModel: socialViewModel)))
     }
 }

@@ -22,6 +22,12 @@ final class AuthenticationIstorySignUpViewController: UIViewController {
 
     private let smsSubject = PassthroughSubject<Void, Never>()
 
+    var tryAppPublisher: AnyPublisher<Void, Never> {
+        tryAppSubject.eraseToAnyPublisher()
+    }
+
+    private let tryAppSubject = PassthroughSubject<Void, Never>()
+
     override func loadView() {
         super.loadView()
         let viewModel = AuthenticationIstoryViewModel(title: String(localized: "splash.auth.signup.title"),
@@ -29,7 +35,8 @@ final class AuthenticationIstorySignUpViewController: UIViewController {
                                                       smsButtonTitle: String(localized: "auth.istory.signup.sms.button.title"),
                                                       authIntent: .signUp,
                                                       emailButtonAtion: { [emailSubject] in emailSubject.send(()) },
-                                                      smsButtonAction: { [smsSubject] in smsSubject.send(()) })
+                                                      smsButtonAction: { [smsSubject] in smsSubject.send(()) },
+                                                      tryAppAction: { [tryAppSubject] in tryAppSubject.send() })
         view = AuthenticationIstoryView(viewModel: viewModel)
     }
 }

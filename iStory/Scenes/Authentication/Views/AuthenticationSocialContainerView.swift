@@ -25,6 +25,7 @@ struct AuthSocialViewModel {
     var onIstoryRequest: () -> Void
     var onAppleRequest: (ASAuthorizationAppleIDRequest) -> Void
     var onAppleCompletion: (Result<ASAuthorization, Error>) -> Void
+    var tryApp: () -> Void
     var googleTitle: String {
         String(localized: "auth.social.google.title")
     }
@@ -67,7 +68,7 @@ struct AuthSocialContainerView: View {
         switch viewModel.authIntent {
         case .logIn:
             HStack {
-                Button(action: {}) {
+                Button(action: viewModel.tryApp) {
                     Text("Skip").bold() + Text(" and check the app?")
                 }
                 Button(action: {}) {
@@ -80,7 +81,7 @@ struct AuthSocialContainerView: View {
         case .signUp:
             VStack(spacing: 0) {
                 HStack {
-                    Button(action: {}) {
+                    Button(action: viewModel.tryApp) {
                         Text("Skip").bold() + Text(" and check the app?")
                     }
                     Button(action: {}) {

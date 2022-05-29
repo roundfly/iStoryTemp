@@ -22,6 +22,11 @@ final class AuthenticationIstoryLoginViewController: UIViewController {
 
     private let smsSubject = PassthroughSubject<Void, Never>()
 
+    var tryAppPublisher: AnyPublisher<Void, Never> {
+        tryAppSubject.eraseToAnyPublisher()
+    }
+
+    private let tryAppSubject = PassthroughSubject<Void, Never>()
 
     override func loadView() {
         super.loadView()
@@ -30,7 +35,8 @@ final class AuthenticationIstoryLoginViewController: UIViewController {
                                                       smsButtonTitle: String(localized: "auth.istory.login.sms.button.title"),
                                                       authIntent: .logIn,
                                                       emailButtonAtion: { [emailSubject] in emailSubject.send(()) },
-                                                      smsButtonAction: { [smsSubject] in smsSubject.send(()) } )
+                                                      smsButtonAction: { [smsSubject] in smsSubject.send(()) },
+                                                      tryAppAction: { [tryAppSubject] in tryAppSubject.send() } )
         view = AuthenticationIstoryView(viewModel: viewModel)
     }
 }

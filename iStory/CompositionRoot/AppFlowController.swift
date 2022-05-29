@@ -16,17 +16,20 @@ final class AppFlowController: UIViewController {
 
     private let navigation: UINavigationController
     private let authenticationFlow: AuthenticationFlowController
+    private let mainTabBarFlow: TabBarFlowController
     private var timerCancellable: Cancellable?
     private let store: AppStore
+    private var cancellables: Set<AnyCancellable> = []
 
     init(dependencies: AppEnvironment = .production) {
         let navigationController = UINavigationController()
         self.navigation = navigationController
         self.store = AppStore(initialState: .production, environment: dependencies, reducer: appReducer)
-        self.authenticationFlow = AuthenticationFlowController(navigation: navigationController,
-                                                               store: store.derived(deriveState: \.authState,
-                                                                                    embedAction: AppAction.authentication,
-                                                                                    deriveEnvironment: \.authentication))
+        let authStore = store.derived(deriveState: \.authState,
+                                      embedAction: AppAction.authentication,
+                                      deriveEnvironment: \.authentication)
+        self.authenticationFlow = AuthenticationFlowController(navigation: navigationController, store: authStore)
+        self.mainTabBarFlow = .init(store: authStore)
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -48,6 +51,7 @@ final class AppFlowController: UIViewController {
         super.viewDidLoad()
         setupNavigationController()
         finishSplash()
+        subscribeToTryApp()
     }
 
     // MARK: - Subview setup
@@ -68,5 +72,14 @@ final class AppFlowController: UIViewController {
                     navigation.setViewControllers([authenticationFlow], animated: true)
                 }
             }
+    }
+
+    private func subscribeToTryApp() {
+        authenticationFlow.tryAppPublisher
+            .sink { [navigation, mainTabBarFlow] _ in
+                mainTabBarFlow.tryApp()
+                mainTabBarFlow.modalPresentationStyle = .overFullScreen
+                navigation.present(mainTabBarFlow, animated: true)
+            }.store(in: &cancellables)
     }
 }

@@ -77,6 +77,7 @@
 		FE87F35127E6271F0062ACB4 /* NetworkService in Frameworks */ = {isa = PBXBuildFile; productRef = FE87F35027E6271F0062ACB4 /* NetworkService */; };
 		FE87F35327E627240062ACB4 /* KeychainService in Frameworks */ = {isa = PBXBuildFile; productRef = FE87F35227E627240062ACB4 /* KeychainService */; };
 		FE87F36127E62E660062ACB4 /* LoginWithAmazon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE87F35F27E62E630062ACB4 /* LoginWithAmazon.framework */; };
+		FE9781FE2842667B00ECFAF7 /* TabBarFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9781FD2842667B00ECFAF7 /* TabBarFlowController.swift */; };
 		FEA1CE1E2825D42D00962166 /* StoryFeedFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA1CE1D2825D42D00962166 /* StoryFeedFlowController.swift */; };
 		FEA1CE212825D4E000962166 /* StoryFeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA1CE202825D4E000962166 /* StoryFeedItem.swift */; };
 		FEA1CE242825D94400962166 /* StoryFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA1CE232825D94400962166 /* StoryFeedCell.swift */; };
@@ -200,6 +201,7 @@
 		FE87F34927E627150062ACB4 /* Authentication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Authentication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE87F34D27E6271B0062ACB4 /* StyleSheet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StyleSheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE87F35F27E62E630062ACB4 /* LoginWithAmazon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LoginWithAmazon.framework; sourceTree = "<group>"; };
+		FE9781FD2842667B00ECFAF7 /* TabBarFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarFlowController.swift; sourceTree = "<group>"; };
 		FEA1CE1D2825D42D00962166 /* StoryFeedFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryFeedFlowController.swift; sourceTree = "<group>"; };
 		FEA1CE202825D4E000962166 /* StoryFeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryFeedItem.swift; sourceTree = "<group>"; };
 		FEA1CE232825D94400962166 /* StoryFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryFeedCell.swift; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 				2170151C27EE931100743B5B /* Authentication */,
 				FE66F27827F7A7740051007F /* Splash */,
 				2124AB112825186A00C47BFF /* LaunchScreen.storyboard */,
+				FE9781FD2842667B00ECFAF7 /* TabBarFlowController.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -948,6 +951,7 @@
 				FEB964EF2801C12F008DD002 /* AuthenticationAction.swift in Sources */,
 				FEA1CE242825D94400962166 /* StoryFeedCell.swift in Sources */,
 				217EB23D282AC0910072043E /* NavigationBar.swift in Sources */,
+				FE9781FE2842667B00ECFAF7 /* TabBarFlowController.swift in Sources */,
 				FE66F29127F7C0360051007F /* AuthenticationSocialContainerView.swift in Sources */,
 				FEB964EB2801BCDD008DD002 /* AppState.swift in Sources */,
 				FEE35351280B181F007081AE /* NetworkEnvironmentClient.swift in Sources */,
