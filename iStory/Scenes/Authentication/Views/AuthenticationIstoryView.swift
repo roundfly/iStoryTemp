@@ -15,6 +15,7 @@ struct AuthenticationIstoryViewModel {
     var authIntent: AuthIntent
     var emailButtonAtion: () -> Void
     var smsButtonAction: () -> Void
+    var tryAppAction: () -> Void
 }
 
 final class AuthenticationIstoryView: UIView {
@@ -93,6 +94,7 @@ final class AuthenticationIstoryView: UIView {
         addManagedSubview(button)
         let title = "Skip and check the app.".bolded(text: "Skip", font: .preferredFont(forTextStyle: .footnote))
         button.setAttributedTitle(title, for: .normal)
+        button.addAction(UIAction { [weak self] _ in self?.viewModel.tryAppAction() }, for: .touchUpInside)
         button.bottomAnchor.constraint(equalTo: switchAuthFlowButton.topAnchor).activate()
         button.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor).activate()
         button.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor).activate()

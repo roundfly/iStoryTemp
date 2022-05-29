@@ -15,7 +15,11 @@ final class AuthenticationSignUpViewModel {
     var signupPublisher: AnyPublisher<Void, Never> {
         subject.eraseToAnyPublisher()
     }
+    var tryAppPublisher: AnyPublisher<Void, Never> {
+        tryAppSubject.eraseToAnyPublisher()
+    }
     private let subject = PassthroughSubject<Void, Never>()
+    private let tryAppSubject = PassthroughSubject<Void, Never>()
     private var cancellables = Set<AnyCancellable>()
     private let logger = Logger(subsystem: "iStory.app", category: "appleSignIn")
 
@@ -61,5 +65,9 @@ final class AuthenticationSignUpViewModel {
             return
         }
         store.dispatch(.googleSignIn(presentingViewController: currentViewController))
+    }
+
+    func tryApp() {
+        tryAppSubject.send()
     }
 }

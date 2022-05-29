@@ -20,6 +20,11 @@ final class AuthenticationFlowController: UIViewController {
     private let loginViewController: SplashAuthViewController
     private var cancenllables: Set<AnyCancellable> = []
 
+    var tryAppPublisher: AnyPublisher<Void, Never> {
+        tryAppSubject.eraseToAnyPublisher()
+    }
+    private let tryAppSubject = PassthroughSubject<Void, Never>()
+
     // MARK: - Initialization
 
     init(navigation: UINavigationController, store: AuthenticationStore) {
@@ -43,15 +48,17 @@ final class AuthenticationFlowController: UIViewController {
             .sink { [weak self] event in
                 guard let self = self else { return }
                 switch event {
-                case .tryApp: // todo
-                    break
+                case .tryApp:
+                    self.tryAppSubject.send()
                 case .signUp:
                     let viewController = AuthenticationSignUpViewController(viewModel: .init(store: self.store))
                     viewController.signupPublisher.sink(receiveValue: { _ in self.openSignUpFlow() }).store(in: &self.cancenllables)
+                    viewController.tryAppPublisher.sink(receiveValue: { _ in self.tryAppSubject.send() }).store(in: &self.cancenllables)
                     self.navigation.pushViewController(viewController, animated: true)
                 case .logIn:
                     let viewController = AuthenticationLoginViewController(viewModel: .init(store: self.store))
                     viewController.loginPublisher.sink(receiveValue: { _ in self.openLogInFlow() }).store(in: &self.cancenllables)
+                    viewController.tryAppPublisher.sink(receiveValue: { _ in self.tryAppSubject.send() }).store(in: &self.cancenllables)
                     self.navigation.pushViewController(viewController, animated: true)
                 }
             }.store(in: &cancenllables)
@@ -99,7 +106,9 @@ final class AuthenticationFlowController: UIViewController {
                 let viewModel = LoginWithSMSViewModel(dependency: .init(), viewState: .error, store: store, authType: .login)
                 navigation.pushViewController(LoginWithSMSViewController(viewModel: viewModel), animated: true)
             }.store(in: &cancenllables)
-        
+        viewController.tryAppPublisher.sink { [weak self] _ in
+            self?.tryAppSubject.send()
+        }.store(in: &cancenllables)
         navigation.pushViewController(viewController, animated: true)
     }
 
@@ -123,6 +132,10 @@ final class AuthenticationFlowController: UIViewController {
                 guard !navigation.viewControllers.contains(datePickerViewController) else { return }
                 navigation.pushViewController(datePickerViewController, animated: true)
             }.store(in: &cancenllables)
+        signUpViewController.checkAppPublisher
+            .sink { [tryAppSubject] _ in
+                tryAppSubject.send()
+            }.store(in: &cancenllables)
         viewController.emailButtonPublisher.sink { [navigation] _ in
             guard !navigation.viewControllers.contains(signUpViewController) else { return }
             navigation.pushViewController(signUpViewController, animated: true)
@@ -130,6 +143,9 @@ final class AuthenticationFlowController: UIViewController {
         viewController.smsButtonPublisher.sink { [navigation, store] _ in
             let viewModel = LoginWithSMSViewModel(dependency: .init(), viewState: .error, store: store, authType: .signup)
             navigation.pushViewController(LoginWithSMSViewController(viewModel: viewModel), animated: true)
+        }.store(in: &cancenllables)
+        viewController.tryAppPublisher.sink { [weak self] _ in
+            self?.tryAppSubject.send()
         }.store(in: &cancenllables)
         navigation.pushViewController(viewController, animated: true)
     }

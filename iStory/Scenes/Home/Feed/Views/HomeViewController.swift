@@ -81,7 +81,9 @@ final class HomeViewController: UIViewController {
         guard let section = FeedSection(rawValue: indexPath.section) else { preconditionFailure() }
         switch section {
         case .fourAngels:
-            return collectionView.dequeueReusableCell(for: indexPath) as FourAngelsCell
+            let cell = collectionView.dequeueReusableCell(for: indexPath) as FourAngelsCell
+            cell.subscribeToLayoutChanges(using: styleSubject.eraseToAnyPublisher())
+            return cell
         case .main:
             let cell = collectionView.dequeueReusableCell(for: indexPath) as StoryFeedCell
             guard let story = viewModel.item(for: storyId) else { return cell }

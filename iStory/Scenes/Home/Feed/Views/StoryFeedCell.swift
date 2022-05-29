@@ -51,6 +51,8 @@ final class StoryFeedCell: UICollectionViewCell {
     private var userImageViewLeadingAnchorConstraint: NSLayoutConstraint!
     private var userImageViewTopAnchorConstraint: NSLayoutConstraint!
     private var listPublishedAtBottomConstraint: NSLayoutConstraint!
+    private var listTitleLabelBottomConstraint: NSLayoutConstraint!
+    private var listUserNameLabelTopAnchorConstraint: NSLayoutConstraint!
 
     // workaround for layout changes not calling configureCell(with:using:)
     var stylePublisher: AnyPublisher<LayoutStyle, Never>!
@@ -126,8 +128,6 @@ final class StoryFeedCell: UICollectionViewCell {
         userImageView.layer.borderColor = UIColor.white.cgColor
     }
 
-    private var listUserNameLabelTopAnchorConstraint: NSLayoutConstraint!
-
     private func setupUserNameLabel() {
         contentView.addManagedSubview(userNameLabel)
         feedUserNameLabelTopAnchorConstraint = userNameLabel.topAnchor.constraint(equalTo: userImageView.centerYAnchor, constant: -15)
@@ -193,8 +193,6 @@ final class StoryFeedCell: UICollectionViewCell {
         descLabel.leadingAnchor.constraint(equalTo: contentView.readableContentGuide.leadingAnchor, constant: 15).activate()
         descLabel.numberOfLines = 2
     }
-
-    var listTitleLabelBottomConstraint: NSLayoutConstraint!
 
     private func setupTitleLabel() {
         contentView.addManagedSubview(titleLabel)
